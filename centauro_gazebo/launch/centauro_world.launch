@@ -10,7 +10,7 @@
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
-  <arg name="physics" default="ode"/>
+  <arg name="physics" default="bullet"/>
   <arg name="verbose" default="false"/>
   <arg name="extra_gazebo_args" default=""/>
 
