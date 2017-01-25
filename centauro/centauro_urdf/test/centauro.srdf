@@ -1,0 +1,123 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="centauro">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="front_left_leg" />
+    <group name="front_right_leg" />
+    <group name="rear_right_leg" />
+    <group name="rear_left_leg" />
+    <group name="left_arm">
+        <chain base_link="torso_2" tip_link="arm1_7" />
+    </group>
+    <group name="right_arm">
+        <chain base_link="torso_2" tip_link="arm2_7" />
+    </group>
+    <group name="torso">
+        <chain base_link="pelvis" tip_link="torso_2" />
+    </group>
+    <group name="legs">
+        <group name="front_left_leg" />
+        <group name="front_right_leg" />
+        <group name="rear_right_leg" />
+        <group name="rear_left_leg" />
+    </group>
+    <group name="arms">
+        <group name="left_arm" />
+        <group name="right_arm" />
+    </group>
+
+    <group name="upper_body">
+    	<group name="arms"/>
+    	<group name="torso"/>
+    </group>
+
+    <group_state name="home_position" group="upper_body">
+<!-- upper-body home position: actual values -->
+      <joint name="j_arm1_1" value="0.0" />
+      <joint name="j_arm1_2" value="0.5236" />
+      <joint name="j_arm1_3" value="0.5236" />
+
+      <joint name="j_arm1_4" value="0.7854" />
+      <joint name="j_arm1_5" value="0.0" />
+      <joint name="j_arm1_6" value="0.7854" />
+      <joint name="j_arm1_7" value="0.0" />
+
+      <joint name="j_arm2_1" value="0.0" />
+      <joint name="j_arm2_2" value="-0.5236" />
+      <joint name="j_arm2_3" value="-0.5236" />
+
+      <joint name="j_arm2_4" value="-0.7854" />
+      <joint name="j_arm2_5" value="0.0" />
+      <joint name="j_arm2_6" value="-0.7854" />
+      <joint name="j_arm2_7" value="0.0" />
+
+      <joint name="torso_yaw" value="0.0" />
+     
+   </group_state>
+
+
+    <group name="force_torque_sensor" />
+
+  <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+  <disable_collisions link1="arm1_1" link2="arm1_2" reason="Adjacent"/>
+  <disable_collisions link1="arm1_1" link2="arm1_3" reason="Never"/>
+  <disable_collisions link1="arm1_1" link2="arm1_4" reason="Never"/>
+  <disable_collisions link1="arm1_1" link2="arm1_5" reason="Never"/>
+  <disable_collisions link1="arm1_1" link2="arm2_1" reason="Never"/>
+  <disable_collisions link1="arm1_1" link2="arm2_2" reason="Never"/>
+  <disable_collisions link1="arm1_1" link2="arm2_3" reason="Never"/>
+  <disable_collisions link1="arm1_1" link2="arm2_4" reason="Never"/>
+  <disable_collisions link1="arm1_1" link2="torso_2" reason="Adjacent"/>
+  <disable_collisions link1="arm1_2" link2="arm1_3" reason="Adjacent"/>
+  <disable_collisions link1="arm1_2" link2="arm1_4" reason="Never"/>
+  <disable_collisions link1="arm1_2" link2="arm1_5" reason="Never"/>
+  <disable_collisions link1="arm1_2" link2="arm2_1" reason="Never"/>
+  <disable_collisions link1="arm1_2" link2="arm2_2" reason="Never"/>
+  <disable_collisions link1="arm1_2" link2="arm2_3" reason="Never"/>
+  <disable_collisions link1="arm1_2" link2="torso_2" reason="Never"/>
+  <disable_collisions link1="arm1_3" link2="arm1_4" reason="Adjacent"/>
+  <disable_collisions link1="arm1_3" link2="arm1_5" reason="Never"/>
+  <disable_collisions link1="arm1_3" link2="arm1_6" reason="Never"/>
+  <disable_collisions link1="arm1_3" link2="arm1_7" reason="Never"/>
+  <disable_collisions link1="arm1_3" link2="arm2_1" reason="Never"/>
+  <disable_collisions link1="arm1_3" link2="arm2_2" reason="Never"/>
+  <disable_collisions link1="arm1_3" link2="torso_2" reason="Never"/>
+  <disable_collisions link1="arm1_4" link2="arm1_5" reason="Adjacent"/>
+  <disable_collisions link1="arm1_4" link2="arm1_6" reason="Never"/>
+  <disable_collisions link1="arm1_4" link2="arm1_7" reason="Never"/>
+  <disable_collisions link1="arm1_4" link2="arm2_1" reason="Never"/>
+  <disable_collisions link1="arm1_4" link2="arm2_2" reason="Never"/>
+  <disable_collisions link1="arm1_4" link2="torso_2" reason="Never"/>
+  <disable_collisions link1="arm1_5" link2="arm1_6" reason="Adjacent"/>
+  <disable_collisions link1="arm1_5" link2="arm1_7" reason="Never"/>
+  <disable_collisions link1="arm1_6" link2="arm1_7" reason="Adjacent"/>
+  <disable_collisions link1="arm2_1" link2="arm2_2" reason="Adjacent"/>
+  <disable_collisions link1="arm2_1" link2="arm2_3" reason="Never"/>
+  <disable_collisions link1="arm2_1" link2="arm2_4" reason="Never"/>
+  <disable_collisions link1="arm2_1" link2="arm2_5" reason="Never"/>
+  <disable_collisions link1="arm2_1" link2="torso_2" reason="Adjacent"/>
+  <disable_collisions link1="arm2_2" link2="arm2_3" reason="Adjacent"/>
+  <disable_collisions link1="arm2_2" link2="arm2_4" reason="Never"/>
+  <disable_collisions link1="arm2_2" link2="arm2_5" reason="Never"/>
+  <disable_collisions link1="arm2_2" link2="torso_2" reason="Never"/>
+  <disable_collisions link1="arm2_3" link2="arm2_4" reason="Adjacent"/>
+  <disable_collisions link1="arm2_3" link2="arm2_5" reason="Never"/>
+  <disable_collisions link1="arm2_3" link2="arm2_6" reason="Never"/>
+  <disable_collisions link1="arm2_3" link2="arm2_7" reason="Never"/>
+  <disable_collisions link1="arm2_3" link2="torso_2" reason="Never"/>
+  <disable_collisions link1="arm2_4" link2="arm2_5" reason="Adjacent"/>
+  <disable_collisions link1="arm2_4" link2="arm2_6" reason="Never"/>
+  <disable_collisions link1="arm2_4" link2="arm2_7" reason="Never"/>
+  <disable_collisions link1="arm2_4" link2="torso_2" reason="Never"/>
+  <disable_collisions link1="arm2_5" link2="arm2_6" reason="Adjacent"/>
+  <disable_collisions link1="arm2_5" link2="arm2_7" reason="Never"/>
+  <disable_collisions link1="arm2_6" link2="arm2_7" reason="Adjacent"/>
+  <disable_collisions link1="arm2_6" link2="arm2_7" reason="Adjacent" />
+</robot>

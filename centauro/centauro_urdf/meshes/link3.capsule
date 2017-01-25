@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<robot name="/home/user/catkin_ws/src/centauro-simulator/centauro/centauro_urdf/meshes/link3.stl">
+  <link name="0.00100_-0.00100_0.00100">
+    <collision>
+      <origin xyz="0.0708646 -1.3776185e-05 -0.086977025" rpy="-3.14151305334 0.292826743013 -3.14105287614"/>
+      <geometry>
+        <cylinder radius="0.0715687" length="0.181654674942"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="0.00100_0.00100_0.00100">
+    <collision>
+      <origin xyz="0.0709568 7.98629e-06 -0.08709620665" rpy="-3.14155533114 0.292918451701 -3.14133964661"/>
+      <geometry>
+        <cylinder radius="0.0715161" length="0.181861949629"/>
+      </geometry>
+    </collision>
+  </link>
+</robot>

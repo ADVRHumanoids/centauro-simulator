@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:include filename="$(find centauro_control)/config/centauro_actuators.urdf.xacro" />
+
+<xacro:property name="cos_m10" value="0.984807753012208"/>
+<xacro:property name="sin_m10" value="-0.17364817766693033"/>
+
+<!-- macro arms -->
+<xacro:macro name="centauro_arm" params="arm_num rot *origin">
+	
+<!-- LINKS -->
+<!-- shoulder yaw-roll-->
+   <link name="arm${arm_num}_1">
+      <inertial>
+         <origin xyz="${Shoulder_1_x} ${rot*Shoulder_1_y} ${Shoulder_1_z}"/>
+         <mass value="${Shoulder_1_mass}"/> <!-- OK: 1.7 -->
+         <inertia ixx="${Shoulder_1_xx}" ixy="${Shoulder_1_xy}" ixz="${Shoulder_1_xz}" iyy="${Shoulder_1_yy}" iyz="${Shoulder_1_yz}" izz="${Shoulder_1_zz}"/>
+      </inertial>
+	
+      <visual>
+         <xacro:insert_block name="v_arm1" />
+         <material name="blue"/>
+      </visual>
+	
+      <collision>
+         <xacro:insert_block name="c_arm1" />
+         <material name="blue"/>
+      </collision>
+   </link>
+<!-- shoulder yaw-roll-->
+
+<!-- shoulder roll-pitch-->
+   <link name="arm${arm_num}_2">
+      <inertial>
+         <origin xyz="${Shoulder_2_x} ${rot*Shoulder_2_y} ${Shoulder_2_z}"/>
+         <mass value="${Shoulder_2_mass}"/> <!-- OK: 2 -->
+         <inertia ixx="${Shoulder_2_xx}" ixy="${Shoulder_2_xy}" ixz="${Shoulder_2_xz}" iyy="${Shoulder_2_yy}" iyz="${Shoulder_2_yz}" izz="${Shoulder_2_zz}"/>
+      </inertial>
+	
+      <visual>
+         <xacro:insert_block name="v_arm2" />
+         <material name="grey"/>
+      </visual>
+	
+      <collision>
+         <xacro:insert_block name="c_arm2" />
+         <material name="grey"/>
+      </collision>
+   </link>
+<!-- shoulder roll-pitch-->
+	
+<!-- shoulder-elbow -->
+   <link name="arm${arm_num}_3">
+      <inertial>
+         <origin xyz="${Shoulder_3_x} ${rot*Shoulder_3_y} ${Shoulder_3_z}"/>
+         <mass value="${Shoulder_3_mass}"/> <!-- OK: 2 -->
+         <inertia ixx="${Shoulder_3_xx}" ixy="${Shoulder_3_xy}" ixz="${Shoulder_3_xz}" iyy="${Shoulder_3_yy}" iyz="${Shoulder_3_yz}" izz="${Shoulder_3_zz}"/> <!-- TODO -->
+      </inertial>
+
+      <visual>
+         <xacro:insert_block name="v_arm3" />
+         <material name="blue"/>
+      </visual>
+
+      <collision>
+         <xacro:insert_block name="c_arm3" />
+         <material name="blue"/>
+      </collision>
+   </link>
+<!-- /shoulder-elbow -->
+
+<!-- elbow yaw-pitch -->
+   <link name="arm${arm_num}_4">
+      <inertial>
+         <origin xyz="${Elbow_1_x} ${rot*Elbow_1_y} ${Elbow_1_z}"/>
+         <mass value="${Elbow_1_mass}"/> <!-- OK: 1.3 -->
+         <inertia ixx="${Elbow_1_xx}" ixy="${Elbow_1_xy}" ixz="${Elbow_1_xz}" iyy="${Elbow_1_yy}" iyz="${Elbow_1_yz}" izz="${Elbow_1_zz}"/>
+      </inertial>
+	
+      <visual>
+         <xacro:insert_block name="v_arm4" />
+         <material name="grey"/>
+      </visual>
+	
+      <collision>
+         <xacro:insert_block name="c_arm4" />
+         <material name="grey"/>
+      </collision>
+   </link>
+<!-- /elbow yaw-pitch -->
+
+<!-- elbow-wrist -->
+   <link name="arm${arm_num}_5">
+      <inertial>
+         <origin xyz="${Elbow_2_x} ${Elbow_2_y} ${Elbow_2_z}"/>
+         <mass value="${Elbow_2_mass}"/> <!-- OK: 1.4 -->
+         <inertia ixx="${Elbow_2_xx}" ixy="${Elbow_2_xy}" ixz="${Elbow_2_xz}" iyy="${Elbow_2_yy}" iyz="${Elbow_2_yz}" izz="${Elbow_2_zz}"/>
+      </inertial>
+	
+      <visual>
+         <xacro:insert_block name="v_arm5" />
+         <material name="blue"/>
+      </visual>
+
+      <collision>
+         <xacro:insert_block name="c_arm5" />
+         <material name="blue"/>
+      </collision>
+   </link>
+<!-- /elbow-wrist -->
+
+<!-- wrist yaw-pitch -->
+   <link name="arm${arm_num}_6">
+      <inertial>
+         <origin xyz="${Wrist_1_x} ${Wrist_1_y} ${Wrist_1_z}"/>
+         <mass value="${Wrist_1_mass}"/> <!-- OK: 1.1 -->
+         <inertia ixx="${Wrist_1_xx}" ixy="${Wrist_1_xy}" ixz="${Wrist_1_xz}" iyy="${Wrist_1_yy}" iyz="${Wrist_1_yz}" izz="${Wrist_1_zz}"/>
+      </inertial>
+	
+      <visual>
+         <xacro:insert_block name="v_arm6" />
+         <material name="grey"/>
+      </visual>
+	
+      <collision>
+         <xacro:insert_block name="c_arm6" />
+         <material name="grey"/>
+      </collision>
+   </link>
+<!-- /wrist yaw-pitch -->
+
+<!-- hand -->
+   <xacro:unless value="$(arg HANDS)">
+
+      <link name="arm${arm_num}_7">
+         <inertial>
+            <origin xyz="${Hand_x} ${Hand_y} ${Hand_z}"/>
+            <mass value="${Hand_mass}"/> <!-- OK: 1.7 -->
+            <inertia ixx="${Hand_xx}" ixy="${Hand_xy}" ixz="${Hand_xz}" iyy="${Hand_yy}" iyz="${Hand_yz}" izz="${Hand_zz}"/>
+         </inertial>
+	
+         <visual>
+            <xacro:insert_block name="v_arm7" />
+            <material name="blue"/>
+         </visual>
+
+         <collision>
+            <xacro:insert_block name="c_arm7" />
+            <material name="blue"/>
+         </collision>
+      </link>
+   </xacro:unless>
+
+<!--   <link name="mass${arm_num}_body">
+      <inertial>
+         <origin xyz="0 0 0"/> -->
+<!--         <mass value="10"/> --><!-- OK: 1.7 -->
+<!--         <inertia ixx="0.001" ixy="0.00" ixz="0.00" iyy="0.001" iyz="0.00" izz="0.001"/>
+      </inertial>
+	
+      <visual>
+         <origin xyz="0.0 0.0 0"/>
+         <geometry>
+            <box size="0.10 0.10 0.10"/>--> <!-- OK -->
+<!--         </geometry>
+         <material name="red"/>
+      </visual>
+
+   </link> -->
+<!-- /hand -->
+<!-- /LINKS -->
+
+<!-- JOINTS -->
+<!-- shoulder yaw -->
+   <joint name="j_arm${arm_num}_1" type="revolute">
+      <parent link="torso_2"/>
+      <child link="arm${arm_num}_1"/>
+      <xacro:insert_block name="origin"/>
+      <axis xyz="0 ${rot*cos_m10} ${-sin_m10}"/>
+      <xacro:unless value="${rot-1}" >
+         <limit lower="-3.403" upper="1.658" effort="350" velocity="6.5"/>
+      </xacro:unless>
+      <xacro:unless value="${rot+1}" >
+         <limit lower="-1.658" upper="3.403" effort="350" velocity="6.5"/>
+      </xacro:unless>
+   </joint>
+<!-- /shoulder yaw -->
+	
+<!-- shoulder roll -->
+   <joint name="j_arm${arm_num}_2" type="revolute">
+      <parent link="arm${arm_num}_1"/>
+      <child link="arm${arm_num}_2"/>
+      <origin xyz="-0.09115 ${rot*0.06106} 0.010766"/>
+      <axis xyz="-1 0 0"/>
+      <xacro:unless value="${rot+1}" >
+         <limit lower="0" upper="3.49" effort="350" velocity="6.5"/> <!-- TODO -->
+      </xacro:unless>
+      <xacro:unless value="${rot-1}" >
+         <limit lower="-3.49" upper="0" effort="350" velocity="6.5"/> <!-- TODO -->
+      </xacro:unless>
+   </joint>
+<!-- /shoulder roll -->
+
+<!-- shoulder pitch-->
+   <joint name="j_arm${arm_num}_3" type="revolute">
+      <parent link="arm${arm_num}_2"/>
+      <child link="arm${arm_num}_3"/>
+      <origin xyz="0.09115 0 -0.21915"/>
+      <axis xyz="0 0 -1"/>
+      <limit lower="-2.618" upper="2.618" effort="350" velocity="6.5"/> <!-- TODO -->
+   </joint>
+<!-- /shoulder pitch -->
+	
+<!-- elbow yaw -->
+   <joint name="j_arm${arm_num}_4" type="revolute">
+      <parent link="arm${arm_num}_3"/>
+      <child link="arm${arm_num}_4"/>
+      <origin xyz="0.040 ${rot*0.05615} -0.074"/>
+      <axis xyz="0 ${rot} 0"/>
+      <xacro:unless value="${rot-1}" >
+         <limit lower="-2.530" upper="0.349" effort="350" velocity="6.5"/> <!-- TODO -->
+      </xacro:unless>
+      <xacro:unless value="${rot+1}" >
+         <limit lower="-0.349" upper="2.530" effort="350" velocity="6.5"/> <!-- TODO -->
+      </xacro:unless>
+   </joint>
+<!-- /elbow yaw -->
+
+<!-- elbow pitch-->
+   <joint name="j_arm${arm_num}_5" type="revolute">
+      <parent link="arm${arm_num}_4"/>
+      <child link="arm${arm_num}_5"/>
+      <origin xyz="-0.015 ${-rot*0.05615} -0.061"/>
+      <axis xyz="0 0 -1"/>
+      <limit lower="-2.618" upper="2.618" effort="350" velocity="6.5"/> <!-- TODO -->
+   </joint>
+<!-- /elbow pitch-->
+	
+<!-- wrist yaw-->
+   <joint name="j_arm${arm_num}_6" type="revolute">
+      <parent link="arm${arm_num}_5"/>
+      <child link="arm${arm_num}_6"/>
+      <origin xyz="0 ${rot*0.049} -0.180"/>
+      <axis xyz="0 ${rot} 0"/>
+      <limit lower="-1.570" upper="1.570" effort="350" velocity="6.5"/> <!-- TODO -->
+   </joint>
+<!-- /wrist yaw-->
+	
+<!-- wrist pitch-->
+   <joint name="j_arm${arm_num}_7" type="revolute">
+      <parent link="arm${arm_num}_6"/>
+      <child link="arm${arm_num}_7"/>
+      <origin xyz="0 ${-rot*0.049} -0.169"/>
+      <axis xyz="0 0 -1"/>
+      <limit lower="-2.618" upper="2.618" effort="350" velocity="6.5"/> <!-- TODO -->
+   </joint>
+<!-- wrist pitch-->
+
+<!-- actuators -->
+   <xacro:if value="$(arg ARM_ACTUATORS)">
+      <xacro:position_actuator joint="j_arm${arm_num}_1" />
+      <xacro:position_actuator joint="j_arm${arm_num}_2" />
+      <xacro:position_actuator joint="j_arm${arm_num}_3" />
+      <xacro:position_actuator joint="j_arm${arm_num}_4" />
+      <xacro:position_actuator joint="j_arm${arm_num}_5" />
+      <xacro:position_actuator joint="j_arm${arm_num}_6" />
+      <xacro:position_actuator joint="j_arm${arm_num}_7" />
+   </xacro:if>
+<!-- /actuators -->
+
+<!-- end-effector -->
+   <xacro:if value="$(arg HANDS)">
+      <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_hand.urdf.xacro" />
+   </xacro:if>
+<!-- /end-effector -->
+
+</xacro:macro>
+<!-- /macro arms -->
+
+</robot>

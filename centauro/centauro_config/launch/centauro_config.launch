@@ -1,0 +1,5 @@
+<launch>
+
+<rosparam file="$(find centauro)/centauro_config/config/contacts.yaml" command="load"/>
+
+</launch>

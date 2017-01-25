@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- links -->
+   <link name="arm${arm_num}_7">
+      <inertial>
+         <origin xyz="${Hand_x} ${Hand_y} ${Hand_z}"/> <!-- TODO these are not correct values -->
+         <mass value="${Hand_mass}"/> <!-- TODO these are not correct values -->
+         <inertia ixx="${Hand_xx}" ixy="${Hand_xy}" ixz="${Hand_xz}" iyy="${Hand_yy}" iyz="${Hand_yz}" izz="${Hand_zz}"/> <!-- TODO these are not correct values -->
+      </inertial>
+
+      <visual>
+        <!-- TODO: there is no available information about this link visual element -->
+      </visual>
+
+      <collision>
+      <!-- TODO: there is no available information about this link collsiion element -->
+      </collision>
+   </link>
+
+   <link name="arm${arm_num}_8">
+      <inertial>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <mass value="0.3"/>
+         <inertia ixx="0.001"  ixy="0"  ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+      </inertial>
+
+      <visual>
+         <origin xyz="0 0 0" rpy="0 0 0" />
+         <geometry>
+            <box size="0.07 0.07 0.07" />
+         </geometry>
+         <material name="Cyan">
+            <color rgba="0 1.0 1.0 1.0"/>
+         </material>
+      </visual>
+
+<!--      <collision>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+            <box size="0.07 0.07 0.07" />
+         </geometry>
+      </collision> -->
+   </link>
+<!-- /links -->
+
+<!-- joints -->
+   <joint name="j_arm${arm_num}_8" type="revolute">
+      <parent link="ft_arm${arm_num}_7"/>
+      <child link="arm${arm_num}_8"/>
+      <origin xyz="0 0 -0.015" rpy="0 ${PI} ${-PI/2}"/>
+      <axis xyz="1 0 0" />
+      <limit velocity="4.0" effort="5" lower="0.0" upper="1.57075" />
+      <dynamics friction="0" damping="3.0"/>
+   </joint>
+<!-- /joints -->
+
+
+<!-- actuators -->
+   <xacro:position_actuator joint="j_arm${arm_num}_8" />
+<!-- /actuators -->
+
+<!-- sensors -->
+<!--   <xacro:if value="$(arg ARM_SENSORS)"> -->
+      <link name="ft_arm${arm_num}_7">
+         <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.3"/>
+            <inertia ixx="0.001"  ixy="0"  ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+         </inertial>
+      </link>
+      <joint name="ft_j_arm${arm_num}_7" type="fixed">
+         <parent link="arm${arm_num}_7"/>
+         <child link="ft_arm${arm_num}_7"/>
+         <origin xyz="0 0 -0.0255" rpy="0 0 0"/>
+         <axis xyz="1 0 0" />
+      </joint>
+
+      <xacro:force-torque_sensor joint="ft_j_arm${arm_num}_7" robot="centauro" />
+ <!--  </xacro:if> -->
+<!-- /sensors -->
+
+</robot>

@@ -1,0 +1,315 @@
+<robot>
+
+
+<!-- CONTROLLER -->
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotNamespace>/centauro</robotNamespace>
+			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+		</plugin>
+	
+	</gazebo>
+<!-- /CONTROLLER -->
+
+<!-- ARM SENSORS -->
+<!-- FORCE-TORQUE SENSORS -->  
+
+<!--<gazebo>
+    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+        <updateRate>100.0</updateRate>
+        <topicName>arm_</topicName>
+        <jointName>foot_fixed_joint_1</jointName>
+    </plugin>
+</gazebo>-->
+
+<!-- /ARM SENSORS -->
+
+
+<!-- LEG SENSORS -->
+<!-- CONTACT SENSORS -->
+<gazebo reference="knee_1">
+  <sensor name="foot_contact_sensor_1" type="contact">
+    <always_on>true</always_on>
+    <update_rate>1000.0</update_rate>
+    <contact>
+      <collision>knee_1_collision_1</collision>
+    </contact>
+    <plugin name="bumper_1" filename="libgazebo_ros_bumper.so">
+      <bumperTopicName>raw_contacts_foot_1</bumperTopicName>
+      <frameName>knee_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="knee_2">
+  <sensor name="foot_contact_sensor_2" type="contact">
+    <always_on>true</always_on>
+    <update_rate>1000.0</update_rate>
+    <contact>
+      <collision>knee_2_collision_1</collision>
+    </contact>
+    <plugin name="bumper_2" filename="libgazebo_ros_bumper.so">
+      <bumperTopicName>raw_contacts_foot_2</bumperTopicName>
+      <frameName>knee_2</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="knee_3">
+  <sensor name="foot_contact_sensor_3" type="contact">
+    <always_on>true</always_on>
+    <update_rate>1000.0</update_rate>
+    <contact>
+      <collision>knee_3_collision_1</collision>
+    </contact>
+    <plugin name="bumper_3" filename="libgazebo_ros_bumper.so">
+      <bumperTopicName>raw_contacts_foot_3</bumperTopicName>
+      <frameName>knee_3</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="knee_4">
+  <sensor name="foot_contact_sensor_4" type="contact">
+    <always_on>true</always_on>
+    <update_rate>1000.0</update_rate>
+    <contact>
+      <collision>knee_4_collision_1</collision>
+    </contact>
+    <plugin name="bumper_4" filename="libgazebo_ros_bumper.so">
+      <bumperTopicName>raw_contacts_foot_4</bumperTopicName>
+      <frameName>knee_4</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+<!-- /CONTACT SENSORS -->
+
+<!-- FORCE-TORQUE SENSORS -->  
+<!--<gazebo>
+    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+        <updateRate>100.0</updateRate>
+        <topicName>ft_sensor_1</topicName>
+        <jointName>foot_fixed_joint_1</jointName>
+    </plugin>
+</gazebo>-->
+
+<!-- The ft_sensor plugin -->  
+<!--<gazebo>
+    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+        <updateRate>100.0</updateRate>
+        <topicName>ft_sensor_2</topicName>
+        <jointName>foot_fixed_joint_2</jointName>
+    </plugin>
+</gazebo>-->
+
+<!-- The ft_sensor plugin -->  
+<!--<gazebo>
+    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+        <updateRate>100.0</updateRate>
+        <topicName>ft_sensor_3</topicName>
+        <jointName>foot_fixed_joint_3</jointName>
+    </plugin>
+</gazebo>-->
+
+<!-- The ft_sensor plugin -->  
+<!--<gazebo>
+    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+        <updateRate>100.0</updateRate>
+        <topicName>ft_sensor_4</topicName>
+        <jointName>foot_fixed_joint_4</jointName>
+    </plugin>
+</gazebo>-->
+<!-- FORCE-TORQUE SENSORS -->  
+
+<!-- /LEG SENSORS -->
+	
+<!-- VISUALiZATION AND FRICTION -->
+	<gazebo reference="base_link"><material>Gazebo/Red</material></gazebo>
+	
+	<gazebo reference="pelvis">
+		<material>Gazebo/Blue</material>
+		<mu1>1</mu1>
+		<mu2>1</mu2>
+	</gazebo>
+	
+	<gazebo reference="torso_1">
+		<mu1>1</mu1>
+		<mu2>1</mu2>
+		<material>Gazebo/Grey</material>
+	</gazebo>
+
+	<gazebo reference="torso_2">
+		<material>Gazebo/Blue</material>
+		<mu1>1</mu1>
+		<mu2>1</mu2>
+	</gazebo>
+	
+	<gazebo reference="hip1_1">
+		<material>Gazebo/Grey</material>
+		<mu1>1</mu1>
+		<mu2>1</mu2>
+	</gazebo>
+
+	<gazebo reference="hip1_2">
+		<material>Gazebo/Grey</material>
+		<mu1>1</mu1>
+		<mu2>1</mu2>
+	</gazebo>
+
+	<gazebo reference="hip1_3">
+		<material>Gazebo/Grey</material>
+		<mu1>1</mu1>
+		<mu2>1</mu2>
+	</gazebo>
+
+	<gazebo reference="hip1_4">
+		<material>Gazebo/Grey</material>
+		<mu1>1</mu1>
+		<mu2>1</mu2>
+	</gazebo>
+	
+	<gazebo reference="hip2_1">
+		<material>Gazebo/Blue</material>
+		<mu1>1</mu1>
+		<mu2>1</mu2>
+	</gazebo>
+
+	<gazebo reference="hip2_2">
+		<material>Gazebo/Blue</material>
+		<mu1>1</mu1>
+		<mu2>1</mu2>
+	</gazebo>
+
+	<gazebo reference="hip2_3">
+		<material>Gazebo/Blue</material>
+		<mu1>1</mu1>
+		<mu2>1</mu2>
+	</gazebo>
+
+	<gazebo reference="hip2_4">
+		<material>Gazebo/Blue</material>
+		<mu1>1</mu1>
+		<mu2>1</mu2>
+	</gazebo>
+
+	<gazebo reference="knee_1">
+		<material>Gazebo/Grey</material>
+		<mu1>10</mu1>
+		<mu2>10</mu2>
+	</gazebo>
+
+	<gazebo reference="knee_2">
+		<material>Gazebo/Grey</material>
+		<mu1>10</mu1>
+		<mu2>10</mu2>
+	</gazebo>
+
+	<gazebo reference="knee_3">
+		<material>Gazebo/Grey</material>
+		<mu1>10</mu1>
+		<mu2>10</mu2>
+	</gazebo>
+	<gazebo reference="knee_4">
+		<material>Gazebo/Grey</material>
+		<mu1>10</mu1>
+		<mu2>10</mu2>
+	</gazebo>
+	
+
+
+	<gazebo reference="arm1_1">
+		<material>Gazebo/Blue</material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>	
+	</gazebo>
+	<gazebo reference="arm2_1">
+		<material>Gazebo/Blue</material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>	
+	</gazebo>
+	
+	<gazebo reference="arm1_2">
+		<material>Gazebo/Grey</material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>	
+	</gazebo>
+
+	<gazebo reference="arm2_2">
+		<material>Gazebo/Grey</material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>		
+	</gazebo>
+	
+	<gazebo reference="arm1_3">
+		<material>Gazebo/Blue</material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>	
+	</gazebo>
+
+	<gazebo reference="arm2_3">
+		<material>Gazebo/Blue</material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>
+	</gazebo>
+	
+	<gazebo reference="arm1_4">
+		<material>Gazebo/Grey</material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>	
+	</gazebo>
+
+	<gazebo reference="arm2_4">
+		<material>Gazebo/Grey</material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>
+	</gazebo>
+	
+	<gazebo reference="arm1_5">
+		<material>Gazebo/Blue</material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>	
+	</gazebo>
+
+	<gazebo reference="arm2_5">
+		<material>Gazebo/Blue</material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>
+	</gazebo>
+	
+	<gazebo reference="arm1_6">
+		<material>Gazebo/Grey</material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>
+	</gazebo>
+
+	<gazebo reference="arm2_6">
+		<material>Gazebo/Grey</material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>
+	</gazebo>
+	
+	<gazebo reference="arm1_7">
+		<material>Gazebo/Blue</material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>
+	</gazebo>
+
+
+	<gazebo reference="arm2_7">
+		<material>Gazebo/Blue</material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>
+	</gazebo>
+		
+	<gazebo reference="wheel_hip_1"><material>Gazebo/Black</material></gazebo>
+	<gazebo reference="wheel_hip_2"><material>Gazebo/Black</material></gazebo>
+	<gazebo reference="wheel_hip_3"><material>Gazebo/Black</material></gazebo>
+	<gazebo reference="wheel_hip_4"><material>Gazebo/Black</material></gazebo>
+
+	<gazebo reference="wheel_knee_1"><material>Gazebo/Black</material></gazebo>
+	<gazebo reference="wheel_knee_2"><material>Gazebo/Black</material></gazebo>
+	<gazebo reference="wheel_knee_3"><material>Gazebo/Black</material></gazebo>
+	<gazebo reference="wheel_knee_4"><material>Gazebo/Black</material></gazebo>
+<!-- /VISUALiZATION AND FRICTION -->
+
+</robot>

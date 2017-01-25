@@ -1,0 +1,1 @@
+_ARMS:=true _TORSO:=true _ARM_ACTUATORS:=true LEGS:=true _LEG_ACTUATORS:=true _TORSO_ACTUATORS:=true _WHEELS:=false _WHEELS_ACTUATORS:=false 

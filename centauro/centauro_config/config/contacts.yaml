@@ -1,0 +1,50 @@
+centauro:
+   contacts: # structure where all contacts are stored
+      contact1: # refer to the first contact
+         name: front_left_leg # optional, human-readable name of a contact
+         link: knee_1 # required, name of a urdf link that is in a contact
+         position: [0, 0, -0.10] # required, position of a contact point in the world frame
+         constraint_matrix: # required, at least one subelement is required to initialize the contact, normal of a force/moment constraint
+            force_1: [1, 0, 0, 0, 0, 0] # direction of a first contraint on force 
+            force_2: [0, 1, 0, 0, 0, 0] # direction of a second contraint on force
+            force_3: [0, 0, 1, 0, 0, 0] # direction of a third contraint on force
+            momentum_1: [0, 0, 0, 0, 0, 0] # direction of a first contraint on momentum
+            momentum_2: [0, 0, 0, 0, 0, 0] # direction of a second contraint on momentum
+            momentum_3: [0, 0, 0, 0, 0, 0] # direction of a third contraint on momentum
+         topic: raw_contacts_foot_1
+      contact2:
+         name: front_right_leg
+         link: knee_2
+         position: [0, 0, -0.10]
+         constraint_matrix:
+            force_1: [1, 0, 0, 0, 0, 0]
+            force_2: [0, 1, 0, 0, 0, 0]
+            force_3: [0, 0, 1, 0, 0, 0]
+            momentum_1: [0, 0, 0, 0, 0, 0]
+            momentum_2: [0, 0, 0, 0, 0, 0]
+            momentum_3: [0, 0, 0, 0, 0, 0]
+         topic: raw_contacts_foot_2
+      contact3:
+         name: rear_right_leg
+         link: knee_2
+         position: [0, 0, -0.10]
+         constraint_matrix:
+            force_1: [1, 0, 0, 0, 0, 0]
+            force_2: [0, 1, 0, 0, 0, 0]
+            force_3: [0, 0, 1, 0, 0, 0]
+            momentum_1: [0, 0, 0, 0, 0, 0]
+            momentum_2: [0, 0, 0, 0, 0, 0]
+            momentum_3: [0, 0, 0, 0, 0, 0]
+         topic: raw_contacts_foot_3
+      contact4:
+         name: rear_left_leg
+         link: knee_2
+         position: [0, 0, -0.10]
+         constraint_matrix:
+            force_1: [1, 0, 0, 0, 0, 0]
+            force_2: [0, 1, 0, 0, 0, 0]
+            force_3: [0, 0, 1, 0, 0, 0]
+            momentum_1: [0, 0, 0, 0, 0, 0]
+            momentum_2: [0, 0, 0, 0, 0, 0]
+            momentum_3: [0, 0, 0, 0, 0, 0]
+         topic: raw_contacts_foot_4

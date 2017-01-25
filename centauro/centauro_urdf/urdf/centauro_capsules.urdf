@@ -1,0 +1,728 @@
+<?xml version="1.0"?>
+<robot name="centauro">
+  <gazebo><plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+      <robotNamespace>/centauro</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+  <gazebo reference="knee_1"><sensor name="foot_contact_sensor_1" type="contact">
+      <always_on>true</always_on>
+      <update_rate>1000.0</update_rate>
+      <contact>
+        <collision>knee_1_collision_1</collision>
+      </contact>
+      <plugin filename="libgazebo_ros_bumper.so" name="bumper_1">
+        <bumperTopicName>raw_contacts_foot_1</bumperTopicName>
+        <frameName>knee_1</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="knee_2"><sensor name="foot_contact_sensor_2" type="contact">
+      <always_on>true</always_on>
+      <update_rate>1000.0</update_rate>
+      <contact>
+        <collision>knee_2_collision_1</collision>
+      </contact>
+      <plugin filename="libgazebo_ros_bumper.so" name="bumper_2">
+        <bumperTopicName>raw_contacts_foot_2</bumperTopicName>
+        <frameName>knee_2</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="knee_3"><sensor name="foot_contact_sensor_3" type="contact">
+      <always_on>true</always_on>
+      <update_rate>1000.0</update_rate>
+      <contact>
+        <collision>knee_3_collision_1</collision>
+      </contact>
+      <plugin filename="libgazebo_ros_bumper.so" name="bumper_3">
+        <bumperTopicName>raw_contacts_foot_3</bumperTopicName>
+        <frameName>knee_3</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="knee_4"><sensor name="foot_contact_sensor_4" type="contact">
+      <always_on>true</always_on>
+      <update_rate>1000.0</update_rate>
+      <contact>
+        <collision>knee_4_collision_1</collision>
+      </contact>
+      <plugin filename="libgazebo_ros_bumper.so" name="bumper_4">
+        <bumperTopicName>raw_contacts_foot_4</bumperTopicName>
+        <frameName>knee_4</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="base_link"><material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="pelvis"><material>Gazebo/Blue</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="torso_1"><mu1>1</mu1>
+    <mu2>1</mu2>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="torso_2"><material>Gazebo/Blue</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="hip1_1"><material>Gazebo/Grey</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="hip1_2"><material>Gazebo/Grey</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="hip1_3"><material>Gazebo/Grey</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="hip1_4"><material>Gazebo/Grey</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="hip2_1"><material>Gazebo/Blue</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="hip2_2"><material>Gazebo/Blue</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="hip2_3"><material>Gazebo/Blue</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="hip2_4"><material>Gazebo/Blue</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="knee_1"><material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+  </gazebo>
+  <gazebo reference="knee_2"><material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+  </gazebo>
+  <gazebo reference="knee_3"><material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+  </gazebo>
+  <gazebo reference="knee_4"><material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+  </gazebo>
+  <gazebo reference="arm1_1"><material>Gazebo/Blue</material>
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+  </gazebo>
+  <gazebo reference="arm2_1"><material>Gazebo/Blue</material>
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+  </gazebo>
+  <gazebo reference="arm1_2"><material>Gazebo/Grey</material>
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+  </gazebo>
+  <gazebo reference="arm2_2"><material>Gazebo/Grey</material>
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+  </gazebo>
+  <gazebo reference="arm1_3"><material>Gazebo/Blue</material>
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+  </gazebo>
+  <gazebo reference="arm2_3"><material>Gazebo/Blue</material>
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+  </gazebo>
+  <gazebo reference="arm1_4"><material>Gazebo/Grey</material>
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+  </gazebo>
+  <gazebo reference="arm2_4"><material>Gazebo/Grey</material>
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+  </gazebo>
+  <gazebo reference="arm1_5"><material>Gazebo/Blue</material>
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+  </gazebo>
+  <gazebo reference="arm2_5"><material>Gazebo/Blue</material>
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+  </gazebo>
+  <gazebo reference="arm1_6"><material>Gazebo/Grey</material>
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+  </gazebo>
+  <gazebo reference="arm2_6"><material>Gazebo/Grey</material>
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+  </gazebo>
+  <gazebo reference="arm1_7"><material>Gazebo/Blue</material>
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+  </gazebo>
+  <gazebo reference="arm2_7"><material>Gazebo/Blue</material>
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+  </gazebo>
+  <gazebo reference="wheel_hip_1"><material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_hip_2"><material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_hip_3"><material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_hip_4"><material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_knee_1"><material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_knee_2"><material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_knee_3"><material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_knee_4"><material>Gazebo/Black</material>
+  </gazebo>
+  <material name="grey">
+    <color rgba="0.5 0.5 0.5 1.0"/>
+  </material>
+  <material name="dark_grey">
+    <color rgba="0.3 0.3 0.3 1.0"/>
+  </material>
+  <material name="blue">
+    <color rgba="0.0 0.2 0.3 1.0"/>
+  </material>
+  <material name="red">
+    <color rgba="0.5 0.1 0.2 1.0"/>
+  </material>
+  <material name="black">
+    <color rgba="0.0 0.0 0.0 1.0"/>
+  </material>
+  <link name="world"/>
+  <link name="pelvis">
+    <inertial>
+      <origin xyz="-0.0704 0.0 -0.0416"/>
+      <mass value="25.0"/>
+      <inertia ixx="0.242311" ixy="0.0" ixz="-0.233584" iyy="1.338707" iyz="0.0" izz="1.369479"/>
+    </inertial>
+  </link>
+  <joint name="reference" type="fixed">
+    <origin xyz="0.0 0.0 0.85"/>
+    <parent link="world"/>
+    <child link="pelvis"/>
+  </joint>
+  <link name="torso_2">
+    <inertial>
+      <origin xyz="0.0 0.0 0.183333"/>
+      <mass value="3.0"/>
+      <inertia ixx="0.094335" ixy="8.5e-05" ixz="-3.1e-05" iyy="0.029946" iyz="1.7e-05" izz="0.068486"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://centauro/centauro_urdf/meshes/link1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <origin xyz="0.006465805 0.0001011 0.153948" rpy="1.5646258233 0.00631611549186 0.00627726188579"/>
+      <geometry>
+        <cylinder radius="0.161132" length="0.0891360748547"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="torso_yaw" type="revolute">
+    <origin xyz="0.3 0.0 0.0"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <parent link="pelvis"/>
+    <child link="torso_2"/>
+    <limit effort="350.0" lower="-2.618" upper="2.618" velocity="6.5"/>
+  </joint>
+  <transmission name="t_torso_yaw">
+    <type> transmission_interface/SimpleTransmission</type>
+    <joint name="torso_yaw">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_torso_yaw"/>
+  </transmission>
+  <link name="arm1_1">
+    <inertial>
+      <origin xyz="0.0 0.064706 0.0"/>
+      <mass value="1.7"/>
+      <inertia ixx="0.002332" ixy="0.0" ixz="0.0" iyy="0.001345" iyz="-0.0" izz="0.002332"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://centauro/centauro_urdf/meshes/link2.stl" scale="0.001 -0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.0048142 0.05214035 0.00907492" rpy="1.43215674227 1.49033192563 1.35290399479"/>
+      <geometry>
+        <cylinder radius="0.0704036" length="0.075110822091"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="arm1_2">
+    <inertial>
+      <origin xyz="0.0 0.0 -0.125"/>
+      <mass value="2.0"/>
+      <inertia ixx="0.005879" ixy="0.0" ixz="0.0" iyy="0.005879" iyz="0.0" izz="0.001525"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://centauro/centauro_urdf/meshes/link3.stl" scale="0.001 -0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0708646 -1.3776185e-05 -0.086977025" rpy="-3.14151305334 0.292826743013 -3.14105287614"/>
+      <geometry>
+        <cylinder radius="0.0715687" length="0.181654674942"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="arm1_3">
+    <inertial>
+      <origin xyz="0.0 0.0 -0.09375"/>
+      <mass value="2.0"/>
+      <inertia ixx="0.003989" ixy="0.0" ixz="0.0" iyy="0.003884" iyz="-0.0" izz="0.001629"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://centauro/centauro_urdf/meshes/link4.stl" scale="0.001 -0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0.011726993 0.000587176 -0.036774245" rpy="-3.12082286426 0.376309803205 -3.03261579115"/>
+      <geometry>
+        <cylinder radius="0.0864441" length="0.0663641129654"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="arm1_4">
+    <inertial>
+      <origin xyz="0.0 0.0 -0.09"/>
+      <mass value="1.3"/>
+      <inertia ixx="0.002589" ixy="0.0" ixz="0.0" iyy="0.002589" iyz="0.0" izz="0.001105"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://centauro/centauro_urdf/meshes/link5.stl" scale="0.001 -0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.007494375 -0.03766645 -0.032153375" rpy="-0.495925898415 0.203809792245 -0.0517669672272"/>
+      <geometry>
+        <cylinder radius="0.0644525" length="0.086188245518"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="arm1_5">
+    <inertial>
+      <origin xyz="0.0 0.0 -0.067857"/>
+      <mass value="1.4"/>
+      <inertia ixx="0.002073" ixy="0.0" ixz="0.0" iyy="0.001969" iyz="-0.0" izz="0.001269"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://centauro/centauro_urdf/meshes/link6.stl" scale="0.001 -0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="-1.864335e-05 0.002166045 -0.1129697" rpy="-0.0568462554593 0.000100286628987 -2.85122752006e-06"/>
+      <geometry>
+        <cylinder radius="0.066519" length="0.117011611001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="arm1_6">
+    <inertial>
+      <origin xyz="0.0 0.0 -0.094545"/>
+      <mass value="1.1"/>
+      <inertia ixx="0.002301" ixy="0.0" ixz="0.0" iyy="0.002301" iyz="0.0" izz="0.000985"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://centauro/centauro_urdf/meshes/link7.stl" scale="0.001 -0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <origin xyz="-6.44753e-05 -0.0278815 -0.067420365" rpy="2.84203235611 -0.00109442040711 -0.00725209173511"/>
+      <geometry>
+        <cylinder radius="0.0470691" length="0.145199624103"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="arm1_7">
+    <inertial>
+      <origin xyz="0.0 0.0 -0.075"/>
+      <mass value="1.7"/>
+      <inertia ixx="0.001303" ixy="0.0" ixz="0.0" iyy="0.001303" iyz="0.0" izz="0.00102"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://centauro/centauro_urdf/meshes/link8.stl" scale="0.001 -0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="-2.1695800475e-11 5.73819402e-12 -0.056579685" rpy="4.72739727282e-10 -0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.0276743" length="0.09496663"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_arm1_1" type="revolute">
+    <origin xyz="0.04576 0.169137 0.190626" rpy="0.0 0.0 -0.523602668986"/>
+    <axis xyz="0.0 0.984807753012 0.173648177667"/>
+    <parent link="torso_2"/>
+    <child link="arm1_1"/>
+    <limit effort="350.0" lower="-3.665" upper="1.92" velocity="6.5"/>
+  </joint>
+  <joint name="j_arm1_2" type="revolute">
+    <origin xyz="-0.09115 0.06106 0.010766"/>
+    <axis xyz="-1.0 0.0 0.0"/>
+    <parent link="arm1_1"/>
+    <child link="arm1_2"/>
+    <limit effort="350.0" lower="-3.49" upper="0.0" velocity="6.5"/>
+  </joint>
+  <joint name="j_arm1_3" type="revolute">
+    <origin xyz="0.09115 0.0 -0.21915"/>
+    <axis xyz="0.0 0.0 -1.0"/>
+    <parent link="arm1_2"/>
+    <child link="arm1_3"/>
+    <limit effort="350.0" lower="-2.618" upper="2.618" velocity="6.5"/>
+  </joint>
+  <joint name="j_arm1_4" type="revolute">
+    <origin xyz="0.04 0.05615 -0.074"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <parent link="arm1_3"/>
+    <child link="arm1_4"/>
+    <limit effort="350.0" lower="-2.53" upper="0.349" velocity="6.5"/>
+  </joint>
+  <joint name="j_arm1_5" type="revolute">
+    <origin xyz="-0.015 -0.05615 -0.061"/>
+    <axis xyz="0.0 0.0 -1.0"/>
+    <parent link="arm1_4"/>
+    <child link="arm1_5"/>
+    <limit effort="350.0" lower="-2.618" upper="2.618" velocity="6.5"/>
+  </joint>
+  <joint name="j_arm1_6" type="revolute">
+    <origin xyz="0.0 0.049 -0.18"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <parent link="arm1_5"/>
+    <child link="arm1_6"/>
+    <limit effort="350.0" lower="-1.57" upper="1.57" velocity="6.5"/>
+  </joint>
+  <joint name="j_arm1_7" type="revolute">
+    <origin xyz="0.0 -0.049 -0.169"/>
+    <axis xyz="0.0 0.0 -1.0"/>
+    <parent link="arm1_6"/>
+    <child link="arm1_7"/>
+    <limit effort="350.0" lower="-2.618" upper="2.618" velocity="6.5"/>
+  </joint>
+  <transmission name="t_j_arm1_1">
+    <type> transmission_interface/SimpleTransmission</type>
+    <joint name="j_arm1_1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_j_arm1_1"/>
+  </transmission>
+  <transmission name="t_j_arm1_2">
+    <type> transmission_interface/SimpleTransmission</type>
+    <joint name="j_arm1_2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_j_arm1_2"/>
+  </transmission>
+  <transmission name="t_j_arm1_3">
+    <type> transmission_interface/SimpleTransmission</type>
+    <joint name="j_arm1_3">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_j_arm1_3"/>
+  </transmission>
+  <transmission name="t_j_arm1_4">
+    <type> transmission_interface/SimpleTransmission</type>
+    <joint name="j_arm1_4">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_j_arm1_4"/>
+  </transmission>
+  <transmission name="t_j_arm1_5">
+    <type> transmission_interface/SimpleTransmission</type>
+    <joint name="j_arm1_5">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_j_arm1_5"/>
+  </transmission>
+  <transmission name="t_j_arm1_6">
+    <type> transmission_interface/SimpleTransmission</type>
+    <joint name="j_arm1_6">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_j_arm1_6"/>
+  </transmission>
+  <transmission name="t_j_arm1_7">
+    <type> transmission_interface/SimpleTransmission</type>
+    <joint name="j_arm1_7">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_j_arm1_7"/>
+  </transmission>
+  <link name="arm2_1">
+    <inertial>
+      <origin xyz="0.0 -0.064706 0.0"/>
+      <mass value="1.7"/>
+      <inertia ixx="0.002332" ixy="0.0" ixz="0.0" iyy="0.001345" iyz="-0.0" izz="0.002332"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://centauro/centauro_urdf/meshes/link2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.0048142 -0.05214035 0.009074915" rpy="-1.43215510177 1.49033190729 -1.3529023596"/>
+      <geometry>
+        <cylinder radius="0.0704036" length="0.0751108222021"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="arm2_2">
+    <inertial>
+      <origin xyz="0.0 -0.0 -0.125"/>
+      <mass value="2.0"/>
+      <inertia ixx="0.005879" ixy="0.0" ixz="0.0" iyy="0.005879" iyz="0.0" izz="0.001525"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://centauro/centauro_urdf/meshes/link3.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0709568 7.98629e-06 -0.08709620665" rpy="-3.14155533114 0.292918451701 -3.14133964661"/>
+      <geometry>
+        <cylinder radius="0.0715161" length="0.181861949629"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="arm2_3">
+    <inertial>
+      <origin xyz="0.0 -0.0 -0.09375"/>
+      <mass value="2.0"/>
+      <inertia ixx="0.003989" ixy="0.0" ixz="0.0" iyy="0.003884" iyz="-0.0" izz="0.001629"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://centauro/centauro_urdf/meshes/link4.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0.011726993 -0.000587176 -0.036774245" rpy="3.12082286426 0.376309803205 3.03261579115"/>
+      <geometry>
+        <cylinder radius="0.0864441" length="0.0663641129654"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="arm2_4">
+    <inertial>
+      <origin xyz="0.0 -0.0 -0.09"/>
+      <mass value="1.3"/>
+      <inertia ixx="0.002589" ixy="0.0" ixz="0.0" iyy="0.002589" iyz="0.0" izz="0.001105"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://centauro/centauro_urdf/meshes/link5.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.007494375 0.03766645 -0.032153375" rpy="0.495925898415 0.203809792245 0.0517669672272"/>
+      <geometry>
+        <cylinder radius="0.0644525" length="0.086188245518"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="arm2_5">
+    <inertial>
+      <origin xyz="0.0 0.0 -0.067857"/>
+      <mass value="1.4"/>
+      <inertia ixx="0.002073" ixy="0.0" ixz="0.0" iyy="0.001969" iyz="-0.0" izz="0.001269"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://centauro/centauro_urdf/meshes/link6.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="-1.864335e-05 -0.002166045 -0.1129697" rpy="0.0568462554593 0.000100286628987 2.85122752006e-06"/>
+      <geometry>
+        <cylinder radius="0.066519" length="0.117011611001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="arm2_6">
+    <inertial>
+      <origin xyz="0.0 0.0 -0.094545"/>
+      <mass value="1.1"/>
+      <inertia ixx="0.002301" ixy="0.0" ixz="0.0" iyy="0.002301" iyz="0.0" izz="0.000985"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://centauro/centauro_urdf/meshes/link7.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <origin xyz="-6.44753e-05 0.0278815 -0.067420365" rpy="-2.84203235611 -0.00109442040711 0.00725209173511"/>
+      <geometry>
+        <cylinder radius="0.0470691" length="0.145199624103"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="arm2_7">
+    <inertial>
+      <origin xyz="0.0 0.0 -0.075"/>
+      <mass value="1.7"/>
+      <inertia ixx="0.001303" ixy="0.0" ixz="0.0" iyy="0.001303" iyz="0.0" izz="0.00102"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://centauro/centauro_urdf/meshes/link8.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="-1.9971412865e-11 -3.9418704065e-12 -0.056579685" rpy="3.14159265316 -0.0 0.0"/>
+      <geometry>
+        <cylinder radius="0.0276743" length="0.09496663"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_arm2_1" type="revolute">
+    <origin xyz="0.0457475 -0.169137 0.190626" rpy="0.0 0.0 0.523602668986"/>
+    <axis xyz="0.0 -0.984807753012 0.173648177667"/>
+    <parent link="torso_2"/>
+    <child link="arm2_1"/>
+    <limit effort="350.0" lower="-1.658" upper="3.403" velocity="6.5"/>
+  </joint>
+  <joint name="j_arm2_2" type="revolute">
+    <origin xyz="-0.09115 -0.06106 0.010766"/>
+    <axis xyz="-1.0 0.0 0.0"/>
+    <parent link="arm2_1"/>
+    <child link="arm2_2"/>
+    <limit effort="350.0" lower="0.0" upper="3.49" velocity="6.5"/>
+  </joint>
+  <joint name="j_arm2_3" type="revolute">
+    <origin xyz="0.09115 0.0 -0.21915"/>
+    <axis xyz="0.0 0.0 -1.0"/>
+    <parent link="arm2_2"/>
+    <child link="arm2_3"/>
+    <limit effort="350.0" lower="-2.618" upper="2.618" velocity="6.5"/>
+  </joint>
+  <joint name="j_arm2_4" type="revolute">
+    <origin xyz="0.04 -0.05615 -0.074"/>
+    <axis xyz="0.0 -1.0 0.0"/>
+    <parent link="arm2_3"/>
+    <child link="arm2_4"/>
+    <limit effort="350.0" lower="-0.349" upper="2.53" velocity="6.5"/>
+  </joint>
+  <joint name="j_arm2_5" type="revolute">
+    <origin xyz="-0.015 0.05615 -0.061"/>
+    <axis xyz="0.0 0.0 -1.0"/>
+    <parent link="arm2_4"/>
+    <child link="arm2_5"/>
+    <limit effort="350.0" lower="-2.618" upper="2.618" velocity="6.5"/>
+  </joint>
+  <joint name="j_arm2_6" type="revolute">
+    <origin xyz="0.0 -0.049 -0.18"/>
+    <axis xyz="0.0 -1.0 0.0"/>
+    <parent link="arm2_5"/>
+    <child link="arm2_6"/>
+    <limit effort="350.0" lower="-1.57" upper="1.57" velocity="6.5"/>
+  </joint>
+  <joint name="j_arm2_7" type="revolute">
+    <origin xyz="0.0 0.049 -0.169"/>
+    <axis xyz="0.0 0.0 -1.0"/>
+    <parent link="arm2_6"/>
+    <child link="arm2_7"/>
+    <limit effort="350.0" lower="-2.618" upper="2.618" velocity="6.5"/>
+  </joint>
+  <transmission name="t_j_arm2_1">
+    <type> transmission_interface/SimpleTransmission</type>
+    <joint name="j_arm2_1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_j_arm2_1"/>
+  </transmission>
+  <transmission name="t_j_arm2_2">
+    <type> transmission_interface/SimpleTransmission</type>
+    <joint name="j_arm2_2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_j_arm2_2"/>
+  </transmission>
+  <transmission name="t_j_arm2_3">
+    <type> transmission_interface/SimpleTransmission</type>
+    <joint name="j_arm2_3">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_j_arm2_3"/>
+  </transmission>
+  <transmission name="t_j_arm2_4">
+    <type> transmission_interface/SimpleTransmission</type>
+    <joint name="j_arm2_4">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_j_arm2_4"/>
+  </transmission>
+  <transmission name="t_j_arm2_5">
+    <type> transmission_interface/SimpleTransmission</type>
+    <joint name="j_arm2_5">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_j_arm2_5"/>
+  </transmission>
+  <transmission name="t_j_arm2_6">
+    <type> transmission_interface/SimpleTransmission</type>
+    <joint name="j_arm2_6">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_j_arm2_6"/>
+  </transmission>
+  <transmission name="t_j_arm2_7">
+    <type> transmission_interface/SimpleTransmission</type>
+    <joint name="j_arm2_7">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_j_arm2_7"/>
+  </transmission>
+</robot>

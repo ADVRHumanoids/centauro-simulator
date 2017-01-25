@@ -1,0 +1,391 @@
+<!--<?xml version="1.0"?>-->
+<robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+   <xacro:property name="v_pelvis">
+         <origin xyz="0.0 0 0.20"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <box size="0.2 0.3 0.1"/>
+         </geometry>
+   </xacro:property>
+
+   <xacro:property name="v_torso">
+      <xacro:if value="$(arg VISUALISATION_MESH)">
+         <origin xyz="0.0 0 0.0"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+         <mesh filename="package://centauro/centauro_urdf/meshes/link1.stl" scale="0.001 0.001 0.001" />
+         </geometry>
+      </xacro:if>
+      <xacro:unless value="$(arg VISUALISATION_MESH)">
+         <origin xyz="0.0 0 0.20"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <box size="0.2 0.3 0.1"/>
+         </geometry>
+      </xacro:unless>
+   </xacro:property>
+
+   <xacro:property name="v_arm1">
+      <xacro:if value="$(arg VISUALISATION_MESH)">
+         <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <mesh filename="package://centauro/centauro_urdf/meshes/link2.stl" scale="0.001 ${-rot*0.001} 0.001" />
+         </geometry>
+      </xacro:if>
+      <xacro:unless value="$(arg VISUALISATION_MESH)">
+         <origin xyz="0.0 0.05 0.0"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <box size="${link_visual} 0.1 ${link_visual}"/>
+         </geometry>
+      </xacro:unless>
+   </xacro:property>
+
+   <xacro:property name="v_arm2">
+      <xacro:if value="$(arg VISUALISATION_MESH)">
+         <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <mesh filename="package://centauro/centauro_urdf/meshes/link3.stl" scale="0.001 ${-rot*0.001} 0.001" />
+         </geometry>
+      </xacro:if>
+      <xacro:unless value="$(arg VISUALISATION_MESH)">
+         <origin xyz="0.0 0.0 -0.1"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <box size="${link_visual} ${link_visual} 0.2"/>
+         </geometry>
+      </xacro:unless>
+   </xacro:property>
+
+   <xacro:property name="v_arm3">
+      <xacro:if value="$(arg VISUALISATION_MESH)">
+         <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <mesh filename="package://centauro/centauro_urdf/meshes/link4.stl" scale="0.001 ${-rot*0.001} 0.001" />
+         </geometry>
+      </xacro:if>
+      <xacro:unless value="$(arg VISUALISATION_MESH)">
+         <origin xyz="0.0 0.0 -0.075"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <box size="${link_visual} ${link_visual} 0.15"/>
+         </geometry>
+      </xacro:unless>
+   </xacro:property>
+
+   <xacro:property name="v_arm4">
+      <xacro:if value="$(arg VISUALISATION_MESH)">
+         <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <mesh filename="package://centauro/centauro_urdf/meshes/link5.stl" scale="0.001 ${-rot*0.001} 0.001" />
+         </geometry>
+      </xacro:if>
+      <xacro:unless value="$(arg VISUALISATION_MESH)">
+         <origin xyz="0 0.0 -0.065"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <box size="${link_visual} ${link_visual} 0.13"/>
+         </geometry>
+      </xacro:unless>
+   </xacro:property>
+
+   <xacro:property name="v_arm5">
+      <xacro:if value="$(arg VISUALISATION_MESH)">
+         <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <mesh filename="package://centauro/centauro_urdf/meshes/link6.stl" scale="0.001 ${-rot*0.001} 0.001" />
+         </geometry>
+      </xacro:if>
+      <xacro:unless value="$(arg VISUALISATION_MESH)">
+         <origin xyz="0.0 0.0 -0.05"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <box size="${link_visual} ${link_visual} 0.1"/>
+         </geometry>
+      </xacro:unless>
+   </xacro:property>
+
+   <xacro:property name="v_arm6">
+      <xacro:if value="$(arg VISUALISATION_MESH)">
+         <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <mesh filename="package://centauro/centauro_urdf/meshes/link7.stl" scale="0.001 ${-rot*0.001} 0.001" />
+         </geometry>
+      </xacro:if>
+      <xacro:unless value="$(arg VISUALISATION_MESH)">
+         <origin xyz="0 0.0 -0.065"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <box size="${link_visual} ${link_visual} 0.13"/>
+         </geometry>
+      </xacro:unless>
+   </xacro:property>
+
+   <xacro:property name="v_arm7">
+      <xacro:unless value="$(arg HANDS)">
+         <xacro:if value="$(arg VISUALISATION_MESH)">
+            <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+            <geometry>
+               <mesh filename="package://centauro/centauro_urdf/meshes/link8.stl" scale="0.001 ${-rot*0.001} 0.001" />
+            </geometry>
+         </xacro:if>
+         <xacro:unless value="$(arg VISUALISATION_MESH)">
+            <origin xyz="0.0 0.0 -0.075"  rpy="0.0 0.0 0.0"/>
+            <geometry>
+               <box size="${link_visual} ${link_visual} 0.15"/>
+            </geometry>
+         </xacro:unless>
+      </xacro:unless>
+   </xacro:property>
+
+   <xacro:property name="v_pelvis">
+      <xacro:if value="$(arg VISUALISATION_MESH)">
+         <origin xyz="0 0 0"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+         <box size="0.70 0.40 0.20"/>
+         </geometry>
+      </xacro:if>
+   </xacro:property>
+
+   <xacro:property name="c_pelvis">
+         <origin xyz="0.0 0 0.20"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <box size="0.2 0.3 0.1"/>
+         </geometry>
+   </xacro:property>
+
+   <xacro:property name="c_torso">
+      <xacro:if value="$(arg COLLISION_PRIMITIVES)">
+         <origin xyz="0.0 0 0.20"   rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <box size="0.2 0.3 0.1"/>
+<!--        <cylinder length="0.15" radius="0.1"/> -->
+         </geometry>
+      </xacro:if>
+      <xacro:unless value="$(arg COLLISION_PRIMITIVES)">
+         <xacro:if value="$(arg COLLISION_CH)">
+            <origin xyz="0.0 0 0.0"  rpy="0.0 0.0 0.0"/>
+            <geometry>
+               <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/link1.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+         </xacro:if>
+         <xacro:if value="$(arg COLLISION_FULL)">
+            <origin xyz="0.0 0 0.0"  rpy="0.0 0.0 0.0"/>
+            <geometry>
+               <mesh filename="package://centauro/centauro_urdf/meshes/link1.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+         </xacro:if>
+         <xacro:if value="$(arg COLLISION_CAPSULES)">
+            <origin xyz="0.006465805 0.0001011 0.153948" rpy="1.5646258233 0.00631611549186 0.00627726188579"/>
+            <geometry>
+               <cylinder radius="0.161132" length="0.0891360748547"/>
+            </geometry>
+         </xacro:if>
+      </xacro:unless>
+   </xacro:property>
+
+   <xacro:property name="c_arm1">
+      <xacro:if value="$(arg COLLISION_PRIMITIVES)">
+         <origin xyz="0.0 ${rot*0.05} 0.0"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <box size="${link_visual} 0.1 ${link_visual}"/>
+         </geometry>
+      </xacro:if>
+      <xacro:unless value="$(arg COLLISION_PRIMITIVES)">
+         <xacro:if value="$(arg COLLISION_CH)">
+            <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+            <geometry>
+               <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/link2.stl" scale="0.001 ${-rot*0.001} 0.001" />
+            </geometry>
+         </xacro:if>
+         <xacro:if value="$(arg COLLISION_FULL)">
+            <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+            <geometry>
+               <mesh filename="package://centauro/centauro_urdf/meshes/link2.stl" scale="0.001 ${-rot*0.001} 0.001" />
+            </geometry>
+         </xacro:if>
+         <xacro:if value="$(arg COLLISION_CAPSULES)">
+            <origin xyz="-0.0048142 ${-rot*-0.05214035} 0.009074915" rpy="${-rot*-1.43215510177} 1.49033190729 ${-rot*-1.3529023596}"/>
+            <geometry>
+               <cylinder radius="0.0704036" length="0.0751108222021"/>
+            </geometry>
+         </xacro:if>
+      </xacro:unless>
+   </xacro:property>
+
+   <xacro:property name="c_arm2">
+      <xacro:if value="$(arg COLLISION_PRIMITIVES)">
+         <origin xyz="0.0 0.0 -0.1"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+         <box size="${link_visual} ${link_visual} 0.2"/>
+         </geometry>
+      </xacro:if>
+      <xacro:unless value="$(arg COLLISION_PRIMITIVES)">
+         <xacro:if value="$(arg COLLISION_CH)">
+            <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+            <geometry>
+               <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/link3.stl" scale="0.001 ${-rot*0.001} 0.001" />
+            </geometry>
+         </xacro:if>
+         <xacro:if value="$(arg COLLISION_FULL)">
+            <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+            <geometry>
+               <mesh filename="package://centauro/centauro_urdf/meshes/link3.stl" scale="0.001 ${-rot*0.001} 0.001" />
+            </geometry>
+         </xacro:if>
+         <xacro:if value="$(arg COLLISION_CAPSULES)">
+            <origin xyz="0.0709568 ${-rot*7.98629e-06} -0.08709620665" rpy="${-rot*-3.14155533114} 0.292918451701 ${-rot*-3.14133964661}"/>
+            <geometry>
+               <cylinder radius="0.0715161" length="0.181861949629"/>
+            </geometry>
+         </xacro:if>
+      </xacro:unless>
+   </xacro:property>
+
+   <xacro:property name="c_arm3">
+      <xacro:if value="$(arg COLLISION_PRIMITIVES)">
+         <origin xyz="0.0 0.0 -0.1"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <box size="${link_visual} ${link_visual} 0.2"/>
+         </geometry>
+      </xacro:if>
+      <xacro:unless value="$(arg COLLISION_PRIMITIVES)">
+         <xacro:if value="$(arg COLLISION_CH)">
+            <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+            <geometry>
+               <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/link4.stl" scale="0.001 ${-rot*0.001} 0.001" />
+            </geometry>
+         </xacro:if>
+         <xacro:if value="$(arg COLLISION_FULL)">
+            <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+            <geometry>
+               <mesh filename="package://centauro/centauro_urdf/meshes/link4.stl" scale="0.001 ${-rot*0.001} 0.001" />
+            </geometry>
+         </xacro:if>
+         <xacro:if value="$(arg COLLISION_CAPSULES)">
+            <origin xyz="0.011726993 ${-rot*-0.000587176} -0.036774245" rpy="${-rot*3.12082286426} 0.376309803205 ${-rot*3.03261579115}"/>
+            <geometry>
+               <cylinder radius="0.0864441" length="0.0663641129654"/>
+            </geometry>
+         </xacro:if>
+      </xacro:unless>
+   </xacro:property>
+
+   <xacro:property name="c_arm4">
+      <xacro:if value="$(arg COLLISION_PRIMITIVES)">
+         <origin xyz="0 0.0 -0.065"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <box size="${link_visual} ${link_visual} 0.13"/>
+         </geometry>
+      </xacro:if>
+      <xacro:unless value="$(arg COLLISION_PRIMITIVES)">
+         <xacro:if value="$(arg COLLISION_CH)">
+            <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+            <geometry>
+               <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/link5.stl" scale="0.001 ${-rot*0.001} 0.001" />
+            </geometry>
+         </xacro:if>
+         <xacro:if value="$(arg COLLISION_FULL)">
+            <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+            <geometry>
+               <mesh filename="package://centauro/centauro_urdf/meshes/link5.stl" scale="0.001 ${-rot*0.001} 0.001" />
+            </geometry>
+         </xacro:if>
+         <xacro:if value="$(arg COLLISION_CAPSULES)">
+            <origin xyz="-0.007494375 ${-rot*0.03766645} -0.032153375" rpy="${-rot*0.495925898415} 0.203809792245 ${-rot*0.0517669672272}"/>
+            <geometry>
+               <cylinder radius="0.0644525" length="0.086188245518"/>
+            </geometry>
+         </xacro:if>
+      </xacro:unless>
+   </xacro:property>
+
+   <xacro:property name="c_arm5">
+      <xacro:if value="$(arg COLLISION_PRIMITIVES)">
+         <origin xyz="0.0 0.0 -0.05"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <box size="${link_visual} ${link_visual} 0.1"/>
+         </geometry>
+      </xacro:if>
+      <xacro:unless value="$(arg COLLISION_PRIMITIVES)">
+         <xacro:if value="$(arg COLLISION_CH)">
+            <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+            <geometry>
+               <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/link6.stl" scale="0.001 ${-rot*0.001} 0.001" />
+            </geometry>
+         </xacro:if>
+         <xacro:if value="$(arg COLLISION_FULL)">
+            <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+            <geometry>
+               <mesh filename="package://centauro/centauro_urdf/meshes/link6.stl" scale="0.001 ${-rot*0.001} 0.001" />
+            </geometry>
+         </xacro:if>
+         <xacro:if value="$(arg COLLISION_CAPSULES)">
+            <origin xyz="-1.864335e-05 ${-rot*-0.002166045} -0.1129697" rpy="${-rot*0.0568462554593} 0.000100286628987 ${-rot*2.85122752006e-06}"/>
+            <geometry>
+               <cylinder radius="0.066519" length="0.117011611001"/>
+            </geometry>
+         </xacro:if>
+      </xacro:unless>
+   </xacro:property>
+
+   <xacro:property name="c_arm6">
+      <xacro:if value="$(arg COLLISION_PRIMITIVES)">
+         <origin xyz="0 0.0 -0.065"  rpy="0.0 0.0 0.0"/>
+         <geometry>
+            <box size="${link_visual} ${link_visual} 0.13"/>
+         </geometry>
+      </xacro:if>
+      <xacro:unless value="$(arg COLLISION_PRIMITIVES)">
+         <xacro:if value="$(arg COLLISION_CH)">
+            <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+            <geometry>
+               <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/link7.stl" scale="0.001 ${-rot*0.001} 0.001" />
+            </geometry>
+         </xacro:if>
+         <xacro:if value="$(arg COLLISION_FULL)">
+            <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+            <geometry>
+               <mesh filename="package://centauro/centauro_urdf/meshes/link7.stl" scale="0.001 ${-rot*0.001} 0.001" />
+            </geometry>
+         </xacro:if>
+         <xacro:if value="$(arg COLLISION_CAPSULES)">
+            <origin xyz="-6.44753e-05 ${-rot*0.0278815} -0.067420365" rpy="${-rot*-2.84203235611} -0.00109442040711 ${-rot*0.00725209173511}"/>
+            <geometry>
+               <cylinder radius="0.0470691" length="0.145199624103"/>
+            </geometry>
+         </xacro:if>
+      </xacro:unless>
+   </xacro:property>
+
+   <xacro:property name="c_arm7">
+      <xacro:unless value="$(arg HANDS)">
+         <xacro:if value="$(arg COLLISION_PRIMITIVES)">
+            <origin xyz="0.0 0.0 -0.075"  rpy="0.0 0.0 0.0"/>
+            <geometry>
+               <box size="${link_visual} ${link_visual} 0.15"/>
+            </geometry>
+         </xacro:if>
+         <xacro:unless value="$(arg COLLISION_PRIMITIVES)">
+            <xacro:if value="$(arg COLLISION_CH)">
+               <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+               <geometry>
+                  <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/link8.stl" scale="0.001 ${-rot*0.001} 0.001" />
+               </geometry>
+            </xacro:if>
+            <xacro:if value="$(arg COLLISION_FULL)">
+               <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+               <geometry>
+                  <mesh filename="package://centauro/centauro_urdf/meshes/link8.stl" scale="0.001 ${-rot*0.001} 0.001" />
+               </geometry>
+            </xacro:if>
+            <xacro:if value="$(arg COLLISION_CAPSULES)">
+               <origin xyz="-1.9971412865e-11 ${-rot*-3.9418704065e-12} -0.056579685" rpy="${-rot*3.14159265316} -0.0 ${-rot*0.0}"/>
+               <geometry>
+                  <cylinder radius="0.0276743" length="0.09496663"/>
+               </geometry>
+            </xacro:if>
+         </xacro:unless>
+      </xacro:unless>
+   </xacro:property>
+
+   <xacro:property name="c_pelvis">
+         <origin xyz="0 0 0"/>
+         <geometry>
+            <box size="0.70 0.40 0.20"  rpy="0.0 0.0 0.0"/>
+         </geometry>
+   </xacro:property>
+
+</robot>

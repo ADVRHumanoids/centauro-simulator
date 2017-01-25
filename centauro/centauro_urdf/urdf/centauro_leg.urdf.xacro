@@ -1,0 +1,286 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- macro legs -->
+<xacro:macro name="centauro_leg" params="leg_num origin_x origin_y">
+
+<link name="hip1_${leg_num}">
+	<inertial>
+		<origin xyz="${Leg_1_x} ${Leg_1_y} ${Leg_1_z}"/> <!-- TODO -->
+		<mass value="${Leg_1_mass}"/> <!-- org: 2 -->
+		<inertia ixx="${Leg_1_xx}" ixy="${Leg_1_xy}" ixz="${Leg_1_xz}" iyy="${Leg_1_yy}" iyz="${Leg_1_yz}" izz="${Leg_1_zz}"/>
+		<!-- <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01"/> -->
+	</inertial>
+	
+	<visual>
+		<origin xyz="0 0 -0.1"/>
+		<geometry>
+			<box size="${link_visual} ${link_visual} 0.2"/> <!-- OK: from hip-yaw to pelvis (0.1) + from plevis to hip-pitch (0.1)-->
+		</geometry>
+		<material name="grey"/>
+	</visual>
+	
+	<visual>
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<geometry>
+			<cylinder length="${motors_length}" radius="${motors_radius}"/>
+		</geometry>
+		<material name="grey"/>
+	</visual>
+	
+	<collision>
+		<origin xyz="0 0 -0.1"/>
+		<geometry>
+			<box size="${link_visual} ${link_visual} ${0.2-collision}"/> <!-- OK: from hip-yaw to pelvis (0.1) + from plevis to hip-pitch (0.1)-->
+		</geometry>
+		<material name="grey"/>
+	</collision>
+	
+	<!-- <collision>
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<geometry>
+			<cylinder length="${motors_length}" radius="${motors_radius}"/>
+		</geometry>
+		<material name="grey"/>
+	</collision> -->
+</link>
+
+<link name="hip2_${leg_num}">
+	<inertial>
+		<origin xyz="${Leg_2_x} ${Leg_2_y} ${Leg_2_z}"/>	
+		<mass value="${Leg_2_mass}"/> <!-- org: 4.5 -->
+		<inertia ixx="${Leg_2_xx}" ixy="${Leg_2_xy}" ixz="${Leg_2_xz}" iyy="${Leg_2_yy}" iyz="${Leg_2_yz}" izz="${Leg_2_zz}"/> 
+		<!-- <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01"/> -->
+	</inertial>
+	
+	<visual>
+		<origin xyz="0 0 -${0.35/2}"/>
+		<geometry>
+			<box size="${link_visual} ${link_visual} 0.35"/> <!-- OK -->
+		</geometry>
+		<material name="blue"/>
+	</visual>
+	
+	<visual>
+		<origin xyz="0 0 0" rpy="${PI/2} 0 0" />
+		<geometry>
+			<cylinder length="${motors_length}" radius="${motors_radius}"/>
+		</geometry>
+		<material name="blue"/>
+	</visual>
+	
+	<collision>
+		<origin xyz="0 0 -${0.35/2}"/>
+		<geometry>
+			<box size="${link_visual} ${link_visual} ${0.35-collision}"/> <!-- OK -->
+		</geometry>
+		<material name="blue"/>
+	</collision>
+	
+	<!-- <collision>
+		<origin xyz="0 0 0" rpy="${PI/2} 0 0" />
+		<geometry>
+			<cylinder length="${motors_length}" radius="${motors_radius}"/>
+		</geometry>
+		<material name="blue"/>
+	</collision> -->
+</link>
+
+<link name="knee_${leg_num}">
+	<inertial>
+		<origin xyz="${Leg_3_x} ${Leg_3_y} ${Leg_3_z}"/>	<!-- TODO -->
+		<mass value="${Leg_3_mass}"/>  <!-- org: 3.5, foot un modeled-->
+		<inertia ixx="${Leg_3_xx}" ixy="${Leg_3_xy}" ixz="${Leg_3_xz}" iyy="${Leg_3_yy}" iyz="${Leg_3_yz}" izz="${Leg_3_zz}"/>
+	<!--	<inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01"/>  -->
+	</inertial>
+	
+	<visual>
+		<origin xyz="0 0 -${0.3/2-link_width/4}"/>
+		<geometry>
+			<box size="${link_visual} ${link_visual} ${0.3-link_width/2}"/> <!-- OK: foot un modeled-->
+		</geometry>
+		<material name="grey"/>
+	</visual>
+	
+	<visual>
+		<origin xyz="0 0 0" rpy="${PI/2} 0 0" />
+		<geometry>
+			<cylinder length="${motors_length}" radius="${motors_radius}"/>
+		</geometry>
+		<material name="blue"/>
+	</visual>
+	
+	<visual>
+		<origin xyz="0 0 -${0.3-link_width/2}" />
+		<geometry>
+			<sphere radius="${link_width/2}"/>
+		</geometry>
+		<material name="blue"/>
+	</visual>
+	
+	<collision>
+		<origin xyz="0 0 -${0.3/2-link_width/4}"/>
+		<geometry>
+			<box size="${link_visual} ${link_visual} ${0.3-link_width/2-collision}"/> <!-- OK: foot un modeled-->
+		</geometry>
+		<material name="grey"/>
+	</collision>
+	
+<!--	<collision>
+		<origin xyz="0 0 0" rpy="${PI/2} 0 0" />
+		<geometry>
+			<cylinder length="${motors_length}" radius="${motors_radius}"/>
+		</geometry>
+		<material name="blue"/>
+	</collision> -->
+	
+	<collision>
+		<origin xyz="0 0 -${0.3-link_width/2}" />
+		<geometry>
+			<sphere radius="${link_width/2}"/>
+		</geometry>
+
+		<material name="blue"/>
+	</collision>
+</link>
+
+<!-- ftsensor -->
+<!--<link name="ft_foot_${leg_num}">
+  <inertial>
+    <mass value="0.001"/>
+    <origin xyz="0 0 0"/>
+    <inertia ixx="1.0E-6" ixy="0" ixz="0" iyy="1.0E-6" iyz="0" izz="1.0E-6"/>
+  </inertial>
+  <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+  </visual>
+</link>-->
+
+<!-- wheels -->
+<xacro:if	value="$(arg WHEELS)"> 
+	
+	<!-- links -->
+	<link name="wheel_hip_${leg_num}">
+		<inertial>
+			<origin xyz="${Wheel_x} ${Wheel_y} ${Wheel_z}"/>	<!-- TODO -->
+			<mass value="${Wheel_mass}"/>  <!-- org: 3.5, foot un modeled-->
+			<inertia ixx="${Wheel_xx}" ixy="${Wheel_xy}" ixz="${Wheel_xz}" iyy="${Wheel_yy}" iyz="${Wheel_yz}" izz="${Wheel_zz}"/>
+		</inertial>
+	
+		<visual>
+			<origin xyz="0 0 0" rpy="${PI/2} 0 0" />
+			<geometry>
+				<cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+			</geometry>
+			<material name="grey"/>
+
+		</visual>
+
+		<collision>
+			<origin xyz="0 0 0" rpy="${PI/2} 0 0" />
+			<geometry>
+				<cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+			</geometry>
+		</collision>
+	
+	</link>
+
+
+	<link name="wheel_knee_${leg_num}">
+		<inertial>
+			<origin xyz="${Wheel_x} ${Wheel_y} ${Wheel_z}"/>	<!-- TODO -->
+			<mass value="${Wheel_mass}"/>  <!-- org: 3.5, foot un modeled-->
+			<inertia ixx="${Wheel_xx}" ixy="${Wheel_xy}" ixz="${Wheel_xz}" iyy="${Wheel_yy}" iyz="${Wheel_yz}" izz="${Wheel_zz}"/>
+		</inertial>
+	
+		<visual>
+			<origin xyz="0 0 0" rpy="${PI/2} 0 0" />
+			<geometry>
+				<cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+			</geometry>
+			<material name="blue"/>
+
+		</visual>
+
+		<collision>
+			<origin xyz="0 0 0" rpy="${PI/2} 0 0" />
+			<geometry>
+				<cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+			</geometry>
+		</collision>
+	
+	</link>
+	<!-- /links -->
+
+	<!-- joints -->
+	<joint name="j_wheel_hip_${leg_num}" type="continuous">
+		<parent link="hip2_${leg_num}"/>
+		<child link="wheel_hip_${leg_num}"/>
+		<origin xyz = "0 ${origin_x*(motors_length+wheel_length)/2} 0"/>
+		<axis xyz="0 ${origin_x*origin_y} 0"/>
+	</joint>
+	
+	<joint name="j_wheel_knee_${leg_num}" type="continuous">
+		<parent link="knee_${leg_num}"/>
+		<child link="wheel_knee_${leg_num}"/>
+		<origin xyz = "0 ${origin_x*(motors_length+wheel_length)/2} 0"/>
+		<axis xyz="0 ${origin_x*origin_y} 0"/>
+	</joint>
+	<!-- /joints -->
+
+	<!-- actuators -->
+<xacro:if	value="$(arg WHEELS_ACTUATORS)"> 	
+	<xacro:position_actuator joint="j_wheel_hip_${leg_num}" /> 
+	<xacro:position_actuator joint="j_wheel_knee_${leg_num}" /> 
+
+	<!-- /actuators -->
+</xacro:if>	
+</xacro:if>
+
+<!-- /wheels -->
+
+<joint name="hip_yaw_${leg_num}" type="revolute">
+	<parent link="pelvis"/>
+	<child link="hip1_${leg_num}"/>
+	<origin xyz="${origin_x*0.30} ${origin_y*0.15} 0" rpy="0 0 ${PI/2}"/>
+	<axis xyz="0 0 ${-origin_y}"/>
+	<limit lower="-2.09" upper="2.09" effort="350" velocity="6.5"/> <!-- TODO -->
+</joint>
+
+<joint name="hip_pitch_${leg_num}" type="revolute">
+	<parent link="hip1_${leg_num}"/>
+	<child link="hip2_${leg_num}"/>
+	<origin xyz="0 0 -0.2"/>
+	<axis xyz="0 ${-origin_y} 0"/>
+	<limit lower="-3.14" upper="3.14" effort="350" velocity="6.5"/> <!-- TODO -->
+</joint>
+
+<joint name="knee_pitch_${leg_num}" type="revolute">
+	<parent link="hip2_${leg_num}"/>
+	<child link="knee_${leg_num}"/>
+	<origin xyz="0 0 -0.35"/>
+	<axis xyz="0 ${-origin_y} 0"/>
+	<limit  lower="-3.14" upper="3.14" effort="35000" velocity="600.5"/> <!-- TODO -->
+</joint>
+<!--
+<joint name="ft_foot_${leg_num}_joint" type="fixed">
+  <parent link="knee_${leg_num}"/>
+  <child link="ft_foot_${leg_num}"/>
+  <origin xyz="0 0 -0.3" rpy="0 0 0"/>
+</joint>
+-->
+<!-- actuators -->
+<xacro:if	value="$(arg LEG_ACTUATORS)"> 
+	<xacro:position_actuator joint="hip_yaw_${leg_num}" /> 
+	<xacro:position_actuator joint="hip_pitch_${leg_num}" /> 
+	<xacro:position_actuator joint="knee_pitch_${leg_num}"  /> 
+</xacro:if>
+<!-- /actuators -->
+
+</xacro:macro>
+<!-- /macro legs -->
+
+</robot>

@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="SoftHand">
+
+<xacro:if value="${GAZEBO_COMAN_USES_SOFTHANDS}">
+
+<!-- LINKS -->
+<link name="RSoftHand">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.3"/>
+      <inertia ixx="0.001"  ixy="0"  ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0.007 0.01 -0.04" rpy="${-3.14159265359/2} 0 ${3.14159265359}"/>
+      <material name="dark_grey"/>
+      <geometry name="RSoftHand_visual">
+        <mesh filename="package://coman_urdf/meshes/SoftHandOpen.STL" scale="0.1 0.1 0.1" />
+      </geometry>
+   </visual>
+   <collision>
+      <origin xyz="0 0.01 -0.04" rpy="0 0 3.14159265359"/>
+      <geometry name="RSoftHand_collision">
+        <mesh filename="package://coman_urdf/meshes/simple/SoftHandOpen.STL" scale="1E-3 1E-3 1E-3" />
+      </geometry>
+   </collision>
+  </link>
+
+  <link name="LSoftHand">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.3"/>
+      <inertia ixx="0.001"  ixy="0"  ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0.007 -0.01 -0.04" rpy="${-3.14159265359/2} 0 0"/>
+      <material name="dark_grey"/>
+      <geometry name="LSoftHand_visual">
+        <mesh filename="package://coman_urdf/meshes/SoftHandOpen.STL" scale="-0.1 0.1 0.1" />
+      </geometry>
+   </visual>
+   <collision>
+     <origin xyz="0.007 -0.01 -0.04" rpy="0 0 0"/>
+      <geometry name="LSoftHand_collision">
+        <mesh filename="package://coman_urdf/meshes/simple/SoftHandOpen.STL" scale="-1E-3 1E-3 1E-3" />
+      </geometry>
+   </collision>
+  </link>
+
+<!-- JOINTS -->
+  <joint name="r_handj" type="fixed">
+        <parent link="RWrMot3"/>
+        <child link="RSoftHand"/>
+        <origin xyz="0 0 -0.07" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="l_handj" type="fixed">
+        <parent link="LWrMot3"/>
+        <child link="LSoftHand"/>
+        <origin xyz="0 0 -0.07" rpy="0 0 0"/>
+  </joint>
+</xacro:if>
+
+<xacro:unless value="${GAZEBO_COMAN_USES_SOFTHANDS}">
+
+<!-- LINKS -->
+<!-- ## WRONG NUMBERS FOR... ok lasciamo perde... FIX THEM!! ## -->
+  <link name="RSoftHand">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.3"/>
+      <inertia ixx="0.001"  ixy="0"  ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+    </inertial>
+    <visual>
+     <origin xyz="0 0 0" rpy="0 0 0" />
+     <geometry>
+        <box size="0.07 0.07 0.07" />
+     </geometry>
+     <material name="Cyan">
+       <color rgba="0 1.0 1.0 1.0"/>
+     </material>
+   </visual>
+   <collision>
+     <origin xyz="0 0 0" rpy="0 0 0"/>
+     <geometry>
+       <box size="0.07 0.07 0.07" />
+     </geometry>
+   </collision>
+  </link>
+
+  <link name="LSoftHand">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.3"/>
+      <inertia ixx="0.001"  ixy="0"  ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+    </inertial>
+    <visual>
+     <origin xyz="0 0 0" rpy="0 0 0" />
+     <geometry>
+        <box size="0.07 0.07 0.07" />
+     </geometry>
+     <material name="Cyan">
+       <color rgba="0 1.0 1.0 1.0"/>
+     </material>
+   </visual>
+   <collision>
+     <origin xyz="0 0 0" rpy="0 0 0"/>
+     <geometry>
+       <box size="0.07 0.07 0.07" />
+     </geometry>
+   </collision>
+  </link>
+
+<!-- JOINTS -->
+<joint name="r_handj" type="revolute">
+        <parent link="RWrMot3"/>
+        <child link="RSoftHand"/>
+        <origin xyz="0 0 -0.04" rpy="0 0 0"/>
+        <axis xyz="1 0 0" />
+        <limit velocity="4.0" effort="5" lower="0.0" upper="1.57075" />
+        <dynamics friction="0" damping="3.0"/>
+</joint>
+
+<joint name="l_handj" type="revolute">
+        <parent link="LWrMot3"/>
+        <child link="LSoftHand"/>
+        <origin xyz="0 0 -0.04" rpy="0 0 0"/>
+        <axis xyz="-1 0 0" />
+        <limit velocity="4.0" effort="5" lower="0.0" upper="1.57075" />
+        <dynamics friction="0" damping="3.0"/>
+</joint>
+
+</xacro:unless>
+
+</robot>
