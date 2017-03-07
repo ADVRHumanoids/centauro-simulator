@@ -1,0 +1,7 @@
+<!--<?xml version="1.0"?>-->
+<robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/visual_model.xacro" ns="visual_model"/>
+<xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/collision_model.xacro" ns="collision_model"/>
+
+</robot>

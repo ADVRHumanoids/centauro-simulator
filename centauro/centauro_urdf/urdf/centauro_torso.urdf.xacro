@@ -8,42 +8,44 @@
 	<inertial>
 		<origin xyz="${Torso_2_x} ${Torso_2_y} ${Torso_2_z}"/>
 		<mass value="${Torso_2_mass}"/> <!-- mass  7: torso_1 (2) + torso_2 (5), head un_modelled -->
-		<inertia ixx="${Torso_2_xx}" ixy="${Torso_2_xy}" ixz="${Torso_2_xz}" iyy="${Torso_2_yy}" iyz="${Torso_2_yz}" izz="${Torso_2_zz}"/>
-		<!-- <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01"/> -->
-	</inertial>
-	
+                <inertia ixx="${Torso_2_xx}" ixy="${Torso_2_xy}" ixz="${Torso_2_xz}" iyy="${Torso_2_yy}" iyz="${Torso_2_yz}" izz="${Torso_2_zz}"/>
+        </inertial>
+
 	<visual>
- 		<xacro:insert_block name="v_torso" />
+                <xacro:visual_model.torso />
 		<material name="grey"/>
 	</visual>
 
 	<collision>
- 		<xacro:insert_block name="c_torso" />
+                <xacro:collision_model.torso />
 		<material name="grey"/>
 	</collision>
-
-	
 </link>
 <!-- /torso links -->
 
 <!-- torso joints -->
-<xacro:unless	value="$(arg ONE_ARM)">
 <joint name="torso_yaw" type="revolute">
-	<parent link="pelvis"/>
-	<child link="torso_2"/>
-	<origin xyz="0.30 0 0.1"/>
-	<axis xyz="0 0 1"/>
-	<limit lower="-2.618" upper="2.618" effort="350" velocity="6.5"/> <!-- TODO -->
+   <xacro:if value="${pelvis}">
+      <parent link="pelvis"/>
+      <origin xyz="0.30 0 0.1"/>
+   </xacro:if>
+   <xacro:unless value="${pelvis}">
+      <parent link="world"/>
+      <origin xyz="0.30 0 ${0.1 + 0.85}"/>
+   </xacro:unless>
+
+   <child link="torso_2"/>
+   <axis xyz="0 0 1"/>
+   <limit lower="-2.618" upper="2.618" effort="1770" velocity="6.5"/> <!-- TODO -->
 </joint>
 
 <!-- /torso joints -->
 
-<xacro:if	value="$(arg TORSO_ACTUATORS)"> 
+<xacro:if	value="${torso_actuators}">
 <!-- torso actuators -->
 <xacro:position_actuator joint="torso_yaw" /> 
 <!-- /torso actuators -->
 </xacro:if> 
-</xacro:unless>
 
 
 </robot>

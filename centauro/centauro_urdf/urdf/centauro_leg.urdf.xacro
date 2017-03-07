@@ -160,7 +160,7 @@
 </link>-->
 
 <!-- wheels -->
-<xacro:if	value="$(arg WHEELS)"> 
+<xacro:if	value="${wheels}">
 	
 	<!-- links -->
 	<link name="wheel_hip_${leg_num}">
@@ -176,7 +176,6 @@
 				<cylinder length="${wheel_length}" radius="${wheel_radius}"/>
 			</geometry>
 			<material name="grey"/>
-
 		</visual>
 
 		<collision>
@@ -187,7 +186,20 @@
 		</collision>
 	
 	</link>
-
+	<link name="wheel_hip_reference_${leg_num}">
+		<inertial>
+			<origin xyz="0 0 0"/>	<!-- TODO -->
+			<mass value="${0.01}"/>  <!-- org: 3.5, foot un modeled-->
+			<inertia ixx="${0.01/12*(0.01*0.01+0.01*0.01)}" ixy="0" ixz="0" iyy="${0.01/12*(wheel_radius*wheel_radius+0.01*0.01)}" iyz="0" izz="${0.01/12*(wheel_radius*wheel_radius+0.01*0.01)}"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<box size="${wheel_radius} 0.01 0.01"/>
+			</geometry>
+			<material name="blue"/>
+		</visual>	
+	</link>
 
 	<link name="wheel_knee_${leg_num}">
 		<inertial>
@@ -213,6 +225,22 @@
 		</collision>
 	
 	</link>
+
+	<link name="wheel_knee_reference_${leg_num}">
+		<inertial>
+			<origin xyz="0 0 0"/>	<!-- TODO -->
+			<mass value="${0.01}"/>  <!-- org: 3.5, foot un modeled-->
+			<inertia ixx="${0.01/12*(0.01*0.01+0.01*0.01)}" ixy="0" ixz="0" iyy="${0.01/12*(wheel_radius*wheel_radius+0.01*0.01)}" iyz="0" izz="${0.01/12*(wheel_radius*wheel_radius+0.01*0.01)}"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<box size="${wheel_radius} 0.01 0.01"/>
+			</geometry>
+			<material name="blue"/>
+		</visual>	
+	</link>
+
 	<!-- /links -->
 
 	<!-- joints -->
@@ -222,17 +250,26 @@
 		<origin xyz = "0 ${origin_x*(motors_length+wheel_length)/2} 0"/>
 		<axis xyz="0 ${origin_x*origin_y} 0"/>
 	</joint>
-	
+	<joint name="j_wheel_hip_reeferece_${leg_num}" type="fixed">
+		<origin xyz="0 ${origin_y*(wheel_length+0.005)} 0"/>
+		<parent link="wheel_hip_${leg_num}"/>
+		<child link="wheel_hip_reference_${leg_num}"/>
+	</joint>	
 	<joint name="j_wheel_knee_${leg_num}" type="continuous">
 		<parent link="knee_${leg_num}"/>
 		<child link="wheel_knee_${leg_num}"/>
 		<origin xyz = "0 ${origin_x*(motors_length+wheel_length)/2} 0"/>
 		<axis xyz="0 ${origin_x*origin_y} 0"/>
 	</joint>
+	<joint name="j_wheel_knee_reeferece_${leg_num}" type="fixed">
+		<origin xyz="0 ${origin_y*(wheel_length+0.005)} 0"/>
+		<parent link="wheel_knee_${leg_num}"/>
+		<child link="wheel_knee_reference_${leg_num}"/>
+	</joint>
 	<!-- /joints -->
 
 	<!-- actuators -->
-<xacro:if	value="$(arg WHEELS_ACTUATORS)"> 	
+<xacro:if	value="${wheels_actuators}">
 	<xacro:position_actuator joint="j_wheel_hip_${leg_num}" /> 
 	<xacro:position_actuator joint="j_wheel_knee_${leg_num}" /> 
 
@@ -247,7 +284,7 @@
 	<child link="hip1_${leg_num}"/>
 	<origin xyz="${origin_x*0.30} ${origin_y*0.15} 0" rpy="0 0 ${PI/2}"/>
 	<axis xyz="0 0 ${-origin_y}"/>
-	<limit lower="-2.09" upper="2.09" effort="350" velocity="6.5"/> <!-- TODO -->
+        <limit lower="-2.09" upper="2.09" effort="1770" velocity="6.5"/> <!-- TODO -->
 </joint>
 
 <joint name="hip_pitch_${leg_num}" type="revolute">
@@ -255,7 +292,7 @@
 	<child link="hip2_${leg_num}"/>
 	<origin xyz="0 0 -0.2"/>
 	<axis xyz="0 ${-origin_y} 0"/>
-	<limit lower="-3.14" upper="3.14" effort="350" velocity="6.5"/> <!-- TODO -->
+        <limit lower="-3.14" upper="3.14" effort="3300" velocity="6.5"/> <!-- TODO -->
 </joint>
 
 <joint name="knee_pitch_${leg_num}" type="revolute">
@@ -263,7 +300,7 @@
 	<child link="knee_${leg_num}"/>
 	<origin xyz="0 0 -0.35"/>
 	<axis xyz="0 ${-origin_y} 0"/>
-	<limit  lower="-3.14" upper="3.14" effort="35000" velocity="600.5"/> <!-- TODO -->
+        <limit  lower="-3.14" upper="3.14" effort="3300" velocity="600.5"/> <!-- TODO -->
 </joint>
 <!--
 <joint name="ft_foot_${leg_num}_joint" type="fixed">
@@ -273,7 +310,7 @@
 </joint>
 -->
 <!-- actuators -->
-<xacro:if	value="$(arg LEG_ACTUATORS)"> 
+<xacro:if	value="${leg_actuators}">
 	<xacro:position_actuator joint="hip_yaw_${leg_num}" /> 
 	<xacro:position_actuator joint="hip_pitch_${leg_num}" /> 
 	<xacro:position_actuator joint="knee_pitch_${leg_num}"  /> 

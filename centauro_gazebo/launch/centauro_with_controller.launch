@@ -1,0 +1,84 @@
+<launch>
+
+  <!-- basic set-up which progrmas should run -->
+  <arg name="gazebo" default="true"/>
+  <arg name="rviz" default="false"/>
+  <arg name="controller" default="true"/>
+
+  <!-- centauro model configuration parameters -->
+  <!-- centauro modules -->
+  <arg name="arms" default="true"/>
+  <arg name="torso" default="true"/>
+  <arg name="legs" default="true"/>
+  <arg name="wheels" default="false"/>
+  <arg name="static" default="false"/>
+  <arg name="one_arm" default="false"/>
+  <arg name="end_effector" default="stick"/>
+
+  <!-- which controller should be loaded:
+       WARNING: exactly one parameter has to be true, otherwise simulation behaviour is undefined -->
+  <arg name="pd" default="false"/>
+  <arg name="compliance" default="true"/>
+
+  <arg name="arm_sensors" default="true"/>
+  <arg name="collision_model" default="convex_hull"/>
+  <arg name="visual_model" default="mesh"/>
+
+  <!-- gazebo cofiguration parameters -->
+  <arg name="paused" default="true"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="debug" default="false"/>
+  <arg name="physics" default="ode"/>
+
+  <!-- actuators set-up-->
+  <arg name="torso_actuators" default="true"/>
+  <arg name="arm_actuators" default="true"/>
+  <arg name="leg_actuators" default="true"/>
+  <arg name="wheels_actuators" default="true"/>
+
+  <include file="$(find centauro_gazebo)/launch/centauro_world.launch">
+      <arg name="arm_sensors" value="$(arg arm_sensors)"/>
+      <arg name="collision_model" value="$(arg collision_model)"/>
+      <arg name="visual_model" value="$(arg visual_model)"/>
+
+      <arg name="paused" value="$(arg paused)"/>
+      <arg name="gazebo" value="$(arg gazebo)"/>
+      <arg name="rviz" value="$(arg rviz)"/>
+      <arg name="gui" value="$(arg gui)"/>
+      <arg name="physics" value="$(arg physics)"/>
+
+      <arg name="arms" value="$(arg arms)"/>
+      <arg name="torso" value="$(arg torso)"/>
+      <arg name="legs" value="$(arg legs)"/>
+      <arg name="wheels" value="$(arg wheels)"/>
+      <arg name="static" value="$(arg static)"/>
+      <arg name="one_arm" value="$(arg one_arm)"/>
+      <arg name="end_effector" value="$(arg end_effector)"/>
+
+      <arg name="torso_actuators" value="$(arg torso_actuators)"/>
+      <arg name="arm_actuators" value="$(arg arm_actuators)"/>
+      <arg name="leg_actuators" value="$(arg leg_actuators)"/>
+      <arg name="wheels_actuators" value="$(arg wheels_actuators)"/>
+  </include>
+
+
+  <!-- run gazebo -->
+  <group if="$(arg gazebo)">
+  	<group if="$(arg controller)">
+  		<!-- ros_control centauro launch file -->
+	  	<include file="$(find centauro_control)/launch/centauro_control.launch">
+		    <arg name="torso_actuators" value="$(arg torso_actuators)" if="$(arg torso)"/>
+		    <arg name="arm_actuators" value="$(arg arm_actuators)" if="$(arg arms)"/>
+		    <arg name="leg_actuators" value="$(arg leg_actuators)" if="$(arg legs)"/>
+		    <arg name="wheels_actuators" value="$(arg wheels_actuators)" if="$(arg wheels)"/>
+    		    <arg name="one_arm" value="$(arg one_arm)"/>
+		    <arg name="pd" default="false"/>
+		    <arg name="compliance" default="true"/>
+	  	</include>
+  	</group>
+  </group>
+
+
+
+</launch>

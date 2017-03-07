@@ -22,7 +22,9 @@
   <arg name="wheels" default="false"/>
   <arg name="static" default="false"/>
   <arg name="one_arm" default="false"/>
-  <arg name="hands" default="true"/>
+
+  <!-- choose the end-effector -->
+  <arg name="end_effector" default="stick"/>
 
   <!-- actuators set-up-->
   <arg name="torso_actuators" default="true"/>
@@ -33,20 +35,16 @@
   <!-- sensors set-up-->
   <arg name="arm_sensors" default="true"/>
 
-
   <!-- which collision model should run: 
        WARNING: exactly one parameter has to be true, otherwise simulation behaviour is undefined -->
-  <arg name="collision_ch" default="true"/>
-  <arg name="collision_primitives" default="false"/>
-  <arg name="collision_full" default="false"/>
-  <arg name="collision_capsules" default="false"/>
+  <arg name="collision_model" default="convex_hull"/>
 
   <!-- whether the mesh files should be loaded for visualization -->
-  <arg name="visualisation_mesh" default="true"/>
+  <arg name="visual_model" default="mesh"/>
 
   <!-- from where the simulation enviornment will be loaded: 
        WARNING: exactly one parameter has to be true, otherwise simulation behaviour is undefined -->
-  <arg name="world_name" value="$(find centauro_gazebo)/worlds/centauro.world"/>
+  <arg name="world_name" default="$(find centauro_gazebo)/worlds/centauro.world"/>
 
   <!-- Internal arguments, rewrite human-readable gazebo arguments to it's internal arguments -->
   <arg unless="$(arg paused)" name="command_arg1" value=""/>
@@ -60,7 +58,7 @@
 
   <!-- Load the URDF/SRDF into the ROS Parameter Server -->
   <param name="robot_description" 
-         command="$(find xacro)/xacro --inorder '$(find centauro)/centauro_urdf/urdf/centauro.urdf.xacro' ARMS:=$(arg arms)  TORSO:=$(arg torso) ARM_ACTUATORS:=$(arg arm_actuators) LEGS:=$(arg legs) LEG_ACTUATORS:=$(arg leg_actuators) TORSO_ACTUATORS:=$(arg torso_actuators) WHEELS:=$(arg wheels) WHEELS_ACTUATORS:=$(arg wheels_actuators) STATIC:=$(arg static) ONE_ARM:=$(arg one_arm)  VISUALISATION_MESH:=$(arg visualisation_mesh) COLLISION_CH:=$(arg collision_ch) COLLISION_PRIMITIVES:=$(arg collision_primitives) COLLISION_FULL:=$(arg collision_full) COLLISION_CAPSULES:=$(arg collision_capsules) HANDS:=$(arg hands) ARM_SENSORS:=$(arg arm_sensors)"/>
+         command="$(find xacro)/xacro --inorder '$(find centauro)/centauro_urdf/urdf/centauro.urdf.xacro' ARMS:=$(arg arms)  TORSO:=$(arg torso) ARM_ACTUATORS:=$(arg arm_actuators) LEGS:=$(arg legs) LEG_ACTUATORS:=$(arg leg_actuators) TORSO_ACTUATORS:=$(arg torso_actuators) WHEELS:=$(arg wheels) WHEELS_ACTUATORS:=$(arg wheels_actuators) STATIC:=$(arg static) ONE_ARM:=$(arg one_arm)  VISUAL_MODEL:=$(arg visual_model) COLLISION_MODEL:=$(arg collision_model) END_EFFECTOR:=$(arg end_effector) ARM_SENSORS:=$(arg arm_sensors) GAZEBO:=$(arg gazebo)"/>
 
   <!-- Load other no program-specific config files -->
   <include file="$(find centauro)/centauro_config/launch/centauro_config.launch"/>
@@ -80,6 +78,17 @@
   	<!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
 	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
 		args="-urdf -model centauro -param robot_description"/>
+
+        <rosparam file="$(find centauro_gazebo)/config/centauro_control_joint_state_publisher.yaml" command="load"/>
+
+        <node name="joint_state_spawner" pkg="controller_manager" type="spawner"
+           respawn="false" output="screen" ns="/centauro"
+           args="joint_state_controller" />
+
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+           <remap from="/joint_states" to="/centauro/joint_states" />
+        </node>
+
   </group>
 
   <!-- run rviz -->

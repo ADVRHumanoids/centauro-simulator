@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<robot name="centauro" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="torso">
+   <origin xyz="0.0 0 0.0"  rpy="0.0 0.0 0.0"/>
+   <geometry>
+      <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/link1.stl" scale="0.001 0.001 0.001" />
+   </geometry>
+</xacro:macro>
+
+<xacro:macro name="arm1">
+   <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+   <geometry>
+      <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/link2.stl" scale="0.001 ${-rot*0.001} 0.001" />
+   </geometry>
+</xacro:macro>
+
+<xacro:macro name="arm2">
+   <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+   <geometry>
+      <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/link3.stl" scale="0.001 ${-rot*0.001} 0.001" />
+   </geometry>
+</xacro:macro>
+
+<xacro:macro name="arm3">
+   <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+   <geometry>
+      <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/link4.stl" scale="0.001 ${-rot*0.001} 0.001" />
+   </geometry>
+</xacro:macro>
+
+<xacro:macro name="arm4">
+   <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+   <geometry>
+      <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/link5.stl" scale="0.001 ${-rot*0.001} 0.001" />
+   </geometry>
+</xacro:macro>
+
+<xacro:macro name="arm5">
+   <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+   <geometry>
+      <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/link6.stl" scale="0.001 ${-rot*0.001} 0.001" />
+   </geometry>
+</xacro:macro>
+
+<xacro:macro name="arm6">
+   <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+   <geometry>
+      <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/link7.stl" scale="0.001 ${-rot*0.001} 0.001" />
+   </geometry>
+</xacro:macro>
+
+<xacro:macro name="arm7">
+   <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+   <geometry>
+      <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/link8.stl" scale="0.001 ${-rot*0.001} 0.001" />
+   </geometry>
+</xacro:macro>
+
+<xacro:macro name="arm8">
+   <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+   <geometry>
+      <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/link9.stl" scale="0.001 ${-rot*0.001} 0.001" />
+   </geometry>
+</xacro:macro>
+</robot>

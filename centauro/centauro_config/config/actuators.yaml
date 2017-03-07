@@ -1,0 +1,247 @@
+defaults: &type
+   type: SEA
+
+defaults: &actuator_TBM-60-25-B
+   Bm: 0.0000252
+   phim: 0.0000512
+
+defaults: &actuator_TBM-76-15-B
+   Bm: 0.0000304
+   phim: 0.0000578
+
+defaults: &actuator_TBM-60-13-B
+   Bm: 0.0000141
+   phim: 0.0000195
+
+defaults: &actuator_TBM-76-15-A
+   Bm: 0.0000304
+   phim: 0.0000578
+
+defaults: &actuator_RBE-1211
+   Bm: 0.00000847
+   phim: 0.00002
+
+defaults: &actuator_RBE-1210
+   Bm: 0.00000515
+   phim: 0.00000877
+
+defaults: &gear_CPL20
+   nu: 160
+
+defaults: &gear_CPL17
+   nu: 120
+
+defaults: &gear_CPL25
+   nu: 160
+
+defaults: &spring1
+   Ks: 5000
+   D: 2
+
+defaults: &spring2
+   Ks: 5000
+   D: 1
+
+defaults: &springNo
+   Ks: 0
+   D: 0
+
+defaults: &spring_hip_yaw
+   Ks: 5000
+   D: 1
+
+defaults: &spring_hip_pitch
+   Ks: 5000
+   D: 2
+
+defaults: &spring_knee_pitch
+   Ks: 5000
+   D: 2
+
+defaults: &torque_limit_6025B-20
+   Torque_limit: 1470
+
+defaults: &torque_limit_6013B-20
+   Torque_limit: 1470
+
+defaults: &torque_limit_1211-17
+   Torque_limit: 770
+
+defaults: &torque_limit_1210-17
+   Torque_limit: 330
+
+defaults: &torque_limit_7615A-25
+   Torque_limit: 3140
+
+defaults: &torque_limit_7615B-25
+   Torque_limit: 2750
+
+defaults: &torque_limit_6013B_17
+   Torque_limit: 860
+
+
+centauro:
+   actuators:
+      hip_yaw_1:
+         <<: *type
+         <<: *spring_hip_yaw
+         <<: *actuator_TBM-60-25-B
+         <<: *gear_CPL20
+         <<: *torque_limit_6025B-20
+      hip_yaw_2:
+         <<: *type
+         <<: *spring_hip_yaw
+         <<: *actuator_TBM-60-25-B
+         <<: *gear_CPL20
+         <<: *torque_limit_6025B-20
+      hip_yaw_3:
+         <<: *type
+         <<: *spring_hip_yaw
+         <<: *actuator_TBM-60-25-B
+         <<: *gear_CPL20
+         <<: *torque_limit_6025B-20
+      hip_yaw_4:
+         <<: *type
+         <<: *spring_hip_yaw
+         <<: *actuator_TBM-60-25-B
+         <<: *gear_CPL20
+         <<: *torque_limit_6025B-20
+      hip_pitch_1:
+         <<: *type
+         <<: *spring_hip_pitch
+         <<: *actuator_TBM-76-15-B
+         <<: *gear_CPL25
+         <<: *torque_limit_7615B-25
+      hip_pitch_2:
+         <<: *type
+         <<: *spring_hip_pitch
+         <<: *actuator_TBM-76-15-B
+         <<: *gear_CPL25
+         <<: *torque_limit_7615B-25
+      hip_pitch_3:
+         <<: *type
+         <<: *spring_hip_pitch
+         <<: *actuator_TBM-76-15-B
+         <<: *gear_CPL25
+         <<: *torque_limit_7615B-25
+      hip_pitch_4:
+         <<: *type
+         <<: *spring_hip_pitch
+         <<: *actuator_TBM-76-15-B
+         <<: *gear_CPL25
+         <<: *torque_limit_7615B-25
+      knee_pitch_1:
+         <<: *type
+         <<: *spring_knee_pitch
+         <<: *actuator_TBM-76-15-B
+         <<: *gear_CPL25
+         <<: *torque_limit_7615B-25
+      knee_pitch_2:
+         <<: *type
+         <<: *spring_knee_pitch
+         <<: *actuator_TBM-76-15-B
+         <<: *gear_CPL25
+         <<: *torque_limit_7615B-25
+      knee_pitch_3:
+         <<: *type
+         <<: *spring_knee_pitch
+         <<: *actuator_TBM-76-15-B
+         <<: *gear_CPL25
+         <<: *torque_limit_7615B-25
+      knee_pitch_4:
+         <<: *type
+         <<: *spring_knee_pitch
+         <<: *actuator_TBM-76-15-B
+         <<: *gear_CPL25
+         <<: *torque_limit_7615B-25
+      torso_yaw:
+         <<: *type
+         Ks: 5000
+         D: 2
+         <<: *actuator_TBM-60-25-B
+         <<: *gear_CPL20
+         <<: *torque_limit_6025B-20
+      j_arm1_1:
+         <<: *type
+         <<: *spring1
+         <<: *actuator_TBM-60-25-B
+         <<: *gear_CPL20
+         <<: *torque_limit_6025B-20
+      j_arm1_2:
+         <<: *type
+         <<: *spring1
+         <<: *actuator_TBM-60-25-B
+         <<: *gear_CPL20
+         <<: *torque_limit_6025B-20
+      j_arm1_3:
+         <<: *type
+         <<: *spring2
+         <<: *actuator_TBM-60-13-B
+         <<: *gear_CPL20
+         <<: *torque_limit_6013B-20
+      j_arm1_4:
+         <<: *type
+         <<: *spring1
+         <<: *actuator_TBM-60-13-B
+         <<: *gear_CPL20
+         <<: *torque_limit_6013B-20
+      j_arm1_5:
+         <<: *type
+         <<: *spring2
+         <<: *actuator_RBE-1211
+         <<: *gear_CPL17
+         <<: *torque_limit_1211-17
+      j_arm1_6:
+         <<: *type
+         <<: *spring1
+         <<: *actuator_RBE-1211
+         <<: *gear_CPL17
+         <<: *torque_limit_1211-17
+      j_arm1_7:
+         <<: *type
+         <<: *spring2
+         <<: *actuator_RBE-1210
+         <<: *gear_CPL17
+         <<: *torque_limit_1210-17
+      j_arm2_1:
+         <<: *type
+         <<: *spring1
+         <<: *actuator_TBM-60-25-B
+         <<: *gear_CPL20
+         <<: *torque_limit_6025B-20
+      j_arm2_2:
+         <<: *type
+         <<: *spring1
+         <<: *actuator_TBM-60-25-B
+         <<: *gear_CPL20
+         <<: *torque_limit_6025B-20
+      j_arm2_3:
+         <<: *type
+         <<: *spring2
+         <<: *actuator_TBM-60-13-B
+         <<: *gear_CPL20
+         <<: *torque_limit_6013B-20
+      j_arm2_4:
+         <<: *type
+         <<: *spring1
+         <<: *actuator_TBM-60-13-B
+         <<: *gear_CPL20
+         <<: *torque_limit_6013B-20
+      j_arm2_5:
+         <<: *type
+         <<: *spring2
+         <<: *actuator_RBE-1211
+         <<: *gear_CPL17
+         <<: *torque_limit_1211-17
+      j_arm2_6:
+         <<: *type
+         <<: *spring1
+         <<: *actuator_RBE-1211
+         <<: *gear_CPL17
+         <<: *torque_limit_1211-17
+      j_arm2_7:
+         <<: *type
+         <<: *spring2
+         <<: *actuator_RBE-1210
+         <<: *gear_CPL17
+         <<: *torque_limit_1210-17

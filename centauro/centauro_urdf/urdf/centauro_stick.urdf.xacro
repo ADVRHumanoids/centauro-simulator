@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- links -->
+   <link name="arm${arm_num}_8">
+      <inertial>
+         <origin xyz="0 0 0.075" rpy="0 0 0"/>
+         <mass value="2"/>
+         <inertia ixx="0.00290117"  ixy="0"  ixz="0" iyy="0.00290117" iyz="0" izz="0.00016900" />
+      </inertial>
+
+      <visual>
+         <xacro:visual_model.stick />
+         <material name="grey"/>
+      </visual>
+
+      <collision>
+         <xacro:collision_model.stick />
+      </collision>
+   </link>
+<!-- /links -->
+
+<!-- joints -->
+   <joint name="j_arm${arm_num}_8" type="revolute">
+      <parent link="arm${arm_num}_7"/>
+      <child link="arm${arm_num}_8"/>
+      <origin xyz="0 0 -0.0405" rpy="0 ${PI} ${-PI/2}"/>
+      <axis xyz="1 0 0" />
+      <limit velocity="0" effort="0" lower="0.0" upper="0" />
+   </joint> -->
+<!-- /joints -->
+
+</robot>
