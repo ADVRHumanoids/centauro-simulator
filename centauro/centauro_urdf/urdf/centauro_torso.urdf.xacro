@@ -27,11 +27,11 @@
 <joint name="torso_yaw" type="revolute">
    <xacro:if value="${pelvis}">
       <parent link="pelvis"/>
-      <origin xyz="0.30 0 0.1"/>
+      <origin xyz="${Torso_2_Ox} ${Torso_2_Oy} ${Torso_2_Oz}"/>
    </xacro:if>
    <xacro:unless value="${pelvis}">
       <parent link="world"/>
-      <origin xyz="0.30 0 ${0.1 + 0.85}"/>
+      <origin xyz="${Torso_2_Ox + Pelvis_Ox} ${Torso_2_Oy + Pelvis_Oy} ${Torso_2_Oz + Pelvis_Oz}"/>
    </xacro:unless>
 
    <child link="torso_2"/>

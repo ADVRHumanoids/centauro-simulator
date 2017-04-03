@@ -1,0 +1,84 @@
+<!--<?xml version="1.0"?>-->
+<robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- Generic parameters -->
+<xacro:property name="cos_m10" value="0.984807753012208"/>
+<xacro:property name="sin_m10" value="-0.17364817766693033"/>
+
+<!-- Origin -->
+<xacro:property name="Pelvis_Ox" value="-9.88740925453e-10"/>
+<xacro:property name="Pelvis_Oy" value="-1.32611870569e-11"/>
+<xacro:property name="Pelvis_Oz" value="0.88262336703"/>
+
+<!-- Origin -->
+<xacro:property name="Leg_1_Ox" value="0.275983276004"/>
+<xacro:property name="Leg_1_Oy" value="0.162650802376"/>
+<xacro:property name="Leg_1_Oz" value="5.96272782256e-10"/>
+<xacro:property name="Leg_1_roll" value=" 0 "/>
+<xacro:property name="Leg_1_pitch" value=" 0 "/>
+<xacro:property name="Leg_1_yaw" value=" ${PI/2} "/>
+
+<!-- Origin -->
+<xacro:property name="Leg_2_Ox" value="6.41520112074e-10"/>
+<xacro:property name="Leg_2_Oy" value="-9.30525944227e-10"/>
+<xacro:property name="Leg_2_Oz" value="-0.183804323669"/>
+
+<!-- Origin -->
+<xacro:property name="Leg_3_Ox" value="-7.08713620703e-10"/>
+<xacro:property name="Leg_3_Oy" value="-7.97479794023e-10"/>
+<xacro:property name="Leg_3_Oz" value="-0.368183143042"/>
+
+<!-- Origin -->
+<xacro:property name="Torso_2_Ox" value="0.277879506926"/>
+<xacro:property name="Torso_2_Oy" value="8.39603243063e-10"/>
+<xacro:property name="Torso_2_Oz" value="0.10522493634"/>
+
+<!-- Origin -->
+<xacro:property name="Shoulder_1_Ox" value="0.0423142893844"/> <!-- for the other arm it was 0.0457475 -->
+<xacro:property name="Shoulder_1_Oy" value="0.158745696539"/>
+<xacro:property name="Shoulder_1_Oz" value="0.182954373658"/>
+<xacro:property name="Shoulder_1_roll" value=" 0.0 "/>
+<xacro:property name="Shoulder_1_pitch" value=" 0.0 "/>
+<xacro:property name="Shoulder_1_yaw" value=" -0.5236026689864071 "/>
+
+<!-- Origin -->
+<xacro:property name="Shoulder_2_Ox" value="-0.0914840749331"/>
+<xacro:property name="Shoulder_2_Oy" value="0.0575898392046"/>
+<xacro:property name="Shoulder_2_Oz" value="0.0109256245277"/>
+
+<!-- Origin -->
+<xacro:property name="Shoulder_3_Ox" value="0.0822970295035"/>
+<xacro:property name="Shoulder_3_Oy" value="-3.97916148078e-10"/>
+<xacro:property name="Shoulder_3_Oz" value="-0.215458311938"/>
+
+<!-- Origin -->
+<xacro:property name="Elbow_1_Ox" value="0.0405489002985"/>
+<xacro:property name="Elbow_1_Oy" value="0.0611776707541"/>
+<xacro:property name="Elbow_1_Oz" value="-0.0716713053609"/>
+
+<!-- Origin -->
+<xacro:property name="Wrist_1_Ox" value="-0.0139954203102"/>
+<xacro:property name="Wrist_1_Oy" value="0.0567164259066"/>
+<xacro:property name="Wrist_1_Oz" value="-0.0616642464666"/>
+
+<!-- Origin -->
+<xacro:property name="Wrist_2_Ox" value="-5.51893572125e-10"/>
+<xacro:property name="Wrist_2_Oy" value="0.0511718494138"/>
+<xacro:property name="Wrist_2_Oz" value="-0.182763006923"/>
+
+<!-- Origin -->
+<xacro:property name="Wrist_3_Ox" value="7.85206891042e-10"/>
+<xacro:property name="Wrist_3_Oy" value="0.0445734366761"/>
+<xacro:property name="Wrist_3_Oz" value="-0.170731162827"/>
+
+<!-- END-EFFECTORS-->
+<!-- SOFT HAND/STICK/NO_EE-->
+<!-- Origin -->
+<xacro:property name="End_effector_Ox" value="1.09385793771e-10"/>
+<xacro:property name="End_effector_Oy" value="-7.18567589489e-10"/>
+<xacro:property name="End_effector_Oz" value="-0.0444928507455"/>
+<xacro:property name="End_effector_roll" value=" 0.0 "/>
+<xacro:property name="End_effector_pitch" value=" ${PI} "/>
+<xacro:property name="End_effector_yaw" value=" ${-PI/2} "/>
+
+</robot>

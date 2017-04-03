@@ -194,4 +194,36 @@
 <!-- Mass -->
 <xacro:property name="Wheel_mass" value=" 2.000000 "/>
 
+<!-- END-EFFECTORS-->
+<!-- SOFT HAND-->
+<!-- Center of Mass -->
+<xacro:property name="Hand_x" value=" 0 "/>
+<xacro:property name="Hand_y" value=" 0 "/>
+<xacro:property name="Hand_z" value=" 0.10 "/>
+<!-- Inertia -->
+<xacro:property name="Hand_xx" value=" 0.00024500 "/>
+<xacro:property name="Hand_yy" value=" 0.00024500 "/>
+<xacro:property name="Hand_zz" value=" 0.00024500 "/>
+<xacro:property name="Hand_xy" value=" 0 "/>
+<xacro:property name="Hand_xz" value=" 0 "/>
+<xacro:property name="Hand_yz" value=" 0 "/>
+<!-- Mass -->
+<xacro:property name="Hand_mass" value=" 0.3 "/>
+
+<!-- STICK-->
+<!-- Center of Mass -->
+<xacro:property name="Stick_x" value=" 0.001 "/>
+<xacro:property name="Stick_y" value=" 0.0 "/>
+<xacro:property name="Stick_z" value=" 0.006 "/>
+<!-- Inertia -->
+<xacro:property name="Stick_xx" value=" 0.0002 "/>
+<xacro:property name="Stick_yy" value=" 0.0002 "/>
+<xacro:property name="Stick_zz" value=" 0.00001 "/>
+<xacro:property name="Stick_xy" value=" 0.0 "/>
+<xacro:property name="Stick_xz" value=" 0.0 "/>
+<xacro:property name="Stick_yz" value=" 0.0 "/>
+<!-- Mass -->
+<xacro:property name="Stick_mass" value=" 0.150 "/>
+
+
 </robot>

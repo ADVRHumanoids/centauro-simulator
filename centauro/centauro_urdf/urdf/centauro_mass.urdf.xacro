@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<!-- adds and additional box of a 10x10x10 cm size and mass "MASS" 5 cm towards x direction from the endeffector axis. It may be needed to stabilize a simulation --> 
+<!-- links -->\
+   <xacro:property name="mass_inertia" value="${MASS*0.05*0.05/6}"/>
+   
+   <link name="arm${arm_num}_9">
+      <inertial>
+         <origin xyz="0.0 0.0 0" rpy="0 0 0"/>
+         <mass value="${MASS}"/>
+       <inertia ixx="${mass_inertia}"  ixy="0"  ixz="0" iyy="${mass_inertia}" iyz="0" izz="${mass_inertia}" />
+     </inertial>
+
+      <visual>
+        <origin xyz="0.0 0.0 0"  rpy="0.0 0.0 0.0"/>
+        <geometry>
+          <box size="0.05 0.05 0.05"/>
+         </geometry>
+         <material name="blue"/>
+      </visual>
+   </link>
+<!-- /links -->
+
+<!-- joints -->
+   <joint name="j_arm${arm_num}_9" type="fixed">
+      <parent link="arm${arm_num}_8"/>
+      <child link="arm${arm_num}_9"/>
+      <origin xyz="${rot*0.1} 0 0.1" rpy="0 0 0"/>
+   </joint> -->
+<!-- /joints -->
+
+</robot>

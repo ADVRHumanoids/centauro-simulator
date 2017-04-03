@@ -5,9 +5,9 @@
 
    <link name="arm${arm_num}_8">
       <inertial>
-         <origin xyz="0 0 0.10" rpy="0 0 0"/>
-         <mass value="0.3"/>
-         <inertia ixx="0.00024500"  ixy="0"  ixz="0" iyy="0.00024500" iyz="0" izz="0.00024500" />
+         <origin xyz="${Hand_x} ${Hand_y} ${Hand_z}" rpy="0 0 0"/>
+         <mass value="${Hand_mass}"/>
+         <inertia ixx="${Hand_xx}"  ixy="${Hand_xy}"  ixz="${Hand_xz}" iyy="${Hand_yy}" iyz="${Hand_yz}" izz="${Hand_zz}" />
       </inertial>
 
       <visual>
@@ -24,7 +24,7 @@
    <joint name="j_arm${arm_num}_8" type="revolute">
       <parent link="arm${arm_num}_7"/>
       <child link="arm${arm_num}_8"/>
-      <origin xyz="0 0 -0.0405" rpy="0 ${PI} ${-PI/2}"/>
+      <origin xyz="${End_effector_Ox} ${End_effector_Oy} ${End_effector_Oz}" rpy="${End_effector_roll} ${End_effector_pitch} ${End_effector_yaw}"/>
       <axis xyz="1 0 0" />
       <limit velocity="6.5" effort="400" lower="0.0" upper="1.57075" />
    </joint> -->

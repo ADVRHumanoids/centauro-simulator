@@ -10,7 +10,7 @@
    <joint name="j_arm${arm_num}_8" type="revolute">
       <parent link="arm${arm_num}_7"/>
       <child link="arm${arm_num}_8"/>
-      <origin xyz="0 0 -0.0405" rpy="0 ${PI} ${-PI/2}"/>
+      <origin xyz="${End_effector_Ox} ${End_effector_Oy} ${End_effector_Oz}" rpy="${End_effector_roll} ${End_effector_pitch} ${End_effector_yaw}"/>
       <axis xyz="1 0 0" />
       <limit velocity="0" effort="0" lower="0.0" upper="0" />
    </joint> -->

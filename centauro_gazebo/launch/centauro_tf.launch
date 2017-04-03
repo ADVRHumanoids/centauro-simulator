@@ -1,0 +1,5 @@
+<launch>
+
+        <node name="load_fixed_transforms" pkg="centauro_ros" type="load_fixed_transforms" />
+        <node name="gazebo_base_transform" pkg="centauro_ros" type="gazebo_base_transform" />
+</launch>

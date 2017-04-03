@@ -40,10 +40,10 @@ if [ $HAS_MOVEIT_CDC == true ]; then
       if [ -f ../urdf/config/ros_args ]; then
          temp=$(cat ../urdf/config/ros_args )
       fi
-      rosrun xacro xacro.py -o ../urdf/${model_filename}.urdf ../urdf/${model_filename}.urdf.xacro ${temp}
+      rosrun xacro xacro --inorder  -o ../urdf/${model_filename}.urdf ../urdf/${model_filename}.urdf.xacro ${temp}
       unset temp
    fi
-   moveit_compute_default_collisions --urdf_path ../urdf/${model_filename}.urdf --srdf_path ../../${robot_name}_srdf/srdf/${model_filename}.srdf --num_trials 10000000
+   moveit_compute_default_collisions --urdf_path ../urdf/${model_filename}.urdf --srdf_path ../../${robot_name}_srdf/srdf/${model_filename}.srdf --num_trials 1000000000
    ./save_acm.py ../../${robot_name}_srdf/srdf/${model_filename}.srdf --output
 else
    echo

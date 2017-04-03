@@ -282,7 +282,7 @@
 <joint name="hip_yaw_${leg_num}" type="revolute">
 	<parent link="pelvis"/>
 	<child link="hip1_${leg_num}"/>
-	<origin xyz="${origin_x*0.30} ${origin_y*0.15} 0" rpy="0 0 ${PI/2}"/>
+	<origin xyz="${origin_x*Leg_1_Ox} ${origin_y*Leg_1_Oy} ${Leg_1_Oz}" rpy="${Leg_1_roll} ${Leg_1_pitch} ${Leg_1_yaw}"/>
 	<axis xyz="0 0 ${-origin_y}"/>
         <limit lower="-2.09" upper="2.09" effort="1770" velocity="6.5"/> <!-- TODO -->
 </joint>
@@ -290,7 +290,7 @@
 <joint name="hip_pitch_${leg_num}" type="revolute">
 	<parent link="hip1_${leg_num}"/>
 	<child link="hip2_${leg_num}"/>
-	<origin xyz="0 0 -0.2"/>
+	<origin xyz="${Leg_2_Ox} ${Leg_2_Oy} ${Leg_2_Oz}"/>
 	<axis xyz="0 ${-origin_y} 0"/>
         <limit lower="-3.14" upper="3.14" effort="3300" velocity="6.5"/> <!-- TODO -->
 </joint>
@@ -298,7 +298,7 @@
 <joint name="knee_pitch_${leg_num}" type="revolute">
 	<parent link="hip2_${leg_num}"/>
 	<child link="knee_${leg_num}"/>
-	<origin xyz="0 0 -0.35"/>
+	<origin xyz="${Leg_3_Ox} ${Leg_3_Oy} ${Leg_3_Oz}"/>
 	<axis xyz="0 ${-origin_y} 0"/>
         <limit  lower="-3.14" upper="3.14" effort="3300" velocity="600.5"/> <!-- TODO -->
 </joint>

@@ -52,6 +52,17 @@
           <erp>0.2</erp>
         </constraints> 
       </bullet>
+      <ode>
+	<solver>
+          <iters>500</iters>
+          <sor>1.15</sor>
+        </solver>
+        <constraints>
+          <contact_surface_layer>0.001</contact_surface_layer>
+          <cfm>0.000001</cfm>
+          <erp>0.2</erp>
+        </constraints> 
+      </ode>
     </physics>
 
   </world>

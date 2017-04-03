@@ -17,6 +17,8 @@
 <xacro:property name="ONE_ARM" value="$(arg ONE_ARM)"/>
 
 <xacro:property name="GAZEBO" value="$(arg GAZEBO)"/>
+<xacro:property name="INERTIA_PARAM" value="$(arg INERTIA_PARAM)"/>
+<xacro:property name="KINEMATIC_PARAM" value="$(arg KINEMATIC_PARAM)"/>
 
 <xacro:property name="TORSO_ACTUATORS" value="$(arg TORSO_ACTUATORS)"/>
 <xacro:property name="ARM_ACTUATORS" value="$(arg ARM_ACTUATORS)"/>
@@ -24,7 +26,7 @@
 <xacro:property name="WHEELS_ACTUATORS" value="$(arg WHEELS_ACTUATORS)"/>
 
 <xacro:property name="ARM_SENSORS" value="$(arg ARM_SENSORS)"/>
-
+<xacro:property name="MASS" value="$(arg MASS)"/>
 <!-- dependend arguments -->
 <xacro:property name="arms" value="${'true' if ('false' not in [TORSO, ARMS] and 'false' in [ONE_ARM]) else 'false'}"/>
 <xacro:property name="legs" value="${'true' if ('false' not in [LEGS] and 'true' not in [ONE_ARM]) else 'false'}"/>
@@ -47,4 +49,9 @@
 <xacro:property name="arm_sensors" value="${'true' if ('false' not in [ARM_SENSORS, arm]) else 'false'}"/>
 <xacro:property name="leg_sensors" value="${'true' if ('false' not in [legs]) else 'false'}"/>
 
+
+<xacro:property name="package" value="$(find centauro)"/>
+
+<xacro:property name="inertia_parameters_file" value="${package + '/centauro_urdf/inertia_parameters/' + INERTIA_PARAM + '.xacro'}"/>
+<xacro:property name="kinematic_parameters_file" value="${package + '/centauro_urdf/kinematic_parameters/' + KINEMATIC_PARAM + '.xacro'}"/>
 </robot>

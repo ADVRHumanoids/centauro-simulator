@@ -1,0 +1,71 @@
+#!/usr/bin/env python2.7
+
+import sys, getopt
+import random
+import re
+
+if __name__ == "__main__":
+  inputfile = ''
+  outputfile = ''
+  rn = 0
+  error_msg = 'usage: inerita_error_generator.py -i <inputfile> -o <outputfile> -r <procent_error>'
+  try:
+     opts, args = getopt.getopt(sys.argv[1:],"hi:o:r:",["ifile=","ofile=","random="])
+  except getopt.GetoptError:
+     print(error_msg)
+     sys.exit(2)
+
+  for opt, arg in opts:
+     if opt in ("-i", "--ifile"):
+        inputfile = arg
+     elif opt in ("-o", "--ofile"):
+        outputfile = arg
+     elif opt in ("-r", "--random"):
+        rn = float(arg)/100
+
+  if not inputfile:
+     print 'please specify an input file'
+     print(error_msg)
+     exit()
+  if not outputfile:
+     print 'please specify an output file'
+     print(error_msg)
+     exit()
+  if not rn:
+     print 'please specify the percentage error'
+     print(error_msg)
+     exit()
+
+  with open(inputfile) as f:
+    content = f.readlines()
+
+  name_start = 'name="'
+  value_start = 'value="'
+  end = '"'
+#  inertia = ['x', 'y', 'z', 'xx', 'xy', 'xz', 'yy', 'yz', 'zz']
+  inertia = ['Ox', 'Oy', 'Oz', 'roll', 'pitch', 'yaw']
+  min_value = 0.00000001
+  outfile = []
+  for param in content:
+#    print(param)
+    if param.find(name_start) >= 0 and param.find(value_start) >= 0:
+      name = param[param.find(name_start)+len(name_start):]
+      name = name[:name.find(end, len(name_start))]
+
+      if name[-2:] in inertia or name[-1:] in inertia:
+        value_begin = param.find(value_start)+len(value_start)
+        value = param[value_begin:]
+
+        value_end = value.find(end, 0)
+        value = value[:value_end]
+        param_0 = param[0:value_begin]
+        param_1 = param[value_begin+value_end:]
+
+        if not float(value):
+          value = min_value*random.uniform(-rn,rn)
+        else:
+          value = float(value)*random.uniform(1-rn,1+rn)
+        param = param_0 + str(value) + param_1
+
+    with open(outputfile, 'a') as the_file:
+      the_file.write(param)

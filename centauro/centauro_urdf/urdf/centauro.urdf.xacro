@@ -11,7 +11,9 @@
  <xacro:if value="${GAZEBO}">
   <xacro:include filename="$(find centauro_gazebo)/urdf/centauro.gazebo"/>
 </xacro:if>
-<xacro:include filename="$(find centauro)/centauro_urdf/parameters.xacro"/>
+<xacro:include filename="${inertia_parameters_file}"/>
+<xacro:include filename="${kinematic_parameters_file}"/>
+
 <xacro:include filename="$(find centauro)/centauro_urdf/materials.xacro"/>
 <xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/model.xacro"/>
 <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_actuators.urdf.xacro" />
@@ -49,15 +51,16 @@
       </collision>
 
    </link>
-
-   <joint name="reference" type="${reference}">
-      <origin xyz="0 0 0.85"/>
-      <parent link="world"/>
-      <child link="pelvis"/>
-   </joint>
-
 </xacro:if>
+<xacro:unless value="${pelvis}">
+   <link name="pelvis"/>
+</xacro:unless>
 
+<joint name="reference" type="${reference}">
+   <origin xyz="${Pelvis_Ox} ${Pelvis_Oy} ${Pelvis_Oz}"/>
+   <parent link="world"/>
+   <child link="pelvis"/>
+</joint>
 <!-- /reference  -->
 
 <!-- torso -->
@@ -70,16 +73,16 @@
 <!-- arms -->
 <xacro:if value="${arms == 'true'}">
    <xacro:centauro_arm arm_num="1"  rot="1"  parent="torso_2">
-      <origin xyz="0.04576 0.169137 0.190626" rpy="0.0 0 -0.5236026689864071"/>
+      <origin xyz="${Shoulder_1_Ox} ${Shoulder_1_Oy} ${Shoulder_1_Oz}" rpy="${Shoulder_1_roll} ${Shoulder_1_pitch} ${Shoulder_1_yaw}"/>
    </xacro:centauro_arm>
    <xacro:centauro_arm arm_num="2" rot="-1"  parent="torso_2">
-      <origin xyz="0.0457475 -0.169137 0.190626" rpy="0.0 0 0.5236026689864071" />
+      <origin xyz="${Shoulder_1_Ox} ${-Shoulder_1_Oy} ${Shoulder_1_Oz}" rpy="${Shoulder_1_roll} ${Shoulder_1_pitch} ${-Shoulder_1_yaw}" />
    </xacro:centauro_arm>
 </xacro:if>
 
 <xacro:if value="${arm == 'true' and arms == 'false'}">
         <xacro:centauro_arm arm_num="1"  rot="1" parent="world">
-           <origin xyz="${0.04576 + 0.3} ${0.169137} ${1.1+0.190626}" rpy="0.0 0 -0.5236026689864071"/>
+           <origin xyz="${Shoulder_1_Ox + Pelvis_Ox + Torso_2_Ox} ${Shoulder_1_Oy + Pelvis_Oy + Torso_2_Oy} ${Shoulder_1_Oz + Pelvis_Oz + Torso_2_Oz}" rpy="${Shoulder_1_roll} ${Shoulder_1_pitch} ${Shoulder_1_yaw}"/>
         </xacro:centauro_arm>
 </xacro:if>
 

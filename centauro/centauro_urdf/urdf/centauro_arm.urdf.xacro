@@ -1,8 +1,8 @@
+<?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 
-<xacro:property name="cos_m10" value="0.984807753012208"/>
-<xacro:property name="sin_m10" value="-0.17364817766693033"/>
+
 
 <!-- macro arms -->
 <xacro:macro name="centauro_arm" params="arm_num rot parent *origin">
@@ -74,7 +74,7 @@
          <origin xyz="${Elbow_1_x} ${-rot*Elbow_1_y} ${Elbow_1_z}"/>
          <mass value="${Elbow_1_mass}"/>
          <inertia ixx="${Elbow_1_xx}" ixy="${-rot*Elbow_1_xy}" ixz="${Elbow_1_xz}" iyy="${Elbow_1_yy}" iyz="${-rot*Elbow_1_yz}" izz="${Elbow_1_zz}"/>
-</inertial>
+      </inertial>
 
       <visual>
          <xacro:visual_model.arm4 />
@@ -145,26 +145,6 @@
       </collision>
    </link>
 
-
-<!-- mass -->
-<!--   <link name="mass${arm_num}_body">
-      <inertial>
-         <origin xyz="0 0 0"/> -->
-<!--         <mass value="10"/> -->
-<!--         <inertia ixx="0.001" ixy="0.00" ixz="0.00" iyy="0.001" iyz="0.00" izz="0.001"/>
-      </inertial>
-	
-      <visual>
-         <origin xyz="0.0 0.0 0"/>
-         <geometry>
-            <box size="0.10 0.10 0.10"/>--> <!-- OK -->
-<!--         </geometry>
-         <material name="red"/>
-      </visual>
-
-   </link> -->
-<!-- /mass -->
-
 <!-- /LINKS -->
 
 <!-- JOINTS -->
@@ -187,7 +167,7 @@
    <joint name="j_arm${arm_num}_2" type="revolute">
       <parent link="arm${arm_num}_1"/>
       <child link="arm${arm_num}_2"/>
-      <origin xyz="-0.09115 ${rot*0.06106} 0.010766"/>
+      <origin xyz="${Shoulder_2_Ox} ${rot*Shoulder_2_Oy} ${Shoulder_2_Oz}"/>
       <axis xyz="-1 0 0"/>
       <xacro:unless value="${rot+1}" >
          <limit lower="0" upper="3.49" effort="1770" velocity="6.5"/>
@@ -202,7 +182,7 @@
    <joint name="j_arm${arm_num}_3" type="revolute">
       <parent link="arm${arm_num}_2"/>
       <child link="arm${arm_num}_3"/>
-      <origin xyz="0.09115 0 -0.21915"/>
+      <origin xyz="${Shoulder_3_Ox} ${Shoulder_3_Oy} ${Shoulder_3_Oz}"/>
       <axis xyz="0 0 -1"/>
       <limit lower="-2.618" upper="2.618" effort="1770" velocity="6.5"/>
    </joint>
@@ -212,7 +192,7 @@
    <joint name="j_arm${arm_num}_4" type="revolute">
       <parent link="arm${arm_num}_3"/>
       <child link="arm${arm_num}_4"/>
-      <origin xyz="0.040 ${rot*0.05615} -0.074"/>
+      <origin xyz="${Elbow_1_Ox} ${rot*Elbow_1_Oy} ${Elbow_1_Oz}"/>
       <axis xyz="0 ${rot} 0"/>
       <xacro:unless value="${rot-1}" >
          <limit lower="-2.530" upper="0.349" effort="1770" velocity="6.5"/>
@@ -227,7 +207,7 @@
    <joint name="j_arm${arm_num}_5" type="revolute">
       <parent link="arm${arm_num}_4"/>
       <child link="arm${arm_num}_5"/>
-      <origin xyz="-0.015 ${-rot*0.05615} -0.061"/>
+      <origin xyz="${Wrist_1_Ox} ${-rot*Wrist_1_Oy} ${Wrist_1_Oz}"/>
       <axis xyz="0 0 -1"/>
       <limit lower="-2.618" upper="2.618" effort="950" velocity="6.5"/>
    </joint>
@@ -237,7 +217,7 @@
    <joint name="j_arm${arm_num}_6" type="revolute">
       <parent link="arm${arm_num}_5"/>
       <child link="arm${arm_num}_6"/>
-      <origin xyz="0 ${rot*0.049} -0.180"/>
+      <origin xyz="${Wrist_2_Ox} ${rot*Wrist_2_Oy} ${Wrist_2_Oz}"/>
       <axis xyz="0 ${rot} 0"/>
       <limit lower="-1.570" upper="1.570" effort="950" velocity="6.5"/>
    </joint>
@@ -247,7 +227,7 @@
    <joint name="j_arm${arm_num}_7" type="revolute">
       <parent link="arm${arm_num}_6"/>
       <child link="arm${arm_num}_7"/>
-      <origin xyz="0 ${-rot*0.049} -0.169"/>
+      <origin xyz="${Wrist_3_Ox} ${-rot*Wrist_3_Oy} ${Wrist_3_Oz}"/>
       <axis xyz="0 0 -1"/>
       <limit lower="-2.618" upper="2.618" effort="400" velocity="6.5"/>
    </joint>
@@ -268,6 +248,7 @@
 <!-- /actuators -->
 
 <!-- end-effector -->
+
 <xacro:if value="${END_EFFECTOR == 'soft_hand'}" >
   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_hand.urdf.xacro" />
 </xacro:if>
@@ -276,6 +257,11 @@
 </xacro:if>
 <xacro:if value="${END_EFFECTOR != 'stick' and END_EFFECTOR != 'soft_hand' }" >
   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_no_end_effector.urdf.xacro" />
+</xacro:if>
+
+<!-- adds and additional box of a 10x10x10 cm size and mass "MASS" 5 cm towards x direction from the endeffector axis. It may be needed to stabilize a simulation --> 
+<xacro:if value="${MASS > 0}" >
+  <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_mass.urdf.xacro" />
 </xacro:if>
 <!-- /end-effector -->
 
