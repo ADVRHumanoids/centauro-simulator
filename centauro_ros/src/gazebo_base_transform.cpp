@@ -34,7 +34,7 @@ int main(int argc, char** argv)
 
   ros::Rate rate(250);
 
-  rospy.sleep(2.)
+//  ros::Duration(0.5).sleep();
 
   while (ros::ok())
   {
