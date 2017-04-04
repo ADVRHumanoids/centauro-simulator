@@ -143,25 +143,158 @@
 
 	<gazebo reference="knee_1">
 		<material>Gazebo/Grey</material>
-		<mu1>10</mu1>
-		<mu2>10</mu2>
+                <collision>
+                        <surface>
+                                <friction>
+                                        <torsional>
+                                                <coefficient> 1 </coefficient>
+                                                <use_patch_radius>true</use_patch_radius>
+                                                <patch_radius>0.2</patch_radius>
+                                        </torsional>
+           		                <ode>
+                                                <mu>1</mu>
+                                                <mu2>1</mu2>
+                                        </ode>
+                 			<bullet>
+				                <friction>1</friction>
+				                <friction2>1</friction2>
+			                </bullet>
+                                </friction>
+                                <contact>
+                                        <ode>
+                                                <soft_cfm>0.007</soft_cfm>
+                                                <soft_erp>0.25</soft_erp>
+                                                <kp>1000000</kp>
+                                                <kd>5</kd>
+                                                <max_vel>100</max_vel>
+                                        </ode>
+                                        <bullet>
+                                                <soft_cfm>0.007</soft_cfm>
+                                                <soft_erp>0.25</soft_erp>
+                                                <kp>1000000</kp>
+                                                <kd>5</kd>
+                                                <split_impulse>0.01</split_impulse>
+                                        </bullet>
+                                </contact> 
+                        </surface>
+                </collision> 
 	</gazebo>
 
 	<gazebo reference="knee_2">
-		<material>Gazebo/Grey</material>
-		<mu1>10</mu1>
-		<mu2>10</mu2>
+	        <material>Gazebo/Grey</material>
+                <collision>
+                        <surface>
+                                <friction>
+                                        <torsional>
+                                                <coefficient> 1 </coefficient>
+                                                <use_patch_radius>true</use_patch_radius>
+                                                <patch_radius>0.2</patch_radius>
+                                        </torsional>
+           		                <ode>
+                                                <mu>1</mu>
+                                                <mu2>1</mu2>
+                                        </ode>
+                 			<bullet>
+				                <friction>1</friction>
+				                <friction2>1</friction2>
+			                </bullet>
+                                </friction>
+                                <contact>
+                                        <ode>
+                                                <soft_cfm>0.007</soft_cfm>
+                                                <soft_erp>0.25</soft_erp>
+                                                <kp>1000000</kp>
+                                                <kd>5</kd>
+                                                <max_vel>100</max_vel>
+                                        </ode>
+                                        <bullet>
+                                                <soft_cfm>0.007</soft_cfm>
+                                                <soft_erp>0.25</soft_erp>
+                                                <kp>1000000</kp>
+                                                <kd>5</kd>
+                                                <split_impulse>0.01</split_impulse>
+                                        </bullet>
+                                </contact> 
+                        </surface>
+                </collision>
 	</gazebo>
 
 	<gazebo reference="knee_3">
 		<material>Gazebo/Grey</material>
-		<mu1>10</mu1>
-		<mu2>10</mu2>
+                <collision>
+
+                       <surface>
+                                <friction>
+                                        <torsional>
+                                                <coefficient> 1 </coefficient>
+                                                <use_patch_radius>true</use_patch_radius>
+                                                <patch_radius>0.2</patch_radius>
+                                        </torsional>
+           		                <ode>
+                                                <mu>1</mu>
+                                                <mu2>1</mu2>
+                                        </ode>
+                 			<bullet>
+				                <friction>1</friction>
+				                <friction2>1</friction2>
+			                </bullet>
+                                </friction> 
+                                <contact>
+                                        <ode>
+                                                <soft_cfm>0.007</soft_cfm>
+                                                <soft_erp>0.25</soft_erp>
+                                                <kp>1000000</kp>
+                                                <kd>5</kd>
+                                                <max_vel>100</max_vel>
+                                        </ode>
+                                        <bullet>
+                                                <soft_cfm>0.007</soft_cfm>
+                                                <soft_erp>0.25</soft_erp>
+                                                <kp>1000000</kp>
+                                                <kd>5</kd>
+                                                <split_impulse>0.01</split_impulse>
+                                        </bullet>
+                                </contact> 
+                        </surface>
+                </collision>
 	</gazebo>
 	<gazebo reference="knee_4">
 		<material>Gazebo/Grey</material>
-		<mu1>10</mu1>
-		<mu2>10</mu2>
+                <collision>
+                        <surface>
+                                <friction>
+                                        <torsional>
+                                                <coefficient> 1 </coefficient>
+                                                <use_patch_radius>true</use_patch_radius>
+                                                <patch_radius>0.2</patch_radius>
+                                        </torsional>
+           		                <ode>
+                                                <mu>1</mu>
+                                                <mu2>1</mu2>
+                                        </ode>
+                 			<bullet>
+				                <friction>1</friction>
+				                <friction2>1</friction2>
+			                </bullet>
+                                </friction>
+                                <contact>
+                                        <ode>
+                                                <soft_cfm>0.007</soft_cfm>
+                                                <soft_erp>0.25</soft_erp>
+                                                <kp>1000000</kp>
+                                                <kd>5</kd>
+                                                <max_vel>100</max_vel>
+                                        </ode>
+                                        <bullet>
+                                                <soft_cfm>0.007</soft_cfm>
+                                                <soft_erp>0.25</soft_erp>
+                                                <kp>1000000</kp>
+                                                <kd>5</kd>
+                                                <split_impulse>0.01</split_impulse>
+                                        </bullet>
+                                </contact> 
+                        </surface>
+                 </collision>
 	</gazebo>
 	
 

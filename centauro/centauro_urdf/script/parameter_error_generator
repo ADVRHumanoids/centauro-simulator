@@ -43,16 +43,18 @@ if __name__ == "__main__":
   value_start = 'value="'
   end = '"'
 #  inertia = ['x', 'y', 'z', 'xx', 'xy', 'xz', 'yy', 'yz', 'zz']
-  inertia = ['Ox', 'Oy', 'Oz', 'roll', 'pitch', 'yaw']
+#  inertia = ['Ox', 'Oy', 'Oz', 'roll', 'pitch', 'yaw']
+  inertia = ['mass']
   min_value = 0.00000001
   outfile = []
   for param in content:
-#    print(param)
+
     if param.find(name_start) >= 0 and param.find(value_start) >= 0:
       name = param[param.find(name_start)+len(name_start):]
       name = name[:name.find(end, len(name_start))]
 
-      if name[-2:] in inertia or name[-1:] in inertia:
+      if name.endswith(tuple(inertia)):
+
         value_begin = param.find(value_start)+len(value_start)
         value = param[value_begin:]
 

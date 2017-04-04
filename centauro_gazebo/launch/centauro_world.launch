@@ -66,8 +66,9 @@
          command="$(find xacro)/xacro --inorder '$(find centauro)/centauro_urdf/urdf/centauro.urdf.xacro' ARMS:=$(arg arms)  TORSO:=$(arg torso) ARM_ACTUATORS:=$(arg arm_actuators) LEGS:=$(arg legs) LEG_ACTUATORS:=$(arg leg_actuators) TORSO_ACTUATORS:=$(arg torso_actuators) WHEELS:=$(arg wheels) WHEELS_ACTUATORS:=$(arg wheels_actuators) STATIC:=$(arg static) ONE_ARM:=$(arg one_arm)  VISUAL_MODEL:=$(arg visual_model) COLLISION_MODEL:=$(arg collision_model) END_EFFECTOR:=$(arg end_effector) ARM_SENSORS:=$(arg arm_sensors) GAZEBO:=$(arg gazebo) MASS:=$(arg mass) INERTIA_PARAM:=$(arg inertia_param) KINEMATIC_PARAM:=$(arg kinematic_param)"/>
 
   <param name="robot_semantic_description" textfile="$(find centauro)/centauro_srdf/srdf/centauro.srdf"/>
+
   <!-- Load other no program-specific config files -->
-  <include file="$(find centauro)/centauro_config/launch/centauro_config.launch"/>
+  <include file="$(find centauro)/centauro_config/launch/centauro_config.launch" ns="/"/>
 
   <!-- run gazebo -->
   <group if="$(arg gazebo)">
