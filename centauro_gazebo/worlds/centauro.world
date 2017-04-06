@@ -3,28 +3,45 @@
   <!-- We use a custom world for the rrbot so that the camera angle is launched correctly -->
 
   <world name="default">
-    <include>
-      <uri>model://ground_plane</uri>
-      <collision>
+
+  <gravity>0 0 -9.81</gravity>
+
+  <model name="ground_plane">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>100 100</size>
+          </plane>
+        </geometry>
         <surface>
-        	<friction>
-           		<ode>
-                                <mu>1</mu>
-                                <mu2>1</mu2>
-                        </ode>
-         		<torsional>
-            		        <coefficient>1</coefficient>
-            		        <patch_radius>0.1</patch_radius>
-            		        <use_patch_radius>true</use_patch_radius>
-          		</torsional>
- 			<bullet>
-				<friction>1</friction>
-				<friction2>1</friction2>
-			</bullet>
-        	</friction> 
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
         </surface>
       </collision>
-    </include>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>100 100</size>
+          </plane>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
 
     <!-- Global light source -->
     <include>
@@ -40,8 +57,8 @@
     </gui>
 
     <physics name="update_rate" type="ode">
-      <real_time_update_rate>500</real_time_update_rate>
-      <max_step_size>0.0005</max_step_size>
+      <real_time_update_rate>1000</real_time_update_rate>
+      <max_step_size>0.00025</max_step_size>
       <max_contacts>5</max_contacts>
       <bullet>
 	<solver>
@@ -56,14 +73,14 @@
       </bullet>
       <ode>
 	<solver>
-          <iters>500</iters>
-          <sor>1.15</sor>
+          <iters>200</iters>
+          <sor>1.20</sor>
         </solver>
         <constraints>
           <contact_surface_layer>0.0002</contact_surface_layer>
           <contact_max_correcting_vel>100</contact_max_correcting_vel>
           <cfm>0.000001</cfm>
-          <erp>0.2</erp>
+          <erp>0.3</erp>
         </constraints> 
       </ode>
     </physics>

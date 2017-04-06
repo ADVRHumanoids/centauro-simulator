@@ -29,7 +29,7 @@
 
   <!-- choose the end-effector -->
   <arg name="end_effector" default="stick"/>
-  <arg name="mass" default="0.13"/>
+  <arg name="mass" default="0.0"/>
 
   <!-- actuators set-up-->
   <arg name="torso_actuators" default="true"/>

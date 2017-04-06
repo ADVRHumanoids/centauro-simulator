@@ -25,6 +25,22 @@ defaults: &actuator_RBE-1210
    Bm: 0.00000515
    phim: 0.00000877
 
+defaults: &motor_upper_body_1
+   B: 1.181
+   phim: 0.0000512
+
+defaults: &motor_upper_body_2
+   B: 0.846
+   phim: 0.0000195
+
+defaults: &motor_wrist_1
+   B: 0.163
+   phim: 0.00002
+
+defaults: &motor_wrist_2
+   B: 0.126
+   phim: 0.00000877
+
 defaults: &gear_CPL20
    nu: 160
 
@@ -33,18 +49,6 @@ defaults: &gear_CPL17
 
 defaults: &gear_CPL25
    nu: 160
-
-defaults: &spring1
-   Ks: 5000
-   D: 2
-
-defaults: &spring2
-   Ks: 5000
-   D: 1
-
-defaults: &springNo
-   Ks: 0
-   D: 0
 
 defaults: &spring_hip_yaw
    Ks: 5000
@@ -58,26 +62,55 @@ defaults: &spring_knee_pitch
    Ks: 5000
    D: 2
 
+
+defaults: &springT1
+   Ks: 6000
+   D: 0.05
+
+defaults: &springT2
+   Ks: 9400
+   D: 0.1
+
+defaults: &springT3
+   Ks: 10000
+   D: 0.1
+
+defaults: &gear_160
+   nu: 160
+
+defaults: &gear_100
+   nu: 100
+
+defaults: &torque_limit_upper_body
+   Torque_limit: 147
+
+defaults: &torque_limit_wrist_1
+   Torque_limit: 55
+
+defaults: &torque_limit_wrist_2
+   Torque_limit: 27
+
+
 defaults: &torque_limit_6025B-20
-   Torque_limit: 1470
+   Torque_limit: 147
 
 defaults: &torque_limit_6013B-20
-   Torque_limit: 1470
+   Torque_limit: 147
 
 defaults: &torque_limit_1211-17
-   Torque_limit: 770
+   Torque_limit: 77
 
 defaults: &torque_limit_1210-17
-   Torque_limit: 330
+   Torque_limit: 33
 
 defaults: &torque_limit_7615A-25
-   Torque_limit: 3140
+   Torque_limit: 314
 
 defaults: &torque_limit_7615B-25
-   Torque_limit: 2750
+   Torque_limit: 275
 
 defaults: &torque_limit_6013B_17
-   Torque_limit: 860
+   Torque_limit: 86
 
 
 centauro:
@@ -156,92 +189,91 @@ centauro:
          <<: *torque_limit_7615B-25
       torso_yaw:
          <<: *type
-         Ks: 5000
-         D: 2
-         <<: *actuator_TBM-60-25-B
-         <<: *gear_CPL20
-         <<: *torque_limit_6025B-20
+         <<: *springT1
+         <<: *motor_upper_body_1
+         <<: *gear_160
+         <<: *torque_limit_upper_body
       j_arm1_1:
          <<: *type
-         <<: *spring1
-         <<: *actuator_TBM-60-25-B
-         <<: *gear_CPL20
-         <<: *torque_limit_6025B-20
+         <<: *springT1
+         <<: *motor_upper_body_1
+         <<: *gear_160
+         <<: *torque_limit_upper_body
       j_arm1_2:
          <<: *type
-         <<: *spring1
-         <<: *actuator_TBM-60-25-B
-         <<: *gear_CPL20
-         <<: *torque_limit_6025B-20
+         <<: *springT1
+         <<: *motor_upper_body_1
+         <<: *gear_160
+         <<: *torque_limit_upper_body
       j_arm1_3:
          <<: *type
-         <<: *spring2
-         <<: *actuator_TBM-60-13-B
-         <<: *gear_CPL20
-         <<: *torque_limit_6013B-20
+         <<: *springT1
+         <<: *motor_upper_body_2
+         <<: *gear_160
+         <<: *torque_limit_upper_body
       j_arm1_4:
          <<: *type
-         <<: *spring1
-         <<: *actuator_TBM-60-13-B
-         <<: *gear_CPL20
-         <<: *torque_limit_6013B-20
+         <<: *springT1
+         <<: *motor_upper_body_2
+         <<: *gear_160
+         <<: *torque_limit_upper_body
       j_arm1_5:
          <<: *type
-         <<: *spring2
-         <<: *actuator_RBE-1211
-         <<: *gear_CPL17
-         <<: *torque_limit_1211-17
+         <<: *springT2
+         <<: *motor_wrist_1
+         <<: *gear_100
+         <<: *torque_limit_wrist_1
       j_arm1_6:
          <<: *type
-         <<: *spring1
-         <<: *actuator_RBE-1211
-         <<: *gear_CPL17
-         <<: *torque_limit_1211-17
+         <<: *springT2
+         <<: *motor_wrist_1
+         <<: *gear_100
+         <<: *torque_limit_wrist_1
       j_arm1_7:
          <<: *type
-         <<: *spring2
-         <<: *actuator_RBE-1210
-         <<: *gear_CPL17
-         <<: *torque_limit_1210-17
+         <<: *springT3
+         <<: *motor_wrist_2
+         <<: *gear_100
+         <<: *torque_limit_wrist_2
       j_arm2_1:
          <<: *type
-         <<: *spring1
-         <<: *actuator_TBM-60-25-B
-         <<: *gear_CPL20
-         <<: *torque_limit_6025B-20
+         <<: *springT1
+         <<: *motor_upper_body_1
+         <<: *gear_160
+         <<: *torque_limit_upper_body
       j_arm2_2:
          <<: *type
-         <<: *spring1
-         <<: *actuator_TBM-60-25-B
-         <<: *gear_CPL20
-         <<: *torque_limit_6025B-20
+         <<: *springT1
+         <<: *motor_upper_body_1
+         <<: *gear_160
+         <<: *torque_limit_upper_body
       j_arm2_3:
          <<: *type
-         <<: *spring2
-         <<: *actuator_TBM-60-13-B
-         <<: *gear_CPL20
-         <<: *torque_limit_6013B-20
+         <<: *springT1
+         <<: *motor_upper_body_2
+         <<: *gear_160
+         <<: *torque_limit_upper_body
       j_arm2_4:
          <<: *type
-         <<: *spring1
-         <<: *actuator_TBM-60-13-B
-         <<: *gear_CPL20
-         <<: *torque_limit_6013B-20
+         <<: *springT1
+         <<: *motor_upper_body_2
+         <<: *gear_160
+         <<: *torque_limit_upper_body
       j_arm2_5:
          <<: *type
-         <<: *spring2
-         <<: *actuator_RBE-1211
-         <<: *gear_CPL17
-         <<: *torque_limit_1211-17
+         <<: *springT2
+         <<: *motor_wrist_1
+         <<: *gear_100
+         <<: *torque_limit_wrist_1
       j_arm2_6:
          <<: *type
-         <<: *spring1
-         <<: *actuator_RBE-1211
-         <<: *gear_CPL17
-         <<: *torque_limit_1211-17
+         <<: *springT2
+         <<: *motor_wrist_1
+         <<: *gear_100
+         <<: *torque_limit_wrist_1
       j_arm2_7:
          <<: *type
-         <<: *spring2
-         <<: *actuator_RBE-1210
-         <<: *gear_CPL17
-         <<: *torque_limit_1210-17
+         <<: *springT3
+         <<: *motor_wrist_2
+         <<: *gear_100
+         <<: *torque_limit_wrist_2

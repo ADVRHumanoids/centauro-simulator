@@ -36,7 +36,7 @@
 
    <child link="torso_2"/>
    <axis xyz="0 0 1"/>
-   <limit lower="-2.618" upper="2.618" effort="1770" velocity="6.5"/> <!-- TODO -->
+   <limit lower="-2.618" upper="2.618" effort="147" velocity="5.7"/> <!-- TODO -->
 </joint>
 
 <!-- /torso joints -->
