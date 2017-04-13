@@ -12,15 +12,25 @@
   </xacro:if>
 </xacro:if>
 
-<!-- CONTROLLER -->
-	<gazebo>
+<!-- ROS CONTROLLER -->
+<!--	<gazebo>
 		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
 			<robotNamespace>/centauro</robotNamespace>
 			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
 		</plugin>
-	
-	</gazebo>
-<!-- /CONTROLLER -->
+
+	</gazebo>-->
+<!-- /ROS CONTROLLER -->
+
+<!--  XBOT CONTROLLER -->
+    <gazebo>
+        <plugin name="gazebo_xbot_plugin" filename="libGazeboXBotPlugin.so">
+            <path_to_config_file>configs/ADVR_shared/centauro/configs/config_centauro.yaml</path_to_config_file>
+        </plugin>
+
+    </gazebo>
+<!-- /XBOT CONTROLLER -->
+
 
 <!-- LEG SENSORS -->
 <!-- CONTACT SENSORS -->
@@ -33,7 +43,7 @@
 
 <!-- /CONTACT SENSORS -->
 
-<!-- FORCE-TORQUE SENSORS -->  
+<!-- FORCE-TORQUE SENSORS -->
 <!--<gazebo>
     <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
         <updateRate>100.0</updateRate>
@@ -42,7 +52,7 @@
     </plugin>
 </gazebo>-->
 
-<!-- The ft_sensor plugin -->  
+<!-- The ft_sensor plugin -->
 <!--<gazebo>
     <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
         <updateRate>100.0</updateRate>
@@ -51,7 +61,7 @@
     </plugin>
 </gazebo>-->
 
-<!-- The ft_sensor plugin -->  
+<!-- The ft_sensor plugin -->
 <!--<gazebo>
     <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
         <updateRate>100.0</updateRate>
@@ -60,7 +70,7 @@
     </plugin>
 </gazebo>-->
 
-<!-- The ft_sensor plugin -->  
+<!-- The ft_sensor plugin -->
 <!--<gazebo>
     <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
         <updateRate>100.0</updateRate>
@@ -68,19 +78,19 @@
         <jointName>foot_fixed_joint_4</jointName>
     </plugin>
 </gazebo>-->
-<!-- FORCE-TORQUE SENSORS -->  
+<!-- FORCE-TORQUE SENSORS -->
 
 <!-- /LEG SENSORS -->
-	
+
 <!-- VISUALiZATION AND FRICTION -->
 	<gazebo reference="base_link"><material>Gazebo/Red</material></gazebo>
-	
+
 	<gazebo reference="pelvis">
 		<material>Gazebo/Blue</material>
 		<mu1>1</mu1>
 		<mu2>1</mu2>
 	</gazebo>
-	
+
 	<gazebo reference="torso_1">
 		<mu1>1</mu1>
 		<mu2>1</mu2>
@@ -92,7 +102,7 @@
 		<mu1>1</mu1>
 		<mu2>1</mu2>
 	</gazebo>
-	
+
 	<gazebo reference="hip1_1">
 		<material>Gazebo/Grey</material>
 		<mu1>1</mu1>
@@ -116,7 +126,7 @@
 		<mu1>1</mu1>
 		<mu2>1</mu2>
 	</gazebo>
-	
+
 	<gazebo reference="hip2_1">
 		<material>Gazebo/Blue</material>
 		<mu1>1</mu1>
@@ -175,9 +185,9 @@
                                                 <kd>5</kd>
                                                 <split_impulse>0.01</split_impulse>
                                         </bullet>
-                                </contact> 
+                                </contact>
                         </surface>
-                </collision> 
+                </collision>
 	</gazebo>
 
 	<gazebo reference="knee_2">
@@ -214,7 +224,7 @@
                                                 <kd>5</kd>
                                                 <split_impulse>0.01</split_impulse>
                                         </bullet>
-                                </contact> 
+                                </contact>
                         </surface>
                 </collision>
 	</gazebo>
@@ -238,7 +248,7 @@
 				                <friction>0.5</friction>
 				                <friction2>0.5</friction2>
 			                </bullet>
-                                </friction> 
+                                </friction>
                                 <contact>
                                         <ode>
                                                 <soft_cfm>0.007</soft_cfm>
@@ -254,7 +264,7 @@
                                                 <kd>5</kd>
                                                 <split_impulse>0.01</split_impulse>
                                         </bullet>
-                                </contact> 
+                                </contact>
                         </surface>
                 </collision>
 	</gazebo>
@@ -292,40 +302,40 @@
                                                 <kd>5</kd>
                                                 <split_impulse>0.01</split_impulse>
                                         </bullet>
-                                </contact> 
+                                </contact>
                         </surface>
                  </collision>
 	</gazebo>
-	
+
 
 
 	<gazebo reference="arm1_1">
 		<material>Gazebo/Blue</material>
 		<mu1>0</mu1>
-		<mu2>0</mu2>	
+		<mu2>0</mu2>
 	</gazebo>
 	<gazebo reference="arm2_1">
 		<material>Gazebo/Blue</material>
 		<mu1>0</mu1>
-		<mu2>0</mu2>	
+		<mu2>0</mu2>
 	</gazebo>
-	
+
 	<gazebo reference="arm1_2">
 		<material>Gazebo/Grey</material>
 		<mu1>0</mu1>
-		<mu2>0</mu2>	
+		<mu2>0</mu2>
 	</gazebo>
 
 	<gazebo reference="arm2_2">
 		<material>Gazebo/Grey</material>
 		<mu1>0</mu1>
-		<mu2>0</mu2>		
+		<mu2>0</mu2>
 	</gazebo>
-	
+
 	<gazebo reference="arm1_3">
 		<material>Gazebo/Blue</material>
 		<mu1>0</mu1>
-		<mu2>0</mu2>	
+		<mu2>0</mu2>
 	</gazebo>
 
 	<gazebo reference="arm2_3">
@@ -333,11 +343,11 @@
 		<mu1>0</mu1>
 		<mu2>0</mu2>
 	</gazebo>
-	
+
 	<gazebo reference="arm1_4">
 		<material>Gazebo/Grey</material>
 		<mu1>0</mu1>
-		<mu2>0</mu2>	
+		<mu2>0</mu2>
 	</gazebo>
 
 	<gazebo reference="arm2_4">
@@ -345,11 +355,11 @@
 		<mu1>0</mu1>
 		<mu2>0</mu2>
 	</gazebo>
-	
+
 	<gazebo reference="arm1_5">
 		<material>Gazebo/Blue</material>
 		<mu1>0</mu1>
-		<mu2>0</mu2>	
+		<mu2>0</mu2>
 	</gazebo>
 
 	<gazebo reference="arm2_5">
@@ -357,7 +367,7 @@
 		<mu1>0</mu1>
 		<mu2>0</mu2>
 	</gazebo>
-	
+
 	<gazebo reference="arm1_6">
 		<material>Gazebo/Grey</material>
 		<mu1>0</mu1>
@@ -369,7 +379,7 @@
 		<mu1>0</mu1>
 		<mu2>0</mu2>
 	</gazebo>
-	
+
 	<gazebo reference="arm1_7">
 		<material>Gazebo/Blue</material>
 		<mu1>0</mu1>
@@ -382,7 +392,288 @@
 		<mu1>0</mu1>
 		<mu2>0</mu2>
 	</gazebo>
-		
+
+
+    <!--     JOINTS -->
+
+    <gazebo reference="torso_yaw">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="j_arm2_1">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+
+    </gazebo>
+
+    <gazebo reference="j_arm1_1">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+    <gazebo reference="j_arm2_1">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+
+    </gazebo>
+
+    <gazebo reference="j_arm1_2">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="j_arm2_2">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="j_arm1_3">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="j_arm2_3">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <implicitSpringDamper>1</implicitSpringDamper>
+    </gazebo>
+
+    <gazebo reference="j_arm1_4">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="j_arm2_4">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="j_arm1_5">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="j_arm2_5">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="j_arm1_6">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="j_arm2_6">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="j_arm1_7">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+
+    <gazebo reference="j_arm2_7">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="hip_yaw_1">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="hip_yaw_2">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="hip_yaw_3">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="hip_yaw_4">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="hip_pitch_1">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="hip_pitch_2">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="hip_pitch_3">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="hip_pitch_4">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="knee_pitch_1">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="knee_pitch_2">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="knee_pitch_3">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
+    <gazebo reference="knee_pitch_4">
+        <dynamics damping="0.0" friction="0" />
+        <provideFeedback>1</provideFeedback>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+          </ode>
+        </physics>
+    </gazebo>
+
 	<gazebo reference="wheel_hip_1"><material>Gazebo/Black</material></gazebo>
 	<gazebo reference="wheel_hip_2"><material>Gazebo/Black</material></gazebo>
 	<gazebo reference="wheel_hip_3"><material>Gazebo/Black</material></gazebo>
