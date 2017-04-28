@@ -13,6 +13,7 @@
 </xacro:if>
 <xacro:include filename="${inertia_parameters_file}"/>
 <xacro:include filename="${kinematic_parameters_file}"/>
+<xacro:include filename="${sensor_parameters_file}"/>
 
 <xacro:include filename="$(find centauro)/centauro_urdf/materials.xacro"/>
 <xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/model.xacro"/>
@@ -39,12 +40,12 @@
          <mass value="${Pelvis_mass}"/>
          <inertia ixx="${Pelvis_xx}" ixy="${Pelvis_xy}" ixz="${Pelvis_xz}" iyy="${Pelvis_yy}" iyz="${Pelvis_yz}" izz="${Pelvis_zz}"/>
       </inertial>
-	
+
       <visual>
          <xacro:visual_model.pelvis />
          <material name="grey"/>
       </visual>
-	
+
       <collision>
          <xacro:collision_model.pelvis />
          <material name="grey"/>

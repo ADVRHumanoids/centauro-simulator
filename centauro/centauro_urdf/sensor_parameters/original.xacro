@@ -1,0 +1,10 @@
+<!--<?xml version="1.0"?>-->
+<robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- IMU -->
+<xacro:property name="Imu_x" value=" -0.070400 "/>
+<xacro:property name="Imu_y" value=" 0.000000 "/>
+<xacro:property name="Imu_z" value=" -0.041600 "/>
+
+
+</robot>

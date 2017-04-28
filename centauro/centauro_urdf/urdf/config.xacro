@@ -54,4 +54,5 @@
 
 <xacro:property name="inertia_parameters_file" value="${package + '/centauro_urdf/inertia_parameters/' + INERTIA_PARAM + '.xacro'}"/>
 <xacro:property name="kinematic_parameters_file" value="${package + '/centauro_urdf/kinematic_parameters/' + KINEMATIC_PARAM + '.xacro'}"/>
+<xacro:property name="sensor_parameters_file" value="${package + '/centauro_urdf/sensor_parameters/' + 'original.xacro'}"/>
 </robot>
