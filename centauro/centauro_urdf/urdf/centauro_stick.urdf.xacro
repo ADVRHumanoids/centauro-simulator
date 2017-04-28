@@ -22,7 +22,7 @@
 <!-- /links -->
 
 <!-- joints -->
-   <joint name="j_arm${arm_num}_8" type="revolute">
+   <joint name="j_arm${arm_num}_8" type="fixed">
       <parent link="arm${arm_num}_7"/>
       <child link="arm${arm_num}_8"/>
       <origin xyz="${End_effector_Ox} ${End_effector_Oy} ${End_effector_Oz}" rpy="${End_effector_roll} ${End_effector_pitch} ${End_effector_yaw}"/>
