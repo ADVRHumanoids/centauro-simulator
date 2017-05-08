@@ -37,7 +37,7 @@
         <update_rate>500</update_rate>
         <visualize>true</visualize>
         <topic>__default_topic__</topic>
-    <imu>
+       <imu>
 
         <!--
         <noise>
@@ -58,7 +58,9 @@
         -->
         </imu>
     </sensor>
-    </gazebo>
+</gazebo>
+
+
 
 <!-- LEG SENSORS -->
 <!-- CONTACT SENSORS -->
