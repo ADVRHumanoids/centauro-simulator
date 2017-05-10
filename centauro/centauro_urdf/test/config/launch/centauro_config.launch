@@ -1,5 +1,0 @@
-<launch>
-
-<rosparam file="$(find centauro)/centauro_urdf/test/config/contacts.yaml" command="load"/>
-<rosparam file="$(find centauro)/centauro_urdf/test/config/actuators.yaml" command="load"/>
-</launch>

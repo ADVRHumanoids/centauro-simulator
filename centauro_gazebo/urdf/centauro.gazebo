@@ -76,81 +76,147 @@
 	<gazebo reference="base_link"><material>Gazebo/Red</material></gazebo>
 	
 	<gazebo reference="pelvis">
-		<material>Gazebo/Blue</material>
-		<mu1>1</mu1>
-		<mu2>1</mu2>
+		<material>Gazebo/OrangeTransparent</material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
 	</gazebo>
 	
-	<gazebo reference="torso_1">
-		<mu1>1</mu1>
-		<mu2>1</mu2>
-		<material>Gazebo/Grey</material>
-	</gazebo>
 
 	<gazebo reference="torso_2">
-		<material>Gazebo/Blue</material>
-		<mu1>1</mu1>
-		<mu2>1</mu2>
+		<material>Gazebo/OrangeTransparent</material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
 	</gazebo>
 	
 	<gazebo reference="hip1_1">
-		<material>Gazebo/Grey</material>
-		<mu1>1</mu1>
-		<mu2>1</mu2>
+		<material>Gazebo/Lane_1</material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
 	</gazebo>
 
 	<gazebo reference="hip1_2">
-		<material>Gazebo/Grey</material>
-		<mu1>1</mu1>
-		<mu2>1</mu2>
+		<material>Gazebo/Lane_1 </material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
 	</gazebo>
 
 	<gazebo reference="hip1_3">
-		<material>Gazebo/Grey</material>
-		<mu1>1</mu1>
-		<mu2>1</mu2>
+		<material>Gazebo/Lane_1</material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
 	</gazebo>
 
 	<gazebo reference="hip1_4">
-		<material>Gazebo/Grey</material>
-		<mu1>1</mu1>
-		<mu2>1</mu2>
+		<material>Gazebo/Lane_1</material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
 	</gazebo>
 	
 	<gazebo reference="hip2_1">
-		<material>Gazebo/Blue</material>
-		<mu1>1</mu1>
-		<mu2>1</mu2>
+		<material>Gazebo/OrangeTransparent </material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
 	</gazebo>
 
 	<gazebo reference="hip2_2">
-		<material>Gazebo/Blue</material>
-		<mu1>1</mu1>
-		<mu2>1</mu2>
+		<material>Gazebo/OrangeTransparent</material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
 	</gazebo>
 
 	<gazebo reference="hip2_3">
-		<material>Gazebo/Blue</material>
-		<mu1>1</mu1>
-		<mu2>1</mu2>
+		<material>Gazebo/OrangeTransparent </material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
 	</gazebo>
 
 	<gazebo reference="hip2_4">
-		<material>Gazebo/Blue</material>
-		<mu1>1</mu1>
-		<mu2>1</mu2>
+		<material>Gazebo/OrangeTransparent </material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
 	</gazebo>
 
 	<gazebo reference="knee_1">
-		<material>Gazebo/Grey</material>
+		<material>Gazebo/Lane_1 </material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
+	</gazebo>
+
+	<gazebo reference="knee_2">
+		<material>Gazebo/Lane_1 </material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
+	</gazebo>
+
+	<gazebo reference="knee_3">
+		<material>Gazebo/Lane_1 </material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
+	</gazebo>
+
+	<gazebo reference="knee_4">
+		<material>Gazebo/Lane_1 </material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
+	</gazebo>
+
+	<gazebo reference="ankle1_1">
+		<material>Gazebo/OrangeTransparent</material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
+	</gazebo>
+
+	<gazebo reference="ankle1_2">
+		<material>Gazebo/OrangeTransparent  </material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
+	</gazebo>
+
+	<gazebo reference="ankle1_3">
+		<material>Gazebo/OrangeTransparent </material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
+	</gazebo>
+
+	<gazebo reference="ankle1_4">
+		<material>Gazebo/OrangeTransparent  </material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
+	</gazebo>
+
+	<gazebo reference="ankle2_1">
+		<material> Gazebo/Lane_1 </material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
+	</gazebo>
+
+	<gazebo reference="ankle2_2">
+		<material>Gazebo/Lane_1 </material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
+	</gazebo>
+
+	<gazebo reference="ankle2_3">
+		<material>Gazebo/Lane_1</material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
+	</gazebo>
+
+	<gazebo reference="ankle2_4">
+		<material>Gazebo/Lane_1</material>
+                <mu1>0</mu1>
+                <mu2>0</mu2>
+	</gazebo>
+	<gazebo reference="wheel_1">
+		<material>Gazebo/Residential </material>
                 <collision>
                         <surface>
                                 <friction>
-                                        <torsional>
+<!--                                        <torsional>
                                                 <coefficient> 0.5 </coefficient>
                                                 <use_patch_radius>true</use_patch_radius>
                                                 <patch_radius>0.2</patch_radius>
-                                        </torsional>
+                                        </torsional>-->
            		                <ode>
                                                 <mu>0.5</mu>
                                                 <mu2>0.5</mu2>
@@ -161,13 +227,13 @@
 			                </bullet>
                                 </friction>
                                 <contact>
-                                        <ode>
-                                                <soft_cfm>0.007</soft_cfm>
-                                                <soft_erp>0.25</soft_erp>
-                                                <kp>1000000</kp>
-                                                <kd>5</kd>
-                                                <max_vel>100</max_vel>
-                                        </ode>
+                                <ode>
+<!--                                               <soft_cfm>0.007</soft_cfm>
+                                        <soft_erp>0.25</soft_erp>-->
+                                        <kp>2100000</kp>
+                                        <kd>1</kd>
+<!--                                                <max_vel>100</max_vel>-->
+                                </ode>
                                         <bullet>
                                                 <soft_cfm>0.007</soft_cfm>
                                                 <soft_erp>0.25</soft_erp>
@@ -180,16 +246,16 @@
                 </collision> 
 	</gazebo>
 
-	<gazebo reference="knee_2">
-	        <material>Gazebo/Grey</material>
+	<gazebo reference="wheel_2">
+	        <material>Gazebo/Residential</material>
                 <collision>
                         <surface>
                                 <friction>
-                                        <torsional>
+<!--                                        <torsional>
                                                 <coefficient> 0.5 </coefficient>
                                                 <use_patch_radius>true</use_patch_radius>
                                                 <patch_radius>0.2</patch_radius>
-                                        </torsional>
+                                        </torsional>-->
            		                <ode>
                                                 <mu>0.5</mu>
                                                 <mu2>0.5</mu2>
@@ -200,13 +266,13 @@
 			                </bullet>
                                 </friction>
                                 <contact>
-                                        <ode>
-                                                <soft_cfm>0.007</soft_cfm>
-                                                <soft_erp>0.25</soft_erp>
-                                                <kp>1000000</kp>
-                                                <kd>5</kd>
-                                                <max_vel>100</max_vel>
-                                        </ode>
+                                <ode>
+<!--                                               <soft_cfm>0.007</soft_cfm>
+                                        <soft_erp>0.25</soft_erp>-->
+                                        <kp>2100000</kp>
+                                        <kd>1</kd>
+<!--                                                <max_vel>100</max_vel>-->
+                                </ode>
                                         <bullet>
                                                 <soft_cfm>0.007</soft_cfm>
                                                 <soft_erp>0.25</soft_erp>
@@ -219,17 +285,17 @@
                 </collision>
 	</gazebo>
 
-	<gazebo reference="knee_3">
-		<material>Gazebo/Grey</material>
+	<gazebo reference="wheel_3">
+		<material>Gazebo/Residential </material>
                 <collision>
 
                        <surface>
                                 <friction>
-                                        <torsional>
+<!--                                        <torsional>
                                                 <coefficient> 0.5 </coefficient>
                                                 <use_patch_radius>true</use_patch_radius>
                                                 <patch_radius>0.2</patch_radius>
-                                        </torsional>
+                                        </torsional>-->
            		                <ode>
                                                 <mu>0.5</mu>
                                                 <mu2>0.5</mu2>
@@ -240,13 +306,13 @@
 			                </bullet>
                                 </friction> 
                                 <contact>
-                                        <ode>
-                                                <soft_cfm>0.007</soft_cfm>
-                                                <soft_erp>0.25</soft_erp>
-                                                <kp>1000000</kp>
-                                                <kd>5</kd>
-                                                <max_vel>100</max_vel>
-                                        </ode>
+                                <ode>
+<!--                                               <soft_cfm>0.007</soft_cfm>
+                                        <soft_erp>0.25</soft_erp>-->
+                                        <kp>2100000</kp>
+                                        <kd>1</kd>
+<!--                                                <max_vel>100</max_vel>-->
+                                </ode>
                                         <bullet>
                                                 <soft_cfm>0.007</soft_cfm>
                                                 <soft_erp>0.25</soft_erp>
@@ -258,16 +324,16 @@
                         </surface>
                 </collision>
 	</gazebo>
-	<gazebo reference="knee_4">
-		<material>Gazebo/Grey</material>
+	<gazebo reference="wheel_4">
+		<material>Gazebo/Residential</material>
                 <collision>
                         <surface>
                                 <friction>
-                                        <torsional>
+<!--                                        <torsional>
                                                 <coefficient> 0.5 </coefficient>
                                                 <use_patch_radius>true</use_patch_radius>
                                                 <patch_radius>0.2</patch_radius>
-                                        </torsional>
+                                        </torsional>-->
            		                <ode>
                                                 <mu>0.5</mu>
                                                 <mu2>0.5</mu2>
@@ -279,11 +345,11 @@
                                 </friction>
                                 <contact>
                                         <ode>
-                                                <soft_cfm>0.007</soft_cfm>
-                                                <soft_erp>0.25</soft_erp>
-                                                <kp>1000000</kp>
-                                                <kd>5</kd>
-                                                <max_vel>100</max_vel>
+ <!--                                               <soft_cfm>0.007</soft_cfm>
+                                                <soft_erp>0.25</soft_erp>-->
+                                                <kp>2100000</kp>
+                                                <kd>1</kd>
+<!--                                                <max_vel>100</max_vel>-->
                                         </ode>
                                         <bullet>
                                                 <soft_cfm>0.007</soft_cfm>
@@ -300,85 +366,98 @@
 
 
 	<gazebo reference="arm1_1">
-		<material>Gazebo/Blue</material>
+		<material>Gazebo/Lane_1 </material>
 		<mu1>0</mu1>
 		<mu2>0</mu2>	
 	</gazebo>
 	<gazebo reference="arm2_1">
-		<material>Gazebo/Blue</material>
+		<material>Gazebo/Lane_1 </material>
 		<mu1>0</mu1>
 		<mu2>0</mu2>	
 	</gazebo>
 	
 	<gazebo reference="arm1_2">
-		<material>Gazebo/Grey</material>
+		<material>Gazebo/OrangeTransparent </material>
 		<mu1>0</mu1>
 		<mu2>0</mu2>	
 	</gazebo>
 
 	<gazebo reference="arm2_2">
-		<material>Gazebo/Grey</material>
+		<material>Gazebo/OrangeTransparent</material>
 		<mu1>0</mu1>
 		<mu2>0</mu2>		
 	</gazebo>
 	
 	<gazebo reference="arm1_3">
-		<material>Gazebo/Blue</material>
+		<material>Gazebo/Lane_1 </material>
 		<mu1>0</mu1>
 		<mu2>0</mu2>	
 	</gazebo>
 
 	<gazebo reference="arm2_3">
-		<material>Gazebo/Blue</material>
+		<material>Gazebo/Lane_1 </material>
 		<mu1>0</mu1>
 		<mu2>0</mu2>
 	</gazebo>
 	
 	<gazebo reference="arm1_4">
-		<material>Gazebo/Grey</material>
+		<material>Gazebo/OrangeTransparent </material>
 		<mu1>0</mu1>
 		<mu2>0</mu2>	
 	</gazebo>
 
 	<gazebo reference="arm2_4">
-		<material>Gazebo/Grey</material>
+		<material>Gazebo/OrangeTransparent </material>
 		<mu1>0</mu1>
 		<mu2>0</mu2>
 	</gazebo>
 	
 	<gazebo reference="arm1_5">
-		<material>Gazebo/Blue</material>
+		<material>Gazebo/Lane_1 </material>
 		<mu1>0</mu1>
 		<mu2>0</mu2>	
 	</gazebo>
 
 	<gazebo reference="arm2_5">
-		<material>Gazebo/Blue</material>
+		<material>Gazebo/Lane_1 </material>
 		<mu1>0</mu1>
 		<mu2>0</mu2>
 	</gazebo>
 	
 	<gazebo reference="arm1_6">
-		<material>Gazebo/Grey</material>
+		<material>Gazebo/OrangeTransparent </material>
 		<mu1>0</mu1>
 		<mu2>0</mu2>
 	</gazebo>
 
 	<gazebo reference="arm2_6">
-		<material>Gazebo/Grey</material>
+		<material>Gazebo/OrangeTransparent </material>
 		<mu1>0</mu1>
 		<mu2>0</mu2>
 	</gazebo>
 	
 	<gazebo reference="arm1_7">
-		<material>Gazebo/Blue</material>
+		<material>Gazebo/Lane_1 </material>
 		<mu1>0</mu1>
 		<mu2>0</mu2>
 	</gazebo>
 
 
 	<gazebo reference="arm2_7">
-		<material>Gazebo/Blue</material>
+		<material>Gazebo/Lane_1 </material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>
+	</gazebo>
+
+	<gazebo reference="arm1_8">
+		<material>Gazebo/OrangeTransparent </material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>
+	</gazebo>
+
+
+	<gazebo reference="arm2_8">
+		<material>Gazebo/OrangeTransparent </material>
 		<mu1>0</mu1>
 		<mu2>0</mu2>
 	</gazebo>

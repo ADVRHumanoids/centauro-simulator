@@ -42,12 +42,10 @@
 	
       <visual>
          <xacro:visual_model.pelvis />
-         <material name="grey"/>
       </visual>
 	
       <collision>
          <xacro:collision_model.pelvis />
-         <material name="grey"/>
       </collision>
 
    </link>
@@ -91,10 +89,10 @@
 
 <!-- legs -->
 <xacro:if value="${legs}">
-<xacro:centauro_leg leg_num="1" origin_x="1" origin_y="1">
+<xacro:centauro_leg leg_num="1" origin_x="1" origin_y="-1">
 </xacro:centauro_leg>
 
-<xacro:centauro_leg leg_num="2" origin_x="1" origin_y="-1">
+<xacro:centauro_leg leg_num="2" origin_x="1" origin_y="1">
 </xacro:centauro_leg>
 
 <xacro:centauro_leg leg_num="3" origin_x="-1" origin_y="-1">

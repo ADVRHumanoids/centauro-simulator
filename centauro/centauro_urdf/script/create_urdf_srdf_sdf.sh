@@ -31,7 +31,7 @@ if [ ! -f ${robot_name}.urdf ]; then
 	if [ -f config/ros_args ]; then
 		temp=$(cat config/ros_args )
 	fi
-	rosrun xacro xacro.py -o ${robot_name}.urdf ${robot_name}.urdf.xacro ${temp}
+	rosrun xacro xacro --inorder -o ${robot_name}.urdf ${robot_name}.urdf.xacro ${temp}
 	unset temp
 fi
 

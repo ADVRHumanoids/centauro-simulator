@@ -12,7 +12,7 @@
 
       <visual>
          <xacro:visual_model.stick />
-         <material name="grey"/>
+         <material name="dark_grey"/>
       </visual>
 
       <collision>

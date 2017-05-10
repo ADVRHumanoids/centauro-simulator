@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<robot name="centauro" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="pelvis">
+  <origin xyz="0.0 0 0.0"  rpy="0.0 0.0 0.0"/>
+  <geometry>
+    <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/pelvis.stl" scale="0.001 0.001 0.001" />
+  </geometry>
+</xacro:macro>
+
+<xacro:macro name="leg1">
+   <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 ${origin_x*origin_y*(Leg_1_yaw-PI/2)-Leg_1_yaw+PI/2}"/>
+   <geometry>
+      <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/hip-yaw.stl" scale="0.001 ${0.001} 0.001" />
+   </geometry>
+   </xacro:macro>
+
+<xacro:macro name="leg2">
+   <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+   <geometry>
+      <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/hip-pitch.stl" scale="0.001 ${0.001} 0.001" />
+   </geometry>
+</xacro:macro>
+
+<xacro:macro name="leg3">
+   <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+   <geometry>
+      <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/knee.stl" scale="0.001 ${0.001} 0.001" />
+   </geometry>
+</xacro:macro>
+
+<xacro:macro name="ankle1">
+   <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+   <geometry>
+      <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/ankle-pitch.stl" scale="0.001 ${0.001} 0.001" />
+   </geometry>
+</xacro:macro>
+
+<xacro:macro name="ankle2">
+   <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+   <geometry>
+      <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/ankle-yaw.stl" scale="0.001 ${0.001} 0.001" />
+   </geometry>
+</xacro:macro>
+
+<xacro:macro name="wheel">
+   <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+   <geometry>
+      <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/wheel.stl" scale="0.001 ${0.001} 0.001" />
+   </geometry>
+</xacro:macro>
+</robot>

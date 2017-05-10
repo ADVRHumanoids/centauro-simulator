@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<robot name="centauro" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="pelvis" >
+   <origin xyz="0 0 0"  rpy="0.0 0.0 0.0"/>
+   <geometry>
+      <box size="0.70 0.40 0.20"/>
+   </geometry>
+</xacro:macro>
+
+<xacro:macro name="leg1">
+		<origin xyz="0 0 -0.1"/>
+		<geometry>
+			<box size="${link_visual} ${link_visual} 0.2"/> <!-- OK: from hip-yaw to pelvis (0.1) + from plevis to hip-pitch (0.1)-->
+		</geometry>
+</xacro:macro>
+
+<xacro:macro name="leg2">
+		<origin xyz="0 0 -${0.35/2}"/>
+		<geometry>
+			<box size="${link_visual} ${link_visual} 0.35"/> <!-- OK -->
+		</geometry>
+</xacro:macro>
+
+<xacro:macro name="leg3">
+		<origin xyz="0 0 -${0.3-link_width/2}" />
+		<geometry>
+			<sphere radius="${link_width/2}"/>
+		</geometry>
+</xacro:macro>
+
+</robot>
