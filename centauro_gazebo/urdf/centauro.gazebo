@@ -25,10 +25,10 @@
 <!-- LEG SENSORS -->
 <!-- CONTACT SENSORS -->
 <xacro:if value="${leg_sensors}">
-   <xacro:contact_sensor link="knee_1" robot="centauro"/>
-   <xacro:contact_sensor link="knee_2" robot="centauro"/>
-   <xacro:contact_sensor link="knee_3" robot="centauro"/>
-   <xacro:contact_sensor link="knee_4" robot="centauro"/>
+   <xacro:contact_sensor link="wheel_1" robot="centauro"/>
+   <xacro:contact_sensor link="wheel_2" robot="centauro"/>
+   <xacro:contact_sensor link="wheel_3" robot="centauro"/>
+   <xacro:contact_sensor link="wheel_4" robot="centauro"/>
 </xacro:if>
 
 <!-- /CONTACT SENSORS -->
