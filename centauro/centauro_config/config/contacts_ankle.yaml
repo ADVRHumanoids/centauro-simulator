@@ -3,7 +3,8 @@ centauro:
       contact1: # refer to the first contact
          name: front_left_leg # optional, human-readable name of a contact
          end_frame: wheel_1 # required, name of a urdf link that is in a contact
-         position: [0, 0.075, 0] # required, position of a contact point in the reference frame
+         position_frame: ankle2_1
+         position: [0, 0.0, 0.310]
          constraint_matrix: # required, at least one subelement is required to initialize the contact, normal of a force/moment constraint
             force_1: [0, 0, 0, 1, 0, 0] # direction of a first contraint on force 
             force_2: [0, 0, 0, 0, 1, 0] # direction of a second contraint on force
@@ -12,12 +13,12 @@ centauro:
             momentum_2: [0, 0, 0, 0, 0, 0] # direction of a second contraint on momentum
             momentum_3: [0, 0, 0, 0, 0, 0] # direction of a third contraint on momentum
          type: ground # required type of a contact that should be considered
-         chain: front_left_leg # optional, srdf chain with which contact is associated with
          topic: contacts_wheel_1
       contact2:
          name: front_right_leg
          end_frame: wheel_2
-         position: [0, 0.075, 0]
+         position_frame: ankle2_2
+         position: [0, 0.0, 0.310]
          constraint_matrix:
             force_1: [0, 0, 0, 1, 0, 0] # direction of a first contraint on force 
             force_2: [0, 0, 0, 0, 1, 0] # direction of a second contraint on force
@@ -27,11 +28,11 @@ centauro:
             momentum_3: [0, 0, 0, 0, 0, 0] # direction of a third contraint on momentum
          type: ground
          topic: contacts_wheel_2
-         chain: front_right_leg # optional, srdf chain with which contact is associated with
       contact3:
-         name: rear_right_leg
+         name: rear_left_leg
          end_frame: wheel_4
-         position: [0, 0.075, 0]
+         position_frame: ankle2_4
+         position: [0, 0.0, 0.310]
          constraint_matrix:
             force_1: [0, 0, 0, 1, 0, 0] # direction of a first contraint on force 
             force_2: [0, 0, 0, 0, 1, 0] # direction of a second contraint on force
@@ -41,11 +42,11 @@ centauro:
             momentum_3: [0, 0, 0, 0, 0, 0] # direction of a third contraint on momentum
          type: ground
          topic: contacts_wheel_4
-         chain: rear_right_leg # optional, srdf chain with which contact is associated with
       contact4:
-         name: rear_left_leg
+         name: rear_right_leg
          end_frame: wheel_3
-         position: [0, 0.075, 0]
+         position_frame: ankle2_3
+         position: [0, 0.0, 0.310]
          constraint_matrix:
             force_1: [0, 0, 0, 1, 0, 0] # direction of a first contraint on force 
             force_2: [0, 0, 0, 0, 1, 0] # direction of a second contraint on force
@@ -55,4 +56,3 @@ centauro:
             momentum_3: [0, 0, 0, 0, 0, 0] # direction of a third contraint on momentum
          type: ground
          topic: contacts_wheel_3
-         chain: rear_left_leg # optional, srdf chain with which contact is associated with

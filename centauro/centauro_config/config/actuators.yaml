@@ -198,74 +198,74 @@ centauro:
       ankle_pitch_1:
          <<: *type
          <<: *spring_knee_pitch
-         <<: *actuator_TBM-76-15-B
-         <<: *gear_CPL25
+         <<: *motor_upper_body_1
+         <<: *gear_160
          <<: *torque_limit_ankle_1
       ankle_pitch_2:
          <<: *type
          <<: *spring_knee_pitch
-         <<: *actuator_TBM-76-15-B
-         <<: *gear_CPL25
+         <<: *motor_upper_body_1
+         <<: *gear_160
          <<: *torque_limit_ankle_1
       ankle_pitch_3:
          <<: *type
          <<: *spring_knee_pitch
-         <<: *actuator_TBM-76-15-B
-         <<: *gear_CPL25
+         <<: *motor_upper_body_1
+         <<: *gear_160
          <<: *torque_limit_ankle_1
       ankle_pitch_4:
          <<: *type
          <<: *spring_knee_pitch
-         <<: *actuator_TBM-76-15-B
-         <<: *gear_CPL25
+         <<: *motor_wrist_2
+         <<: *gear_100
          <<: *torque_limit_ankle_1
       ankle_yaw_1:
          <<: *type
          <<: *spring_knee_pitch
-         <<: *actuator_TBM-76-15-B
-         <<: *gear_CPL25
+         <<: *motor_wrist_2
+         <<: *gear_100
          <<: *torque_limit_ankle_2
       ankle_yaw_2:
          <<: *type
          <<: *spring_knee_pitch
-         <<: *actuator_TBM-76-15-B
-         <<: *gear_CPL25
+         <<: *motor_wrist_2
+         <<: *gear_100
          <<: *torque_limit_ankle_2
       ankle_yaw_3:
          <<: *type
          <<: *spring_knee_pitch
-         <<: *actuator_TBM-76-15-B
-         <<: *gear_CPL25
+         <<: *motor_wrist_2
+         <<: *gear_100
          <<: *torque_limit_ankle_2
       ankle_yaw_4:
          <<: *type
          <<: *spring_knee_pitch
-         <<: *actuator_TBM-76-15-B
-         <<: *gear_CPL25
+         <<: *motor_wrist_2
+         <<: *gear_100
          <<: *torque_limit_ankle_2
       j_wheel_1:
          <<: *type
          <<: *spring_knee_pitch
-         <<: *actuator_TBM-76-15-B
-         <<: *gear_CPL25
+         <<: *motor_wrist_2
+         <<: *gear_100
          <<: *torque_limit_ankle_2
       j_wheel_2:
          <<: *type
          <<: *spring_knee_pitch
-         <<: *actuator_TBM-76-15-B
-         <<: *gear_CPL25
+         <<: *motor_wrist_2
+         <<: *gear_100
          <<: *torque_limit_ankle_2
       j_wheel_3:
          <<: *type
          <<: *spring_knee_pitch
-         <<: *actuator_TBM-76-15-B
-         <<: *gear_CPL25
+         <<: *motor_wrist_2
+         <<: *gear_100
          <<: *torque_limit_ankle_2
       j_wheel_4:
          <<: *type
          <<: *spring_knee_pitch
-         <<: *actuator_TBM-76-15-B
-         <<: *gear_CPL25
+         <<: *motor_wrist_2
+         <<: *gear_100
          <<: *torque_limit_ankle_2
       torso_yaw:
          <<: *type

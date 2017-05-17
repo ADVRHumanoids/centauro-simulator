@@ -6,9 +6,9 @@
 
 <link name="hip1_${leg_num}">
 	<inertial>
-		<origin xyz="${Leg_1_x} ${Leg_1_y} ${Leg_1_z}"/>
+		<origin xyz="${Leg_1_x} ${origin_x*origin_y*Leg_1_y} ${Leg_1_z}" />
 		<mass value="${Leg_1_mass}"/> <!-- org: 2 -->
-		<inertia ixx="${Leg_1_xx}" ixy="${Leg_1_xy}" ixz="${Leg_1_xz}" iyy="${Leg_1_yy}" iyz="${Leg_1_yz}" izz="${Leg_1_zz}"/>
+		<inertia ixx="${Leg_1_xx}" ixy="${origin_x*origin_y*Leg_1_xy}" ixz="${Leg_1_xz}" iyy="${Leg_1_yy}" iyz="${origin_x*origin_y*Leg_1_yz}" izz="${Leg_1_zz}"/>
 		<!-- <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01"/> -->
 	</inertial>
       <visual>
@@ -60,9 +60,9 @@
 
 <link name="ankle1_${leg_num}">
 	<inertial>
-		<origin xyz="${Wrist_3_x} ${Wrist_3_y} ${Wrist_3_z}"/>
-		<mass value="${Wrist_3_mass}"/>  <!-- org: 3.5, foot un modeled-->
-		<inertia ixx="${Wrist_3_xx}" ixy="${Wrist_3_xy}" ixz="${Wrist_3_xz}" iyy="${Wrist_3_yy}" iyz="${Wrist_3_yz}" izz="${Wrist_3_zz}"/>
+		<origin xyz="${Ankle_1_x} ${Ankle_1_y} ${Ankle_1_z}"/>
+		<mass value="${Ankle_1_mass}"/>  <!-- org: 3.5, foot un modeled-->
+		<inertia ixx="${Ankle_1_xx}" ixy="${Ankle_1_xy}" ixz="${Ankle_1_xz}" iyy="${Ankle_1_yy}" iyz="${Ankle_1_yz}" izz="${Ankle_1_zz}"/>
 	<!--	<inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01"/>  -->
 	</inertial>
 
@@ -77,9 +77,9 @@
 
 <link name="ankle2_${leg_num}">
 	<inertial>
-		<origin xyz="${Wrist_3_x} ${Wrist_3_y} ${Wrist_3_z}"/>
-		<mass value="${Wrist_3_mass}"/>  <!-- org: 3.5, foot un modeled-->
-		<inertia ixx="${Wrist_3_xx}" ixy="${Wrist_3_xy}" ixz="${Wrist_3_xz}" iyy="${Wrist_3_yy}" iyz="${Wrist_3_yz}" izz="${Wrist_3_zz}"/>
+		<origin xyz="${Ankle_2_x} ${Ankle_2_y} ${Ankle_2_z}"/>
+		<mass value="${Ankle_2_mass}"/>  <!-- org: 3.5, foot un modeled-->
+		<inertia ixx="${Ankle_2_xx}" ixy="${Ankle_2_xy}" ixz="${Ankle_2_xz}" iyy="${Ankle_2_yy}" iyz="${Ankle_2_yz}" izz="${Ankle_2_zz}"/>
 
 	</inertial>
 
@@ -95,9 +95,9 @@
 
 <link name="wheel_${leg_num}">
 	<inertial>
-		<origin xyz="${Wrist_3_x} ${Wrist_3_y} ${Wrist_3_z}"/>
-		<mass value="${Wrist_3_mass}"/>  <!-- org: 3.5, foot un modeled-->
-		<inertia ixx="${Wrist_3_xx}" ixy="${Wrist_3_xy}" ixz="${Wrist_3_xz}" iyy="${Wrist_3_yy}" iyz="${Wrist_3_yz}" izz="${Wrist_3_zz}"/>
+		<origin xyz="${Wheel_x} ${Wheel_y} ${Wheel_z}"/>
+		<mass value="${Wheel_mass}"/>  <!-- org: 3.5, foot un modeled-->
+		<inertia ixx="${Wheel_xx}" ixy="${Wheel_xy}" ixz="${Wheel_xz}" iyy="${Wheel_yy}" iyz="${Wheel_yz}" izz="${Wheel_zz}"/>
 	</inertial>
 
       <visual>
@@ -109,120 +109,6 @@
          <xacro:collision_model.wheel />
       </collision>
 </link> 
-<!-- wheels -->
-<xacro:if	value="${wheels}">
-	
-	<!-- links -->
-	<link name="wheel_hip_${leg_num}">
-		<inertial>
-			<origin xyz="${Wheel_x} ${Wheel_y} ${Wheel_z}"/>	<!-- TODO -->
-			<mass value="${Wheel_mass}"/>  <!-- org: 3.5, foot un modeled-->
-			<inertia ixx="${Wheel_xx}" ixy="${Wheel_xy}" ixz="${Wheel_xz}" iyy="${Wheel_yy}" iyz="${Wheel_yz}" izz="${Wheel_zz}"/>
-		</inertial>
-	
-		<visual>
-			<origin xyz="0 0 0" rpy="${PI/2} 0 0" />
-			<geometry>
-				<cylinder length="${wheel_length}" radius="${wheel_radius}"/>
-			</geometry>
-		</visual>
-
-		<collision>
-			<origin xyz="0 0 0" rpy="${PI/2} 0 0" />
-			<geometry>
-				<cylinder length="${wheel_length}" radius="${wheel_radius}"/>
-			</geometry>
-		</collision>
-	
-	</link>
-	<link name="wheel_hip_reference_${leg_num}">
-		<inertial>
-			<origin xyz="0 0 0"/>	<!-- TODO -->
-			<mass value="${0.01}"/>  <!-- org: 3.5, foot un modeled-->
-			<inertia ixx="${0.01/12*(0.01*0.01+0.01*0.01)}" ixy="0" ixz="0" iyy="${0.01/12*(wheel_radius*wheel_radius+0.01*0.01)}" iyz="0" izz="${0.01/12*(wheel_radius*wheel_radius+0.01*0.01)}"/>
-		</inertial>
-		<visual>
-			<origin xyz="0 0 0" rpy="0 0 0" />
-			<geometry>
-				<box size="${wheel_radius} 0.01 0.01"/>
-			</geometry>
-		</visual>	
-	</link>
-
-	<link name="wheel_knee_${leg_num}">
-		<inertial>
-			<origin xyz="${Wheel_x} ${Wheel_y} ${Wheel_z}"/>	<!-- TODO -->
-			<mass value="${Wheel_mass}"/>  <!-- org: 3.5, foot un modeled-->
-			<inertia ixx="${Wheel_xx}" ixy="${Wheel_xy}" ixz="${Wheel_xz}" iyy="${Wheel_yy}" iyz="${Wheel_yz}" izz="${Wheel_zz}"/>
-		</inertial>
-	
-		<visual>
-			<origin xyz="0 0 0" rpy="${PI/2} 0 0" />
-			<geometry>
-				<cylinder length="${wheel_length}" radius="${wheel_radius}"/>
-			</geometry>
-		</visual>
-
-		<collision>
-			<origin xyz="0 0 0" rpy="${PI/2} 0 0" />
-			<geometry>
-				<cylinder length="${wheel_length}" radius="${wheel_radius}"/>
-			</geometry>
-		</collision>
-	
-	</link>
-
-	<link name="wheel_knee_reference_${leg_num}">
-		<inertial>
-			<origin xyz="0 0 0"/>	<!-- TODO -->
-			<mass value="${0.01}"/>  <!-- org: 3.5, foot un modeled-->
-			<inertia ixx="${0.01/12*(0.01*0.01+0.01*0.01)}" ixy="0" ixz="0" iyy="${0.01/12*(wheel_radius*wheel_radius+0.01*0.01)}" iyz="0" izz="${0.01/12*(wheel_radius*wheel_radius+0.01*0.01)}"/>
-		</inertial>
-		<visual>
-			<origin xyz="0 0 0" rpy="0 0 0" />
-			<geometry>
-				<box size="${wheel_radius} 0.01 0.01"/>
-			</geometry>
-		</visual>	
-	</link>
-
-	<!-- /links -->
-
-	<!-- joints -->
-	<joint name="j_wheel_hip_${leg_num}" type="continuous">
-		<parent link="hip2_${leg_num}"/>
-		<child link="wheel_hip_${leg_num}"/>
-		<origin xyz = "0 ${origin_x*(motors_length+wheel_length)/2} 0"/>
-		<axis xyz="0 ${origin_x*origin_y} 0"/>
-	</joint>
-	<joint name="j_wheel_hip_reeferece_${leg_num}" type="fixed">
-		<origin xyz="0 ${origin_y*(wheel_length+0.005)} 0"/>
-		<parent link="wheel_hip_${leg_num}"/>
-		<child link="wheel_hip_reference_${leg_num}"/>
-	</joint>	
-	<joint name="j_wheel_knee_${leg_num}" type="continuous">
-		<parent link="knee_${leg_num}"/>
-		<child link="wheel_knee_${leg_num}"/>
-		<origin xyz = "0 ${origin_x*(motors_length+wheel_length)/2} 0"/>
-		<axis xyz="0 ${origin_x*origin_y} 0"/>
-	</joint>
-	<joint name="j_wheel_knee_reeferece_${leg_num}" type="fixed">
-		<origin xyz="0 ${origin_y*(wheel_length+0.005)} 0"/>
-		<parent link="wheel_knee_${leg_num}"/>
-		<child link="wheel_knee_reference_${leg_num}"/>
-	</joint>
-	<!-- /joints -->
-
-	<!-- actuators -->
-<xacro:if	value="${wheels_actuators}">
-	<xacro:position_actuator joint="j_wheel_hip_${leg_num}" /> 
-	<xacro:position_actuator joint="j_wheel_knee_${leg_num}" /> 
-
-	<!-- /actuators -->
-</xacro:if>	
-</xacro:if>
-
-<!-- /wheels -->
 
 <joint name="hip_yaw_${leg_num}" type="revolute">
 	<parent link="pelvis"/>
