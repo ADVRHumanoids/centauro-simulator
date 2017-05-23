@@ -73,12 +73,12 @@
       </bullet>
       <ode>
 	<solver>
-          <iters>200</iters>
+          <iters>500</iters>
           <sor>1.20</sor>
         </solver>
         <constraints>
           <contact_surface_layer>0.0002</contact_surface_layer>
-          <contact_max_correcting_vel>100</contact_max_correcting_vel>
+          <contact_max_correcting_vel>500</contact_max_correcting_vel>
           <cfm>0.000001</cfm>
           <erp>0.3</erp>
         </constraints> 

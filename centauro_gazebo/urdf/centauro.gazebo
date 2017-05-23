@@ -228,11 +228,11 @@
                                 </friction>
                                 <contact>
                                 <ode>
-<!--                                               <soft_cfm>0.007</soft_cfm>
-                                        <soft_erp>0.25</soft_erp>-->
+                                        <!--<soft_cfm>0.0001</soft_cfm>
+                                        <soft_erp>0.25</soft_erp> -->
                                         <kp>2100000</kp>
                                         <kd>1</kd>
-<!--                                                <max_vel>100</max_vel>-->
+                                        <max_vel>100</max_vel>
                                 </ode>
                                         <bullet>
                                                 <soft_cfm>0.007</soft_cfm>
@@ -267,11 +267,11 @@
                                 </friction>
                                 <contact>
                                 <ode>
-<!--                                               <soft_cfm>0.007</soft_cfm>
-                                        <soft_erp>0.25</soft_erp>-->
+                                        <!--<soft_cfm>0.0001</soft_cfm>
+                                        <soft_erp>0.25</soft_erp> -->
                                         <kp>2100000</kp>
                                         <kd>1</kd>
-<!--                                                <max_vel>100</max_vel>-->
+                                        <max_vel>100</max_vel>
                                 </ode>
                                         <bullet>
                                                 <soft_cfm>0.007</soft_cfm>
@@ -307,11 +307,11 @@
                                 </friction> 
                                 <contact>
                                 <ode>
-<!--                                               <soft_cfm>0.007</soft_cfm>
-                                        <soft_erp>0.25</soft_erp>-->
+                                        <!--<soft_cfm>0.0001</soft_cfm>
+                                        <soft_erp>0.25</soft_erp> -->
                                         <kp>2100000</kp>
                                         <kd>1</kd>
-<!--                                                <max_vel>100</max_vel>-->
+                                        <max_vel>100</max_vel>
                                 </ode>
                                         <bullet>
                                                 <soft_cfm>0.007</soft_cfm>
@@ -345,11 +345,11 @@
                                 </friction>
                                 <contact>
                                         <ode>
- <!--                                               <soft_cfm>0.007</soft_cfm>
-                                                <soft_erp>0.25</soft_erp>-->
-                                                <kp>2100000</kp>
-                                                <kd>1</kd>
-<!--                                                <max_vel>100</max_vel>-->
+                                        <!--<soft_cfm>0.0001</soft_cfm>
+                                        <soft_erp>0.25</soft_erp> -->
+                                        <kp>2100000</kp>
+                                        <kd>1</kd>
+                                        <max_vel>100</max_vel>
                                         </ode>
                                         <bullet>
                                                 <soft_cfm>0.007</soft_cfm>

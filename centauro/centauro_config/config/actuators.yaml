@@ -51,17 +51,28 @@ defaults: &gear_CPL25
    nu: 160
 
 defaults: &spring_hip_yaw
-   Ks: 5000
-   D: 1
+   Ks: 80000
+   D: 2.0
 
 defaults: &spring_hip_pitch
-   Ks: 5000
-   D: 2
+   Ks: 80000
+   D: 2.0
 
 defaults: &spring_knee_pitch
-   Ks: 5000
-   D: 2
+   Ks: 80000
+   D: 2.0
 
+defaults: &spring_ankle_pitch
+   Ks: 80000
+   D: 2.0
+
+defaults: &spring_ankle_yaw
+   Ks: 40000
+   D: 1.0
+
+defaults: &spring_wheel
+   Ks: 40000
+   D: 1.0
 
 defaults: &springT1
    Ks: 6000
@@ -197,61 +208,61 @@ centauro:
          <<: *torque_limit_leg
       ankle_pitch_1:
          <<: *type
-         <<: *spring_knee_pitch
+         <<: *spring_ankle_pitch
          <<: *motor_upper_body_1
          <<: *gear_160
          <<: *torque_limit_ankle_1
       ankle_pitch_2:
          <<: *type
-         <<: *spring_knee_pitch
+         <<: *spring_ankle_pitch
          <<: *motor_upper_body_1
          <<: *gear_160
          <<: *torque_limit_ankle_1
       ankle_pitch_3:
          <<: *type
-         <<: *spring_knee_pitch
+         <<: *spring_ankle_pitch
          <<: *motor_upper_body_1
          <<: *gear_160
          <<: *torque_limit_ankle_1
       ankle_pitch_4:
          <<: *type
-         <<: *spring_knee_pitch
+         <<: *spring_ankle_pitch
          <<: *motor_wrist_2
          <<: *gear_100
          <<: *torque_limit_ankle_1
       ankle_yaw_1:
          <<: *type
-         <<: *spring_knee_pitch
+         <<: *spring_ankle_yaw
          <<: *motor_wrist_2
          <<: *gear_100
          <<: *torque_limit_ankle_2
       ankle_yaw_2:
          <<: *type
-         <<: *spring_knee_pitch
+         <<: *spring_ankle_yaw
          <<: *motor_wrist_2
          <<: *gear_100
          <<: *torque_limit_ankle_2
       ankle_yaw_3:
          <<: *type
-         <<: *spring_knee_pitch
+         <<: *spring_ankle_yaw
          <<: *motor_wrist_2
          <<: *gear_100
          <<: *torque_limit_ankle_2
       ankle_yaw_4:
          <<: *type
-         <<: *spring_knee_pitch
+         <<: *spring_ankle_yaw
          <<: *motor_wrist_2
          <<: *gear_100
          <<: *torque_limit_ankle_2
       j_wheel_1:
          <<: *type
-         <<: *spring_knee_pitch
+         <<: *spring_wheel
          <<: *motor_wrist_2
          <<: *gear_100
          <<: *torque_limit_ankle_2
       j_wheel_2:
          <<: *type
-         <<: *spring_knee_pitch
+         <<: *spring_wheel
          <<: *motor_wrist_2
          <<: *gear_100
          <<: *torque_limit_ankle_2
@@ -263,7 +274,7 @@ centauro:
          <<: *torque_limit_ankle_2
       j_wheel_4:
          <<: *type
-         <<: *spring_knee_pitch
+         <<: *spring_wheel
          <<: *motor_wrist_2
          <<: *gear_100
          <<: *torque_limit_ankle_2
