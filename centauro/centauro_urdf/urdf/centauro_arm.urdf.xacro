@@ -18,12 +18,11 @@
 
       <visual>
          <xacro:visual_model.arm1 />
-         <material name="blue"/>
+         <material name="dark_grey"/>
       </visual>
 	
       <collision>
          <xacro:collision_model.arm1 />
-         <material name="blue"/>
       </collision>
    </link>
 <!-- shoulder yaw-roll-->
@@ -38,12 +37,10 @@
 
       <visual>
          <xacro:visual_model.arm2 />
-         <material name="grey"/>
       </visual>
 	
       <collision>
          <xacro:collision_model.arm2 />
-         <material name="grey"/>
       </collision>
    </link>
 <!-- shoulder roll-pitch-->
@@ -58,12 +55,11 @@
 
       <visual>
          <xacro:visual_model.arm3 />
-         <material name="blue"/>
+         <material name="dark_grey"/>
       </visual>
 
       <collision>
          <xacro:collision_model.arm3 />
-         <material name="blue"/>
       </collision>
    </link>
 <!-- /shoulder-elbow -->
@@ -78,12 +74,10 @@
 
       <visual>
          <xacro:visual_model.arm4 />
-         <material name="grey"/>
       </visual>
 	
       <collision>
          <xacro:collision_model.arm4 />
-         <material name="grey"/>
       </collision>
    </link>
 <!-- /elbow yaw-pitch -->
@@ -97,12 +91,11 @@
 </inertial>
       <visual>
          <xacro:visual_model.arm5 />
-         <material name="blue"/>
+         <material name="dark_grey"/>
       </visual>
 
       <collision>
          <xacro:collision_model.arm5 />
-         <material name="blue"/>
       </collision>
    </link>
 <!-- /elbow-wrist -->
@@ -117,12 +110,10 @@
 
       <visual>
          <xacro:visual_model.arm6 />
-         <material name="grey"/>
       </visual>
 	
       <collision>
          <xacro:collision_model.arm6 />
-         <material name="grey"/>
       </collision>
    </link>
 <!-- /wrist yaw-pitch -->
@@ -136,12 +127,11 @@
 
       <visual>
          <xacro:visual_model.arm7 />
-         <material name="blue"/>
+         <material name="dark_grey"/>
       </visual>
 
       <collision>
          <xacro:collision_model.arm7 />
-         <material name="blue"/>
       </collision>
    </link>
 

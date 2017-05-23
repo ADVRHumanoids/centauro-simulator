@@ -13,12 +13,10 @@
 
 	<visual>
                 <xacro:visual_model.torso />
-		<material name="grey"/>
 	</visual>
 
 	<collision>
                 <xacro:collision_model.torso />
-		<material name="grey"/>
 	</collision>
 </link>
 

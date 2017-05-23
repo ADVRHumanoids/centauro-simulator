@@ -13,102 +13,102 @@
 <xacro:property name="wheel_weight" value=" 2.000000 "/>
 
 <!-- Center of Mass -->
-<xacro:property name="Pelvis_x" value=" -0.0135413420 "/>
-<xacro:property name="Pelvis_y" value=" -0.0029098264 "/>
-<xacro:property name="Pelvis_z" value=" 0.1806072100 "/>
+<xacro:property name="Pelvis_x" value=" 0.0 "/>
+<xacro:property name="Pelvis_y" value=" 0.02 "/>
+<xacro:property name="Pelvis_z" value=" 0.18 "/>
 <!-- Inertia -->
-<xacro:property name="Pelvis_xx" value=" 0.2002111900 "/>
-<xacro:property name="Pelvis_yy" value=" 0.5113621400 "/>
-<xacro:property name="Pelvis_zz" value=" 0.5440141100 "/>
-<xacro:property name="Pelvis_xy" value=" -0.0038421093 "/>
-<xacro:property name="Pelvis_xz" value=" -0.0332988490 "/>
-<xacro:property name="Pelvis_yz" value=" 0.0044698470 "/>
+<xacro:property name="Pelvis_xx" value=" 0.488 "/>
+<xacro:property name="Pelvis_yy" value=" 0.751 "/>
+<xacro:property name="Pelvis_zz" value=" 0.864 "/>
+<xacro:property name="Pelvis_xy" value=" 0.000000 "/>
+<xacro:property name="Pelvis_xz" value=" 0.000000 "/>
+<xacro:property name="Pelvis_yz" value=" 0.000000 "/>
 <!-- Mass -->
-<xacro:property name="Pelvis_mass" value=" 24.1909450000 "/>
+<xacro:property name="Pelvis_mass" value=" 25.000000 "/>
 
 <!-- Center of Mass -->
-<xacro:property name="Leg_1_x" value=" 0.0102141990 "/>
-<xacro:property name="Leg_1_y" value=" 0.0183483590 "/>
-<xacro:property name="Leg_1_z" value=" 0.0380909870 "/>
+<xacro:property name="Leg_1_x" value=" 0.000000 "/>
+<xacro:property name="Leg_1_y" value=" 0.000000 "/>
+<xacro:property name="Leg_1_z" value=" 0.05 "/>
 <!-- Inertia -->
-<xacro:property name="Leg_1_xx" value=" 0.0047439572 "/>
-<xacro:property name="Leg_1_yy" value=" 0.0040551878 "/>
-<xacro:property name="Leg_1_zz" value=" 0.0034146219 "/>
-<xacro:property name="Leg_1_xy" value=" -0.0005747047 "/>
-<xacro:property name="Leg_1_xz" value=" -0.0003784138 "/>
-<xacro:property name="Leg_1_yz" value=" -0.0007407508 "/>
+<xacro:property name="Leg_1_xx" value=" 0.0033 "/>
+<xacro:property name="Leg_1_yy" value=" 0.0033 "/>
+<xacro:property name="Leg_1_zz" value=" 0.0033 "/>
+<xacro:property name="Leg_1_xy" value=" 0.000000 "/>
+<xacro:property name="Leg_1_xz" value=" 0.000000 "/>
+<xacro:property name="Leg_1_yz" value=" -0.000000 "/>
 <!-- Mass -->
-<xacro:property name="Leg_1_mass" value=" 1.9194403000 "/>
+<xacro:property name="Leg_1_mass" value=" 2.000000 "/>
 
 <!-- Center of Mass -->
-<xacro:property name="Leg_2_x" value=" 0.0000257966 "/>
-<xacro:property name="Leg_2_y" value=" 0.1810266000 "/>
-<xacro:property name="Leg_2_z" value=" 0.0856697560 "/>
+<xacro:property name="Leg_2_x" value=" 0.000000 "/>
+<xacro:property name="Leg_2_y" value=" 0.15 "/>
+<xacro:property name="Leg_2_z" value=" 0.1 "/>
 <!-- Inertia -->
-<xacro:property name="Leg_2_xx" value=" 0.0485186900 "/>
-<xacro:property name="Leg_2_yy" value=" 0.0042420550 "/>
-<xacro:property name="Leg_2_zz" value=" 0.0482558300 "/>
-<xacro:property name="Leg_2_xy" value=" -0.0000411894 "/>
-<xacro:property name="Leg_2_xz" value=" -0.0000168778 "/>
-<xacro:property name="Leg_2_yz" value=" 0.0032243188 "/>
+<xacro:property name="Leg_2_xx" value=" 0.064 "/>
+<xacro:property name="Leg_2_yy" value=" 0.0075 "/>
+<xacro:property name="Leg_2_zz" value=" 0.064 "/>
+<xacro:property name="Leg_2_xy" value=" 0.000000 "/>
+<xacro:property name="Leg_2_xz" value=" 0.000000 "/>
+<xacro:property name="Leg_2_yz" value=" -0.000000 "/>
 <!-- Mass -->
-<xacro:property name="Leg_2_mass" value=" 2.7264471000 "/>
+<xacro:property name="Leg_2_mass" value=" 4.500000 "/>
 
 <!-- Center of Mass -->
-<xacro:property name="Leg_3_x" value="0.1088166700 "/>
-<xacro:property name="Leg_3_y" value="0.0001089081 "/>
-<xacro:property name="Leg_3_z" value="-0.0226389960 "/>
+<xacro:property name="Leg_3_x" value=" 0.1 "/>
+<xacro:property name="Leg_3_y" value=" 0.000000 "/>
+<xacro:property name="Leg_3_z" value=" 0.0000 "/>
 <!-- Inertia -->
-<xacro:property name="Leg_3_xx" value=" 0.0030534242 "/>
-<xacro:property name="Leg_3_yy" value=" 0.0196033210 "/>
-<xacro:property name="Leg_3_zz" value=" 0.0198498170 "/>
-<xacro:property name="Leg_3_xy" value=" -0.0000422079 "/>
-<xacro:property name="Leg_3_xz" value=" 0.0013679297 "/>
-<xacro:property name="Leg_3_yz" value=" 0.0000069941 "/>
+<xacro:property name="Leg_3_xx" value=" 0.0058 "/>
+<xacro:property name="Leg_3_yy" value=" 0.0292 "/>
+<xacro:property name="Leg_3_zz" value=" 0.0292 "/>
+<xacro:property name="Leg_3_xy" value=" 0.000000 "/>
+<xacro:property name="Leg_3_xz" value=" 0.000000 "/>
+<xacro:property name="Leg_3_yz" value=" 0.000000 "/>
 <!-- Mass -->
-<xacro:property name="Leg_3_mass" value="1.9356754000 "/>
+<xacro:property name="Leg_3_mass" value=" 3.500000 "/>
 
 <!-- Center of Mass -->
-<xacro:property name="Ankle_1_x" value=" 0.0321373180 "/>
-<xacro:property name="Ankle_1_y" value=" 0.0000973572 "/>
-<xacro:property name="Ankle_1_z" value=" -0.0044222206 "/>
+<xacro:property name="Ankle_1_x" value=" 0.05 "/>
+<xacro:property name="Ankle_1_y" value=" 0.000000 "/>
+<xacro:property name="Ankle_1_z" value=" 0.0000 "/>
 <!-- Inertia -->
-<xacro:property name="Ankle_1_xx" value=" 0.0015610452 "/>
-<xacro:property name="Ankle_1_yy" value=" 0.0037423211 "/>
-<xacro:property name="Ankle_1_zz" value=" 0.0038312442 "/>
-<xacro:property name="Ankle_1_xy" value=" 0.0000330597 "/>
-<xacro:property name="Ankle_1_xz" value=" -0.0001314174 "/>
-<xacro:property name="Ankle_1_yz" value=" -0.0000212589 "/>
+<xacro:property name="Ankle_1_xx" value=" 0.0033 "/>
+<xacro:property name="Ankle_1_yy" value=" 0.0033 "/>
+<xacro:property name="Ankle_1_zz" value=" 0.0033 "/>
+<xacro:property name="Ankle_1_xy" value=" 0.000000 "/>
+<xacro:property name="Ankle_1_xz" value=" 0.000000 "/>
+<xacro:property name="Ankle_1_yz" value=" 0.000000 "/>
 <!-- Mass -->
-<xacro:property name="Ankle_1_mass" value="1.2380744000 "/>
+<xacro:property name="Ankle_1_mass" value=" 2.00000 "/>
 
 <!-- Center of Mass -->
-<xacro:property name="Ankle_2_x" value=" 0.0004435803 "/>
-<xacro:property name="Ankle_2_y" value=" 0.0004389911 "/>
-<xacro:property name="Ankle_2_z" value=" 0.1939209200 "/>
+<xacro:property name="Ankle_2_x" value=" 0.0 "/>
+<xacro:property name="Ankle_2_y" value=" 0.000000 "/>
+<xacro:property name="Ankle_2_z" value=" 0.150 "/>
 <!-- Inertia -->
-<xacro:property name="Ankle_2_xx" value=" 0.0049019475 "/>
-<xacro:property name="Ankle_2_yy" value=" 0.0038724162 "/>
-<xacro:property name="Ankle_2_zz" value=" 0.0021783198 "/>
-<xacro:property name="Ankle_2_xy" value=" 0.0000043032 "/>
-<xacro:property name="Ankle_2_xz" value=" 0.0000346491 "/>
-<xacro:property name="Ankle_2_yz" value=" 0.0000170990 "/>
+<xacro:property name="Ankle_2_xx" value=" 0.0033 "/>
+<xacro:property name="Ankle_2_yy" value=" 0.0033 "/>
+<xacro:property name="Ankle_2_zz" value=" 0.0033 "/>
+<xacro:property name="Ankle_2_xy" value=" 0.000000 "/>
+<xacro:property name="Ankle_2_xz" value=" 0.000000 "/>
+<xacro:property name="Ankle_2_yz" value=" 0.000000 "/>
 <!-- Mass -->
-<xacro:property name="Ankle_2_mass" value=" 1.1565926000 "/>
+<xacro:property name="Ankle_2_mass" value=" 2.00000 "/>
 
 <!-- Center of Mass -->
-<xacro:property name="Wheel_x" value=" 0.0000000000 "/>
+<xacro:property name="Wheel_x" value=" 0.00 "/>
 <xacro:property name="Wheel_y" value=" 0.000000 "/>
-<xacro:property name="Wheel_z" value=" 0.0024271906 "/>
+<xacro:property name="Wheel_z" value=" 0.0000 "/>
 <!-- Inertia -->
-<xacro:property name="Wheel_xx" value=" 0.0046864297 "/>
-<xacro:property name="Wheel_yy" value=" 0.0046713489 "/>
-<xacro:property name="Wheel_zz" value=" 0.0053126029 "/>
+<xacro:property name="Wheel_xx" value=" 0.00365 "/>
+<xacro:property name="Wheel_yy" value=" 0.00365 "/>
+<xacro:property name="Wheel_zz" value=" 0.0048 "/>
 <xacro:property name="Wheel_xy" value=" 0.000000 "/>
 <xacro:property name="Wheel_xz" value=" 0.000000 "/>
 <xacro:property name="Wheel_yz" value=" 0.000000 "/>
 <!-- Mass -->
-<xacro:property name="Wheel_mass" value=" 1.7289003000 "/>
+<xacro:property name="Wheel_mass" value=" 1.500000 "/>
 
 <!-- Center of Mass -->
 <xacro:property name="Torso_2_x" value=" 0.0047281261 "/>

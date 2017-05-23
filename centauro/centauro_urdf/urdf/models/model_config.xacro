@@ -25,7 +25,7 @@
    </xacro:macro>
 
    <xacro:load_model path="upper_body" model="${model}"/>
-
+   <xacro:load_model path="lower_body" model="${model}"/>
    <xacro:if value="${END_EFFECTOR == 'soft_hand'}" >
       <xacro:load_model path="upper_body/end_effectors/soft_hand"  model="${model}"/>
    </xacro:if>

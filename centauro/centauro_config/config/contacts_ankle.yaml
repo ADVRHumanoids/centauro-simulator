@@ -2,8 +2,9 @@ centauro:
    contacts: # structure where all contacts are stored
       contact1: # refer to the first contact
          name: front_left_leg # optional, human-readable name of a contact
-         link: knee_1 # required, name of a urdf link that is in a contact
-         position: [0, 0, -0.30] # required, position of a contact point in the reference frame
+         end_frame: wheel_1 # required, name of a urdf link that is in a contact
+         position_frame: ankle2_1
+         position: [0, 0.0, 0.310]
          constraint_matrix: # required, at least one subelement is required to initialize the contact, normal of a force/moment constraint
             force_1: [0, 0, 0, 1, 0, 0] # direction of a first contraint on force 
             force_2: [0, 0, 0, 0, 1, 0] # direction of a second contraint on force
@@ -11,12 +12,13 @@ centauro:
             momentum_1: [0, 0, 0, 0, 0, 0] # direction of a first contraint on momentum
             momentum_2: [0, 0, 0, 0, 0, 0] # direction of a second contraint on momentum
             momentum_3: [0, 0, 0, 0, 0, 0] # direction of a third contraint on momentum
-
-         topic: /raw_contacts_foot_1
+         type: ground # required type of a contact that should be considered
+         topic: contacts_wheel_1
       contact2:
          name: front_right_leg
-         link: knee_2
-         position: [0, 0, -0.30]
+         end_frame: wheel_2
+         position_frame: ankle2_2
+         position: [0, 0.0, 0.310]
          constraint_matrix:
             force_1: [0, 0, 0, 1, 0, 0] # direction of a first contraint on force 
             force_2: [0, 0, 0, 0, 1, 0] # direction of a second contraint on force
@@ -24,25 +26,13 @@ centauro:
             momentum_1: [0, 0, 0, 0, 0, 0] # direction of a first contraint on momentum
             momentum_2: [0, 0, 0, 0, 0, 0] # direction of a second contraint on momentum
             momentum_3: [0, 0, 0, 0, 0, 0] # direction of a third contraint on momentum
-
-         topic: /raw_contacts_foot_2
+         type: ground
+         topic: contacts_wheel_2
       contact3:
-         name: rear_right_leg
-         link: knee_3
-         position: [0, 0, -0.30]
-         constraint_matrix:
-            force_1: [0, 0, 0, 1, 0, 0] # direction of a first contraint on force 
-            force_2: [0, 0, 0, 0, 1, 0] # direction of a second contraint on force
-            force_3: [0, 0, 0, 0, 0, 1] # direction of a third contraint on force
-            momentum_1: [0, 0, 0, 0, 0, 0] # direction of a first contraint on momentum
-            momentum_2: [0, 0, 0, 0, 0, 0] # direction of a second contraint on momentum
-            momentum_3: [0, 0, 0, 0, 0, 0] # direction of a third contraint on momentum
-
-         topic: /raw_contacts_foot_3
-      contact4:
          name: rear_left_leg
-         link: knee_4
-         position: [0, 0, -0.30]
+         end_frame: wheel_4
+         position_frame: ankle2_4
+         position: [0, 0.0, 0.310]
          constraint_matrix:
             force_1: [0, 0, 0, 1, 0, 0] # direction of a first contraint on force 
             force_2: [0, 0, 0, 0, 1, 0] # direction of a second contraint on force
@@ -50,5 +40,19 @@ centauro:
             momentum_1: [0, 0, 0, 0, 0, 0] # direction of a first contraint on momentum
             momentum_2: [0, 0, 0, 0, 0, 0] # direction of a second contraint on momentum
             momentum_3: [0, 0, 0, 0, 0, 0] # direction of a third contraint on momentum
-
-         topic: /raw_contacts_foot_4
+         type: ground
+         topic: contacts_wheel_4
+      contact4:
+         name: rear_right_leg
+         end_frame: wheel_3
+         position_frame: ankle2_3
+         position: [0, 0.0, 0.310]
+         constraint_matrix:
+            force_1: [0, 0, 0, 1, 0, 0] # direction of a first contraint on force 
+            force_2: [0, 0, 0, 0, 1, 0] # direction of a second contraint on force
+            force_3: [0, 0, 0, 0, 0, 1] # direction of a third contraint on force
+            momentum_1: [0, 0, 0, 0, 0, 0] # direction of a first contraint on momentum
+            momentum_2: [0, 0, 0, 0, 0, 0] # direction of a second contraint on momentum
+            momentum_3: [0, 0, 0, 0, 0, 0] # direction of a third contraint on momentum
+         type: ground
+         topic: contacts_wheel_3

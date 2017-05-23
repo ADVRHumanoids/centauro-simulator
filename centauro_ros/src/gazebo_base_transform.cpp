@@ -1,6 +1,6 @@
 #include <ros/ros.h>
 #include <tf/transform_broadcaster.h>
-#include "gazebo_msgs/LinkStates.h"
+#include <gazebo_msgs/LinkStates.h>
 
 void poseCallback(const gazebo_msgs::LinkStates::ConstPtr& msg)
 {

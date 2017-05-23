@@ -8,30 +8,58 @@
 <!-- Origin -->
 <xacro:property name="Pelvis_Ox" value=" 0.0 "/>
 <xacro:property name="Pelvis_Oy" value=" 0.0 "/>
-<xacro:property name="Pelvis_Oz" value=" 0.85 "/>
+<xacro:property name="Pelvis_Oz" value=" 0.759 "/>
 
 <!-- Origin -->
-<xacro:property name="Leg_1_Ox" value=" 0.30 "/>
-<xacro:property name="Leg_1_Oy" value=" 0.15 "/>
-<xacro:property name="Leg_1_Oz" value=" 0 "/>
-<xacro:property name="Leg_1_roll" value=" 0 "/>
-<xacro:property name="Leg_1_pitch" value=" 0 "/>
-<xacro:property name="Leg_1_yaw" value=" ${PI/2} "/>
+<xacro:property name="Leg_1_Ox" value=" 0.225 "/>
+<xacro:property name="Leg_1_Oy" value=" -0.125 "/>
+<xacro:property name="Leg_1_Oz" value=" 0.11 "/>
+<xacro:property name="Leg_1_roll" value=" 3.141592653589793 "/>
+<xacro:property name="Leg_1_pitch" value=" 0.0 "/>
+<xacro:property name="Leg_1_yaw" value=" -0.5070986986495499 "/>
 
 <!-- Origin -->
 <xacro:property name="Leg_2_Ox" value=" 0.000000 "/>
 <xacro:property name="Leg_2_Oy" value=" 0.000000 "/>
-<xacro:property name="Leg_2_Oz" value=" -0.2 "/>
+<xacro:property name="Leg_2_Oz" value=" 0.059 "/>
+<xacro:property name="Leg_2_roll" value=" 1.5707963267948966 "/>
+<xacro:property name="Leg_2_pitch" value=" 0.0 "/>
+<xacro:property name="Leg_2_yaw" value=" 2.6344939549402433 "/>
 
 <!-- Origin -->
 <xacro:property name="Leg_3_Ox" value=" 0.000000 "/>
-<xacro:property name="Leg_3_Oy" value=" 0.000000 "/>
-<xacro:property name="Leg_3_Oz" value=" -0.350000 "/>
+<xacro:property name="Leg_3_Oy" value=" 0.3 "/>
+<xacro:property name="Leg_3_Oz" value=" -0.0036 "/>
+<xacro:property name="Leg_3_roll" value=" 3.14159265358979 "/>
+<xacro:property name="Leg_3_pitch" value=" 0.0 "/>
+<xacro:property name="Leg_3_yaw" value=" 1.5707963267948966 "/>
+
+<xacro:property name="Ankle_1_Ox" value=" 0.2 "/>
+<xacro:property name="Ankle_1_Oy" value=" 0.0 "/>
+<xacro:property name="Ankle_1_Oz" value=" -0.10015 "/>
+<xacro:property name="Ankle_1_roll" value=" 3.141592653589793 "/>
+<xacro:property name="Ankle_1_pitch" value=" 0.0 "/>
+<xacro:property name="Ankle_1_yaw" value=" 0.0 "/>
+
+<xacro:property name="Ankle_2_Ox" value=" 0.0 "/>
+<xacro:property name="Ankle_2_Oy" value=" 0.0 "/>
+<xacro:property name="Ankle_2_Oz" value=" 0.0 "/>
+<xacro:property name="Ankle_2_roll" value=" 1.5707963267948966 "/>
+<xacro:property name="Ankle_2_pitch" value=" 0.0 "/>
+<xacro:property name="Ankle_2_yaw" value=" 1.5707963267948966 "/>
+
+<xacro:property name="Wheel_Ox" value=" 0.0 "/>
+<xacro:property name="Wheel_Oy" value=" 0.00085 "/>
+<xacro:property name="Wheel_Oz" value=" 0.235 "/>
+<xacro:property name="Wheel_roll" value=" 1.5707963267948966 "/>
+<xacro:property name="Wheel_pitch" value=" 0.0 "/>
+<xacro:property name="Wheel_yaw" value=" 0.0 "/>
+
 
 <!-- Origin -->
-<xacro:property name="Torso_2_Ox" value=" 0.3 "/>
+<xacro:property name="Torso_2_Ox" value=" 0.175 "/>
 <xacro:property name="Torso_2_Oy" value=" 0.0 "/>
-<xacro:property name="Torso_2_Oz" value=" 0.1 "/>
+<xacro:property name="Torso_2_Oz" value=" 0.36 "/>
 
 <!-- Origin -->
 <xacro:property name="Shoulder_1_Ox" value=" 0.04576 "/> <!-- for the other arm it was 0.0457475 -->

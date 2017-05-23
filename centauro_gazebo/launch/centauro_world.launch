@@ -88,7 +88,8 @@
 
 <!--        <node name="joint_state_spawner" pkg="controller_manager" type="spawner"
            respawn="false" output="screen" ns="/centauro"
-           args="joint_state_controller" />
+           args="joint_state_controller">
+	</node>
 
         <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
            <remap from="/joint_states" to="/centauro/joint_states" />
