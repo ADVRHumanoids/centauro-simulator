@@ -1,0 +1,71 @@
+digraph G {
+node [shape=box];
+"world" [label="world"];
+"base_link" [label="base_link"];
+"torso_2" [label="torso_2"];
+"imu_link" [label="imu_link"];
+"arm1_1" [label="arm1_1"];
+"arm1_2" [label="arm1_2"];
+"arm1_3" [label="arm1_3"];
+"arm1_4" [label="arm1_4"];
+"arm1_5" [label="arm1_5"];
+"arm1_6" [label="arm1_6"];
+"arm1_7" [label="arm1_7"];
+"arm1_8" [label="arm1_8"];
+"left_arm_ft" [label="left_arm_ft"];
+"arm2_1" [label="arm2_1"];
+"arm2_2" [label="arm2_2"];
+"arm2_3" [label="arm2_3"];
+"arm2_4" [label="arm2_4"];
+"arm2_5" [label="arm2_5"];
+"arm2_6" [label="arm2_6"];
+"arm2_7" [label="arm2_7"];
+"arm2_8" [label="arm2_8"];
+"right_arm_ft" [label="right_arm_ft"];
+"load" [label="load"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"world" -> "floating_base" [label="xyz: 0 0 0.6 \nrpy: 0 -0 0"]
+"floating_base" -> "base_link"
+"base_link" -> "base_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_joint" -> "torso_2"
+"torso_2" -> "imu_joint" [label="xyz: -0.0704 0 -0.0416 \nrpy: 0 -0 0"]
+"imu_joint" -> "imu_link"
+"torso_2" -> "j_arm1_1" [label="xyz: 0.04576 0.169137 0.190626 \nrpy: 0 0 -0.523603"]
+"j_arm1_1" -> "arm1_1"
+"arm1_1" -> "j_arm1_2" [label="xyz: -0.09115 0.06106 0.010766 \nrpy: 0 -0 0"]
+"j_arm1_2" -> "arm1_2"
+"arm1_2" -> "j_arm1_3" [label="xyz: 0.09115 0 -0.21915 \nrpy: 0 -0 0"]
+"j_arm1_3" -> "arm1_3"
+"arm1_3" -> "j_arm1_4" [label="xyz: 0.04 0.05615 -0.074 \nrpy: 0 -0 0"]
+"j_arm1_4" -> "arm1_4"
+"arm1_4" -> "j_arm1_5" [label="xyz: -0.015 -0.05615 -0.061 \nrpy: 0 -0 0"]
+"j_arm1_5" -> "arm1_5"
+"arm1_5" -> "j_arm1_6" [label="xyz: 0 0.049 -0.18 \nrpy: 0 -0 0"]
+"j_arm1_6" -> "arm1_6"
+"arm1_6" -> "j_arm1_7" [label="xyz: 0 -0.049 -0.169 \nrpy: 0 -0 0"]
+"j_arm1_7" -> "arm1_7"
+"arm1_7" -> "j_arm1_8" [label="xyz: 0 0 -0.05 \nrpy: 0 -0 0"]
+"j_arm1_8" -> "arm1_8"
+"arm1_7" -> "l_arm_ft_joint" [label="xyz: 0 0 -0.0565 \nrpy: 0 -0 0"]
+"l_arm_ft_joint" -> "left_arm_ft"
+"torso_2" -> "j_arm2_1" [label="xyz: 0.04576 -0.169137 0.190626 \nrpy: 0 -0 0.523603"]
+"j_arm2_1" -> "arm2_1"
+"arm2_1" -> "j_arm2_2" [label="xyz: -0.09115 -0.06106 0.010766 \nrpy: 0 -0 0"]
+"j_arm2_2" -> "arm2_2"
+"arm2_2" -> "j_arm2_3" [label="xyz: 0.09115 0 -0.21915 \nrpy: 0 -0 0"]
+"j_arm2_3" -> "arm2_3"
+"arm2_3" -> "j_arm2_4" [label="xyz: 0.04 -0.05615 -0.074 \nrpy: 0 -0 0"]
+"j_arm2_4" -> "arm2_4"
+"arm2_4" -> "j_arm2_5" [label="xyz: -0.015 0.05615 -0.061 \nrpy: 0 -0 0"]
+"j_arm2_5" -> "arm2_5"
+"arm2_5" -> "j_arm2_6" [label="xyz: 0 -0.049 -0.18 \nrpy: 0 -0 0"]
+"j_arm2_6" -> "arm2_6"
+"arm2_6" -> "j_arm2_7" [label="xyz: 0 0.049 -0.169 \nrpy: 0 -0 0"]
+"j_arm2_7" -> "arm2_7"
+"arm2_7" -> "j_arm2_8" [label="xyz: 0 0 -0.05 \nrpy: 0 -0 0"]
+"j_arm2_8" -> "arm2_8"
+"arm2_7" -> "r_arm_ft_joint" [label="xyz: 0 0 -0.0565 \nrpy: 0 -0 0"]
+"r_arm_ft_joint" -> "right_arm_ft"
+"base_link" -> "load_joint" [label="xyz: 0.04 0 0.4 \nrpy: 0 -0 0"]
+"load_joint" -> "load"
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<robot name="centauro" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+   <!-- links -->
+
+   <link name="arm${arm_num}_8">
+
+      <visual>
+         <geometry>
+            <sphere radius="0.05"/>
+         </geometry>
+      </visual>
+
+      <collision>
+         <geometry>
+            <sphere radius="0.05"/>
+         </geometry>
+      </collision>
+
+      <inertial>
+         <mass value="0.1"/>
+         <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+      </inertial>
+
+   </link>
+   <!-- /links -->
+
+   <joint name="j_arm${arm_num}_8" type="fixed">
+      <parent link="arm${arm_num}_7"/>
+      <child link="arm${arm_num}_8"/>
+      <origin xyz="0 0 -0.0405" rpy="0 0 0"/>
+   </joint> -->
+
+   <!-- /joints -->
+
+
+</robot>

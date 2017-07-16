@@ -1,0 +1,118 @@
+<?xml version='1.0' ?>
+<launch>
+
+  <!-- basic set-up which progrmas should run -->
+  <arg name="gazebo" default="true"/>
+  <arg name="rviz" default="false"/>
+
+  <!-- which inertia parameters should be loaded -->
+  <arg name="inertia_param" default="original"/>
+  <arg name="kinematic_param" default="original"/>
+
+  <!-- gazebo cofiguration parameters -->
+  <arg name="paused" default="true"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="physics" default="ode"/>
+  <arg name="verbose" default="false"/>
+  <arg name="extra_gazebo_args" default=""/>
+
+  <!-- centauro model configuration parameters -->
+  <!-- centauro modules -->
+  <arg name="arms" default="true"/>
+  <arg name="torso" default="true"/>
+  <arg name="legs" default="false"/>
+  <arg name="wheels" default="false"/>
+  <arg name="static" default="false"/>
+  <arg name="one_arm" default="false"/>
+
+  <!-- choose the end-effector -->
+  <arg name="end_effector" default="narrow_feet"/>
+  <arg name="mass" default="0.0"/>
+
+  <!-- actuators set-up-->
+  <arg name="torso_actuators" default="true"/>
+  <arg name="arm_actuators" default="true"/>
+  <arg name="leg_actuators" default="true"/>
+  <arg name="wheels_actuators" default="true"/>
+
+  <!-- sensors set-up-->
+  <arg name="arm_sensors" default="true"/>
+
+  <!-- which collision model should run:
+       WARNING: exactly one parameter has to be true, otherwise simulation behaviour is undefined -->
+  <arg name="collision_model" default="convex_hull"/>
+
+  <!-- whether the mesh files should be loaded for visualization -->
+  <arg name="visual_model" default="mesh"/>
+
+  <!-- from where the simulation enviornment will be loaded:
+       WARNING: exactly one parameter has to be true, otherwise simulation behaviour is undefined -->
+  <arg name="world_name" default="$(find centauro_gazebo)/worlds/empty.world"/>
+
+  <!-- Internal arguments, rewrite human-readable gazebo arguments to it's internal arguments -->
+  <arg unless="$(arg paused)" name="command_arg1" value=""/>
+  <arg     if="$(arg paused)" name="command_arg1" value="-u"/>
+  <arg unless="$(arg headless)" name="command_arg2" value=""/>
+  <arg     if="$(arg headless)" name="command_arg2" value="-r"/>
+  <arg unless="$(arg verbose)" name="command_arg3" value=""/>
+  <arg     if="$(arg verbose)" name="command_arg3" value="--verbose"/>
+  <arg unless="$(arg debug)" name="script_type" value="gzserver"/>
+  <arg     if="$(arg debug)" name="script_type" value="debug"/>
+
+  <!-- Load the URDF/SRDF into the ROS Parameter Server -->
+  <param name="robot_description"
+         command="$(find xacro)/xacro --inorder '$(find centauro)/centauro_urdf/urdf/centauro_floating_arm.urdf.xacro' ARMS:=$(arg arms)  TORSO:=$(arg torso) ARM_ACTUATORS:=$(arg arm_actuators) LEGS:=$(arg legs) LEG_ACTUATORS:=$(arg leg_actuators) TORSO_ACTUATORS:=$(arg torso_actuators) WHEELS:=$(arg wheels) WHEELS_ACTUATORS:=$(arg wheels_actuators) STATIC:=$(arg static) ONE_ARM:=$(arg one_arm)  VISUAL_MODEL:=$(arg visual_model) COLLISION_MODEL:=$(arg collision_model) END_EFFECTOR:=$(arg end_effector) ARM_SENSORS:=$(arg arm_sensors) GAZEBO:=$(arg gazebo) MASS:=$(arg mass) INERTIA_PARAM:=$(arg inertia_param) KINEMATIC_PARAM:=$(arg kinematic_param)"/>
+
+  <param name="robot_semantic_description" textfile="$(find centauro)/centauro_srdf/srdf/centauro.srdf"/>
+
+  <!-- Load other no program-specific config files -->
+  <include file="$(find centauro)/centauro_config/launch/centauro_config.launch" ns="/"/>
+
+  <!-- run gazebo -->
+  <group if="$(arg gazebo)">
+  <!-- start gazebo server-->
+  	<node name="gazebo" pkg="gazebo_ros" type="$(arg script_type)" respawn="false" output="screen"
+		args="$(arg command_arg1) $(arg command_arg2) $(arg command_arg3) -e $(arg physics) $(arg extra_gazebo_args) $(arg world_name) -namespace centauro" />
+
+  	<!-- start gazebo client -->
+    	<node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen" if="$(arg gui)"/>
+
+
+  	<!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+		args="-urdf -model centauro -param robot_description"/>
+
+        <rosparam file="$(find centauro_gazebo)/config/centauro_control_joint_state_publisher.yaml" command="load"/>
+
+<!--        <node name="joint_state_spawner" pkg="controller_manager" type="spawner"
+           respawn="false" output="screen" ns="/centauro"
+           args="joint_state_controller">
+	</node>
+
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+           <remap from="/joint_states" to="/centauro/joint_states" />
+	   <param name="publish_frequency" type="double" value="250.0"/>
+        </node>-->
+
+  </group>
+
+  <!-- run rviz -->
+  <group if="$(arg rviz)">
+	<group unless="$(arg gazebo)">
+		<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+			<param name="publish_frequency" type="double" value="250.0"/>
+		</node>
+
+		<node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
+			<param name="use_gui" value="$(arg gui)" unless="$(arg gazebo)"/>
+		</node>
+	</group>
+
+	<node pkg="rviz" type="rviz" name="rviz"/>
+
+  </group>
+
+</launch>

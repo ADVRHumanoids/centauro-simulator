@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- torso links -->
+<link name="torso_2">
+	<inertial>
+		<origin xyz="${Torso_2_x} ${Torso_2_y} ${Torso_2_z}"/>
+		<mass value="${Torso_2_mass}"/> <!-- mass  7: torso_1 (2) + torso_2 (5), head un_modelled -->
+                <inertia ixx="${Torso_2_xx}" ixy="${Torso_2_xy}" ixz="${Torso_2_xz}" iyy="${Torso_2_yy}" iyz="${Torso_2_yz}" izz="${Torso_2_zz}"/>
+        </inertial>
+
+	<visual>
+                <xacro:visual_model.torso />
+	</visual>
+
+	<collision>
+                <xacro:collision_model.torso />
+	</collision>
+</link>
+
+<link name="imu_link">
+    <inertial>
+        <mass value="0.0"/> <!-- mass  7: torso_1 (2) + torso_2 (5), head un_modelled -->
+        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+    </inertial>
+</link>
+<!-- /torso links -->
+
+<!-- torso joints -->
+<joint name="base_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="torso_2"/>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+
+<joint name="imu_joint" type="fixed">
+    <parent link="torso_2"/>
+    <child link="imu_link"/>
+    <origin xyz="${Imu_x} ${Imu_y} ${Imu_z}"/>
+</joint>
+
+
+
+</robot>

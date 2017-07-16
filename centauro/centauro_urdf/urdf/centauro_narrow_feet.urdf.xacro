@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<robot name="centauro" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- links -->
+
+    <link name="arm${arm_num}_8">
+
+        <visual>
+            <geometry>
+                <box size="0.3 0.1 0.02"/>
+                <!--box size="0.3 0.04 0.3"/-->
+                <!--cylinder length="0.3" radius="0.02"/-->
+            </geometry>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.3 0.1 0.02"/>
+                <!--box size="0.3 0.04 0.3"/-->
+                <!--cylinder length="0.3" radius="0.02"/-->
+            </geometry>
+        </collision>
+
+        <inertial>
+            <mass value="0.01"/>
+            <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+        </inertial>
+
+    </link>
+    <!-- /links -->
+
+    <!--xacro:if value="${arm_num == 1}">
+        <joint name="j_arm${arm_num}_8" type="fixed">
+            <parent link="arm${arm_num}_7"/>
+            <child link="arm${arm_num}_8"/>
+            <origin xyz="0 0 -0.05" rpy="0 0 0.0"/>
+        </joint>
+    </xacro:if>
+
+    <xacro:if value="${arm_num == 2}">
+        <joint name="j_arm${arm_num}_8" type="fixed">
+            <parent link="arm${arm_num}_7"/>
+            <child link="arm${arm_num}_8"/>
+            <origin xyz="0 0 -0.05" rpy="0 0 -0.0"/>
+        </joint>
+    </xacro:if-->
+
+    <!--origin xyz="0 0 -0.0605" rpy="0 1.5707 0.5"/-->
+    <!--origin xyz="0 0 -0.0605" rpy="0 1.5707 -0.5"/-->
+
+
+    <!-- /joints -->
+
+        <joint name="j_arm${arm_num}_8" type="fixed">
+            <parent link="arm${arm_num}_7"/>
+            <child link="arm${arm_num}_8"/>
+            <origin xyz="0 0 -0.05" rpy="0 0 0"/>
+        </joint>
+
+</robot>

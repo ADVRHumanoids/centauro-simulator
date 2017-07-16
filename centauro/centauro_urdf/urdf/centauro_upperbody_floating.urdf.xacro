@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="centauro">
+
+    <!-- constants -->
+    <xacro:property name="PI" value="3.14159265359"/>
+    <xacro:property name="collision" value="0.05"/>
+    <!-- /constants -->
+
+    <!-- other files -->
+    <xacro:include filename="$(find centauro)/centauro_urdf/urdf/config.xacro"/>
+    <xacro:if value="${GAZEBO}">
+        <xacro:include filename="$(find centauro_gazebo)/urdf/centauro.gazebo"/>
+    </xacro:if>
+<xacro:include filename="${inertia_parameters_file}"/>
+<xacro:include filename="${kinematic_parameters_file}"/>
+<xacro:include filename="${sensor_parameters_file}"/>
+
+    <!--xacro:include filename="$(find centauro)/centauro_urdf/parameters.xacro"/-->
+    <xacro:include filename="$(find centauro)/centauro_urdf/materials.xacro"/>
+    <xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/model.xacro"/>
+    <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_actuators.urdf.xacro"/>
+    <xacro:if value="${LEGS}">
+        <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_leg.urdf.xacro"/>
+    </xacro:if>
+    <xacro:if value="${arm}">
+        <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_arm.urdf.xacro"/>
+    </xacro:if>
+
+
+    <!-- /other files -->
+
+
+
+
+
+    <xacro:if value="${pelvis}">
+
+        <link name="pelvis">
+
+            <inertial>
+                <origin xyz="${Pelvis_x} ${Pelvis_y} ${Pelvis_z}"/>
+                <mass value="${Pelvis_mass}"/>
+                <inertia ixx="${Pelvis_xx}" ixy="${Pelvis_xy}" ixz="${Pelvis_xz}" iyy="${Pelvis_yy}" iyz="${Pelvis_yz}"
+                         izz="${Pelvis_zz}"/>
+            </inertial>
+
+            <visual>
+                <xacro:visual_model.pelvis/>
+                <material name="grey"/>
+            </visual>
+
+            <collision>
+                <xacro:collision_model.pelvis/>
+                <material name="grey"/>
+            </collision>
+
+        </link>
+
+        <joint name="reference" type="${reference}">
+            <origin xyz="0 0 0.85"/>
+            <parent link="world"/>
+            <child link="pelvis"/>
+        </joint>
+
+    </xacro:if>
+
+    <!-- /reference  -->
+
+    <!-- torso -->
+    <xacro:if value="${torso}">
+        <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_torso_floating.urdf.xacro"/>
+    </xacro:if>
+    <!-- /torso -->
+
+
+    <!-- arms -->
+    <xacro:if value="${arms == 'true'}">
+        <xacro:centauro_arm arm_num="1" rot="1" parent="torso_2">
+            <origin xyz="0.04576 0.169137 0.190626" rpy="0.0 0 -0.5236026689864071"/>
+        </xacro:centauro_arm>
+        <xacro:centauro_arm arm_num="2" rot="-1" parent="torso_2">
+            <origin xyz="0.0457475 -0.169137 0.190626" rpy="0.0 0 0.5236026689864071"/>
+        </xacro:centauro_arm>
+    </xacro:if>
+
+    <xacro:if value="${arm == 'true' and arms == 'false'}">
+        <xacro:centauro_arm arm_num="1" rot="1" parent="world">
+            <origin xyz="${0.04576 + 0.3} ${0.169137} ${1.1+0.190626}" rpy="0.0 0 -0.5236026689864071"/>
+        </xacro:centauro_arm>
+    </xacro:if>
+
+    <!-- /arms -->
+
+
+    <!-- legs -->
+    <xacro:if value="${legs}">
+        <xacro:centauro_leg leg_num="1" origin_x="1" origin_y="1">
+        </xacro:centauro_leg>
+
+        <xacro:centauro_leg leg_num="2" origin_x="1" origin_y="-1">
+        </xacro:centauro_leg>
+
+        <xacro:centauro_leg leg_num="3" origin_x="-1" origin_y="-1">
+        </xacro:centauro_leg>
+
+        <xacro:centauro_leg leg_num="4" origin_x="-1" origin_y="1">
+        </xacro:centauro_leg>
+    </xacro:if>
+
+    <!-- /legs -->
+</robot>
