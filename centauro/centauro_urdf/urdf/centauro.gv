@@ -22,7 +22,6 @@ node [shape=box];
 "arm2_7" [label="arm2_7"];
 "arm2_8" [label="arm2_8"];
 "right_arm_ft" [label="right_arm_ft"];
-"load" [label="load"];
 node [shape=ellipse, color=blue, fontcolor=blue];
 "world" -> "floating_base" [label="xyz: 0 0 0.6 \nrpy: 0 -0 0"]
 "floating_base" -> "base_link"
@@ -66,6 +65,4 @@ node [shape=ellipse, color=blue, fontcolor=blue];
 "j_arm2_8" -> "arm2_8"
 "arm2_7" -> "r_arm_ft_joint" [label="xyz: 0 0 -0.0565 \nrpy: 0 -0 0"]
 "r_arm_ft_joint" -> "right_arm_ft"
-"base_link" -> "load_joint" [label="xyz: 0.04 0 0.4 \nrpy: 0 -0 0"]
-"load_joint" -> "load"
 }
