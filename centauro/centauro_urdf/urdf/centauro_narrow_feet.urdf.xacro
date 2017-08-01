@@ -8,7 +8,7 @@
         <visual>
             <geometry>
                 <!--box size="0.4 0.02 0.1"/-->
-                <box size="0.3 0.1 0.02"/>
+                <box size="0.4 0.06 0.02"/>
                 <!--cylinder length="0.3" radius="0.02"/-->
             </geometry>
         </visual>
@@ -16,7 +16,7 @@
         <collision>
             <geometry>
                 <!--box size="0.4 0.02 0.1"/-->
-                <box size="0.3 0.1 0.02"/>
+                <box size="0.4 0.06 0.02"/>
                 <!--cylinder length="0.3" radius="0.02"/-->
             </geometry>
         </collision>
@@ -54,7 +54,7 @@
         <joint name="j_arm${arm_num}_8" type="fixed">
             <parent link="arm${arm_num}_7"/>
             <child link="arm${arm_num}_8"/>
-            <origin xyz="0 0 -0.05" rpy="0 0 0"/>
+            <origin xyz="0 0 -0.08" rpy="0 0 0"/>
         </joint>
 
 </robot>
