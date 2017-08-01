@@ -569,7 +569,7 @@
     </gazebo>
 
     <gazebo reference="j_arm2_1">
-        <dynamics damping="100.0" friction="0" />
+        <dynamics damping="5.0" friction="0" />
         <provideFeedback>1</provideFeedback>
         <physics>
           <ode>
@@ -580,7 +580,7 @@
     </gazebo>
 
     <gazebo reference="j_arm1_1">
-        <dynamics damping="100.0" friction="0" />
+        <dynamics damping="5.0" friction="0" />
         <provideFeedback>1</provideFeedback>
         <physics>
           <ode>
@@ -589,7 +589,7 @@
         </physics>
     </gazebo>
     <gazebo reference="j_arm2_1">
-        <dynamics damping="100.0" friction="0" />
+        <dynamics damping="5.0" friction="0" />
         <provideFeedback>1</provideFeedback>
         <physics>
           <ode>
@@ -600,7 +600,7 @@
     </gazebo>
 
     <gazebo reference="j_arm1_2">
-        <dynamics damping="100.0" friction="0" />
+        <dynamics damping="5.0" friction="0" />
         <provideFeedback>1</provideFeedback>
         <physics>
           <ode>
@@ -610,7 +610,7 @@
     </gazebo>
 
     <gazebo reference="j_arm2_2">
-        <dynamics damping="100.0" friction="0" />
+        <dynamics damping="5.0" friction="0" />
         <provideFeedback>1</provideFeedback>
         <physics>
           <ode>
@@ -620,7 +620,7 @@
     </gazebo>
 
     <gazebo reference="j_arm1_3">
-        <dynamics damping="100.0" friction="0" />
+        <dynamics damping="5.0" friction="0" />
         <provideFeedback>1</provideFeedback>
         <physics>
           <ode>
@@ -630,13 +630,13 @@
     </gazebo>
 
     <gazebo reference="j_arm2_3">
-        <dynamics damping="100.0" friction="0" />
+        <dynamics damping="5.0" friction="0" />
         <provideFeedback>1</provideFeedback>
         <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
 
     <gazebo reference="j_arm1_4">
-        <dynamics damping="100.0" friction="0" />
+        <dynamics damping="5.0" friction="0" />
         <provideFeedback>1</provideFeedback>
         <physics>
           <ode>
@@ -646,7 +646,7 @@
     </gazebo>
 
     <gazebo reference="j_arm2_4">
-        <dynamics damping="100.0" friction="0" />
+        <dynamics damping="5.0" friction="0" />
         <provideFeedback>1</provideFeedback>
         <physics>
           <ode>
@@ -656,7 +656,7 @@
     </gazebo>
 
     <gazebo reference="j_arm1_5">
-        <dynamics damping="100.0" friction="0" />
+        <dynamics damping="5.0" friction="0" />
         <provideFeedback>1</provideFeedback>
         <physics>
           <ode>
@@ -666,7 +666,7 @@
     </gazebo>
 
     <gazebo reference="j_arm2_5">
-        <dynamics damping="100.0" friction="0" />
+        <dynamics damping="5.0" friction="0" />
         <provideFeedback>1</provideFeedback>
         <physics>
           <ode>
@@ -676,7 +676,7 @@
     </gazebo>
 
     <gazebo reference="j_arm1_6">
-        <dynamics damping="100.0" friction="0" />
+        <dynamics damping="5.0" friction="0" />
         <provideFeedback>1</provideFeedback>
         <physics>
           <ode>
@@ -686,7 +686,7 @@
     </gazebo>
 
     <gazebo reference="j_arm2_6">
-        <dynamics damping="100.0" friction="0" />
+        <dynamics damping="5.0" friction="0" />
         <provideFeedback>1</provideFeedback>
         <physics>
           <ode>
@@ -696,7 +696,7 @@
     </gazebo>
 
     <gazebo reference="j_arm1_7">
-        <dynamics damping="100.0" friction="0" />
+        <dynamics damping="5.0" friction="0" />
         <provideFeedback>1</provideFeedback>
         <physics>
           <ode>
@@ -707,7 +707,7 @@
 
 
     <gazebo reference="j_arm2_7">
-        <dynamics damping="100.0" friction="0" />
+        <dynamics damping="5.0" friction="0" />
         <provideFeedback>1</provideFeedback>
         <physics>
           <ode>
