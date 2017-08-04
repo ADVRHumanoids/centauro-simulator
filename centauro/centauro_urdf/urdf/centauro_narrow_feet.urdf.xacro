@@ -8,7 +8,7 @@
         <visual>
             <geometry>
                 <!--box size="0.4 0.02 0.1"/-->
-                <box size="0.4 0.06 0.02"/>
+                <box size="0.4 0.03 0.03"/>
                 <!--cylinder length="0.3" radius="0.02"/-->
             </geometry>
         </visual>
@@ -16,24 +16,25 @@
         <collision>
             <geometry>
                 <!--box size="0.4 0.02 0.1"/-->
-                <box size="0.4 0.06 0.02"/>
+                <box size="0.4 0.03 0.03"/>
                 <!--cylinder length="0.3" radius="0.02"/-->
             </geometry>
         </collision>
 
         <inertial>
-            <mass value="0.01"/>
-            <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+            <mass value="0.34"/>
+	    <!--origin xyz="0 0 0" rpy="0 0 0"/-->
+            <inertia ixx="5.97e-5" ixy="0.0" ixz="0.0" iyy="4.55e-3" iyz="0.0" izz="4.55e-3"/>
         </inertial>
 
     </link>
     <!-- /links -->
 
-    <!--xacro:if value="${arm_num == 1}">
+    <xacro:if value="${arm_num == 1}">
         <joint name="j_arm${arm_num}_8" type="fixed">
             <parent link="arm${arm_num}_7"/>
             <child link="arm${arm_num}_8"/>
-            <origin xyz="0 0 -0.05" rpy="0 0 0.0"/>
+            <origin xyz="0 0 -0.05" rpy="0 0 0.5"/>
         </joint>
     </xacro:if>
 
@@ -41,9 +42,9 @@
         <joint name="j_arm${arm_num}_8" type="fixed">
             <parent link="arm${arm_num}_7"/>
             <child link="arm${arm_num}_8"/>
-            <origin xyz="0 0 -0.05" rpy="0 0 -0.0"/>
+            <origin xyz="0 0 -0.05" rpy="0 0 -0.5"/>
         </joint>
-    </xacro:if-->
+    </xacro:if>
 
     <!--origin xyz="0 0 -0.0605" rpy="0 1.5707 0.5"/-->
     <!--origin xyz="0 0 -0.0605" rpy="0 1.5707 -0.5"/-->
@@ -51,10 +52,10 @@
 
     <!-- /joints -->
 
-        <joint name="j_arm${arm_num}_8" type="fixed">
+        <!--joint name="j_arm${arm_num}_8" type="fixed">
             <parent link="arm${arm_num}_7"/>
             <child link="arm${arm_num}_8"/>
-            <origin xyz="0 0 -0.08" rpy="0 0 0"/>
-        </joint>
+            <origin xyz="0 0 -0.05" rpy="0 0 0"/>
+        </joint-->
 
 </robot>

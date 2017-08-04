@@ -162,12 +162,12 @@
       <origin xyz="${Shoulder_2_Ox} ${rot*Shoulder_2_Oy} ${Shoulder_2_Oz}"/>
       <axis xyz="-1 0 0"/>
       <xacro:unless value="${rot+1}" >
-<!--          <limit lower="0" upper="3.49" effort="147" velocity="5.7"/> -->
-         <limit lower="-3.0" upper="3.0" effort="147" velocity="5.7"/>
+         <limit lower="0" upper="3.49" effort="147" velocity="5.7"/>
+<!--          <limit lower="-3.0" upper="3.0" effort="147" velocity="5.7"/> -->
       </xacro:unless>
       <xacro:unless value="${rot-1}" >
-<!--          <limit lower="-3.49" upper="0" effort="147" velocity="5.7"/> -->
-         <limit lower="-3.0" upper="3.0" effort="147" velocity="5.7"/>
+         <limit lower="-3.49" upper="0" effort="147" velocity="5.7"/>
+<!--          <limit lower="-3.0" upper="3.0" effort="147" velocity="5.7"/> -->
       </xacro:unless>
    </joint>
 <!-- /shoulder roll -->
@@ -190,12 +190,12 @@
       <origin xyz="${Elbow_1_Ox} ${rot*Elbow_1_Oy} ${Elbow_1_Oz}"/>
       <axis xyz="0 ${rot} 0"/>
       <xacro:unless value="${rot-1}" >
-<!--          <limit lower="-2.530" upper="0.349" effort="147" velocity="8.2"/> -->
-         <limit lower="-3.0" upper="3.0" effort="147" velocity="5.7"/>
+         <limit lower="-2.530" upper="0.349" effort="147" velocity="8.2"/>
+<!--          <limit lower="-3.0" upper="3.0" effort="147" velocity="5.7"/> -->
       </xacro:unless>
       <xacro:unless value="${rot+1}" >
-<!--          <limit lower="-0.349" upper="2.530" effort="147" velocity="8.2"/> -->
-         <limit lower="-3.0" upper="3.0" effort="147" velocity="5.7"/>
+         <limit lower="-0.349" upper="2.530" effort="147" velocity="8.2"/>
+<!--          <limit lower="-3.0" upper="3.0" effort="147" velocity="5.7"/> -->
       </xacro:unless>
    </joint>
 <!-- /elbow yaw -->
