@@ -20,12 +20,7 @@
 	</collision>
 </link>
 
-<link name="imu_link">
-    <inertial>
-        <mass value="0.0"/> <!-- mass  7: torso_1 (2) + torso_2 (5), head un_modelled -->
-        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
-    </inertial>
-</link>
+
 
 <!-- /torso links -->
 
@@ -45,19 +40,7 @@
    <limit lower="-2.618" upper="2.618" effort="147" velocity="5.7"/> <!-- TODO -->
 </joint>
 
-<joint name="imu_joint" type="fixed">
-   <xacro:if value="${pelvis}">
-      <parent link="pelvis"/>
-      <origin xyz="${Imu_x} ${Imu_y} ${Imu_z}"/>
-   </xacro:if>
-   <xacro:unless value="${pelvis}">
-      <parent link="world"/>
-      <origin xyz="${Imu_x + Pelvis_Ox} ${Imu_y + Pelvis_Oy} ${Imu_z + Pelvis_Oz}"/>
-   </xacro:unless>
 
-   <child link="imu_link"/>
-
-</joint>
 
 <!-- /torso joints -->
 
