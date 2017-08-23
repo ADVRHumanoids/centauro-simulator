@@ -35,6 +35,10 @@
 
 <!-- LEG SENSORS -->
 
+<!-- IMU -->
+<xacro:if value="${pelvis}">
+    <xacro:imu_sensor link="imu_link" robot="centauro"/>
+</xacro:if>
 
 <!-- LEG SENSORS -->
 

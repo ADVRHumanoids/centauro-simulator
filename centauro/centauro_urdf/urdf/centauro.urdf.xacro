@@ -8,7 +8,7 @@
 
 <!-- other files -->
 <xacro:include filename="$(find centauro)/centauro_urdf/urdf/config.xacro"/>
- <xacro:if value="${GAZEBO}">
+<xacro:if value="${GAZEBO}">
   <xacro:include filename="$(find centauro_gazebo)/urdf/centauro.gazebo"/>
 </xacro:if>
 <xacro:include filename="${inertia_parameters_file}"/>
@@ -39,17 +39,33 @@
          <mass value="${Pelvis_mass}"/>
          <inertia ixx="${Pelvis_xx}" ixy="${Pelvis_xy}" ixz="${Pelvis_xz}" iyy="${Pelvis_yy}" iyz="${Pelvis_yz}" izz="${Pelvis_zz}"/>
       </inertial>
-	
+
       <visual>
          <xacro:visual_model.pelvis />
       </visual>
-	
+
       <collision>
          <xacro:collision_model.pelvis />
       </collision>
 
    </link>
+
+
+    <link name="imu_link">
+        <inertial>
+            <mass value="0.0"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+    </link>
+
+    <joint name="imu_joint" type="fixed">
+        <parent link="pelvis"/>
+        <origin xyz="${Imu_x} ${Imu_y} ${Imu_z}" rpy="${Imu_r} ${Imu_p} ${Imu_yaw}"/>
+        <child link="imu_link"/>
+    </joint>
+
 </xacro:if>
+
 <xacro:unless value="${pelvis}">
    <link name="pelvis"/>
 </xacro:unless>
