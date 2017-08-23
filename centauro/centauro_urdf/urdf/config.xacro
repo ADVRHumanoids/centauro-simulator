@@ -17,6 +17,7 @@
 <xacro:property name="ONE_ARM" value="$(arg ONE_ARM)"/>
 
 <xacro:property name="GAZEBO" value="$(arg GAZEBO)"/>
+<xacro:property name="CONTROLLER" value="$(arg CONTROLLER)"/>
 <xacro:property name="INERTIA_PARAM" value="$(arg INERTIA_PARAM)"/>
 <xacro:property name="KINEMATIC_PARAM" value="$(arg KINEMATIC_PARAM)"/>
 
@@ -54,4 +55,8 @@
 
 <xacro:property name="inertia_parameters_file" value="${package + '/centauro_urdf/inertia_parameters/' + INERTIA_PARAM + '.xacro'}"/>
 <xacro:property name="kinematic_parameters_file" value="${package + '/centauro_urdf/kinematic_parameters/' + KINEMATIC_PARAM + '.xacro'}"/>
+
+<xacro:property name="xbotcore" value="${'true' if ('xbotcore' == CONTROLLER) else 'false'}"/>
+<xacro:property name="ros_control" value="${'true' if ('ros_control' == CONTROLLER) else 'false'}"/>
+
 </robot>
