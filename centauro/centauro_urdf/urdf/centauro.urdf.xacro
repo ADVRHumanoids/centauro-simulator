@@ -57,12 +57,8 @@
         <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
      </inertial>
    </link>
-</xacro:if>
-<xacro:unless value="${pelvis}">
-   <link name="pelvis"/>
-</xacro:unless>
 
-<joint name="imu_joint" type="fixed">
+   <joint name="imu_joint" type="fixed">
    <xacro:if value="${pelvis}">
       <parent link="pelvis"/>
       <origin xyz="${Imu_x} ${Imu_y} ${Imu_z}"/>
@@ -75,6 +71,14 @@
    <child link="imu_link"/>
 
 </joint>
+</xacro:if>
+
+
+<xacro:unless value="${pelvis}">
+   <link name="pelvis"/>
+</xacro:unless>
+
+
 
 <joint name="reference" type="${reference}">
    <origin xyz="${Pelvis_Ox} ${Pelvis_Oy} ${Pelvis_Oz}"/>
