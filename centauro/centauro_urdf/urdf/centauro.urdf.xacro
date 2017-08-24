@@ -50,10 +50,31 @@
       </collision>
 
    </link>
+
+   <link name="imu_link">
+     <inertial>
+        <mass value="0.0"/> <!-- mass  7: torso_1 (2) + torso_2 (5), head un_modelled -->
+        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+     </inertial>
+   </link>
 </xacro:if>
 <xacro:unless value="${pelvis}">
    <link name="pelvis"/>
 </xacro:unless>
+
+<joint name="imu_joint" type="fixed">
+   <xacro:if value="${pelvis}">
+      <parent link="pelvis"/>
+      <origin xyz="${Imu_x} ${Imu_y} ${Imu_z}"/>
+   </xacro:if>
+   <xacro:unless value="${pelvis}">
+      <parent link="world"/>
+      <origin xyz="${Imu_x + Pelvis_Ox} ${Imu_y + Pelvis_Oy} ${Imu_z + Pelvis_Oz}"/>
+   </xacro:unless>
+
+   <child link="imu_link"/>
+
+</joint>
 
 <joint name="reference" type="${reference}">
    <origin xyz="${Pelvis_Ox} ${Pelvis_Oy} ${Pelvis_Oz}"/>
