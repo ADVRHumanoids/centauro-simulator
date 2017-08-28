@@ -17,6 +17,7 @@
 <xacro:property name="ONE_ARM" value="$(arg ONE_ARM)"/>
 
 <xacro:property name="GAZEBO" value="$(arg GAZEBO)"/>
+<xacro:property name="CONTROLLER" value="$(arg CONTROLLER)"/>
 <xacro:property name="INERTIA_PARAM" value="$(arg INERTIA_PARAM)"/>
 <xacro:property name="KINEMATIC_PARAM" value="$(arg KINEMATIC_PARAM)"/>
 

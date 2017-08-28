@@ -8,7 +8,7 @@
 
 <!-- other files -->
 <xacro:include filename="$(find centauro)/centauro_urdf/urdf/config.xacro"/>
- <xacro:if value="${GAZEBO}">
+<xacro:if value="${GAZEBO}">
   <xacro:include filename="$(find centauro_gazebo)/urdf/centauro.gazebo"/>
 </xacro:if>
 <xacro:include filename="${inertia_parameters_file}"/>
