@@ -10,20 +10,10 @@
 <xacro:if value="${middleware == 'ros_control'}">
 	<gazebo>
         <!-- XBOTCORE -->
-        <xacro:if value="${xbotcore}">
-            <plugin name="gazebo_xbot_plugin" filename="libGazeboXBotPlugin.so">
-                <path_to_config_file>configs/ADVR_shared/centauro/configs/config_centauro_lower_body_fixed_wheels.yaml</path_to_config_file>
-            </plugin>
-        </xacro:if>
-
-        <!-- ROS CONTROL -->
-        <xacro:if value="${ros_control}">
             <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
                 <robotNamespace>/centauro</robotNamespace>
                 <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-        </plugin>
-        </xacro:if>
-
+            </plugin>
 	</gazebo>
 </xacro:if>
 
