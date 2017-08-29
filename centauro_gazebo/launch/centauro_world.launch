@@ -18,6 +18,9 @@
   <arg name="verbose" default="false"/>
   <arg name="extra_gazebo_args" default=""/>
 
+  <!-- choose between "xbotcore" and "ros_control" control plugin -->
+  <arg name="middleware" default="xbotcore"/>
+
   <!-- centauro model configuration parameters -->
   <!-- centauro modules -->
   <arg name="arms" default="true"/>
@@ -39,15 +42,19 @@
 
   <!-- sensors set-up-->
   <arg name="arm_sensors" default="true"/>
+  <arg name="leg_sensors" default="true"/>
+  <arg name="ft_sensors" default="true"/>
+  <arg name="bumbers" default="true"/>
+  <arg name="imu" default="true"/>
 
-  <!-- which collision model should run: 
+  <!-- which collision model should run:
        WARNING: exactly one parameter has to be true, otherwise simulation behaviour is undefined -->
   <arg name="collision_model" default="convex_hull"/>
 
   <!-- whether the mesh files should be loaded for visualization -->
   <arg name="visual_model" default="mesh"/>
 
-  <!-- from where the simulation enviornment will be loaded: 
+  <!-- from where the simulation enviornment will be loaded:
        WARNING: exactly one parameter has to be true, otherwise simulation behaviour is undefined -->
   <arg name="world_name" default="$(find centauro_gazebo)/worlds/centauro.world"/>
 
@@ -62,8 +69,17 @@
   <arg     if="$(arg debug)" name="script_type" value="debug"/>
 
   <!-- Load the URDF/SRDF into the ROS Parameter Server -->
-  <param name="robot_description" 
-         command="$(find xacro)/xacro --inorder '$(find centauro)/centauro_urdf/urdf/centauro.urdf.xacro' ARMS:=$(arg arms)  TORSO:=$(arg torso) ARM_ACTUATORS:=$(arg arm_actuators) LEGS:=$(arg legs) LEG_ACTUATORS:=$(arg leg_actuators) TORSO_ACTUATORS:=$(arg torso_actuators) WHEELS:=$(arg wheels) WHEELS_ACTUATORS:=$(arg wheels_actuators) STATIC:=$(arg static) ONE_ARM:=$(arg one_arm)  VISUAL_MODEL:=$(arg visual_model) COLLISION_MODEL:=$(arg collision_model) END_EFFECTOR:=$(arg end_effector) ARM_SENSORS:=$(arg arm_sensors) GAZEBO:=$(arg gazebo) MASS:=$(arg mass) INERTIA_PARAM:=$(arg inertia_param) KINEMATIC_PARAM:=$(arg kinematic_param)"/>
+  <param name="robot_description"
+         command="$(find xacro)/xacro --inorder '$(find centauro)/centauro_urdf/urdf/centauro.urdf.xacro'
+                   GAZEBO:=$(arg gazebo)                        MIDDLEWARE:=$(arg middleware) 
+                   STATIC:=$(arg static)                        ONE_ARM:=$(arg one_arm)                         END_EFFECTOR:=$(arg end_effector)               MASS:=$(arg mass)
+                   ARMS:=$(arg arms)                            LEGS:=$(arg legs)                               TORSO:=$(arg torso)                             WHEELS:=$(arg wheels) 
+                   ARM_ACTUATORS:=$(arg arm_actuators)          LEG_ACTUATORS:=$(arg leg_actuators)             TORSO_ACTUATORS:=$(arg torso_actuators)         WHEELS_ACTUATORS:=$(arg wheels_actuators) 
+                   ARM_SENSORS:=$(arg arm_sensors)              LEG_SENSORS:=$(arg leg_sensors) 
+                   FT_SENSORS:=$(arg ft_sensors)                BUMBERS:=$(arg bumbers)                         IMU:=$(arg imu)
+                   VISUAL_MODEL:=$(arg visual_model)            COLLISION_MODEL:=$(arg collision_model) 
+                   INERTIA_PARAM:=$(arg inertia_param)          KINEMATIC_PARAM:=$(arg kinematic_param)
+        "/>
 
   <param name="robot_semantic_description" textfile="$(find centauro)/centauro_srdf/srdf/centauro.srdf"/>
 
@@ -75,13 +91,13 @@
   <!-- start gazebo server-->
   	<node name="gazebo" pkg="gazebo_ros" type="$(arg script_type)" respawn="false" output="screen"
 		args="$(arg command_arg1) $(arg command_arg2) $(arg command_arg3) -e $(arg physics) $(arg extra_gazebo_args) $(arg world_name) -namespace centauro" />
-	
+
   	<!-- start gazebo client -->
     	<node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen" if="$(arg gui)"/>
 
-  
+
   	<!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
-	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
+	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 		args="-urdf -model centauro -param robot_description"/>
 
         <rosparam file="$(find centauro_gazebo)/config/centauro_control_joint_state_publisher.yaml" command="load"/>
@@ -104,11 +120,11 @@
 		<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
 			<param name="publish_frequency" type="double" value="250.0"/>
 		</node>
-	
+
 		<node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
 			<param name="use_gui" value="$(arg gui)" unless="$(arg gazebo)"/>
-		</node>	
-	</group>	
+		</node>
+	</group>
 
 	<node pkg="rviz" type="rviz" name="rviz"/>
 

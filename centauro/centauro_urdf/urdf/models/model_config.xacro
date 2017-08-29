@@ -8,29 +8,20 @@
    <xacro:macro name="load_model" params="path model">
    <!-- load proper collision model -->
 
-      <xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/${path}/primitives.xacro"/>
+      <xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/${path}/primitive.xacro"/>
 
-      <xacro:if value="${model == 'mesh'}">
-         <xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/${path}/meshes.xacro"/>
+      <xacro:if value="${model in ['mesh', 'capsule', 'convex_hull']}">
+         <xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/${path}/${model}.xacro"/>
       </xacro:if>
 
-      <xacro:if value="${model == 'capsule'}">
-         <xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/${path}/capsules.xacro"/>
-      </xacro:if>
-
-      <xacro:if value="${model == 'convex_hull'}">
-         <xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/${path}/convex_hull.xacro"/>
-      </xacro:if>
 
    </xacro:macro>
 
    <xacro:load_model path="upper_body" model="${model}"/>
    <xacro:load_model path="lower_body" model="${model}"/>
-   <xacro:if value="${END_EFFECTOR == 'soft_hand'}" >
-      <xacro:load_model path="upper_body/end_effectors/soft_hand"  model="${model}"/>
-   </xacro:if>
-   <xacro:if value="${END_EFFECTOR == 'stick'}">
-     <xacro:load_model path="upper_body/end_effectors/stick"  model="${model}"/>
+
+   <xacro:if value="${END_EFFECTOR in ['soft_hand', 'stick']}" >
+      <xacro:load_model path="upper_body/end_effectors/${END_EFFECTOR}"  model="${model}"/>
    </xacro:if>
 
 </xacro:macro>
