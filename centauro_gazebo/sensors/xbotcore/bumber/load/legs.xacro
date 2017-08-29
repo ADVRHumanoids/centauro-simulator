@@ -1,0 +1,9 @@
+<!--<?xml version="1.0"?>-->
+<robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+   <xacro:contact_sensor link="wheel_1" robot="centauro"/>
+   <xacro:contact_sensor link="wheel_2" robot="centauro"/>
+   <xacro:contact_sensor link="wheel_3" robot="centauro"/>
+   <xacro:contact_sensor link="wheel_4" robot="centauro"/>
+
+</robot>

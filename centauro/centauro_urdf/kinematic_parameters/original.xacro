@@ -13,7 +13,6 @@
 <xacro:property name="Imu_pitch" value=" 0.0 "/>
 <xacro:property name="Imu_yaw" value=" 0.0 "/>
 
-
 <!-- Origin -->
 <xacro:property name="Pelvis_Ox" value=" 0.0 "/>
 <xacro:property name="Pelvis_Oy" value=" 0.0 "/>

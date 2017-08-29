@@ -19,7 +19,7 @@
   <arg name="extra_gazebo_args" default=""/>
 
   <!-- choose between "xbotcore" and "ros_control" control plugin -->
-  <arg name="controller" default="xbotcore"/>
+  <arg name="middleware" default="xbotcore"/>
 
   <!-- centauro model configuration parameters -->
   <!-- centauro modules -->
@@ -42,6 +42,10 @@
 
   <!-- sensors set-up-->
   <arg name="arm_sensors" default="true"/>
+  <arg name="leg_sensors" default="true"/>
+  <arg name="ft_sensors" default="true"/>
+  <arg name="bumbers" default="true"/>
+  <arg name="imu" default="true"/>
 
   <!-- which collision model should run:
        WARNING: exactly one parameter has to be true, otherwise simulation behaviour is undefined -->
@@ -66,7 +70,16 @@
 
   <!-- Load the URDF/SRDF into the ROS Parameter Server -->
   <param name="robot_description"
-         command="$(find xacro)/xacro --inorder '$(find centauro)/centauro_urdf/urdf/centauro.urdf.xacro' ARMS:=$(arg arms)  TORSO:=$(arg torso) ARM_ACTUATORS:=$(arg arm_actuators) LEGS:=$(arg legs) LEG_ACTUATORS:=$(arg leg_actuators) TORSO_ACTUATORS:=$(arg torso_actuators) WHEELS:=$(arg wheels) WHEELS_ACTUATORS:=$(arg wheels_actuators) STATIC:=$(arg static) ONE_ARM:=$(arg one_arm)  VISUAL_MODEL:=$(arg visual_model) COLLISION_MODEL:=$(arg collision_model) END_EFFECTOR:=$(arg end_effector) ARM_SENSORS:=$(arg arm_sensors) GAZEBO:=$(arg gazebo) MASS:=$(arg mass) INERTIA_PARAM:=$(arg inertia_param) KINEMATIC_PARAM:=$(arg kinematic_param) CONTROLLER:=$(arg controller)"/>
+         command="$(find xacro)/xacro --inorder '$(find centauro)/centauro_urdf/urdf/centauro.urdf.xacro'
+                   GAZEBO:=$(arg gazebo)                        MIDDLEWARE:=$(arg middleware) 
+                   STATIC:=$(arg static)                        ONE_ARM:=$(arg one_arm)                         END_EFFECTOR:=$(arg end_effector)               MASS:=$(arg mass)
+                   ARMS:=$(arg arms)                            LEGS:=$(arg legs)                               TORSO:=$(arg torso)                             WHEELS:=$(arg wheels) 
+                   ARM_ACTUATORS:=$(arg arm_actuators)          LEG_ACTUATORS:=$(arg leg_actuators)             TORSO_ACTUATORS:=$(arg torso_actuators)         WHEELS_ACTUATORS:=$(arg wheels_actuators) 
+                   ARM_SENSORS:=$(arg arm_sensors)              LEG_SENSORS:=$(arg leg_sensors) 
+                   FT_SENSORS:=$(arg ft_sensors)                BUMBERS:=$(arg bumbers)                         IMU:=$(arg imu)
+                   VISUAL_MODEL:=$(arg visual_model)            COLLISION_MODEL:=$(arg collision_model) 
+                   INERTIA_PARAM:=$(arg inertia_param)          KINEMATIC_PARAM:=$(arg kinematic_param)
+        "/>
 
   <param name="robot_semantic_description" textfile="$(find centauro)/centauro_srdf/srdf/centauro.srdf"/>
 

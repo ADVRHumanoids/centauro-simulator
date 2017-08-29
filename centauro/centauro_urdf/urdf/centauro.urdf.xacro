@@ -60,7 +60,7 @@
 
     <joint name="imu_joint" type="fixed">
         <parent link="pelvis"/>
-        <origin xyz="${Imu_x} ${Imu_y} ${Imu_z}" rpy="${Imu_r} ${Imu_p} ${Imu_yaw}"/>
+        <origin xyz="${Imu_Ox} ${Imu_Oy} ${Imu_Oz}" rpy="${Imu_raw} ${Imu_pitch} ${Imu_yaw}"/>
         <child link="imu_link"/>
     </joint>
 
