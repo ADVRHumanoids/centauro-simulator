@@ -26,6 +26,7 @@
   <arg name="arms" default="true"/>
   <arg name="torso" default="true"/>
   <arg name="legs" default="true"/>
+  <arg name="head" default="true"/>
   <arg name="wheels" default="false"/>
   <arg name="static" default="false"/>
   <arg name="one_arm" default="false"/>
@@ -39,6 +40,7 @@
   <arg name="arm_actuators" default="true"/>
   <arg name="leg_actuators" default="true"/>
   <arg name="wheels_actuators" default="true"/>
+  <arg name="head_actuators" default="true"/>
 
   <!-- sensors set-up-->
   <arg name="arm_sensors" default="true"/>
@@ -73,8 +75,8 @@
          command="$(find xacro)/xacro --inorder '$(find centauro)/centauro_urdf/urdf/centauro.urdf.xacro'
                    GAZEBO:=$(arg gazebo)                        MIDDLEWARE:=$(arg middleware) 
                    STATIC:=$(arg static)                        ONE_ARM:=$(arg one_arm)                         END_EFFECTOR:=$(arg end_effector)               MASS:=$(arg mass)
-                   ARMS:=$(arg arms)                            LEGS:=$(arg legs)                               TORSO:=$(arg torso)                             WHEELS:=$(arg wheels) 
-                   ARM_ACTUATORS:=$(arg arm_actuators)          LEG_ACTUATORS:=$(arg leg_actuators)             TORSO_ACTUATORS:=$(arg torso_actuators)         WHEELS_ACTUATORS:=$(arg wheels_actuators) 
+                   ARMS:=$(arg arms)                            LEGS:=$(arg legs)                               TORSO:=$(arg torso)                             WHEELS:=$(arg wheels)                           HEAD:=$(arg head)
+                   ARM_ACTUATORS:=$(arg arm_actuators)          LEG_ACTUATORS:=$(arg leg_actuators)             TORSO_ACTUATORS:=$(arg torso_actuators)         WHEELS_ACTUATORS:=$(arg wheels_actuators)       HEAD_ACTUATORS:=$(arg head_actuators)
                    ARM_SENSORS:=$(arg arm_sensors)              LEG_SENSORS:=$(arg leg_sensors) 
                    FT_SENSORS:=$(arg ft_sensors)                BUMBERS:=$(arg bumbers)                         IMU:=$(arg imu)
                    VISUAL_MODEL:=$(arg visual_model)            COLLISION_MODEL:=$(arg collision_model) 

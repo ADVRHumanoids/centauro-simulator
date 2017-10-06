@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<robot name="centauro" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="neck_yaw">
+  <origin xyz="0.0 0 0.0"  rpy="0.0 0.0 0.0"/>
+  <geometry>
+    <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/neck_yaw.stl" scale="0.001 0.001 0.001" />
+  </geometry>
+</xacro:macro>
+
+<xacro:macro name="neck_pitch">
+  <origin xyz="0.0 0 0.0"  rpy="0.0 0.0 0.0"/>
+  <geometry>
+    <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/neck_pitch.stl" scale="0.001 0.001 0.001" />
+  </geometry>
+</xacro:macro>
+
+<xacro:macro name="velodyne">
+  <origin xyz="0.0 0 0.0"  rpy="0.0 0.0 0.0"/>
+  <geometry>
+    <mesh filename="package://centauro/centauro_urdf/meshes/convex_hull/velodyne.stl" scale="0.001 0.001 0.001" />
+  </geometry>
+</xacro:macro>
+
+</robot>

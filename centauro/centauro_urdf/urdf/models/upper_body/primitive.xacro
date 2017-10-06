@@ -2,9 +2,9 @@
 <robot name="centauro" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:macro name="torso">
-   <origin xyz="0.0 0 0.20"  rpy="0.0 0.0 0.0"/>
+   <origin xyz="0.0 0 0.25"  rpy="0.0 0.0 0.0"/>
    <geometry>
-      <box size="0.2 0.3 0.1"/>
+      <box size="0.1 0.2 0.3"/>
    </geometry>
 </xacro:macro>
 

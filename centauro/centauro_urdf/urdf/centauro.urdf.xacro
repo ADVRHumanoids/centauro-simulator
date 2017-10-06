@@ -78,8 +78,11 @@
 <!-- /reference  -->
 
 <!-- torso -->
-<xacro:if value="${torso}">
+<xacro:if value="${torso == 'true'}">
    <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_torso.urdf.xacro"/>
+</xacro:if>
+<xacro:if value="${head == 'true'}">
+   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_head.urdf.xacro"/>
 </xacro:if>
 <!-- /torso -->
 
