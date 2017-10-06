@@ -70,12 +70,12 @@
    <limit lower="-0.34906585" upper="0.78539816" effort="35" velocity="5.7"/> <!-- TODO -->
 </joint>
 
-<joint name="neck_velodyne" type="revolute">
+<joint name="neck_velodyne" type="continuous">
    <parent link="torso_2"/>
    <origin xyz="${Neck_3_Ox} ${Neck_3_Oy} ${Neck_3_Oz}"/>
    <child link="neck_3"/>
    <axis xyz="0 0 1"/>
-   <limit lower="-2.618" upper="2.618" effort="35" velocity="5.7"/> <!-- TODO -->
+   <limit effort="35" velocity="5.7"/> <!-- TODO -->
 </joint>
 <!-- /head joints -->
 
