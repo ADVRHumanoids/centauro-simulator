@@ -9,11 +9,11 @@
 <!-- CONTROLLER -->
 <xacro:if value="${middleware == 'ros_control'}">
 	<gazebo>
-		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-			<robotNamespace>/centauro</robotNamespace>
-			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-		</plugin>
-	
+        <!-- XBOTCORE -->
+            <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+                <robotNamespace>/centauro</robotNamespace>
+                <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+            </plugin>
 	</gazebo>
 </xacro:if>
 
@@ -28,20 +28,20 @@
 	
 <!-- VISUALiZATION AND FRICTION -->
 	<gazebo reference="base_link"><material>Gazebo/Red</material></gazebo>
-	
+
 	<gazebo reference="pelvis">
 		<material>Gazebo/OrangeTransparent</material>
                 <mu1>0</mu1>
                 <mu2>0</mu2>
 	</gazebo>
-	
+
 
 	<gazebo reference="torso_2">
 		<material>Gazebo/OrangeTransparent</material>
                 <mu1>0</mu1>
                 <mu2>0</mu2>
 	</gazebo>
-	
+
 	<gazebo reference="hip1_1">
 		<material>Gazebo/Lane_1</material>
                 <mu1>0</mu1>
@@ -65,7 +65,7 @@
                 <mu1>0</mu1>
                 <mu2>0</mu2>
 	</gazebo>
-	
+
 	<gazebo reference="hip2_1">
 		<material>Gazebo/OrangeTransparent </material>
                 <mu1>0</mu1>
@@ -196,9 +196,9 @@
                                                 <kd>5</kd>
                                                 <split_impulse>0.01</split_impulse>
                                         </bullet>
-                                </contact> 
+                                </contact>
                         </surface>
-                </collision> 
+                </collision>
 	</gazebo>
 
 	<gazebo reference="wheel_2">
@@ -235,7 +235,7 @@
                                                 <kd>5</kd>
                                                 <split_impulse>0.01</split_impulse>
                                         </bullet>
-                                </contact> 
+                                </contact>
                         </surface>
                 </collision>
 	</gazebo>
@@ -259,7 +259,7 @@
 				                <friction>0.5</friction>
 				                <friction2>0.5</friction2>
 			                </bullet>
-                                </friction> 
+                                </friction>
                                 <contact>
                                 <ode>
                                         <!--<soft_cfm>0.0001</soft_cfm>
@@ -275,7 +275,7 @@
                                                 <kd>5</kd>
                                                 <split_impulse>0.01</split_impulse>
                                         </bullet>
-                                </contact> 
+                                </contact>
                         </surface>
                 </collision>
 	</gazebo>
@@ -313,40 +313,40 @@
                                                 <kd>5</kd>
                                                 <split_impulse>0.01</split_impulse>
                                         </bullet>
-                                </contact> 
+                                </contact>
                         </surface>
                  </collision>
 	</gazebo>
-	
+
 
 
 	<gazebo reference="arm1_1">
 		<material>Gazebo/Lane_1 </material>
 		<mu1>0</mu1>
-		<mu2>0</mu2>	
+		<mu2>0</mu2>
 	</gazebo>
 	<gazebo reference="arm2_1">
 		<material>Gazebo/Lane_1 </material>
 		<mu1>0</mu1>
-		<mu2>0</mu2>	
+		<mu2>0</mu2>
 	</gazebo>
-	
+
 	<gazebo reference="arm1_2">
 		<material>Gazebo/OrangeTransparent </material>
 		<mu1>0</mu1>
-		<mu2>0</mu2>	
+		<mu2>0</mu2>
 	</gazebo>
 
 	<gazebo reference="arm2_2">
 		<material>Gazebo/OrangeTransparent</material>
 		<mu1>0</mu1>
-		<mu2>0</mu2>		
+		<mu2>0</mu2>
 	</gazebo>
-	
+
 	<gazebo reference="arm1_3">
 		<material>Gazebo/Lane_1 </material>
 		<mu1>0</mu1>
-		<mu2>0</mu2>	
+		<mu2>0</mu2>
 	</gazebo>
 
 	<gazebo reference="arm2_3">
@@ -354,11 +354,11 @@
 		<mu1>0</mu1>
 		<mu2>0</mu2>
 	</gazebo>
-	
+
 	<gazebo reference="arm1_4">
 		<material>Gazebo/OrangeTransparent </material>
 		<mu1>0</mu1>
-		<mu2>0</mu2>	
+		<mu2>0</mu2>
 	</gazebo>
 
 	<gazebo reference="arm2_4">
@@ -366,11 +366,11 @@
 		<mu1>0</mu1>
 		<mu2>0</mu2>
 	</gazebo>
-	
+
 	<gazebo reference="arm1_5">
 		<material>Gazebo/Lane_1 </material>
 		<mu1>0</mu1>
-		<mu2>0</mu2>	
+		<mu2>0</mu2>
 	</gazebo>
 
 	<gazebo reference="arm2_5">
@@ -378,7 +378,7 @@
 		<mu1>0</mu1>
 		<mu2>0</mu2>
 	</gazebo>
-	
+
 	<gazebo reference="arm1_6">
 		<material>Gazebo/OrangeTransparent </material>
 		<mu1>0</mu1>
@@ -390,7 +390,7 @@
 		<mu1>0</mu1>
 		<mu2>0</mu2>
 	</gazebo>
-	
+
 	<gazebo reference="arm1_7">
 		<material>Gazebo/Lane_1 </material>
 		<mu1>0</mu1>

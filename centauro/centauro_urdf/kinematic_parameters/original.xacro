@@ -16,12 +16,27 @@
 <!-- Origin -->
 <xacro:property name="Pelvis_Ox" value=" 0.0 "/>
 <xacro:property name="Pelvis_Oy" value=" 0.0 "/>
-<xacro:property name="Pelvis_Oz" value=" 0.759 "/>
+<xacro:property name="Pelvis_Oz" value=" 0.92560000 "/>
 
 <!-- Origin -->
-<xacro:property name="Leg_1_Ox" value=" 0.225 "/>
+<xacro:property name="Neck_1_Ox" value=" 0.0 "/>
+<xacro:property name="Neck_1_Oy" value=" 0.0 "/>
+<xacro:property name="Neck_1_Oz" value=" 0.2795 "/>
+
+<!-- Origin -->
+<xacro:property name="Neck_2_Ox" value=" 0.054 "/>
+<xacro:property name="Neck_2_Oy" value=" 0.0596 "/>
+<xacro:property name="Neck_2_Oz" value=" -0.0124975 "/>
+
+<!-- Origin -->
+<xacro:property name="Neck_3_Ox" value=" 0.055 "/>
+<xacro:property name="Neck_3_Oy" value=" 0.00 "/>
+<xacro:property name="Neck_3_Oz" value=" 0.473262 "/>
+
+<!-- Origin -->
+<xacro:property name="Leg_1_Ox" value=" 0.250 "/>
 <xacro:property name="Leg_1_Oy" value=" -0.125 "/>
-<xacro:property name="Leg_1_Oz" value=" 0.11 "/>
+<xacro:property name="Leg_1_Oz" value="-0.05660000 "/>
 <xacro:property name="Leg_1_roll" value=" 3.141592653589793 "/>
 <xacro:property name="Leg_1_pitch" value=" 0.0 "/>
 <xacro:property name="Leg_1_yaw" value=" -0.5070986986495499 "/>
@@ -63,16 +78,15 @@
 <xacro:property name="Wheel_pitch" value=" 0.0 "/>
 <xacro:property name="Wheel_yaw" value=" 0.0 "/>
 
-
 <!-- Origin -->
-<xacro:property name="Torso_2_Ox" value=" 0.175 "/>
+<xacro:property name="Torso_2_Ox" value=" 0.200 "/>
 <xacro:property name="Torso_2_Oy" value=" 0.0 "/>
-<xacro:property name="Torso_2_Oz" value=" 0.36 "/>
+<xacro:property name="Torso_2_Oz" value=" 0.256 "/>
 
 <!-- Origin -->
 <xacro:property name="Shoulder_1_Ox" value=" 0.04576 "/> <!-- for the other arm it was 0.0457475 -->
 <xacro:property name="Shoulder_1_Oy" value=" 0.169137 "/>
-<xacro:property name="Shoulder_1_Oz" value=" 0.190626 "/>
+<xacro:property name="Shoulder_1_Oz" value=" 0.11662600 "/>
 <xacro:property name="Shoulder_1_roll" value=" 0.0 "/>
 <xacro:property name="Shoulder_1_pitch" value=" 0.0 "/>
 <xacro:property name="Shoulder_1_yaw" value=" -0.5236026689864071 "/>

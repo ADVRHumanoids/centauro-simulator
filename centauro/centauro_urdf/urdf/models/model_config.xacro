@@ -14,7 +14,6 @@
          <xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/${path}/${model}.xacro"/>
       </xacro:if>
 
-
    </xacro:macro>
 
    <xacro:load_model path="upper_body" model="${model}"/>
@@ -23,6 +22,10 @@
    <xacro:if value="${END_EFFECTOR in ['soft_hand', 'stick']}" >
       <xacro:load_model path="upper_body/end_effectors/${END_EFFECTOR}"  model="${model}"/>
    </xacro:if>
+   <xacro:if value="${head == 'true'}" >
+      <xacro:load_model path="upper_body/head"  model="${model}"/>
+   </xacro:if>
+
 
 </xacro:macro>
 

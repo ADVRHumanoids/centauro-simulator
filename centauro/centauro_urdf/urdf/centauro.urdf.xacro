@@ -39,11 +39,11 @@
          <mass value="${Pelvis_mass}"/>
          <inertia ixx="${Pelvis_xx}" ixy="${Pelvis_xy}" ixz="${Pelvis_xz}" iyy="${Pelvis_yy}" iyz="${Pelvis_yz}" izz="${Pelvis_zz}"/>
       </inertial>
-	
+
       <visual>
          <xacro:visual_model.pelvis />
       </visual>
-	
+
       <collision>
          <xacro:collision_model.pelvis />
       </collision>
@@ -78,8 +78,11 @@
 <!-- /reference  -->
 
 <!-- torso -->
-<xacro:if value="${torso}">
+<xacro:if value="${torso == 'true'}">
    <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_torso.urdf.xacro"/>
+</xacro:if>
+<xacro:if value="${head == 'true'}">
+   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_head.urdf.xacro"/>
 </xacro:if>
 <!-- /torso -->
 
