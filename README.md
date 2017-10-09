@@ -39,6 +39,13 @@ ex. roslaunch centauro_gazebo centauro_world.launch legs:=false paused:=false ha
 For specific description of avaiable arguments see wiki page on: https://gitlab.advrcloud.iit.it/centauro-simulator-control/centauro-simulator/wikis/home
 
 
+--------
+How To Generate URDF from Xacro
+--------
+
+- Example with current set of argument:
+
+rosrun xacro xacro --inorder -o test.urdf centauro.urdf.xacro GAZEBO:=false ARMS:=true TORSO:=true ARM_ACTUATORS:=true LEGS:=true LEG_ACTUATORS:=true TORSO_ACTUATORS:=true WHEELS:=false WHEELS_ACTUATORS:=false ONE_ARM:=false STATIC:=false COLLISION_MODEL:=convex_hull VISUAL_MODEL:=mesh END_EFFECTOR:=stick ARM_SENSORS:=false MASS:=0 INERTIA_PARAM:=original KINEMATIC_PARAM:=original HEAD_ACTUATORS:=true HEAD:=true
 
 
 
