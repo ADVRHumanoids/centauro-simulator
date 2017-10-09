@@ -56,6 +56,17 @@
       </geometry>
     </collision>
   </link>
+  <link name="imu_link">
+    <inertial>
+      <mass value="0.0"/>
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+    </inertial>
+  </link>
+  <joint name="imu_joint" type="fixed">
+    <parent link="pelvis"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+    <child link="imu_link"/>
+  </joint>
   <joint name="reference" type="floating">
     <origin xyz="0.0 0.0 0.759"/>
     <parent link="world"/>
@@ -901,7 +912,7 @@
     <child link="hip1_1"/>
     <origin rpy="3.14159265359 0.0 0.50709869865" xyz="0.225 0.125 0.11"/>
     <axis xyz="0 0 1"/>
-    <limit effort="304" lower="-0.78539816" upper="2.35619449" velocity="8.8"/>
+    <limit effort="304" lower="-1.13446401" upper="2.70526034" velocity="8.8"/>
   </joint>
   <joint name="hip_pitch_1" type="revolute">
     <parent link="hip1_1"/>
@@ -1138,7 +1149,7 @@
     <child link="hip1_2"/>
     <origin rpy="3.14159265359 0.0 -0.50709869865" xyz="0.225 -0.125 0.11"/>
     <axis xyz="0 0 1"/>
-    <limit effort="304" lower="-2.35619449" upper="0.78539816" velocity="8.8"/>
+    <limit effort="304" lower="-2.70526034" upper="1.13446401" velocity="8.8"/>
   </joint>
   <joint name="hip_pitch_2" type="revolute">
     <parent link="hip1_2"/>
@@ -1375,7 +1386,7 @@
     <child link="hip1_3"/>
     <origin rpy="3.14159265359 0.0 2.63449395494" xyz="-0.225 0.125 0.11"/>
     <axis xyz="0 0 1"/>
-    <limit effort="304" lower="-2.35619449" upper="0.78539816" velocity="8.8"/>
+    <limit effort="304" lower="-2.70526034" upper="1.13446401" velocity="8.8"/>
   </joint>
   <joint name="hip_pitch_3" type="revolute">
     <parent link="hip1_3"/>
@@ -1612,7 +1623,7 @@
     <child link="hip1_4"/>
     <origin rpy="3.14159265359 0.0 3.64869135224" xyz="-0.225 -0.125 0.11"/>
     <axis xyz="0 0 1"/>
-    <limit effort="304" lower="-0.78539816" upper="2.35619449" velocity="8.8"/>
+    <limit effort="304" lower="-1.13446401" upper="2.70526034" velocity="8.8"/>
   </joint>
   <joint name="hip_pitch_4" type="revolute">
     <parent link="hip1_4"/>
