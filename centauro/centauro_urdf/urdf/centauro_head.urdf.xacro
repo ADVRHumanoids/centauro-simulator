@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- head links -->
+
+
+<link name="neck_1">
+	<inertial>
+		<origin xyz="${Neck_1_x} ${Neck_1_y} ${Neck_1_z}"/>
+		<mass value="${Neck_1_mass}"/> 
+                <inertia ixx="${Neck_1_xx}" ixy="${Neck_1_xy}" ixz="${Neck_1_xz}" iyy="${Neck_1_yy}" iyz="${Neck_1_yz}" izz="${Neck_1_zz}"/>
+        </inertial>
+
+	<visual>
+                <xacro:visual_model.neck_yaw />
+	</visual>
+
+	<collision>
+                <xacro:collision_model.neck_yaw />
+	</collision>
+</link>
+
+<link name="neck_2">
+	<inertial>
+		<origin xyz="${Neck_2_x} ${Neck_2_y} ${Neck_2_z}"/>
+		<mass value="${Neck_2_mass}"/> 
+                <inertia ixx="${Neck_2_xx}" ixy="${Neck_2_xy}" ixz="${Neck_2_xz}" iyy="${Neck_2_yy}" iyz="${Neck_2_yz}" izz="${Neck_2_zz}"/>
+        </inertial>
+
+	<visual>
+                <xacro:visual_model.neck_pitch />
+	</visual>
+
+	<collision>
+                <xacro:collision_model.neck_pitch />
+	</collision>
+</link>
+
+<link name="neck_3">
+	<inertial>
+		<origin xyz="${Neck_3_x} ${Neck_3_y} ${Neck_3_z}"/>
+		<mass value="${Neck_3_mass}"/> 
+                <inertia ixx="${Neck_3_xx}" ixy="${Neck_3_xy}" ixz="${Neck_3_xz}" iyy="${Neck_3_yy}" iyz="${Neck_3_yz}" izz="${Neck_3_zz}"/>
+        </inertial>
+
+	<visual>
+                <xacro:visual_model.velodyne />
+	</visual>
+
+	<collision>
+                <xacro:collision_model.velodyne />
+	</collision>
+</link>
+<!-- /head links -->
+
+<!-- head joints -->
+<joint name="neck_yaw" type="revolute">
+   <parent link="torso_2"/>
+   <origin xyz="${Neck_1_Ox} ${Neck_1_Oy} ${Neck_1_Oz}"/>
+   <child link="neck_1"/>
+   <axis xyz="0 0 1"/>
+   <limit lower="-0.78539816" upper="0.78539816" effort="35" velocity="5.7"/> <!-- TODO -->
+</joint>
+
+<joint name="neck_pitch" type="revolute">
+   <parent link="neck_1"/>
+   <origin xyz="${Neck_2_Ox} ${Neck_2_Oy} ${Neck_2_Oz}"/>
+   <child link="neck_2"/>
+   <axis xyz="0 1 0"/>
+   <limit lower="-0.34906585" upper="0.78539816" effort="35" velocity="5.7"/> <!-- TODO -->
+</joint>
+
+<joint name="neck_velodyne" type="continuous">
+   <parent link="torso_2"/>
+   <origin xyz="${Neck_3_Ox} ${Neck_3_Oy} ${Neck_3_Oz}"/>
+   <child link="neck_3"/>
+   <axis xyz="0 0 1"/>
+   <limit effort="35" velocity="5.7"/> <!-- TODO -->
+</joint>
+<!-- /head joints -->
+
+<xacro:if value="${head_actuators}">
+<!-- torso actuators -->
+<xacro:position_actuator joint="neck_yaw" />
+<xacro:position_actuator joint="neck_pitch" />  
+<xacro:position_actuator joint="neck_velodyne" />  
+<!-- /torso actuators -->
+</xacro:if> 
+
+</robot>

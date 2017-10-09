@@ -1,0 +1,10 @@
+<!--<?xml version="1.0"?>-->
+<robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+   <xacro:force-torque_sensor joint="j_wheel_1" robot="centauro" ft_name="fl_foot_ft" pose="0 0 0 0 0 0"/>
+   <xacro:force-torque_sensor joint="j_wheel_2" robot="centauro" ft_name="fr_foot_ft" pose="0 0 0 0 0 0"/>
+   <xacro:force-torque_sensor joint="j_wheel_4" robot="centauro" ft_name="hr_foot_ft" pose="0 0 0 0 0 0"/>
+   <xacro:force-torque_sensor joint="j_wheel_3" robot="centauro" ft_name="hl_foot_ft" pose="0 0 0 0 0 0"/>
+
+
+</robot>

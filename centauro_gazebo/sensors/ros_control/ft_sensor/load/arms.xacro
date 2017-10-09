@@ -1,0 +1,10 @@
+<!--<?xml version="1.0"?>-->
+<robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find centauro)/centauro_urdf/urdf/config.xacro"/>
+
+  <xacro:force-torque_sensor joint="j_arm1_8" robot="centauro"/>
+  <xacro:if value="${arms}">
+    <xacro:force-torque_sensor joint="j_arm2_8" robot="centauro"/>
+  </xacro:if>
+</robot>

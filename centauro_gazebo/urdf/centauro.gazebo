@@ -2,100 +2,30 @@
 <robot name="centauro" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:include filename="$(find centauro)/centauro_urdf/urdf/config.xacro"/>
-<xacro:include filename="$(find centauro_gazebo)/sensors/force_torque_plugin.urdf.xacro"/>
-<xacro:include filename="$(find centauro_gazebo)/sensors/contact_sensor.urdf.xacro"/>
-<xacro:include filename="$(find centauro_gazebo)/sensors/imu_plugin.urdf.xacro"/>
 
-<xacro:if value="${arm_sensors}">
-  <xacro:force-torque_sensor joint="j_arm1_8" robot="centauro" ft_name="left_arm_ft" pose="0 0 0 0 0 0"/>
-  <xacro:if value="${arms}">
-    <xacro:force-torque_sensor joint="j_arm2_8" robot="centauro" ft_name="right_arm_ft" pose="0 0 0 0 0 0"/>
-  </xacro:if>
-</xacro:if>
+<!-- SENSORS -->
+<xacro:include filename="$(find centauro_gazebo)/sensors/config.xacro"/>
 
 <!-- CONTROLLER -->
+<xacro:if value="${middleware == 'ros_control'}">
 	<gazebo>
         <!-- XBOTCORE -->
-        <xacro:if value="${xbotcore}">
-            <plugin name="gazebo_xbot_plugin" filename="libGazeboXBotPlugin.so">
-                <path_to_config_file>configs/ADVR_shared/centauro/configs/config_centauro.yaml</path_to_config_file>
-            </plugin>
-        </xacro:if>
-
-        <!-- ROS CONTROL -->
-        <xacro:if value="${ros_control}">
             <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
                 <robotNamespace>/centauro</robotNamespace>
                 <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-        </plugin>
-        </xacro:if>
-
+            </plugin>
 	</gazebo>
+</xacro:if>
+
+<xacro:if value="${middleware == 'xbotcore'}">
+	<gazebo>
+            <plugin name="gazebo_xbot_plugin" filename="libGazeboXBotPlugin.so">
+                <path_to_config_file>configs/ADVR_shared/centauro/configs/config_centauro.yaml</path_to_config_file>
+            </plugin>
+	</gazebo>
+</xacro:if>
 <!-- /CONTROLLER -->
-
-<!-- LEG SENSORS -->
-
-<!-- IMU -->
-<xacro:if value="${pelvis}">
-    <xacro:imu_sensor link="imu_link" robot="centauro"/>
-</xacro:if>
-
-<!-- LEG SENSORS -->
-
-<!-- CONTACT SENSORS -->
-<xacro:if value="${leg_sensors}">
-   <xacro:contact_sensor link="wheel_1" robot="centauro"/>
-   <xacro:contact_sensor link="wheel_2" robot="centauro"/>
-   <xacro:contact_sensor link="wheel_3" robot="centauro"/>
-   <xacro:contact_sensor link="wheel_4" robot="centauro"/>
-
-   <xacro:force-torque_sensor joint="j_wheel_1" robot="centauro" ft_name="fl_foot_ft" pose="0 0 0 0 0 0"/>
-   <xacro:force-torque_sensor joint="j_wheel_2" robot="centauro" ft_name="fr_foot_ft" pose="0 0 0 0 0 0"/>
-   <xacro:force-torque_sensor joint="j_wheel_4" robot="centauro" ft_name="hr_foot_ft" pose="0 0 0 0 0 0"/>
-   <xacro:force-torque_sensor joint="j_wheel_3" robot="centauro" ft_name="hl_foot_ft" pose="0 0 0 0 0 0"/>
-</xacro:if>
-
-<!-- /CONTACT SENSORS -->
-
-<!-- FORCE-TORQUE SENSORS -->
-<!--<gazebo>
-    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
-        <updateRate>100.0</updateRate>
-        <topicName>ft_sensor_1</topicName>
-        <jointName>foot_fixed_joint_1</jointName>
-    </plugin>
-</gazebo>-->
-
-<!-- The ft_sensor plugin -->
-<!--<gazebo>
-    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
-        <updateRate>100.0</updateRate>
-        <topicName>ft_sensor_2</topicName>
-        <jointName>foot_fixed_joint_2</jointName>
-    </plugin>
-</gazebo>-->
-
-<!-- The ft_sensor plugin -->
-<!--<gazebo>
-    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
-        <updateRate>100.0</updateRate>
-        <topicName>ft_sensor_3</topicName>
-        <jointName>foot_fixed_joint_3</jointName>
-    </plugin>
-</gazebo>-->
-
-<!-- The ft_sensor plugin -->
-<!--<gazebo>
-    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
-        <updateRate>100.0</updateRate>
-        <topicName>ft_sensor_4</topicName>
-        <jointName>foot_fixed_joint_4</jointName>
-    </plugin>
-</gazebo>-->
-<!-- FORCE-TORQUE SENSORS -->
-
-<!-- /LEG SENSORS -->
-
+	
 <!-- VISUALiZATION AND FRICTION -->
 	<gazebo reference="base_link"><material>Gazebo/Red</material></gazebo>
 
@@ -231,6 +161,7 @@
                 <mu1>0</mu1>
                 <mu2>0</mu2>
 	</gazebo>
+
 	<gazebo reference="wheel_1">
 		<material>Gazebo/Residential </material>
                 <collision>
@@ -485,23 +416,5 @@
 		<mu1>0</mu1>
 		<mu2>0</mu2>
 	</gazebo>
-
-	<gazebo reference="wheel_hip_1"><material>Gazebo/Black</material></gazebo>
-	<gazebo reference="wheel_hip_2"><material>Gazebo/Black</material></gazebo>
-	<gazebo reference="wheel_hip_3"><material>Gazebo/Black</material></gazebo>
-	<gazebo reference="wheel_hip_4"><material>Gazebo/Black</material></gazebo>
-	<gazebo reference="wheel_hip_reference_1"><material>Gazebo/Blue</material></gazebo>
-	<gazebo reference="wheel_hip_reference_2"><material>Gazebo/Blue</material></gazebo>
-	<gazebo reference="wheel_hip_reference_3"><material>Gazebo/Blue</material></gazebo>
-	<gazebo reference="wheel_hip_reference_4"><material>Gazebo/Blue</material></gazebo>
-
-	<gazebo reference="wheel_knee_1"><material>Gazebo/Black</material></gazebo>
-	<gazebo reference="wheel_knee_2"><material>Gazebo/Black</material></gazebo>
-	<gazebo reference="wheel_knee_3"><material>Gazebo/Black</material></gazebo>
-	<gazebo reference="wheel_knee_4"><material>Gazebo/Black</material></gazebo>
-	<gazebo reference="wheel_knee_reference_1"><material>Gazebo/Blue</material></gazebo>
-	<gazebo reference="wheel_knee_reference_2"><material>Gazebo/Blue</material></gazebo>
-	<gazebo reference="wheel_knee_reference_3"><material>Gazebo/Blue</material></gazebo>
-	<gazebo reference="wheel_knee_reference_4"><material>Gazebo/Blue</material></gazebo><!-- /VISUALiZATION AND FRICTION -->
 
 </robot>

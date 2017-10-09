@@ -1,0 +1,188 @@
+centauro:
+   actuators:
+      hip_yaw_1: &hip_yaw
+         type: &SEA SEA
+         Ks: &Ks_hip_yaw 80000
+         D: &D_hip_yaw 2.0
+         Bm: &Bm_TBM_60_25_B 0.0000252
+         phim: &phim_TBM_60_25_B 0.0000512
+         nu: &gear_160 160
+         Torque_limit: &torque_limit_leg 304
+      hip_pitch_1: &hip_pitch
+         type: *SEA
+         Ks: &Ks_hip_pitch 80000
+         D: &D_hip_pitch 2.0
+         Bm: &Bm_TBM_76_15_B 0.0000304
+         phim: &phim_TBM_76_15_B 0.0000578
+         nu: &gear_CPL25 160
+         Torque_limit: *torque_limit_leg
+      knee_pitch_1: &knee_pitch
+         type: *SEA
+         Ks: &Ks_knee_pitch 80000
+         D: &D_knee_pitch 2.0
+         Bm: *Bm_TBM_76_15_B
+         phim: *phim_TBM_76_15_B
+         nu: *gear_CPL25
+         Torque_limit: *torque_limit_leg
+      ankle_pitch_1: &ankle_pitch
+         type: *SEA
+         Ks: &Ks_ankle_pitch 80000
+         D: &D_ankle_pitch 2.0
+         B: &B_upper_body_1 1.181
+         phim: &phim_upper_body_1 0.0000512
+         nu: *gear_160
+         Torque_limit: &torque_limit_ankle_1 147
+      ankle_yaw_1: &ankle_yaw
+         type: *SEA
+         Ks: &Ks_ankle_yaw 40000
+         D: &D_ankle_yaw 1.0
+         B: &B_wrist_2 0.126
+         phim: &phim_wrist_2 0.00000877
+         nu: &gear_100 100
+         Torque_limit: &torque_limit_ankle_2 35
+      j_wheel_1: &wheel
+         type: *SEA
+         Ks: &Ks_wheel 40000
+         D: &D_wheel 1.0
+         B: *B_wrist_2
+         phim: *phim_wrist_2
+         nu: *gear_100
+         Torque_limit: *torque_limit_ankle_2
+      torso_yaw:
+         type: *SEA
+         Ks: &Ks_T1 6000
+         D: &D_T1 0.05
+         B: *B_upper_body_1
+         phim: *phim_upper_body_1
+         nu: *gear_160
+         Torque_limit: &torque_limit_upper_body 147
+      neck_yaw:
+         type: *SEA
+         Ks: *Ks_T1
+         D: *D_T1
+         B: *B_wrist_2
+         phim: *phim_wrist_2
+         nu: *gear_100
+         Torque_limit: *torque_limit_ankle_2
+      neck_pitch:
+         type: *SEA
+         Ks: *Ks_T1
+         D: *D_T1
+         B: *B_wrist_2
+         phim: *phim_wrist_2
+         nu: *gear_100
+         Torque_limit: *torque_limit_ankle_2
+      neck_velodyne:
+         type: *SEA
+         Ks: *Ks_T1
+         D: *D_T1
+         B: *B_wrist_2
+         phim: *phim_wrist_2
+         nu: *gear_100
+         Torque_limit: *torque_limit_ankle_2
+      j_arm1_1: &arm1
+         type: *SEA
+         Ks: *Ks_T1
+         D: *D_T1
+         B: *B_upper_body_1
+         phim: *phim_upper_body_1
+         nu: *gear_160
+         Torque_limit: *torque_limit_upper_body
+      j_arm1_2: &arm2
+         type: *SEA
+         Ks: *Ks_T1
+         D: *D_T1
+         B: *B_upper_body_1
+         phim: *phim_upper_body_1
+         nu: *gear_160
+         Torque_limit: *torque_limit_upper_body
+      j_arm1_3: &arm3
+         type: *SEA
+         Ks: *Ks_T1
+         D: *D_T1
+         B: &B_upper_body_2 0.846
+         phim: &phim_upper_body_2 0.0000195
+         nu: *gear_160
+         Torque_limit: *torque_limit_upper_body
+      j_arm1_4: &arm4
+         type: *SEA
+         Ks: *Ks_T1
+         D: *D_T1
+         B: *B_upper_body_2
+         phim: *phim_upper_body_2
+         nu: *gear_160
+         Torque_limit: *torque_limit_upper_body
+      j_arm1_5: &arm5
+         type: *SEA
+         Ks: &Ks_T2 9400
+         D: &D_T2 0.1
+         B: &B_wrist_1 0.163
+         phim: &phim_wrist_1 0.00002
+         nu: *gear_100
+         Torque_limit: &torque_limit_wrist_1 55
+      j_arm1_6: &arm6
+         type: *SEA
+         Ks: &Ks_T2 9400
+         D: &D_T2 0.1
+         B: *B_wrist_1
+         phim: *phim_wrist_1
+         nu: *gear_100
+         Torque_limit: *torque_limit_wrist_1
+      j_arm1_7: &arm7
+         type: *SEA
+         Ks: &Ks_T3 10000
+         D: &D_T3 0.1
+         B: *B_wrist_2
+         phim: *phim_wrist_2
+         nu: *gear_100
+         Torque_limit: &torque_limit_wrist_2 27
+      hip_pitch_2:
+         *hip_pitch
+      hip_pitch_3:
+         *hip_pitch
+      hip_pitch_4:
+         *hip_pitch
+      hip_yaw_2:
+         *hip_yaw
+      hip_yaw_3:
+         *hip_yaw
+      hip_yaw_4:
+         *hip_yaw
+      knee_pitch_2:
+         *knee_pitch
+      knee_pitch_3:
+         *knee_pitch
+      knee_pitch_4:
+         *knee_pitch
+      ankle_pitch_2:
+         *ankle_pitch
+      ankle_pitch_3:
+         *ankle_pitch
+      ankle_pitch_4:
+         *ankle_pitch
+      ankle_yaw_2:
+         *ankle_yaw
+      ankle_yaw_3:
+         *ankle_yaw
+      ankle_yaw_4:
+         *ankle_yaw
+      j_wheel_2:
+         *wheel
+      j_wheel_3:
+         *wheel
+      j_wheel_4:
+         *wheel
+      j_arm2_1:
+         *arm1
+      j_arm2_2:
+         *arm2
+      j_arm2_3:
+         *arm3
+      j_arm2_4:
+         *arm4
+      j_arm2_5:
+         *arm5
+      j_arm2_6:
+         *arm6
+      j_arm2_7:
+         *arm7

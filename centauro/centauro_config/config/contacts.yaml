@@ -1,7 +1,7 @@
 centauro:
    contacts: # structure where all contacts are stored
-      contact1: # refer to the first contact
-         name: front_left_leg # optional, human-readable name of a contact
+      contact0: # name of a contact
+         name: front_left_leg
          end_frame: wheel_1 # required, name of a urdf link that is in a contact
          position: [0.0, 0.0, 0.0]
          offset: [0.0, 0.0, -0.075]
@@ -12,9 +12,10 @@ centauro:
             momentum_1: [0, 0, 0, 0, 0, 0] # direction of a first contraint on momentum
             momentum_2: [0, 0, 0, 0, 0, 0] # direction of a second contraint on momentum
             momentum_3: [0, 0, 0, 0, 0, 0] # direction of a third contraint on momentum
-         type: ground # required type of a contact that should be considered
+         type: wheel # required type of a contact that should be considered
          topic: contacts_wheel_1
-      contact2:
+         active: true
+      contact1:
          name: front_right_leg
          end_frame: wheel_2
          position: [0.0, 0.0, 0.0]
@@ -26,9 +27,10 @@ centauro:
             momentum_1: [0, 0, 0, 0, 0, 0] # direction of a first contraint on momentum
             momentum_2: [0, 0, 0, 0, 0, 0] # direction of a second contraint on momentum
             momentum_3: [0, 0, 0, 0, 0, 0] # direction of a third contraint on momentum
-         type: ground
+         type: wheel
          topic: contacts_wheel_2
-      contact3:
+         active: true
+      contact2:
          name: rear_left_leg
          end_frame: wheel_4
          position: [0.0, 0.0, 0.0]
@@ -40,9 +42,10 @@ centauro:
             momentum_1: [0, 0, 0, 0, 0, 0] # direction of a first contraint on momentum
             momentum_2: [0, 0, 0, 0, 0, 0] # direction of a second contraint on momentum
             momentum_3: [0, 0, 0, 0, 0, 0] # direction of a third contraint on momentum
-         type: ground
+         type: wheel
          topic: contacts_wheel_4
-      contact4:
+         active: true
+      contact3:
          name: rear_right_leg
          end_frame: wheel_3
          position: [0.0, 0.0, 0.0]
@@ -54,5 +57,6 @@ centauro:
             momentum_1: [0, 0, 0, 0, 0, 0] # direction of a first contraint on momentum
             momentum_2: [0, 0, 0, 0, 0, 0] # direction of a second contraint on momentum
             momentum_3: [0, 0, 0, 0, 0, 0] # direction of a third contraint on momentum
-         type: ground
+         type: wheel
          topic: contacts_wheel_3
+         active: true

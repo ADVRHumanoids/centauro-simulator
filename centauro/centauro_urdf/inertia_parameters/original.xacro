@@ -15,7 +15,7 @@
 <!-- Center of Mass -->
 <xacro:property name="Pelvis_x" value=" -0.0135413420 "/>
 <xacro:property name="Pelvis_y" value=" -0.0029098264 "/>
-<xacro:property name="Pelvis_z" value=" 0.1806072100 "/>
+<xacro:property name="Pelvis_z" value=" 0.01400721 "/>
 <!-- Inertia -->
 <xacro:property name="Pelvis_xx" value=" 0.2002111900 "/>
 <xacro:property name="Pelvis_yy" value=" 0.5113621400 "/>
@@ -111,9 +111,9 @@
 <xacro:property name="Wheel_mass" value=" 1.7289003000 "/>
 
 <!-- Center of Mass -->
-<xacro:property name="Torso_2_x" value=" 0.0047281261 "/>
-<xacro:property name="Torso_2_y" value=" 0.00038307386 "/>
-<xacro:property name="Torso_2_z" value=" 0.14972892 "/>
+<xacro:property name="Torso_2_x" value=" 0.0064454169 "/>
+<xacro:property name="Torso_2_y" value=" 0.0021390093 "/>
+<xacro:property name="Torso_2_z" value=" 0.1430209500 "/>
 <!-- Inertia -->
 <xacro:property name="Torso_2_xx" value=" 0.063643392 "/>
 <xacro:property name="Torso_2_yy" value=" 0.02680235 "/>
@@ -122,7 +122,49 @@
 <xacro:property name="Torso_2_xz" value=" -0.00086873 "/>
 <xacro:property name="Torso_2_yz" value=" -0.00004657 "/>
 <!-- Mass -->
-<xacro:property name="Torso_2_mass" value=" 4.5494226000 "/>
+<xacro:property name="Torso_2_mass" value=" 6.1886404000 "/>
+
+<!-- Center of Mass -->
+<xacro:property name="Neck_1_x" value=" 0.0404796740 "/>
+<xacro:property name="Neck_1_y" value=" 0.0213775730 "/>
+<xacro:property name="Neck_1_z" value=" -0.0145951120 "/>
+<!-- Inertia -->
+<xacro:property name="Neck_1_xx" value=" 0.0003718568 "/>
+<xacro:property name="Neck_1_yy" value=" 0.0001886879 "/>
+<xacro:property name="Neck_1_zz" value=" 0.0005023443 "/>
+<xacro:property name="Neck_1_xy" value=" -0.0000942983 "/>
+<xacro:property name="Neck_1_xz" value=" -0.0000280644 "/>
+<xacro:property name="Neck_1_yz" value=" -0.0000154534 "/>
+<!-- Mass -->
+<xacro:property name="Neck_1_mass" value=" 0.3387868600 "/>
+
+<!-- Center of Mass -->
+<xacro:property name="Neck_2_x" value=" 0.0484669180 "/>
+<xacro:property name="Neck_2_y" value=" -0.0598523180 "/>
+<xacro:property name="Neck_2_z" value=" -0.0085314894 "/>
+<!-- Inertia -->
+<xacro:property name="Neck_2_xx" value=" 0.0004682345 "/>
+<xacro:property name="Neck_2_yy" value=" 0.0002635246 "/>
+<xacro:property name="Neck_2_zz" value=" 0.0003763351 "/>
+<xacro:property name="Neck_2_xy" value=" -0.0000105438 "/>
+<xacro:property name="Neck_2_xz" value=" 0.0000724398 "/>
+<xacro:property name="Neck_2_yz" value=" 0.0000016904 "/>
+<!-- Mass -->
+<xacro:property name="Neck_2_mass" value=" 0.7852694200 "/>
+
+<!-- Center of Mass -->
+<xacro:property name="Neck_3_x" value=" 0.0484669180 "/>
+<xacro:property name="Neck_3_y" value=" -0.0598523180 "/>
+<xacro:property name="Neck_3_z" value=" -0.0085314894 "/>
+<!-- Inertia -->
+<xacro:property name="Neck_3_xx" value=" 0.0004682345 "/>
+<xacro:property name="Neck_3_yy" value=" 0.0002635246 "/>
+<xacro:property name="Neck_3_zz" value=" 0.0003763351 "/>
+<xacro:property name="Neck_3_xy" value=" -0.0000105438 "/>
+<xacro:property name="Neck_3_xz" value=" 0.0000724398 "/>
+<xacro:property name="Neck_3_yz" value=" 0.0000016904 "/>
+<!-- Mass -->
+<xacro:property name="Neck_3_mass" value=" 0.7852694200 "/>
 
 <!-- Center of Mass -->
 <xacro:property name="Shoulder_1_x" value=" -0.0031005886 "/>
