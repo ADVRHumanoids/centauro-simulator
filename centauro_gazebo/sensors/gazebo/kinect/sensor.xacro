@@ -1,0 +1,40 @@
+<!--<?xml version="1.0"?>-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="kinect" params="link robot">
+
+  <gazebo  reference="${link}">
+    <sensor  type="depth" name="${link}_kinect_camera">
+      <updateRate>1.0</updateRate> 
+      <always_on>1</always_on>
+      <visualize>true</visualize>             
+      <camera name="${link}_kinect_ir">
+        <horizontal_fov>1.047</horizontal_fov>  
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <depth_camera>
+
+        </depth_camera>
+        <clip>
+          <near>0.1</near>
+          <far>100</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+
+      <xacro:middleware link="${link}" robot="${robot}"/>
+
+    </sensor>
+  </gazebo>
+
+</xacro:macro>
+
+</robot>
+

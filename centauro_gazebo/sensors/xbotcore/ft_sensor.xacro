@@ -1,7 +1,7 @@
 <!--<?xml version="1.0"?>-->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<xacro:macro name="force-torque_sensor" params="joint robot ft_name pose">
+<xacro:macro name="middleware" params="joint robot ft_name">
 
         <gazebo reference="${joint}">
             <sensor type="force_torque" name="${ft_name}">
@@ -12,7 +12,7 @@
                 <always_on>true</always_on>
                 <visualize>true</visualize>
                 <update_rate>1000</update_rate>
-                <pose>${pose}</pose>
+                <pose>0 0 0 0 0 0</pose>
             </sensor>
         </gazebo>
 

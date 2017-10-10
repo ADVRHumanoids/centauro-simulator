@@ -1,0 +1,16 @@
+<!--<?xml version="1.0"?>-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="middleware" params="link robot">
+
+      <plugin name="${link}_velodyne" filename="libgazebo_ros_laser.so"> 
+
+        <frameName>${link}</frameName>
+        <topicName>/${robot}/${link}/velodyne_data</topicName>
+
+      </plugin>
+
+</xacro:macro>
+
+</robot>
+

@@ -2,9 +2,10 @@
 <robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:include filename="$(find centauro)/centauro_urdf/urdf/config.xacro"/>
+<xacro:include filename="${kinematic_parameters_file}"/>
 
 <xacro:if value="${pelvis}">
-    <xacro:imu_sensor link="imu_link" robot="centauro"/>
+    <xacro:imu_sensor link="pelvis" robot="centauro" xyz="${Imu_Ox} ${Imu_Oy} ${Imu_Oz}" rpy="${Imu_raw} ${Imu_pitch} ${Imu_yaw}"/>
 </xacro:if>
 
 </robot>

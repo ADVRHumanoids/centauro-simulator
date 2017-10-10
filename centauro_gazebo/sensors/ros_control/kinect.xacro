@@ -1,0 +1,36 @@
+<!--<?xml version="1.0"?>-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="middleware" params="link robot">
+
+  <plugin name="${link}_kinect" filename="libgazebo_ros_openni_kinect.so"> 
+
+        <baseline>0.2</baseline> 
+        <alwaysOn>true</alwaysOn> 
+        <updateRate>0.0</updateRate> 
+
+        <cameraName>/${robot}/${link}_kinect_ir</cameraName>
+        <imageTopicName>/${robot}/${link}_kinect/depth/image_raw</imageTopicName>
+        <cameraInfoTopicName>/${robot}/${link}_kinect/depth/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>/${robot}/${link}_kinect/depth/image_raw</depthImageTopicName>
+        <depthImageInfoTopicName>/${robot}/${link}_kinect/depth/camera_info</depthImageInfoTopicName>
+        <pointCloudTopicName>/${robot}/${link}_kinect/depth/points</pointCloudTopicName>
+        <frameName>${link}</frameName>
+
+        <pointCloudCutoff>0.5</pointCloudCutoff>
+        <distortionK1>0.00000001</distortionK1>
+        <distortionK2>0.00000001</distortionK2>
+        <distortionK3>0.00000001</distortionK3>
+        <distortionT1>0.00000001</distortionT1>
+        <distortionT2>0.00000001</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0</Cx>
+        <Cy>0</Cy>
+        <focalLength>0</focalLength>
+        <hackBaseline>0</hackBaseline>
+       
+  </plugin> 
+</xacro:macro>
+
+</robot>
+

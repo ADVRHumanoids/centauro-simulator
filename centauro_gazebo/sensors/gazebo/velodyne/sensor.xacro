@@ -1,0 +1,52 @@
+<!--<?xml version="1.0"?>-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="velodyne" params="link robot">
+  <gazebo  reference="${link}">
+    <sensor type="ray" name="${link}_velodyne_sensor">
+      <!-- Position the ray sensor based on the specification. Also rotate
+           it by 90 degrees around the X-axis so that the <horizontal> rays
+           become vertical -->
+      <pose>0 0 -0.004645 1.5707 0 0</pose>
+
+      <always_on>1</always_on>
+      <visualize>true</visualize>
+      <update_rate>1.0</update_rate>
+
+      <ray>
+        <noise>
+          <!-- Use gaussian noise -->
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.02</stddev>
+        </noise>
+        <scan>
+          <horizontal>
+            <!-- The velodyne has 32 beams(samples) -->
+            <samples>32</samples>
+            <resolution>1</resolution>
+            <!-- Minimum angle in radians -->
+            <min_angle>-0.53529248</min_angle>
+            <!-- Maximum angle in radians -->
+            <max_angle>0.18622663</max_angle>
+          </horizontal>
+        </scan>
+
+        <range>
+          <!-- Minimum distance of the beam -->
+          <min>0.05</min>
+          <!-- Maximum distance of the beam -->
+          <max>70</max>
+          <!-- Linear resolution of the beam -->
+          <resolution>0.02</resolution>
+        </range>
+      </ray>
+
+      <xacro:middleware link="${link}" robot="${robot}"/>
+
+    </sensor>
+  </gazebo>
+</xacro:macro>
+
+</robot>
+

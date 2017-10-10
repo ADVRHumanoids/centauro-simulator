@@ -30,9 +30,13 @@
 
 <xacro:property name="ARM_SENSORS" value="$(arg ARM_SENSORS)"/>
 <xacro:property name="LEG_SENSORS" value="$(arg LEG_SENSORS)"/>
+<xacro:property name="HEAD_SENSORS" value="$(arg HEAD_SENSORS)"/>
+
 <xacro:property name="FT_SENSORS" value="$(arg FT_SENSORS)"/>
-<xacro:property name="BUMBERS" value="$(arg BUMBERS)"/>
+<xacro:property name="BUMPERS" value="$(arg BUMPERS)"/>
 <xacro:property name="IMU" value="$(arg IMU)"/>
+<xacro:property name="KINECT" value="$(arg KINECT)"/>
+<xacro:property name="VELODYNE" value="$(arg VELODYNE)"/>
 
 <xacro:property name="MASS" value="$(arg MASS)"/>
 
@@ -55,14 +59,17 @@
 <xacro:property name="arm_actuators" value="${'true' if ('false' not in [ARM_ACTUATORS, TORSO_ACTUATORS, arm]) else 'false'}"/>
 <xacro:property name="leg_actuators" value="${'true' if ('false' not in [LEG_ACTUATORS, legs]) else 'false'}"/>
 <xacro:property name="head_actuators" value="${'true' if ('false' not in [HEAD_ACTUATORS, head]) else 'false'}"/>
-<xacro:property name="torso_actuators" value="${'true' if ('false' not in [TORSO_ACTUATORS, TORSO]) else 'false'}"/>
 
 <!-- SENSORS -->
 <xacro:property name="arm_sensors" value="${'true' if ('false' not in [ARM_SENSORS, arm]) else 'false'}"/>
 <xacro:property name="leg_sensors" value="${'true' if ('false' not in [LEG_SENSORS, legs]) else 'false'}"/>
+<xacro:property name="head_sensors" value="${'true' if ('false' not in [HEAD_SENSORS, head]) else 'false'}"/>
+
 <xacro:property name="ft_sensors" value="${'true' if ('false' not in [FT_SENSORS]) else 'false'}"/>
-<xacro:property name="bumbers" value="${'true' if ('false' not in [BUMBERS]) else 'false'}"/>
+<xacro:property name="bumpers" value="${'true' if ('false' not in [BUMPERS]) else 'false'}"/>
 <xacro:property name="imu" value="${'true' if ('false' not in [IMU, pelvis]) else 'false'}"/>
+<xacro:property name="kinect" value="${'true' if ('false' not in [KINECT]) else 'false'}"/>
+<xacro:property name="velodyne" value="${'true' if ('false' not in [VELODYNE]) else 'false'}"/>
 
 <!-- LOAD PARAMETERS -->
 <xacro:property name="package" value="$(find centauro)"/>

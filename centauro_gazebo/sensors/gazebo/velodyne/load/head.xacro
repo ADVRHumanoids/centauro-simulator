@@ -1,0 +1,6 @@
+<!--<?xml version="1.0"?>-->
+<robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:velodyne link="neck_3" robot="centauro"/>
+
+</robot>

@@ -8,9 +8,11 @@
 
 <!-- other files -->
 <xacro:include filename="$(find centauro)/centauro_urdf/urdf/config.xacro"/>
+
 <xacro:if value="${GAZEBO}">
   <xacro:include filename="$(find centauro_gazebo)/urdf/centauro.gazebo"/>
 </xacro:if>
+
 <xacro:include filename="${inertia_parameters_file}"/>
 <xacro:include filename="${kinematic_parameters_file}"/>
 
@@ -49,20 +51,6 @@
       </collision>
 
    </link>
-
-
-    <link name="imu_link">
-        <inertial>
-            <mass value="0.0"/>
-            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
-        </inertial>
-    </link>
-
-    <joint name="imu_joint" type="fixed">
-        <parent link="pelvis"/>
-        <origin xyz="${Imu_Ox} ${Imu_Oy} ${Imu_Oz}" rpy="${Imu_raw} ${Imu_pitch} ${Imu_yaw}"/>
-        <child link="imu_link"/>
-    </joint>
 
 </xacro:if>
 

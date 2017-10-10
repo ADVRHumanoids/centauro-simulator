@@ -1,0 +1,18 @@
+<!--<?xml version="1.0"?>-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="middleware" params="link robot">
+
+    <plugin name="${link}_imu" filename="libgazebo_ros_imu_sensor.so">
+      <topicName>${robot}/imu_${link}</topicName>
+      <frameName>${link}</frameName>
+      <updateRateHZ>0.0 </updateRateHZ> <!-- seems to take the value from the sensor -->
+      <gaussianNoise> 0.0 </gaussianNoise> <!-- it is already applied at the sensor? -->
+      <!-- <xyzOffset> 0 0 0 </xyzOffset> -->
+      <!-- <rpyOffset> 0 0 0 </rpyOffset> -->
+    </plugin>
+
+</xacro:macro>
+
+</robot>
+
