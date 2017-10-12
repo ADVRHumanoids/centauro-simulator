@@ -21,18 +21,15 @@
    </link>
 <!-- /links -->
 
+<!-- joints -->
    <joint name="j_arm${arm_num}_8" type="revolute">
       <parent link="arm${arm_num}_7"/>
       <child link="arm${arm_num}_8"/>
       <origin xyz="${End_effector_Ox} ${End_effector_Oy} ${End_effector_Oz}" rpy="${End_effector_roll} ${End_effector_pitch} ${End_effector_yaw}"/>
       <axis xyz="1 0 0" />
-      <limit velocity="20.3" effort="40" lower="0.0" upper="1.57075" />
+      <limit velocity="0" effort="0" lower="0.0" upper="0" />
    </joint> -->
 <!-- /joints -->
-
-<!-- actuators -->
-   <xacro:position_actuator joint="j_arm${arm_num}_8" />
-<!-- /actuators -->
 
 
 </robot>
