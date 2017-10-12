@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <!-- links -->
-   <link name="arm${arm_num}_8">
+   <link name="ft_arm${arm_num}">
       <inertial>
          <origin xyz="${Stick_x} ${Stick_y} ${Stick_z}" rpy="0 0 0"/>
          <mass value="${Stick_mass}"/>
@@ -22,9 +22,9 @@
 <!-- /links -->
 
 <!-- joints -->
-   <joint name="j_arm${arm_num}_8" type="revolute">
+   <joint name="j_ft_arm${arm_num}" type="revolute">
       <parent link="arm${arm_num}_7"/>
-      <child link="arm${arm_num}_8"/>
+      <child link="ft_arm${arm_num}"/>
       <origin xyz="${End_effector_Ox} ${End_effector_Oy} ${End_effector_Oz}" rpy="${End_effector_roll} ${End_effector_pitch} ${End_effector_yaw}"/>
       <axis xyz="1 0 0" />
       <limit velocity="0" effort="0" lower="0.0" upper="0" />
