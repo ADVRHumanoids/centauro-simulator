@@ -22,12 +22,18 @@
 <!-- /links -->
 
 <!-- joints -->
-   <joint name="j_arm${arm_num}_8" type="revolute">
-      <parent link="arm${arm_num}_7"/>
+   <joint name="j_arm${arm_num}_8" type="fixed">
+      <xacro:if value="${ft_sensors == 'true'}" >
+         <parent link="ft_arm${arm_num}"/>
+         <origin xyz="${Stick_ft_Ox} ${Stick_ft_Oy} ${Stick_ft_Oz}" rpy="${Stick_ft_roll} ${Stick_ft_pitch} ${Stick_ft_yaw}"/>
+      </xacro:if>
+      <xacro:unless value="${ft_sensors == 'true'}" >
+         <parent link="arm${arm_num}_7"/>
+         <origin xyz="${Stick_Ox} ${Stick_Oy} ${Stick_Oz}" rpy="${Stick_roll} ${Stick_pitch} ${Stick_yaw}"/>
+      </xacro:unless>
       <child link="arm${arm_num}_8"/>
-      <origin xyz="${End_effector_Ox} ${End_effector_Oy} ${End_effector_Oz}" rpy="${End_effector_roll} ${End_effector_pitch} ${End_effector_yaw}"/>
+
       <axis xyz="1 0 0" />
-      <limit velocity="0" effort="0" lower="0.0" upper="0" />
    </joint> -->
 <!-- /joints -->
 

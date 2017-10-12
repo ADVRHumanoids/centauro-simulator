@@ -3,8 +3,8 @@
 
 <xacro:include filename="$(find centauro)/centauro_urdf/urdf/config.xacro"/>
 
-  <xacro:force-torque_sensor joint="j_arm1_8" robot="centauro"/>
+  <xacro:force-torque_sensor joint="j_ft_1" robot="centauro"/>
   <xacro:if value="${arms}">
-    <xacro:force-torque_sensor joint="j_arm2_8" robot="centauro"/>
+    <xacro:force-torque_sensor joint="j_ft_2" robot="centauro"/>
   </xacro:if>
 </robot>

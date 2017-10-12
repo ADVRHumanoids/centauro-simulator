@@ -121,14 +121,59 @@
 <xacro:property name="Wrist_3_Oy" value=" 0.049 "/>
 <xacro:property name="Wrist_3_Oz" value=" -0.169 "/>
 
+
+<!-- FT_SENSORS_ARM-->
+<!-- Origin -->
+<xacro:property name="Ft_arm_Ox" value=" 0.0 "/>
+<xacro:property name="Ft_arm_Oy" value=" 0.0 "/>
+<xacro:property name="Ft_arm_Oz" value=" -0.0405 "/>
+<xacro:property name="Ft_arm_roll" value=" 0.0 "/>
+<xacro:property name="Ft_arm_pitch" value=" ${PI} "/>
+<xacro:property name="Ft_arm_yaw" value=" ${-PI} "/>
+
 <!-- END-EFFECTORS-->
 <!-- SOFT HAND/STICK/NO_EE-->
 <!-- Origin -->
-<xacro:property name="End_effector_Ox" value=" 0.0 "/>
-<xacro:property name="End_effector_Oy" value=" 0.0 "/>
-<xacro:property name="End_effector_Oz" value=" -0.0405 "/>
-<xacro:property name="End_effector_roll" value=" 0.0 "/>
-<xacro:property name="End_effector_pitch" value=" ${PI} "/>
-<xacro:property name="End_effector_yaw" value=" ${-PI/2} "/>
+<xacro:property name="No_end_ft_Ox" value=" 0.0 "/>
+<xacro:property name="No_end_ft_Oy" value=" 0.0 "/>
+<xacro:property name="No_end_ft_Oz" value=" -0.0405 "/>
+<xacro:property name="No_end_ft_roll" value=" ${PI} "/>
+<xacro:property name="No_end_ft_pitch" value=" 0.0 "/>
+<xacro:property name="No_end_ft_yaw" value=" 0.0 "/>
+
+<xacro:property name="No_end_Ox" value=" 0.0 "/>
+<xacro:property name="No_end_Oy" value=" 0.0 "/>
+<xacro:property name="No_end_Oz" value=" 0.0 "/>
+<xacro:property name="No_end_roll" value=" 0.0 "/>
+<xacro:property name="No_end_pitch" value=" 0.0 "/>
+<xacro:property name="No_end_yaw" value=" 0.0 "/>
+
+<xacro:property name="Stick_ft_Ox" value=" 0.0 "/>
+<xacro:property name="Stick_ft_Oy" value=" 0.0 "/>
+<xacro:property name="Stick_ft_Oz" value=" 0.0 "/>
+<xacro:property name="Stick_ft_roll" value=" 0.0 "/>
+<xacro:property name="Stick_ft_pitch" value=" 0.0 "/>
+<xacro:property name="Stick_ft_yaw" value=" ${-PI/2} "/>
+
+<xacro:property name="Stick_Ox" value=" 0.0 "/>
+<xacro:property name="Stick_Oy" value=" 0.0 "/>
+<xacro:property name="Stick_Oz" value=" -0.0405 "/>
+<xacro:property name="Stick_roll" value=" 0.0 "/>
+<xacro:property name="Stick_pitch" value=" ${PI} "/>
+<xacro:property name="Stick_yaw" value=" ${-PI/2} "/>
+
+<xacro:property name="Hand_ft_Ox" value=" 0.0 "/>
+<xacro:property name="Hand_ft_Oy" value=" 0.0 "/>
+<xacro:property name="Hand_ft_Oz" value=" -0.0405 "/>
+<xacro:property name="Hand_ft_roll" value=" ${PI} "/>
+<xacro:property name="Hand_ft_pitch" value=" 0.0 "/>
+<xacro:property name="Hand_ft_yaw" value=" 0.0 "/>
+
+<xacro:property name="Hand_Ox" value=" 0.0 "/>
+<xacro:property name="Hand_Oy" value=" 0.0 "/>
+<xacro:property name="Hand_Oz" value=" 0.0 "/>
+<xacro:property name="Hand_roll" value=" 0.0 "/>
+<xacro:property name="Hand_pitch" value=" 0.0 "/>
+<xacro:property name="Hand_yaw" value=" 0.0 "/>
 
 </robot>

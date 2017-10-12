@@ -264,12 +264,28 @@
 <!-- Mass -->
 <xacro:property name="Wrist_3_mass" value=" 0.5598103600 "/>
 
+
+<!-- FT-SENSOR-->
+<!-- Center of Mass -->
+<xacro:property name="Ft_arm_x" value=" 0.0 "/>
+<xacro:property name="Ft_arm_y" value=" 0.0 "/>
+<xacro:property name="Ft_arm_z" value=" 0.0 "/>
+<!-- Inertia -->
+<xacro:property name="Ft_arm_xx" value=" 1e-6 "/>
+<xacro:property name="Ft_arm_yy" value=" 1e-6 "/>
+<xacro:property name="Ft_arm_zz" value=" 1e-6 "/>
+<xacro:property name="Ft_arm_xy" value=" 0.0 "/>
+<xacro:property name="Ft_arm_xz" value=" 0.0 "/>
+<xacro:property name="Ft_arm_yz" value=" 0.0 "/>
+<!-- Mass -->
+<xacro:property name="Ft_arm_mass" value=" 0.150 "/>
+
 <!-- END-EFFECTORS-->
 <!-- SOFT HAND-->
 <!-- Center of Mass -->
 <xacro:property name="Hand_x" value=" 0 "/>
 <xacro:property name="Hand_y" value=" 0 "/>
-<xacro:property name="Hand_z" value=" 0.10 "/>
+<xacro:property name="Hand_z" value=" -0.07 "/>
 <!-- Inertia -->
 <xacro:property name="Hand_xx" value=" 0.00024500 "/>
 <xacro:property name="Hand_yy" value=" 0.00024500 "/>
