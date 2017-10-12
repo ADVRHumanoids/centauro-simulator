@@ -5,7 +5,8 @@
      Also all the parameter dependencies are resolved-->
 
 <!-- basic arguments -->
-<xacro:property name="END_EFFECTOR" value="$(arg END_EFFECTOR)"/>
+<xacro:property name="LEFT_END_EFFECTOR" value="$(arg LEFT_END_EFFECTOR)"/>
+<xacro:property name="RIGHT_END_EFFECTOR" value="$(arg RIGHT_END_EFFECTOR)"/>
 <xacro:property name="COLLISION_MODEL" value="$(arg COLLISION_MODEL)"/>
 <xacro:property name="VISUAL_MODEL" value="$(arg VISUAL_MODEL)"/>
 

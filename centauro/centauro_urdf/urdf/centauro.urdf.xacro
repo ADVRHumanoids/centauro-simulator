@@ -89,10 +89,10 @@
 
 <!-- arms -->
 <xacro:if value="${arms == 'true'}">
-   <xacro:centauro_arm arm_num="1"  rot="1"  parent="torso_2">
+   <xacro:centauro_arm arm_num="1"  rot="1"  parent="torso_2" end_effector="${LEFT_END_EFFECTOR}">
       <origin xyz="${Shoulder_1_Ox} ${Shoulder_1_Oy} ${Shoulder_1_Oz}" rpy="${Shoulder_1_roll} ${Shoulder_1_pitch} ${Shoulder_1_yaw}"/>
    </xacro:centauro_arm>
-   <xacro:centauro_arm arm_num="2" rot="-1"  parent="torso_2">
+   <xacro:centauro_arm arm_num="2" rot="-1"  parent="torso_2" end_effector="${RIGHT_END_EFFECTOR}">
       <origin xyz="${Shoulder_1_Ox} ${-Shoulder_1_Oy} ${Shoulder_1_Oz}" rpy="${Shoulder_1_roll} ${Shoulder_1_pitch} ${-Shoulder_1_yaw}" />
    </xacro:centauro_arm>
 </xacro:if>
