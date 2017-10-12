@@ -32,7 +32,7 @@
   <arg name="one_arm" default="false"/>
 
   <!-- choose the end-effector -->
-  <arg name="end_effector" default="stick"/>
+  <arg name="end_effector" default="soft_hand"/>
   <arg name="mass" default="0.0"/>
 
   <!-- actuators set-up-->
