@@ -176,4 +176,38 @@
 <xacro:property name="Hand_pitch" value=" 0.0 "/>
 <xacro:property name="Hand_yaw" value=" 0.0 "/>
 
+<xacro:property name="Camera_central_Ox" value=" 0.0559593 "/>
+<xacro:property name="Camera_central_Oy" value=" 5e-12 "/>
+<xacro:property name="Camera_central_Oz" value=" 0.390626 "/>
+<xacro:property name="Camera_central_roll" value=" 0.0 "/>
+<xacro:property name="Camera_central_pitch" value=" 0.349065586018 "/>
+<xacro:property name="Camera_central_yaw" value=" 0.0 "/>
+
+<xacro:property name="Camera_left_Ox" value=" 0.0191392 "/>
+<xacro:property name="Camera_left_Oy" value=" 0.0525845 "/>
+<xacro:property name="Camera_left_Oz" value=" 0.390626 "/>
+<xacro:property name="Camera_left_roll" value=" 0.0 "/>
+<xacro:property name="Camera_left_pitch" value=" 0.349065586018 "/>
+<xacro:property name="Camera_left_yaw" value=" 1.2217302006 "/>
+
+<xacro:property name="Camera_right_Ox" value=" 0.0191392 "/>
+<xacro:property name="Camera_right_Oy" value=" -0.0525845 "/>
+<xacro:property name="Camera_right_Oz" value=" 0.390626 "/>
+<xacro:property name="Camera_right_roll" value=" 0.0 "/>
+<xacro:property name="Camera_right_pitch" value=" 0.349065586018 "/>
+<xacro:property name="Camera_right_yaw" value=" -1.2217302006 "/>
+
+<xacro:property name="Kinect_Ox" value=" 0.03 "/>
+<xacro:property name="Kinect_Oy" value=" -0.0596 "/>
+<xacro:property name="Kinect_Oz" value=" 0.045855 "/>
+<xacro:property name="Kinect_roll" value=" 0.0 "/>
+<xacro:property name="Kinect_pitch" value=" 0.0 "/>
+<xacro:property name="Kinect_yaw" value=" 0.0 "/>
+
+<xacro:property name="Velodyne_Ox" value=" 0.138 "/>
+<xacro:property name="Velodyne_Oy" value=" 0.0 "/>
+<xacro:property name="Velodyne_Oz" value=" -0.033 "/>
+<xacro:property name="Velodyne_roll" value=" 0.0 "/>
+<xacro:property name="Velodyne_pitch" value=" 0.0 "/>
+<xacro:property name="Velodyne_yaw" value=" -3.14159265359 "/>
 </robot>

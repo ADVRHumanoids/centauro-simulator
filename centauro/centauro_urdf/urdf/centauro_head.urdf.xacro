@@ -52,6 +52,43 @@
 	</collision>
 </link>
 <!-- /head links -->
+<!-- sensors links -->
+<link name="camera_central">
+	<inertial>
+		<origin xyz="${Dummy_x} ${Dummy_y} ${Dummy_z}"/>
+		<mass value="${Dummy_mass}"/> 
+                <inertia ixx="${Dummy_xx}" ixy="${Dummy_xy}" ixz="${Dummy_xz}" iyy="${Dummy_yy}" iyz="${Dummy_yz}" izz="${Dummy_zz}"/>
+        </inertial>
+</link>
+<link name="camera_left">
+	<inertial>
+		<origin xyz="${Dummy_x} ${Dummy_y} ${Dummy_z}"/>
+		<mass value="${Dummy_mass}"/> 
+                <inertia ixx="${Dummy_xx}" ixy="${Dummy_xy}" ixz="${Dummy_xz}" iyy="${Dummy_yy}" iyz="${Dummy_yz}" izz="${Dummy_zz}"/>
+        </inertial>
+</link>
+<link name="camera_right">
+	<inertial>
+		<origin xyz="${Dummy_x} ${Dummy_y} ${Dummy_z}"/>
+		<mass value="${Dummy_mass}"/> 
+                <inertia ixx="${Dummy_xx}" ixy="${Dummy_xy}" ixz="${Dummy_xz}" iyy="${Dummy_yy}" iyz="${Dummy_yz}" izz="${Dummy_zz}"/>
+        </inertial>
+</link>
+<link name="kinect">
+	<inertial>
+		<origin xyz="${Dummy_x} ${Dummy_y} ${Dummy_z}"/>
+		<mass value="${Dummy_mass}"/> 
+                <inertia ixx="${Dummy_xx}" ixy="${Dummy_xy}" ixz="${Dummy_xz}" iyy="${Dummy_yy}" iyz="${Dummy_yz}" izz="${Dummy_zz}"/>
+        </inertial>
+</link>
+<link name="velodyne">
+	<inertial>
+		<origin xyz="${Dummy_x} ${Dummy_y} ${Dummy_z}"/>
+		<mass value="${Dummy_mass}"/> 
+                <inertia ixx="${Dummy_xx}" ixy="${Dummy_xy}" ixz="${Dummy_xz}" iyy="${Dummy_yy}" iyz="${Dummy_yz}" izz="${Dummy_zz}"/>
+        </inertial>
+</link>
+<!-- /sensors links -->
 
 <!-- head joints -->
 <joint name="neck_yaw" type="revolute">
@@ -78,6 +115,34 @@
    <limit effort="35" velocity="5.7"/> <!-- TODO -->
 </joint>
 <!-- /head joints -->
+
+<!-- sensors transformations -->
+<joint name="j_camera_central" type="fixed">
+   <parent link="torso_2"/>
+   <origin xyz="${Camera_central_Ox} ${Camera_central_Oy} ${Camera_central_Oz}" rpy="${Camera_central_roll} ${Camera_central_pitch} ${Camera_central_yaw}"/>
+   <child link="camera_central"/>
+</joint>
+<joint name="j_camera_left" type="fixed">
+   <parent link="torso_2"/>
+   <origin xyz="${Camera_left_Ox} ${Camera_left_Oy} ${Camera_left_Oz}" rpy="${Camera_left_roll} ${Camera_left_pitch} ${Camera_left_yaw}"/>
+   <child link="camera_left"/>
+</joint>
+<joint name="j_camera_right" type="fixed">
+   <parent link="torso_2"/>
+   <origin xyz="${Camera_right_Ox} ${Camera_right_Oy} ${Camera_right_Oz}" rpy="${Camera_right_roll} ${Camera_right_pitch} ${Camera_right_yaw}"/>
+   <child link="camera_right"/>
+</joint>
+<joint name="j_kinect" type="fixed">
+   <parent link="neck_2"/>
+   <origin xyz="${Kinect_Ox} ${Kinect_Oy} ${Kinect_Oz}" rpy="${Kinect_roll} ${Kinect_pitch} ${Kinect_yaw}"/>
+   <child link="kinect"/>
+</joint>
+<joint name="j_velodyne" type="fixed">
+   <parent link="neck_3"/>
+   <origin xyz="${Velodyne_Ox} ${Velodyne_Oy} ${Velodyne_Oz}" rpy="${Velodyne_roll} ${Velodyne_pitch} ${Velodyne_yaw}"/>
+   <child link="velodyne"/>
+</joint>
+<!-- /sensors transformations -->
 
 <xacro:if value="${head_actuators}">
 <!-- torso actuators -->
