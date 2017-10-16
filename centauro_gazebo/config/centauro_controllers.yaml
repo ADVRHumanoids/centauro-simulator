@@ -1,0 +1,298 @@
+centauro_schunk:
+    # Publish all joint states -----------------------------------
+    joint_state_controller:
+        type: joint_state_controller/JointStateController
+        publish_rate: 125
+
+    
+    j_arm1_1_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_arm1_1
+        pid: {p: 1000, i: 0.05, d: 0.01}
+    j_arm1_2_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_arm1_2
+        pid: {p: 10000, i: 10.005, d: 0}
+    j_arm1_3_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_arm1_3
+        pid: {p: 1000, i: 0.01, d: 0.01}
+    j_arm1_4_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_arm1_4
+        pid: {p: 1000, i: 0.1, d: 0.01}
+    j_arm1_5_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_arm1_5
+        pid: {p: 1000, i: 0.05, d: 0.01}
+    j_arm1_6_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_arm1_6
+        pid: {p: 1000, i: 0.05, d: 0.001}
+    j_arm1_7_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_arm1_7
+        pid: {p: 1000, i: 0.05, d: 0.0}
+    
+    j_arm2_1_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_arm2_1
+        pid: {p: 1000, i: 0.05, d: 0.0}
+    j_arm2_2_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_arm2_2 
+        pid: {p: 10000, i: 10.005, d: 0}
+    j_arm2_3_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_arm2_3 
+        pid: {p: 1000, i: 0.05, d: 0.0}
+    j_arm2_4_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_arm2_4 
+        pid: {p: 1000, i: 0.05, d: 0.0}
+    j_arm2_5_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_arm2_5 
+        pid: {p: 1000, i: 0.05, d: 0.0}
+    j_arm2_6_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_arm2_6 
+        pid: {p: 1000, i: 0.01, d: 0.005}
+    j_arm2_7_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_arm2_7 
+        pid: {p: 1000, i: 0.01, d: 0.005}
+    
+    torso_yaw_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: torso_yaw 
+        pid: {p: 20, i: 0.05, d: 0.0}
+        
+# Leg 1
+    j_leg1_hip_yaw_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: hip_yaw_1
+        pid: {p: 1000, i: 0.05, d: 0.0}
+    
+    j_leg1_hip_pitch_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: hip_pitch_1
+        pid: {p: 1000, i: 0.05, d: 0.0}        
+        
+    j_leg1_knee_pitch_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: knee_pitch_1
+        pid: {p: 1000, i: 0.05, d: 0.0}
+        
+    j_leg1_ankle_pitch_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: ankle_pitch_1
+        pid: {p: 1000, i: 0.05, d: 0.0}          
+
+    j_leg1_ankle_yaw_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: ankle_yaw_1
+        pid: {p: 1000, i: 0.05, d: 0.0}
+        
+    j_leg1_wheel_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_wheel_1
+        pid: {p: 1000, i: 0.05, d: 0.0}  
+
+# Leg 2
+    j_leg2_hip_yaw_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: hip_yaw_2
+        pid: {p: 1000, i: 0.05, d: 0.0}
+    
+    j_leg2_hip_pitch_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: hip_pitch_2
+        pid: {p: 1000, i: 0.05, d: 0.0}        
+        
+    j_leg2_knee_pitch_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: knee_pitch_2
+        pid: {p: 1000, i: 0.05, d: 0.0}
+        
+    j_leg2_ankle_pitch_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: ankle_pitch_2
+        pid: {p: 1000, i: 0.05, d: 0.0}          
+
+    j_leg2_ankle_yaw_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: ankle_yaw_2
+        pid: {p: 1000, i: 0.05, d: 0.0}
+        
+    j_leg2_wheel_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_wheel_2
+        pid: {p: 1000, i: 0.05, d: 0.0}  
+        
+# Leg 3
+    j_leg3_hip_yaw_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: hip_yaw_3
+        pid: {p: 1000, i: 0.05, d: 0.0}
+    
+    j_leg3_hip_pitch_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: hip_pitch_3
+        pid: {p: 1000, i: 0.05, d: 0.0}        
+        
+    j_leg3_knee_pitch_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: knee_pitch_3
+        pid: {p: 1000, i: 0.05, d: 0.0}
+        
+    j_leg3_ankle_pitch_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: ankle_pitch_3
+        pid: {p: 1000, i: 0.05, d: 0.0}          
+
+    j_leg3_ankle_yaw_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: ankle_yaw_3
+        pid: {p: 1000, i: 0.05, d: 0.0}
+        
+    j_leg3_wheel_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_wheel_3
+        pid: {p: 1000, i: 0.05, d: 0.0}  
+        
+# Leg 4
+    j_leg4_hip_yaw_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: hip_yaw_4
+        pid: {p: 1000, i: 0.05, d: 0.0}
+    
+    j_leg4_hip_pitch_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: hip_pitch_4
+        pid: {p: 1000, i: 0.05, d: 0.0}        
+        
+    j_leg4_knee_pitch_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: knee_pitch_4
+        pid: {p: 1000, i: 0.05, d: 0.0}
+        
+    j_leg4_ankle_pitch_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: ankle_pitch_4
+        pid: {p: 1000, i: 0.05, d: 0.0}          
+
+    j_leg4_ankle_yaw_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: ankle_yaw_4
+        pid: {p: 1000, i: 0.05, d: 0.0}
+        
+    j_leg4_wheel_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: j_wheel_4
+        pid: {p: 1000, i: 0.05, d: 0.0}  
+
+
+    # Position controllers: Right Schunk Hand
+    right_hand_Thumb_Flexion_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_Thumb_Flexion
+        #pid: {p: 0.6, i: 0.1, d: 2000.0}
+        pid: {p: 5.0, i: 0.1, d: 0.01}
+    right_hand_j3_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_j3
+        #pid: {p: 0.6, i: 0.1, d: 2000.0}
+        pid: {p: 0.6, i: 0.1, d: 0.01}
+    right_hand_j4_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_j4
+        #pid: {p: 0.6, i: 0.1, d: 2000.0}
+        pid: {p: 0.6, i: 0.1, d: 0.01}
+    right_hand_Thumb_Opposition_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_Thumb_Opposition
+        #pid: {p: 0.6, i: 0.1, d: 2000.0}
+        pid: {p: 0.6, i: 0.1, d: 0.01}
+    right_hand_j5_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_j5
+        #pid: {p: 0.6, i: 0.1, d: 2000.0}
+        pid: {p: 0.6, i: 0.1, d: 0.01}
+    right_hand_Index_Finger_Distal_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_Index_Finger_Distal
+        #pid: {p: 0.6, i: 0.36, d: 1800.0}
+        pid: {p: 0.6, i: 0.36, d: 0.005}
+    right_hand_j14_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_j14
+        #pid: {p: 0.6, i: 0.36, d: 1800.0}
+        pid: {p: 0.6, i: 0.36, d: 0.001}
+    right_hand_Index_Finger_Proximal_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_Index_Finger_Proximal
+        #pid: {p: 0.2, i: 0.17, d: 1200.0}
+        pid: {p: 5.0, i: 0.17, d: 0.0120}
+    right_hand_Middle_Finger_Distal_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_Middle_Finger_Distal
+        #pid: {p: 0.6, i: 0.36, d: 1800.0}
+        pid: {p: 0.6, i: 0.36, d: 0.001}
+    right_hand_j15_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_j15
+        #pid: {p: 0.6, i: 0.36, d: 1800.0}
+        pid: {p: 0.6, i: 0.36, d: 0.001}
+    right_hand_Middle_Finger_Proximal_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_Middle_Finger_Proximal
+        #pid: {p: 0.2, i: 0.17, d: 1200.0}
+        pid: {p: 5.0, i: 0.17, d: 0.0012}
+    right_hand_Ring_Finger_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_Ring_Finger
+        #pid: {p: 1.2, i: 0.36, d: 1800.0}
+        pid: {p: 5.0, i: 0.36, d: 0.0018}
+    right_hand_j12_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_j12
+        #pid: {p: 1.2, i: 0.36, d: 1800.0}
+        pid: {p: 1.2, i: 0.36, d: 0.0018}
+    right_hand_j16_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_j16
+        #pid: {p: 1.2, i: 0.36, d: 1800.0}
+        pid: {p: 1.2, i: 0.36, d: 0.0018}
+    right_hand_Pinky_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_Pinky
+        #pid: {p: 1.2, i: 0.36, d: 1800.0}
+        pid: {p: 5.0, i: 0.36, d: 0.0018}
+    right_hand_j13_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_j13
+        #pid: {p: 1.2, i: 0.36, d: 1800.0}
+        pid: {p: 1.2, i: 0.36, d: 0.0018}
+    right_hand_j17_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_j17
+        #pid: {p: 1.2, i: 0.36, d: 1800.0}
+        pid: {p: 1.2, i: 0.36, d: 0.0018}
+    right_hand_Finger_Spread_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_Finger_Spread
+        #pid: {p: 1.0, i: 0.34, d: 4000.0}
+        pid: {p: 1.0, i: 0.34, d: 0.004}
+    right_hand_index_spread_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_index_spread
+        #pid: {p: 1.0, i: 0.34, d: 4000.0}
+        pid: {p: 1.0, i: 0.34, d: 0.004}
+    right_hand_ring_spread_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_hand_ring_spread
+        #pid: {p: 1.0, i: 0.34, d: 4000.0}
+        pid: {p: 1.0, i: 0.34, d: 0.004}
+        
+

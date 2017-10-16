@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+	<world name="default">
+		<scene>
+			<shadows>false</shadows>
+		</scene>
+		<gui>
+			<camera name="camera">
+				<pose>3.0 0.0 1.0 0.0 0.3 3.14</pose>
+			</camera>
+		</gui>
+		<physics type="ode">
+			<gravity>0 0 -9.81</gravity>
+			<real_time_update_rate>2000</real_time_update_rate>
+			<max_step_size>0.0005</max_step_size>
+			<ode>
+				<solver>
+					<type>quick</type>
+					<iters>70</iters>
+					<sor>1.2</sor>
+				</solver>
+				<constraints>
+ 					<cfm>0.0</cfm>
+					<erp>0.2</erp>
+					<contact_max_correcting_vel>100.0</contact_max_correcting_vel>
+					<contact_surface_layer>0.001</contact_surface_layer>
+				</constraints>
+			</ode>
+		</physics>
+		<include>
+			<uri>model://ground_plane</uri>
+		</include>
+		<include>
+			<uri>model://sun</uri>
+		</include>
+
+		<model name="block1">
+			<pose>7 0 0.075 0 0 0</pose>
+
+			<static>true</static>
+			<link name="link">
+				<visual name="visual0">
+					<geometry>
+						<box>
+							<size>6 3 0.15</size>
+						</box>
+					</geometry>
+					<!--material>
+						<ambient> 1 1 1 1 </ambient>
+						<diffuse> 0.05 0.05 0.05 0.05 </diffuse>
+						<specular> 0 0 0 0</specular>
+						<emissive> 0 0 0 0</emissive>
+					</material-->
+				</visual>
+				<collision name="collision0">
+					<geometry>
+						<box>
+							<size>6 3 0.15</size>
+						</box>
+					</geometry>
+				</collision>
+			</link>
+		</model>
+	</world>
+</sdf>
