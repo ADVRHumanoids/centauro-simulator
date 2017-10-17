@@ -10,16 +10,20 @@
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
     <group name="front_left_leg">
-        <chain base_link="pelvis" tip_link="knee_1" />
+        <chain base_link="pelvis" tip_link="ankle2_1" />
+		<link name="front_left_eef_link" />
     </group>
     <group name="front_right_leg">
-        <chain base_link="pelvis" tip_link="knee_2" />
+        <chain base_link="pelvis" tip_link="ankle2_2" />
+		<link name="front_right_eef_link" />
     </group>
     <group name="rear_right_leg">
-        <chain base_link="pelvis" tip_link="knee_3" />
+        <chain base_link="pelvis" tip_link="ankle2_3" />
+		<link name="back_right_eef_link" />
     </group>
     <group name="rear_left_leg">
-        <chain base_link="pelvis" tip_link="knee_4" />
+        <chain base_link="pelvis" tip_link="ankle2_4" />
+		<link name="back_left_eef_link" />
     </group>
     <group name="left_arm">
         <chain base_link="torso_2" tip_link="arm1_7" />
