@@ -97,13 +97,13 @@
             <visual>
                 <origin rpy="0 0 0" xyz="0 0 0" />
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/camera_link.STL" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/camera_link.STL" />
                 </geometry>
             </visual>
             <collision>
                <origin rpy="0 0 0" xyz="0 0 0" />
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/camera_link.STL" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/camera_link.STL" />
                 </geometry>
             </collision>
 		</link>
@@ -129,13 +129,13 @@
             <visual>
                 <origin xyz="0 0 -0.032" rpy="0 0 0" />
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/base10.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/base10.dae" />
                 </geometry>
             </visual>
             <collision>
                 <origin xyz="0 0 -0.032" rpy="0 0 0" />
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/base10.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/base10.dae" />
                 </geometry>
             </collision>
         </link>
@@ -158,7 +158,7 @@
             <visual>
                 <origin rpy="0 0 0" xyz="0 0.01313 0" />
                 <geometry>
-                    <mesh scale="${side*(1)} 1 1" filename="package://schunk_svh_driver/description/meshes/h10.dae" />
+                    <mesh scale="${side*(1)} 1 1" filename="package://centauro/centauro_urdf/meshes/schunk_hand/h10.dae" />
                 </geometry>
             </visual>
             <collision>
@@ -166,7 +166,7 @@
 				<origin rpy="0 0 0" xyz="-0.00368 0.0 0.06" />
                 <geometry>
 					<box size="0.055 0.025 0.12"/>
-                    <!--mesh scale="${side*(1)} 1 1" filename="package://schunk_svh_driver/description/meshes/h10.dae" /-->
+                    <!--mesh scale="${side*(1)} 1 1" filename="package://centauro/centauro_urdf/meshes/schunk_hand/h10.dae" /-->
                 </geometry>
             </collision>
 			<!--xacro:capsule-collision e1="0.01251 0.00157842 0.0928213" e2="-0.000462897 0.0155179 0.0150623" rad="0.035205530643540185" len="0.080056609487979907" rpy="-2.96421 -0.162765 1.48449" mid="0.00602356 0.00854815 0.0539418" /-->
@@ -178,13 +178,13 @@
             <visual>
                 <origin xyz="${side*(-0.0007)} 0 -0.01002" />
                 <geometry>
-                    <mesh scale="${side*(1)} 1 1" filename="package://schunk_svh_driver/description/meshes/h11.dae" />
+                    <mesh scale="${side*(1)} 1 1" filename="package://centauro/centauro_urdf/meshes/schunk_hand/h11.dae" />
                 </geometry>
             </visual>
             <collision>
                 <origin xyz="${side*(-0.0007)} 0 -0.01002" />
                 <geometry>
-                    <mesh scale="${side*(1)} 1 1" filename="package://schunk_svh_driver/description/meshes/h11.dae" />
+                    <mesh scale="${side*(1)} 1 1" filename="package://centauro/centauro_urdf/meshes/schunk_hand/h11.dae" />
                 </geometry>
             </collision>
 			<!--xacro:capsule-collision e1="-0.0130892 -0.00943485 0.0572708" e2="-0.00918653 -0.000238213 0.0052382" rad="0.025230241520476298" len="0.052982989614211572" rpy="-2.96665 0.0737258 -0.796187" mid="-0.0111379 -0.00483653 0.0312545" /-->
@@ -237,13 +237,13 @@
             <visual>
                 <origin xyz="0 0 0.02442" />
                 <geometry>
-                    <mesh scale="1 ${side*(1)} 1" filename="package://schunk_svh_driver/description/meshes/d10.dae" />
+                    <mesh scale="1 ${side*(1)} 1" filename="package://centauro/centauro_urdf/meshes/schunk_hand/d10.dae" />
                 </geometry>
             </visual>
             <!--collision>
                 <origin xyz="0 0 0.02442" />
                 <geometry>
-                    <mesh scale="1 ${side*(1)} 1" filename="package://schunk_svh_driver/description/meshes/d10.dae" />
+                    <mesh scale="1 ${side*(1)} 1" filename="package://centauro/centauro_urdf/meshes/schunk_hand/d10.dae" />
                 </geometry>
             </collision-->
 			<xacro:capsule-collision e1="4.35903e-09 0.00135239 0.0513426" e2="5.25157e-09 -0.000134248 0.0410243" rad="0.018796440353616439" len="0.01042481810366226" rpy="2.9985 8.56161e-08 1.19461e-06" mid="4.8053e-09 0.000609069 0.0461834" />
@@ -256,12 +256,12 @@
             <xacro:dummy_inertial />
             <visual>
                 <geometry>
-                    <mesh scale="1 ${side*(1)} ${side*(1)}" filename="package://schunk_svh_driver/description/meshes/d11.dae" />
+                    <mesh scale="1 ${side*(1)} ${side*(1)}" filename="package://centauro/centauro_urdf/meshes/schunk_hand/d11.dae" />
                 </geometry>
             </visual>
             <!--collision>
                 <geometry>
-                    <mesh scale="1 ${side*(1)} ${side*(1)}" filename="package://schunk_svh_driver/description/meshes/d11.dae" />
+                    <mesh scale="1 ${side*(1)} ${side*(1)}" filename="package://centauro/centauro_urdf/meshes/schunk_hand/d11.dae" />
                 </geometry>
             </collision-->
 			<xacro:capsule-collision e1="-0.000196701 -0.00148458 -1.94634e-05" e2="0.0470217 -4.66742e-06 -1.94537e-05" rad="0.016759180858870293" len="0.047241541605838461" rpy="-1.57079 1.53946 -1.53946" mid="0.0234125 -0.000744623 -1.94586e-05" />
@@ -272,12 +272,12 @@
   
             <visual>
                 <geometry>
-                    <mesh scale="1 ${side*(1)} ${side*(1)}" filename="package://schunk_svh_driver/description/meshes/d12.dae" />
+                    <mesh scale="1 ${side*(1)} ${side*(1)}" filename="package://centauro/centauro_urdf/meshes/schunk_hand/d12.dae" />
                 </geometry>
             </visual>
             <!--collision>
                 <geometry>
-                    <mesh scale="1 ${side*(1)} ${side*(1)}" filename="package://schunk_svh_driver/description/meshes/d12.dae" />
+                    <mesh scale="1 ${side*(1)} ${side*(1)}" filename="package://centauro/centauro_urdf/meshes/schunk_hand/d12.dae" />
                 </geometry>
             </collision-->
 			<xacro:capsule-collision e1="1.38494e-05 -5.84793e-06 2.67358e-06" e2="0.0230284 -8.84308e-06 2.68087e-06" rad="0.015792729610253044" len="0.023014525532768428" rpy="1.56836 1.57067 1.56823" mid="0.0115211 -7.34551e-06 2.67722e-06" />
@@ -288,12 +288,12 @@
 
             <visual>
                 <geometry>
-                    <mesh scale="1 ${side*(1)} ${side*(1)}" filename="package://schunk_svh_driver/description/meshes/d13.dae" />
+                    <mesh scale="1 ${side*(1)} ${side*(1)}" filename="package://centauro/centauro_urdf/meshes/schunk_hand/d13.dae" />
                 </geometry>
             </visual>
             <!--collision>
                 <geometry>
-                    <mesh scale="1 ${side*(1)} ${side*(1)}" filename="package://schunk_svh_driver/description/meshes/d13.dae" />
+                    <mesh scale="1 ${side*(1)} ${side*(1)}" filename="package://centauro/centauro_urdf/meshes/schunk_hand/d13.dae" />
                 </geometry>
             </collision-->
 			<xacro:capsule-collision e1="0.00205819 -0.000468129 7.76376e-10" e2="0.0172284 -0.000766437 -5.20034e-10" rad="0.010704766923000805" len="0.015173140958556149" rpy="1.5708 1.55113 1.55114" mid="0.0096433 -0.000617283 1.28171e-10" />
@@ -309,13 +309,13 @@
             <visual>
                 <origin xyz="0 0 0.01321" />
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f10.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f10.dae" />
                 </geometry>
             </visual>
             <!--collision>
                 <origin xyz="0 0 0.01321" />
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f10.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f10.dae" />
                 </geometry>
             </collision-->
 			<xacro:capsule-collision e1="-9.36911e-06 2.05516e-05 0.00314503" e2="-0.00112107 2.05558e-05 -0.00185211" rad="0.012418321587446528" len="0.0051193036818677207" rpy="-3.14159 -0.218902 3.14159" mid="-0.000565219 2.05537e-05 0.000646459" />
@@ -326,12 +326,12 @@
 
             <visual>
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f11.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f11.dae" />
                 </geometry>
             </visual>
             <!--collision>
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f11.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f11.dae" />
                 </geometry>
             </collision-->
 			<xacro:capsule-collision e1="0.000494844 0.000786315 2.26346e-09" e2="0.0473615 0.000849073 1.00007e-09" rad="0.010410410097894696" len="0.046866668208232515" rpy="-1.57082 1.56946 -1.56948" mid="0.0239282 0.000817694 1.63176e-09" />
@@ -343,7 +343,7 @@
             </xacro:cylinder_inertial>
             <visual>
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f12.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f12.dae" />
                 </geometry>
             </visual>
             <!--collision>
@@ -363,7 +363,7 @@
             </xacro:cylinder_inertial>
             <visual>
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f13.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f13.dae" />
                 </geometry>
             </visual>
             <!--collision>
@@ -385,13 +385,13 @@
             <visual>
                 <origin xyz="0 0 0.01321" />
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f20.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f20.dae" />
                 </geometry>
             </visual>
             <!--collision>
                 <origin xyz="0 0 0.01321" />
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f20.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f20.dae" />
                 </geometry>
             </collision-->
 			<xacro:capsule-collision e1="-2.48053e-05 -8.49468e-07 0.00306843" e2="-0.00111997 -8.45255e-07 -0.001907" rad="0.012414963060840218" len="0.005094531844077382" rpy="-3.14159 -0.21666 3.14158" mid="-0.000572389 -8.47362e-07 0.000580713" />
@@ -402,12 +402,12 @@
 
             <visual>
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f21.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f21.dae" />
                 </geometry>
             </visual>
             <!--collision>
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f21.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f21.dae" />
                 </geometry>
             </collision-->
 			<xacro:capsule-collision e1="0.000329902 0.000681478 -7.15399e-09" e2="0.049816 0.00108627 -1.22488e-09" rad="0.010342307568274646" len="0.049487793921311161" rpy="-1.57078 1.56262 -1.5626" mid="0.025073 0.000883872 -4.18943e-09" />
@@ -422,7 +422,7 @@
 
             <visual>
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f22.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f22.dae" />
                 </geometry>
             </visual>
             <!--collision>
@@ -442,7 +442,7 @@
             </xacro:cylinder_inertial>
             <visual>
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f23.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f23.dae" />
                 </geometry>
             </visual>
             <!--collision>
@@ -464,13 +464,13 @@
             <visual>
                 <origin xyz="0 0 -0.01321" />
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f30.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f30.dae" />
                 </geometry>
             </visual>
             <!--collision>
                 <origin xyz="0 0 -0.01321" />
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f30.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f30.dae" />
                 </geometry>
             </collision-->
 			<xacro:capsule-collision e1="2.78542e-05 3.86086e-05 -0.0030288" e2="-0.00105626 3.86083e-05 0.00193101" rad="0.012414027708289858" len="0.0050769049340790139" rpy="5.49177e-08 -0.215196 -5.93196e-09" mid="-0.000514205 3.86085e-05 -0.000548897" />
@@ -481,12 +481,12 @@
 
             <visual>
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f31.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f31.dae" />
                 </geometry>
             </visual>
             <!--collision>
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f31.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f31.dae" />
                 </geometry>
             </collision-->
 			<xacro:capsule-collision e1="-0.00092978 0.00119932 2.49389e-09" e2="0.0487774 -0.00107468 -7.49981e-09" rad="0.01052339034095227" len="0.049759154065575753" rpy="1.5708 1.52508 1.52508" mid="0.0239238 6.23222e-05 -2.50296e-09" />
@@ -500,7 +500,7 @@
 
             <visual>
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f32.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f32.dae" />
                 </geometry>
             </visual>
             <!--collision>
@@ -519,7 +519,7 @@
             </xacro:cylinder_inertial>
             <visual>
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f33.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f33.dae" />
                 </geometry>
             </visual>
             <!--collision>
@@ -541,13 +541,13 @@
             <visual>
                 <origin xyz="0 0 -0.01321" />
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f40.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f40.dae" />
                 </geometry>
             </visual>
             <!--collision>
                 <origin xyz="0 0 -0.01321" />
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f40.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f40.dae" />
                 </geometry>
             </collision-->
 			<xacro:capsule-collision e1="-7.87181e-06 4.4169e-06 -0.00303052" e2="-0.00115107 4.41609e-06 0.00199426" rad="0.012391848764493013" len="0.0051531835401232677" rpy="1.62648e-07 -0.223705 -1.82689e-08" mid="-0.000579472 4.4165e-06 -0.000518133" />
@@ -558,12 +558,12 @@
 
             <visual>
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f41.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f41.dae" />
                 </geometry>
             </visual>
             <!--collision>
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f41.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f41.dae" />
                 </geometry>
             </collision-->
 			<xacro:capsule-collision e1="-0.000481662 0.00135926 -6.99986e-09" e2="0.0431877 7.67402e-05 8.31818e-09" rad="0.010552620206262383" len="0.043688160092216294" rpy="1.57078 1.54144 1.54142" mid="0.021353 0.000718 6.59159e-10" />
@@ -578,7 +578,7 @@
 
             <visual>
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f42.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f42.dae" />
                 </geometry>
             </visual>
             <!--collision>
@@ -599,7 +599,7 @@
 
             <visual>
                 <geometry>
-                    <mesh filename="package://schunk_svh_driver/description/meshes/f43.dae" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f43.dae" />
                 </geometry>
             </visual>
             <!--collision>
