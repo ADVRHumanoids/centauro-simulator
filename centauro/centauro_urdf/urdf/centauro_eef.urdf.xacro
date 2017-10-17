@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- hand eef links -->
+
+<xacro:macro name="hand_eef" params="prefix parent *origin">
+	<link name="${prefix}_eef_link" />
+	<joint name="${prefix}_eef_joint" type="fixed">
+		<parent link="${parent}"/>
+		<child link="${prefix}_eef_link"/>
+		<xacro:insert_block name="origin" />
+	</joint>
+	
+</xacro:macro>
+	
+<!-- leg eef links -->
+<xacro:macro name="leg_eef" params="prefix parent">
+		<link name="${prefix}_eef_link" />
+		<joint name="${prefix}_eef_joint" type="fixed">
+			<parent link="${parent}"/>
+			<child link="${prefix}_eef_link"/>
+			<origin rpy="1.57079632679 0.0 0.0" xyz="0.0 0.00085 0.235"/>
+		</joint>
+		<link name="${prefix}_dummy_link"/>
+		<joint name="${prefix}_dummy_joint" type="fixed">
+			<parent link="${prefix}_eef_link" />
+			<child link="${prefix}_dummy_link" />
+			<origin xyz="0.0 0 0" rpy="0 0 0" />
+		</joint>
+
+</xacro:macro>
+
+</robot>
