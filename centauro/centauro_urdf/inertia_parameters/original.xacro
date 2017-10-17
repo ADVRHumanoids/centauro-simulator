@@ -311,5 +311,19 @@
 <!-- Mass -->
 <xacro:property name="Stick_mass" value=" 0.150 "/>
 
+<!-- DUMMY-->
+<!-- Center of Mass -->
+<xacro:property name="Dummy_x" value=" 0.0 "/>
+<xacro:property name="Dummy_y" value=" 0.0 "/>
+<xacro:property name="Dummy_z" value=" 0.0 "/>
+<!-- Inertia -->
+<xacro:property name="Dummy_xx" value=" 1e-6 "/>
+<xacro:property name="Dummy_yy" value=" 1e-6 "/>
+<xacro:property name="Dummy_zz" value=" 1e-6 "/>
+<xacro:property name="Dummy_xy" value=" 0.0 "/>
+<xacro:property name="Dummy_xz" value=" 0.0 "/>
+<xacro:property name="Dummy_yz" value=" 0.0 "/>
+<!-- Mass -->
+<xacro:property name="Dummy_mass" value=" 0.100 "/>
 
 </robot>
