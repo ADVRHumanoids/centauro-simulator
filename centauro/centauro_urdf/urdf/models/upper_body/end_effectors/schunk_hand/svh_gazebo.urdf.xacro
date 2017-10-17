@@ -91,9 +91,34 @@
         <!-- RIGHT HAND = 1, LEFT HAND = -1 -->
         <!-- BASE_LINE LINKS -->
 
-        <joint name="${name}_base_joint" type="fixed" >
-            <xacro:insert_block name="origin" />
+		
+		<link name="${name}_camera_link">
+			<xacro:dummy_inertial />
+            <visual>
+                <origin rpy="0 0 0" xyz="0 0 0" />
+                <geometry>
+                    <mesh filename="package://schunk_svh_driver/description/meshes/camera_link.STL" />
+                </geometry>
+            </visual>
+            <collision>
+               <origin rpy="0 0 0" xyz="0 0 0" />
+                <geometry>
+                    <mesh filename="package://schunk_svh_driver/description/meshes/camera_link.STL" />
+                </geometry>
+            </collision>
+		</link>
+		
+		<joint name="${name}_camera_joint" type="fixed" >
+			<xacro:insert_block name="origin" />
             <parent link="${parent}" />
+			<child link="${name}_camera_link"/>
+		</joint>
+			
+		
+		
+        <joint name="${name}_base_joint" type="fixed" >
+			<origin xyz="0 0 ${0.011 + 0.0065 + 0.032}" rpy="0 0 -${PI/2}" />
+            <parent link="${name}_camera_link" />
             <child link="${name}_base_link" />
         </joint>
 
