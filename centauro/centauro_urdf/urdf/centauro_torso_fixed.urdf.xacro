@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- torso links -->
+
+<link name="torso_2">
+	<inertial>
+		<origin xyz="${Torso_2_x} ${Torso_2_y} ${Torso_2_z}"/>
+		<mass value="${Torso_2_mass}"/> 
+                <inertia ixx="${Torso_2_xx}" ixy="${Torso_2_xy}" ixz="${Torso_2_xz}" iyy="${Torso_2_yy}" iyz="${Torso_2_yz}" izz="${Torso_2_zz}"/>
+        </inertial>
+
+	<visual>
+                <xacro:visual_model.torso />
+	</visual>
+
+	<collision>
+                <xacro:collision_model.torso />
+	</collision>
+</link>
+<!-- /torso links -->
+
+<!-- torso joints -->
+<joint name="torso_yaw" type="fixed">
+   <xacro:if value="${pelvis}">
+      <parent link="pelvis"/>
+      <origin xyz="${Torso_2_Ox} ${Torso_2_Oy} ${Torso_2_Oz}"/>
+   </xacro:if>
+   <xacro:unless value="${pelvis}">
+      <parent link="world"/>
+      <origin xyz="${Torso_2_Ox + Pelvis_Ox} ${Torso_2_Oy + Pelvis_Oy} ${Torso_2_Oz + Pelvis_Oz}"/>
+   </xacro:unless>
+
+   <child link="torso_2"/>
+   <axis xyz="0 0 1"/>
+   <limit lower="-2.618" upper="2.618" effort="147" velocity="5.7"/> <!-- TODO -->
+</joint>
+<!-- /torso joints -->
+
+<xacro:if	value="${torso_actuators}">
+<!-- torso actuators -->
+<xacro:position_actuator joint="torso_yaw" /> 
+<!-- /torso actuators -->
+</xacro:if> 
+
+
+</robot>
