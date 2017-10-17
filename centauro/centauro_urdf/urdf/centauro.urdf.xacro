@@ -24,6 +24,9 @@
   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_arm.urdf.xacro"/>
 </xacro:if>
 
+<xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/upper_body/end_effectors/schunk_hand/svh_gazebo.urdf.xacro" /> 
+<xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_eef.urdf.xacro"/>
+
 
 <!-- /other files -->
 
@@ -95,6 +98,23 @@
    <xacro:centauro_arm arm_num="2" rot="-1"  parent="torso_2" end_effector="${RIGHT_END_EFFECTOR}">
       <origin xyz="${Shoulder_1_Ox} ${-Shoulder_1_Oy} ${Shoulder_1_Oz}" rpy="${Shoulder_1_roll} ${Shoulder_1_pitch} ${-Shoulder_1_yaw}" />
    </xacro:centauro_arm>
+   
+   <!-- hand eef -->
+   <xacro:hand_eef prefix="left_hand" parent="arm1_7">
+	   <origin xyz="0 0 -0.1" rpy="0 0 0" />
+   </xacro:hand_eef>
+   
+   <!-- schunk hand -->
+   <xacro:svh parent="arm2_7" name="right_hand" side="1">                                  
+        <origin xyz="0 0 -0.04"  rpy= "${PI} 0 ${PI}" />
+    </xacro:svh>
+   
+	<xacro:hand_eef prefix="right_hand" parent="right_hand_base_link">
+	   <origin xyz="0.0 0.02 0.08" rpy="0 0 0" />
+   </xacro:hand_eef>
+	
+	<!-- schunk hand eef -->
+	
 </xacro:if>
 
 <xacro:if value="${arm == 'true' and arms == 'false'}">
@@ -119,7 +139,18 @@
 
 <xacro:centauro_leg leg_num="4" origin_x="-1" origin_y="1">
 </xacro:centauro_leg>
+
+<!-- leg eef -->
+<xacro:leg_eef prefix="front_left" parent="ankle2_1"/>
+<xacro:leg_eef prefix="front_right" parent="ankle2_2"/>
+<xacro:leg_eef prefix="back_left" parent="ankle2_3"/>
+<xacro:leg_eef prefix="back_right" parent="ankle2_4"/>
+
 </xacro:if>
 
 <!-- /legs -->
+
+
+
+
 </robot>
