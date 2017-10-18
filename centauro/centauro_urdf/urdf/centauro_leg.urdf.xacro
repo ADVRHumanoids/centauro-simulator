@@ -159,7 +159,7 @@
 	<parent link="ankle2_${leg_num}"/>
 	<child link="wheel_${leg_num}"/>
 	<origin xyz="${Wheel_Ox} ${Wheel_Oy} ${Wheel_Oz}" rpy="${Wheel_roll} ${Wheel_pitch} ${Wheel_yaw}"/>
-	<axis xyz="0 0 1"/>
+	<axis xyz="0 0 -1"/>
         <limit  effort="35" velocity="20.0"/> 
 </joint>
 
