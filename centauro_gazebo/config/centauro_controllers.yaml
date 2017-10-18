@@ -94,10 +94,10 @@ centauro:
         joint: ankle_yaw_1
         pid: {p: 1000, i: 0.05, d: 0.0}
         
-    j_wheel_1_position_controller:
-        type: effort_controllers/JointPositionController
+    j_wheel_1_velocity_controller:
+        type: effort_controllers/JointVelocityController
         joint: j_wheel_1
-        pid: {p: 1000, i: 0.05, d: 0.0}  
+        pid: {p: 100000, i: 0.05, d: 0.0}  
 
 # Leg 2
     hip_yaw_2_position_controller:
@@ -125,10 +125,10 @@ centauro:
         joint: ankle_yaw_2
         pid: {p: 1000, i: 0.05, d: 0.0}
         
-    j_wheel_2_position_controller:
-        type: effort_controllers/JointPositionController
+    j_wheel_2_velocity_controller:
+        type: effort_controllers/JointVelocityController
         joint: j_wheel_2
-        pid: {p: 1000, i: 0.05, d: 0.0}  
+        pid: {p: 100000, i: 0.05, d: 0.0}  
         
 # Leg 3
     hip_yaw_3_position_controller:
@@ -156,10 +156,10 @@ centauro:
         joint: ankle_yaw_3
         pid: {p: 1000, i: 0.05, d: 0.0}
         
-    j_wheel_3_position_controller:
-        type: effort_controllers/JointPositionController
+    j_wheel_3_velocity_controller:
+        type: effort_controllers/JointVelocityController
         joint: j_wheel_3
-        pid: {p: 1000, i: 0.05, d: 0.0}  
+        pid: {p: 100000, i: 0.05, d: 0.0}  
         
 # Leg 4
     hip_yaw_4_position_controller:
@@ -187,10 +187,10 @@ centauro:
         joint: ankle_yaw_4
         pid: {p: 1000, i: 0.05, d: 0.0}
         
-    j_wheel_4_position_controller:
-        type: effort_controllers/JointPositionController
+    j_wheel_4_velocity_controller:
+        type: effort_controllers/JointVelocityController
         joint: j_wheel_4
-        pid: {p: 1000, i: 0.05, d: 0.0}  
+        pid: {p: 100000, i: 0.05, d: 0.0}  
 
 
     # Position controllers: Right Schunk Hand
