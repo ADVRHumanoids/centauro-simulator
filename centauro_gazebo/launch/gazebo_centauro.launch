@@ -1,8 +1,5 @@
 <launch>
-	<param name="robot_description" command="$(find xacro)/xacro.py $(find centauro_model)/robots/centauro_schunk.urdf.xacro" />
-
-	<include file="$(find centauro_moveit_config)/launch/planning_context.launch">
-	</include>
+	<include file="$(find centauro_launch)/model/centauro_model.launch" />
 
 	<param name="use_sim_time" value="true" />
 	
@@ -13,8 +10,7 @@
 	
 	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="
 		-param robot_description
-		-urdf -model centauro_schunk
-		-z 0.75
+		-urdf -model centauro
 		-J j_arm1_1 0.0
 		-J j_arm1_2 -1.0
 		-J j_arm1_3 0.0
@@ -75,7 +71,7 @@
 	<include file="$(find centauro_gazebo)/launch/centauro_controllers.launch" />
 	
 	 <!-- Launch the config server -->
-    <arg name="robot" default="centauro_schunk"/>
+    <arg name="robot" default="centauro_schunk_sim"/>
     <node name="config_server" pkg="config_server" type="config_server" output="screen" required="false">
         <param name="config_path" value="$(find centauro_launch)/config"/>
         <param name="robot_name" value="$(arg robot)"/>
@@ -86,14 +82,15 @@
     	<param name="publish_ego_rot" value="false" />
         <rosparam>
             hw_interface: "robotcontrol::GazeboInterface"
-            modelName: "centauro_schunk"
-            prefix: "/centauro_schunk"
+            modelName: "centauro"
+            prefix: "/centauro"
             init_relaxed: false
             initial_state: init
             motion_modules:
-            - "motion_server::MotionServer" 
+            - "motion_server::MotionServer"
+            - "centauro_base::CentauroBase"
         </rosparam>
-        <remap from="/robotcontrol/centauro_schunk/" to="/centauro_schunk/" />
+        <remap from="/robotcontrol/centauro/" to="/centauro/" />
     </node>
 	
 </launch>

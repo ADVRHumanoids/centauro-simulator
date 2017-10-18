@@ -4,7 +4,7 @@
 
     <!-- load the controllers -->
     <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-        output="screen" ns="centauro_schunk"
+        output="screen" ns="centauro"
         args="
 
         joint_state_controller
@@ -27,35 +27,35 @@
 
         torso_yaw_position_controller
         
-        j_leg1_hip_yaw_position_controller
-        j_leg1_hip_pitch_position_controller
-        j_leg1_knee_pitch_position_controller
-        j_leg1_ankle_pitch_position_controller
-        j_leg1_ankle_yaw_position_controller
-        j_leg1_wheel_position_controller
-        
-        j_leg2_hip_yaw_position_controller
-        j_leg2_hip_pitch_position_controller
-        j_leg2_knee_pitch_position_controller
-        j_leg2_ankle_pitch_position_controller
-        j_leg2_ankle_yaw_position_controller
-        j_leg2_wheel_position_controller
-        
-        j_leg3_hip_yaw_position_controller
-        j_leg3_hip_pitch_position_controller
-        j_leg3_knee_pitch_position_controller
-        j_leg3_ankle_pitch_position_controller
-        j_leg3_ankle_yaw_position_controller
-        j_leg3_wheel_position_controller
-        
-        j_leg4_hip_yaw_position_controller
-        j_leg4_hip_pitch_position_controller
-        j_leg4_knee_pitch_position_controller
-        j_leg4_ankle_pitch_position_controller
-        j_leg4_ankle_yaw_position_controller
-        j_leg4_wheel_position_controller
-        
-        right_hand_Thumb_Flexion_position_controller
+        hip_yaw_1_position_controller
+	hip_pitch_1_position_controller
+	knee_pitch_1_position_controller
+	ankle_pitch_1_position_controller
+	ankle_yaw_1_position_controller
+	j_wheel_1_position_controller
+	
+	hip_yaw_2_position_controller
+	hip_pitch_2_position_controller
+	knee_pitch_2_position_controller
+	ankle_pitch_2_position_controller
+	ankle_yaw_2_position_controller
+	j_wheel_2_position_controller
+	
+	hip_yaw_3_position_controller
+	hip_pitch_3_position_controller
+	knee_pitch_3_position_controller
+	ankle_pitch_3_position_controller
+	ankle_yaw_3_position_controller
+	j_wheel_3_position_controller
+	
+	hip_yaw_4_position_controller
+	hip_pitch_4_position_controller
+	knee_pitch_4_position_controller
+	ankle_pitch_4_position_controller
+	ankle_yaw_4_position_controller
+	j_wheel_4_position_controller
+
+	right_hand_Thumb_Flexion_position_controller
         right_hand_j3_position_controller
         right_hand_j4_position_controller
         right_hand_Thumb_Opposition_position_controller
