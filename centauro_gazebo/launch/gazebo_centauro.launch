@@ -89,6 +89,7 @@
             motion_modules:
             - "motion_server::MotionServer"
             - "centauro_base::CentauroBase"
+            - "centauro_laser_rotator::CentauroLaserRotator"
         </rosparam>
         <remap from="/robotcontrol/centauro/" to="/centauro/" />
     </node>

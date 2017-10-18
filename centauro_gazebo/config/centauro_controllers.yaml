@@ -193,7 +193,14 @@ centauro:
         pid: {p: 1000, i: 0.05, d: 0.0}  
 
 
+    # Velodyne
+    neck_velodyne_velocity_controller:
+        type: effort_controllers/JointVelocityController    
+        joint: neck_velodyne
+        pid: {p: 1000, i: 0.05, d: 0.0}
+    
     # Position controllers: Right Schunk Hand
+    
     right_hand_Thumb_Flexion_position_controller:
         type: effort_controllers/JointPositionController
         joint: right_hand_Thumb_Flexion
