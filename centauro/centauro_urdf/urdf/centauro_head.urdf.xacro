@@ -139,11 +139,10 @@
 </joint>
 
 <link name="kinect2_rgb_optical_frame" />
-<link name="cali_dummy" />
 <joint name="j_kinect_optical_frame" type="fixed">
 	<parent link="kinect"/>
-	<child link="cali_dummy" />
-	<origin xyz="0 0 0" rpy=" -${PI/2} 0 -${PI/2}"/>
+	<child link="kinect2_rgb_optical_frame" />
+	<origin xyz="0.040 -0.040 -0.045" rpy=" -${PI/2} 0 -${PI/2}"/>
 </joint>
 
 <joint name="j_velodyne" type="fixed">
