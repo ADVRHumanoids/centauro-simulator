@@ -44,3 +44,35 @@ right_arm:
   #kinematics_solver_search_resolution: 0.005
   #kinematics_solver_timeout: 0.005
   #kinematics_solver_attempts: 3
+  
+front_left_ankle:
+  kinematics_solver: nimbro_ik::IKSolver
+  kinematics_solver_search_resolution: 0.005
+  kinematics_solver_timeout: 0.005
+  kinematics_solver_attempts: 3
+  nimbro_ik:
+    ik_type: position_and_x_axis
+    
+front_right_ankle:
+  kinematics_solver: nimbro_ik::IKSolver
+  kinematics_solver_search_resolution: 0.005
+  kinematics_solver_timeout: 0.005
+  kinematics_solver_attempts: 3
+  nimbro_ik:
+    ik_type: position_and_x_axis
+        
+back_right_ankle:
+  kinematics_solver: nimbro_ik::IKSolver
+  kinematics_solver_search_resolution: 0.005
+  kinematics_solver_timeout: 0.005
+  kinematics_solver_attempts: 3
+  nimbro_ik:
+    ik_type: position_and_x_axis
+
+back_left_ankle:
+  kinematics_solver: nimbro_ik::IKSolver
+  kinematics_solver_search_resolution: 0.005
+  kinematics_solver_timeout: 0.005
+  kinematics_solver_attempts: 3
+  nimbro_ik:
+    ik_type: position_and_x_axis
