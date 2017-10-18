@@ -6,10 +6,10 @@
 <transmission name="t_${joint}">
 	<type> transmission_interface/SimpleTransmission</type>
 	<joint name="${joint}">
-		<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		<hardwareInterface>EffortJointInterface</hardwareInterface>
 	</joint>
 	<actuator name="motor_${joint}">
-		<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		<hardwareInterface>EffortJointInterface</hardwareInterface>
 		<machanicalReduction>1</machanicalReduction>
 	</actuator>
 	<robotNamespace>/centauro</robotNamespace>
