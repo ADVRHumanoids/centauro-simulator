@@ -137,6 +137,15 @@
    <origin xyz="${Kinect_Ox} ${Kinect_Oy} ${Kinect_Oz}" rpy="${Kinect_roll} ${Kinect_pitch} ${Kinect_yaw}"/>
    <child link="kinect"/>
 </joint>
+
+<link name="kinect2_rgb_optical_frame" />
+<link name="cali_dummy" />
+<joint name="j_kinect_optical_frame" type="fixed">
+	<parent link="kinect"/>
+	<child link="cali_dummy" />
+	<origin xyz="0 0 0" rpy=" -${PI/2} 0 -${PI/2}"/>
+</joint>
+
 <joint name="j_velodyne" type="fixed">
    <parent link="neck_3"/>
    <origin xyz="${Velodyne_Ox} ${Velodyne_Oy} ${Velodyne_Oz}" rpy="${Velodyne_roll} ${Velodyne_pitch} ${Velodyne_yaw}"/>
