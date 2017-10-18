@@ -76,6 +76,8 @@
         right_hand_index_spread_position_controller
         right_hand_ring_spread_position_controller
         
+        neck_velodyne_velocity_controller
+        
         "
         >
     </node>
