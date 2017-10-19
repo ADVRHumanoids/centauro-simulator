@@ -52,6 +52,7 @@ front_left_ankle:
   kinematics_solver_attempts: 3
   nimbro_ik:
     ik_type: position_and_x_axis
+    sdls: false
     
 front_right_ankle:
   kinematics_solver: nimbro_ik::IKSolver
@@ -60,6 +61,7 @@ front_right_ankle:
   kinematics_solver_attempts: 3
   nimbro_ik:
     ik_type: position_and_x_axis
+    sdls: false
         
 back_right_ankle:
   kinematics_solver: nimbro_ik::IKSolver
@@ -68,6 +70,7 @@ back_right_ankle:
   kinematics_solver_attempts: 3
   nimbro_ik:
     ik_type: position_and_x_axis
+    sdls: false
 
 back_left_ankle:
   kinematics_solver: nimbro_ik::IKSolver
@@ -76,3 +79,4 @@ back_left_ankle:
   kinematics_solver_attempts: 3
   nimbro_ik:
     ik_type: position_and_x_axis
+    sdls: false
