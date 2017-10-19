@@ -61,5 +61,72 @@
 				</collision>
 			</link>
 		</model>
+		
+		<model name="wall1">
+			<pose>7 -5 1 0 0 0</pose>
+
+			<static>true</static>
+			<link name="link">
+				<visual name="visual0">
+					<geometry>
+						<box>
+							<size>6 0.2 2</size>
+						</box>
+					</geometry>
+				</visual>
+				<collision name="collision0">
+					<geometry>
+						<box>
+							<size>6 0.2 2</size>
+						</box>
+					</geometry>
+				</collision>
+			</link>
+		</model>
+		
+		<model name="wall1">
+			<pose>7 5 1 0 0 0</pose>
+
+			<static>true</static>
+			<link name="link">
+				<visual name="visual0">
+					<geometry>
+						<box>
+							<size>6 0.2 2</size>
+						</box>
+					</geometry>
+				</visual>
+				<collision name="collision0">
+					<geometry>
+						<box>
+							<size>6 0.2 2</size>
+						</box>
+					</geometry>
+				</collision>
+			</link>
+		</model>
+		
+		<model name="wall1">
+			<pose>-3 0 1 0 0 0.9</pose>
+
+			<static>true</static>
+			<link name="link">
+				<visual name="visual0">
+					<geometry>
+						<box>
+							<size>6 0.2 2</size>
+						</box>
+					</geometry>
+				</visual>
+				<collision name="collision0">
+					<geometry>
+						<box>
+							<size>6 0.2 2</size>
+						</box>
+					</geometry>
+				</collision>
+			</link>
+		</model>
+		
 	</world>
 </sdf>
