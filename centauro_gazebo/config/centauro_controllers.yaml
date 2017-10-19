@@ -8,7 +8,7 @@ centauro:
     j_arm1_1_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm1_1
-        pid: {p: 1000, i: 0.05, d: 0.01}
+        pid: {p: 10000, i: 0.05, d: 0.01}
     j_arm1_2_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm1_2
@@ -16,28 +16,28 @@ centauro:
     j_arm1_3_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm1_3
-        pid: {p: 1000, i: 0.01, d: 0.01}
+        pid: {p: 10000, i: 0.01, d: 0.01}
     j_arm1_4_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm1_4
-        pid: {p: 1000, i: 0.1, d: 0.01}
+        pid: {p: 10000, i: 0.1, d: 0.01}
     j_arm1_5_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm1_5
-        pid: {p: 1000, i: 0.05, d: 0.01}
+        pid: {p: 10000, i: 0.05, d: 0.01}
     j_arm1_6_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm1_6
-        pid: {p: 1000, i: 0.05, d: 0.001}
+        pid: {p: 10000, i: 0.05, d: 0.001}
     j_arm1_7_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm1_7
-        pid: {p: 1000, i: 0.05, d: 0.0}
+        pid: {p: 10000, i: 0.05, d: 0.0}
     
     j_arm2_1_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm2_1
-        pid: {p: 1000, i: 0.05, d: 0.0}
+        pid: {p: 10000, i: 0.05, d: 0.0}
     j_arm2_2_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm2_2 
@@ -45,54 +45,54 @@ centauro:
     j_arm2_3_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm2_3 
-        pid: {p: 1000, i: 0.05, d: 0.0}
+        pid: {p: 10000, i: 0.05, d: 0.0}
     j_arm2_4_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm2_4 
-        pid: {p: 1000, i: 0.05, d: 0.0}
+        pid: {p: 10000, i: 0.05, d: 0.0}
     j_arm2_5_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm2_5 
-        pid: {p: 1000, i: 0.05, d: 0.0}
+        pid: {p: 10000, i: 0.05, d: 0.0}
     j_arm2_6_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm2_6 
-        pid: {p: 1000, i: 0.01, d: 0.005}
+        pid: {p: 10000, i: 0.01, d: 0.005}
     j_arm2_7_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm2_7 
-        pid: {p: 1000, i: 0.01, d: 0.005}
+        pid: {p: 10000, i: 0.01, d: 0.005}
     
     torso_yaw_position_controller:
         type: effort_controllers/JointPositionController
         joint: torso_yaw 
-        pid: {p: 20, i: 0.05, d: 0.0}
+        pid: {p: 10000, i: 0.05, d: 0.0}
         
 # Leg 1
     hip_yaw_1_position_controller:
         type: effort_controllers/JointPositionController
         joint: hip_yaw_1
-        pid: {p: 1000, i: 0.05, d: 0.0}
+        pid: {p: 100000, i: 0.05, d: 0.0}
     
     hip_pitch_1_position_controller:
         type: effort_controllers/JointPositionController
         joint: hip_pitch_1
-        pid: {p: 1000, i: 0.05, d: 0.0}        
+        pid: {p: 100000, i: 0.05, d: 0.0}        
         
     knee_pitch_1_position_controller:
         type: effort_controllers/JointPositionController
         joint: knee_pitch_1
-        pid: {p: 1000, i: 0.05, d: 0.0}
+        pid: {p: 100000, i: 0.05, d: 0.0}
         
     ankle_pitch_1_position_controller:
         type: effort_controllers/JointPositionController
         joint: ankle_pitch_1
-        pid: {p: 1000, i: 0.05, d: 0.0}          
+        pid: {p: 100000, i: 0.05, d: 0.0}          
 
     ankle_yaw_1_position_controller:
         type: effort_controllers/JointPositionController
         joint: ankle_yaw_1
-        pid: {p: 1000, i: 0.05, d: 0.0}
+        pid: {p: 100000, i: 0.05, d: 0.0}
         
     j_wheel_1_velocity_controller:
         type: effort_controllers/JointVelocityController
@@ -103,27 +103,27 @@ centauro:
     hip_yaw_2_position_controller:
         type: effort_controllers/JointPositionController
         joint: hip_yaw_2
-        pid: {p: 1000, i: 0.05, d: 0.0}
+        pid: {p: 100000, i: 0.05, d: 0.0}
     
     hip_pitch_2_position_controller:
         type: effort_controllers/JointPositionController
         joint: hip_pitch_2
-        pid: {p: 1000, i: 0.05, d: 0.0}        
+        pid: {p: 100000, i: 0.05, d: 0.0}        
         
     knee_pitch_2_position_controller:
         type: effort_controllers/JointPositionController
         joint: knee_pitch_2
-        pid: {p: 1000, i: 0.05, d: 0.0}
+        pid: {p: 100000, i: 0.05, d: 0.0}
         
     ankle_pitch_2_position_controller:
         type: effort_controllers/JointPositionController
         joint: ankle_pitch_2
-        pid: {p: 1000, i: 0.05, d: 0.0}          
+        pid: {p: 100000, i: 0.05, d: 0.0}          
 
     ankle_yaw_2_position_controller:
         type: effort_controllers/JointPositionController
         joint: ankle_yaw_2
-        pid: {p: 1000, i: 0.05, d: 0.0}
+        pid: {p: 100000, i: 0.05, d: 0.0}
         
     j_wheel_2_velocity_controller:
         type: effort_controllers/JointVelocityController
@@ -134,27 +134,27 @@ centauro:
     hip_yaw_3_position_controller:
         type: effort_controllers/JointPositionController
         joint: hip_yaw_3
-        pid: {p: 1000, i: 0.05, d: 0.0}
+        pid: {p: 100000, i: 0.05, d: 0.0}
     
     hip_pitch_3_position_controller:
         type: effort_controllers/JointPositionController
         joint: hip_pitch_3
-        pid: {p: 1000, i: 0.05, d: 0.0}        
+        pid: {p: 100000, i: 0.05, d: 0.0}        
         
     knee_pitch_3_position_controller:
         type: effort_controllers/JointPositionController
         joint: knee_pitch_3
-        pid: {p: 1000, i: 0.05, d: 0.0}
+        pid: {p: 100000, i: 0.05, d: 0.0}
         
     ankle_pitch_3_position_controller:
         type: effort_controllers/JointPositionController
         joint: ankle_pitch_3
-        pid: {p: 1000, i: 0.05, d: 0.0}          
+        pid: {p: 100000, i: 0.05, d: 0.0}          
 
     ankle_yaw_3_position_controller:
         type: effort_controllers/JointPositionController
         joint: ankle_yaw_3
-        pid: {p: 1000, i: 0.05, d: 0.0}
+        pid: {p: 100000, i: 0.05, d: 0.0}
         
     j_wheel_3_velocity_controller:
         type: effort_controllers/JointVelocityController
@@ -165,27 +165,27 @@ centauro:
     hip_yaw_4_position_controller:
         type: effort_controllers/JointPositionController
         joint: hip_yaw_4
-        pid: {p: 1000, i: 0.05, d: 0.0}
+        pid: {p: 100000, i: 0.05, d: 0.0}
     
     hip_pitch_4_position_controller:
         type: effort_controllers/JointPositionController
         joint: hip_pitch_4
-        pid: {p: 1000, i: 0.05, d: 0.0}        
+        pid: {p: 100000, i: 0.05, d: 0.0}        
         
     knee_pitch_4_position_controller:
         type: effort_controllers/JointPositionController
         joint: knee_pitch_4
-        pid: {p: 1000, i: 0.05, d: 0.0}
+        pid: {p: 100000, i: 0.05, d: 0.0}
         
     ankle_pitch_4_position_controller:
         type: effort_controllers/JointPositionController
         joint: ankle_pitch_4
-        pid: {p: 1000, i: 0.05, d: 0.0}          
+        pid: {p: 100000, i: 0.05, d: 0.0}          
 
     ankle_yaw_4_position_controller:
         type: effort_controllers/JointPositionController
         joint: ankle_yaw_4
-        pid: {p: 1000, i: 0.05, d: 0.0}
+        pid: {p: 100000, i: 0.05, d: 0.0}
         
     j_wheel_4_velocity_controller:
         type: effort_controllers/JointVelocityController
