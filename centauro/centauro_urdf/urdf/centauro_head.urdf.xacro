@@ -142,7 +142,7 @@
 <joint name="j_kinect_optical_frame" type="fixed">
 	<parent link="kinect"/>
 	<child link="kinect2_rgb_optical_frame" />
-	<origin xyz="0.040 -0.040 -0.045" rpy=" -${PI/2} 0 -${PI/2}"/>
+	<origin xyz="0.050 -0.110 -0.035" rpy=" -${PI/2} 0 -${PI/2}"/>
 </joint>
 
 <joint name="j_velodyne" type="fixed">
