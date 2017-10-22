@@ -48,7 +48,8 @@
 <xacro:macro name="wheel">
 		<origin xyz="0 0 0" />
 		<geometry>
-			<cylinder radius="0.075" length="0.1"/>
+<!--			<cylinder radius="0.078" length="0.1"/> -->
+                        <sphere radius="0.078"/> 
 		</geometry>
 </xacro:macro>
 
