@@ -9,7 +9,7 @@
 </xacro:macro>
 
 <xacro:macro name="arm1">
-   <origin xyz="0.0 0.05 0.0"  rpy="0.0 0.0 0.0"/>
+   <origin xyz="0.0 ${rot*0.05} 0.0"  rpy="0.0 0.0 0.0"/>
    <geometry>
       <box size="${link_visual} 0.1 ${link_visual}"/>
    </geometry>
@@ -25,14 +25,14 @@
 <xacro:macro name="arm3">
    <origin xyz="0.0 0.0 -0.075"  rpy="0.0 0.0 0.0"/>
    <geometry>
-      <box size="${link_visual} ${link_visual} 0.15"/>
+      <box size="${link_visual} ${link_visual} 0.10"/>
    </geometry>
 </xacro:macro>
 
 <xacro:macro name="arm4">
    <origin xyz="0 0.0 -0.065"  rpy="0.0 0.0 0.0"/>
    <geometry>
-      <box size="${link_visual} ${link_visual} 0.13"/>
+      <box size="${link_visual} ${link_visual} 0.10"/>
    </geometry>
 </xacro:macro>
 
@@ -51,7 +51,7 @@
 </xacro:macro>
 
 <xacro:macro name="arm7">
-   <origin xyz="0.0 0.0 -0.020"  rpy="0.0 0.0 0.0"/>
+   <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
    <geometry>
       <box size="${link_visual} ${link_visual} ${link_visual}"/>
    </geometry>

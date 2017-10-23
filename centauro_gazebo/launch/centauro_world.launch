@@ -52,7 +52,7 @@
 
   <!-- which collision model should run:
        WARNING: exactly one parameter has to be true, otherwise simulation behaviour is undefined -->
-  <arg name="collision_model" default="convex_hull"/>
+  <arg name="collision_model" default="primitives"/>
 
   <!-- whether the mesh files should be loaded for visualization -->
   <arg name="visual_model" default="mesh"/>

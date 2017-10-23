@@ -2,16 +2,16 @@
 <robot name="centauro" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:macro name="pelvis" >
-   <origin xyz="0 0.02 0.18"  rpy="0.0 0.0 0.0"/>
+   <origin xyz="0 0.02 0.07"  rpy="0.0 0.0 0.0"/>
    <geometry>
-      <box size="0.52 0.38 0.30"/>
+      <box size="0.52 0.38 0.25"/>
    </geometry>
 </xacro:macro>
 
 <xacro:macro name="leg1">
 		<origin xyz="0 0 0.05" />
 		<geometry>
-			<box size="0.1 0.1 0.1"/> 
+			<box size="0.05 0.05 0.05"/> 
 		</geometry>
 </xacro:macro>
 
@@ -31,25 +31,25 @@
 
 
 <xacro:macro name="ankle1">
-		<origin xyz="0.05 0 0" />
+		<origin xyz="0.0 0 0.0" />
 		<geometry>
-			<box size="0.1 0.1 0.1"/> 
+			<box size="0.09 0.09 0.09"/> 
 		</geometry>
 </xacro:macro>
 
 <xacro:macro name="ankle2">
 
-		<origin xyz="0.0 0.0 0.2" />
+		<origin xyz="0.0 0.0 0.1" />
 		<geometry>
-			<box size="0.1 0.1 0.1"/> 
+			<box size="0.09 0.09 0.09"/> 
 		</geometry>
 </xacro:macro>
 
 <xacro:macro name="wheel">
 		<origin xyz="0 0 0" />
 		<geometry>
-<!--			<cylinder radius="0.078" length="0.1"/> -->
-                        <sphere radius="0.078"/> 
+<!--			<cylinder radius="0.075" length="0.1"/> -->
+			<sphere radius="0.075"/>
 		</geometry>
 </xacro:macro>
 
