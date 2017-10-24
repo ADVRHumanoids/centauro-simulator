@@ -132,10 +132,10 @@
 </xacro:centauro_leg>
 
 <!-- leg eef -->
-<xacro:leg_eef prefix="front_left" parent="ankle2_1"/>
-<xacro:leg_eef prefix="front_right" parent="ankle2_2"/>
-<xacro:leg_eef prefix="back_left" parent="ankle2_3"/>
-<xacro:leg_eef prefix="back_right" parent="ankle2_4"/>
+<xacro:leg_eef prefix="front_left" parent="ankle1_1"/>
+<xacro:leg_eef prefix="front_right" parent="ankle1_2"/>
+<xacro:leg_eef prefix="back_right" parent="ankle1_3"/>
+<xacro:leg_eef prefix="back_left" parent="ankle1_4"/>
 
 </xacro:if>
 
@@ -169,6 +169,5 @@
 <xacro:gz_wheel wheel_link_name="wheel_2" />
 <xacro:gz_wheel wheel_link_name="wheel_3" />
 <xacro:gz_wheel wheel_link_name="wheel_4" />
-
 
 </robot>

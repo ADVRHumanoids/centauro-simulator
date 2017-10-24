@@ -11,20 +11,40 @@
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
     <group name="front_left_leg">
         <chain base_link="pelvis" tip_link="ankle2_1" />
-		<link name="front_left_eef_link" />
     </group>
     <group name="front_right_leg">
         <chain base_link="pelvis" tip_link="ankle2_2" />
-		<link name="front_right_eef_link" />
     </group>
     <group name="rear_right_leg">
         <chain base_link="pelvis" tip_link="ankle2_3" />
-		<link name="back_right_eef_link" />
     </group>
     <group name="rear_left_leg">
         <chain base_link="pelvis" tip_link="ankle2_4" />
-		<link name="back_left_eef_link" />
     </group>
+	
+	<!-- ankle groups -->
+	<group name="front_left_ankle">
+		<chain base_link="pelvis" tip_link="ankle1_1"/>
+		<link name="front_left_eef_link" />
+	</group>
+	
+	<group name="front_right_ankle">
+		<chain base_link="pelvis" tip_link="ankle1_2"/>
+		<link name="front_right_eef_link" />
+	</group>
+	
+	<group name="back_right_ankle">
+		<chain base_link="pelvis" tip_link="ankle1_3"/>
+		<link name="back_right_eef_link" />
+	</group>
+	
+	<group name="back_left_ankle">
+		<chain base_link="pelvis" tip_link="ankle1_4"/>
+		<link name="back_left_eef_link" />
+	</group>
+	
+	<!-- arm groupa -->
+	
     <group name="left_arm">
         <chain base_link="torso_2" tip_link="arm1_7" />
 		<link name="left_hand_eef_link" />
@@ -78,8 +98,31 @@
 	</group>
 	
 	<end_effector name="left_hand" parent_link="left_hand_eef_link" group="left_hand" parent_group="left_arm" />
-    <end_effector name="right_hand" parent_link="right_hand_eef_link" group="right_hand" parent_group="right_arm" />	
+    <end_effector name="right_hand" parent_link="right_hand_eef_link" group="right_hand" parent_group="right_arm" />
 
+	<group name="front_left_dummy">
+		<joint name="front_left_dummy_joint" />
+	</group>
+	<end_effector name="front_left_ankle" parent_link="front_left_eef_link" group="front_left_dummy"  parent_group="front_left_ankle" />
+
+	<group name="front_right_dummy">
+		<joint name="front_right_dummy_joint" />
+	</group>
+	<end_effector name="front_right_ankle" parent_link="front_right_eef_link" group="front_right_dummy"  parent_group="front_right_ankle" />
+	
+	<group name="back_right_dummy">
+		<joint name="back_right_dummy_joint" />
+	</group>
+	<end_effector name="back_right_ankle" parent_link="back_right_eef_link" group="back_right_dummy"  parent_group="back_right_ankle" />
+	
+	<group name="back_left_dummy">
+		<joint name="back_left_dummy_joint" />
+	</group>
+	<end_effector name="back_left_ankle" parent_link="back_left_eef_link" group="back_left_dummy"  parent_group="back_left_ankle" />
+	
+	
+
+	
     <group name="lower_body">
         <group name="legs" />
         <link name="pelvis" />

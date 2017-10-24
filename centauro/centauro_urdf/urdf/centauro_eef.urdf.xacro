@@ -19,7 +19,7 @@
 		<joint name="${prefix}_eef_joint" type="fixed">
 			<parent link="${parent}"/>
 			<child link="${prefix}_eef_link"/>
-			<origin rpy="1.57079632679 0.0 0.0" xyz="0.0 0.00085 0.235"/>
+			<origin rpy="0 0.0 0.0" xyz="0.0 0.0 0.0"/>
 		</joint>
 		<link name="${prefix}_dummy_link"/>
 		<joint name="${prefix}_dummy_joint" type="fixed">
