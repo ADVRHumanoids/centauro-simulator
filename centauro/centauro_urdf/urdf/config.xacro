@@ -20,6 +20,7 @@
 
 <xacro:property name="GAZEBO" value="$(arg GAZEBO)"/>
 <xacro:property name="MIDDLEWARE" value="$(arg MIDDLEWARE)"/>
+<xacro:property name="XBOT_CONFIG_FILE" value="$(arg XBOT_CONFIG_FILE)"/>
 <xacro:property name="INERTIA_PARAM" value="$(arg INERTIA_PARAM)"/>
 <xacro:property name="KINEMATIC_PARAM" value="$(arg KINEMATIC_PARAM)"/>
 
@@ -68,6 +69,7 @@
 <!-- LOAD PARAMETERS -->
 <xacro:property name="package" value="$(find centauro)"/>
 
+<xacro:property name="xbot_config_file" value="${XBOT_CONFIG_FILE}"/>
 <xacro:property name="inertia_parameters_file" value="${package + '/centauro_urdf/inertia_parameters/' + INERTIA_PARAM + '.xacro'}"/>
 <xacro:property name="kinematic_parameters_file" value="${package + '/centauro_urdf/kinematic_parameters/' + KINEMATIC_PARAM + '.xacro'}"/>
 
