@@ -16,10 +16,10 @@
         <chain base_link="pelvis" tip_link="ankle2_2" />
     </group>
     <group name="rear_right_leg">
-        <chain base_link="pelvis" tip_link="ankle2_3" />
+        <chain base_link="pelvis" tip_link="ankle2_4" />
     </group>
     <group name="rear_left_leg">
-        <chain base_link="pelvis" tip_link="ankle2_4" />
+        <chain base_link="pelvis" tip_link="ankle2_3" />
     </group>
 	
 	<!-- ankle groups -->
@@ -34,12 +34,12 @@
 	</group>
 	
 	<group name="back_right_ankle">
-		<chain base_link="pelvis" tip_link="ankle1_3"/>
+		<chain base_link="pelvis" tip_link="ankle1_4"/>
 		<link name="back_right_eef_link" />
 	</group>
 	
 	<group name="back_left_ankle">
-		<chain base_link="pelvis" tip_link="ankle1_4"/>
+		<chain base_link="pelvis" tip_link="ankle1_3"/>
 		<link name="back_left_eef_link" />
 	</group>
 	

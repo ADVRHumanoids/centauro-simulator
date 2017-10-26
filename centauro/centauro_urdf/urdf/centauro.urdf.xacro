@@ -134,8 +134,8 @@
 <!-- leg eef -->
 <xacro:leg_eef prefix="front_left" parent="ankle1_1"/>
 <xacro:leg_eef prefix="front_right" parent="ankle1_2"/>
-<xacro:leg_eef prefix="back_right" parent="ankle1_3"/>
-<xacro:leg_eef prefix="back_left" parent="ankle1_4"/>
+<xacro:leg_eef prefix="back_left" parent="ankle1_3"/>
+<xacro:leg_eef prefix="back_right" parent="ankle1_4"/>
 
 </xacro:if>
 
