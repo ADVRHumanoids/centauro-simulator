@@ -16,7 +16,7 @@
 <!-- Origin -->
 <xacro:property name="Pelvis_Ox" value=" 0.0 "/>
 <xacro:property name="Pelvis_Oy" value=" 0.0 "/>
-<xacro:property name="Pelvis_Oz" value=" 0.92795000 "/>
+<xacro:property name="Pelvis_Oz" value=" 0.93445 "/>
 
 <!-- Origin -->
 <xacro:property name="Neck_1_Ox" value=" 0.0 "/>
@@ -39,15 +39,15 @@
 <xacro:property name="Leg_1_Oz" value="-0.05660000 "/>
 <xacro:property name="Leg_1_roll" value=" 3.141592653589793 "/>
 <xacro:property name="Leg_1_pitch" value=" 0.0 "/>
-<xacro:property name="Leg_1_yaw" value=" -0.5070986986495499 "/>
+<xacro:property name="Leg_1_yaw" value=" -0.461416123228 "/>
 
 <!-- Origin -->
 <xacro:property name="Leg_2_Ox" value=" 0.000000 "/>
 <xacro:property name="Leg_2_Oy" value=" 0.000000 "/>
-<xacro:property name="Leg_2_Oz" value=" 0.059 "/>
-<xacro:property name="Leg_2_roll" value=" 1.5707963267948966 "/>
+<xacro:property name="Leg_2_Oz" value=" 0.0625 "/>
+<xacro:property name="Leg_2_roll" value=" 1.57079632679 "/>
 <xacro:property name="Leg_2_pitch" value=" 0.0 "/>
-<xacro:property name="Leg_2_yaw" value=" 2.6344939549402433 "/>
+<xacro:property name="Leg_2_yaw" value=" 2.68017653036 "/>
 
 <!-- Origin -->
 <xacro:property name="Leg_3_Ox" value=" 0.000000 "/>
