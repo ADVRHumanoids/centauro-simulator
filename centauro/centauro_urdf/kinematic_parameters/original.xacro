@@ -16,7 +16,7 @@
 <!-- Origin -->
 <xacro:property name="Pelvis_Ox" value=" 0.0 "/>
 <xacro:property name="Pelvis_Oy" value=" 0.0 "/>
-<xacro:property name="Pelvis_Oz" value=" 0.92560000 "/>
+<xacro:property name="Pelvis_Oz" value=" 0.92795000 "/>
 
 <!-- Origin -->
 <xacro:property name="Neck_1_Ox" value=" 0.0 "/>
@@ -73,10 +73,10 @@
 
 <xacro:property name="Wheel_Ox" value=" 0.0 "/>
 <xacro:property name="Wheel_Oy" value=" 0.00085 "/>
-<xacro:property name="Wheel_Oz" value=" 0.235 "/>
+<xacro:property name="Wheel_Oz" value=" 0.237350 "/>
 <xacro:property name="Wheel_roll" value=" 1.5707963267948966 "/>
 <xacro:property name="Wheel_pitch" value=" 0.0 "/>
-<xacro:property name="Wheel_yaw" value=" 0.0 "/>
+<xacro:property name="Wheel_yaw" value=" 3.14159265359 "/>
 
 <!-- Origin -->
 <xacro:property name="Torso_2_Ox" value=" 0.200 "/>

@@ -7,6 +7,7 @@
   <!-- which inertia parameters should be loaded -->
   <arg name="inertia_param" default="original"/>
   <arg name="kinematic_param" default="original"/>
+  <arg name="xbot_config_file" default="configs/ADVR_shared/centauro/configs/config_centauro.yaml"/>
 
   <!-- gazebo configuration parameters -->
   <arg name="paused" default="true"/>
@@ -52,7 +53,7 @@
 
   <!-- which collision model should run:
        WARNING: exactly one parameter has to be true, otherwise simulation behaviour is undefined -->
-  <arg name="collision_model" default="convex_hull"/>
+  <arg name="collision_model" default="primitives"/>
 
   <!-- whether the mesh files should be loaded for visualization -->
   <arg name="visual_model" default="mesh"/>
@@ -74,7 +75,7 @@
   <!-- Load the URDF/SRDF into the ROS Parameter Server -->
   <param name="robot_description"
          command="$(find xacro)/xacro --inorder '$(find centauro)/centauro_urdf/urdf/centauro.urdf.xacro'
-                   GAZEBO:=$(arg gazebo)                        MIDDLEWARE:=$(arg middleware) 
+                   GAZEBO:=$(arg gazebo)                        MIDDLEWARE:=$(arg middleware)                   XBOT_CONFIG_FILE:=$(arg xbot_config_file)
                    STATIC:=$(arg static)                        ONE_ARM:=$(arg one_arm)                         LEFT_END_EFFECTOR:=$(arg left_end_effector)     RIGHT_END_EFFECTOR:=$(arg right_end_effector)     MASS:=$(arg mass)
                    ARMS:=$(arg arms)                            LEGS:=$(arg legs)                               TORSO:=$(arg torso)                             WHEELS:=$(arg wheels)                           HEAD:=$(arg head)
                    ARM_ACTUATORS:=$(arg arm_actuators)          LEG_ACTUATORS:=$(arg leg_actuators)             TORSO_ACTUATORS:=$(arg torso_actuators)         WHEELS_ACTUATORS:=$(arg wheels_actuators)       HEAD_ACTUATORS:=$(arg head_actuators)
