@@ -140,7 +140,34 @@
 </xacro:if>
 
 <!-- /legs -->
+<gazebo>
+	<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+	<robotNamespace>centauro</robotNamespace>
+	</plugin>
+</gazebo>
 
+<xacro:macro name="gz_wheel" params="wheel_link_name" >
+<gazebo reference="${wheel_link_name}">
+			<!--<material>Gazebo/FlatBlack</material>
+			<kp>10.0</kp>
+			<kd>10.0</kd>
+			<mu1>1.0</mu1>
+			<mu2>1.0</mu2>
+			<fdir1>1 0 0</fdir1>
+			<maxVel>1.0</maxVel>
+			<minDepth>0.00</minDepth>-->
+			<mu1>10000.0</mu1>
+			<mu2>10000.0</mu2>
+			<fdir1>1 0 0</fdir1>
+			<maxVel>0.0</maxVel>
+			<minDepth>0.001</minDepth>
+			<material>Gazebo/Black</material>
+</gazebo>
+</xacro:macro>
 
+<xacro:gz_wheel wheel_link_name="wheel_1" />
+<xacro:gz_wheel wheel_link_name="wheel_2" />
+<xacro:gz_wheel wheel_link_name="wheel_3" />
+<xacro:gz_wheel wheel_link_name="wheel_4" />
 
 </robot>

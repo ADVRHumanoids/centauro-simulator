@@ -29,11 +29,11 @@
         <transmission name="${namehand}_${jointname}_transmission">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${namehand}_${jointname}">
-                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                <hardwareInterface>EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="motor_${namehand}_${jointname}">
                 <mechanicalReduction>1</mechanicalReduction>
-                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                <hardwareInterface>EffortJointInterface</hardwareInterface>
             </actuator>
         </transmission>
     </xacro:macro>
@@ -627,11 +627,11 @@
         <!--transmission name="${name}_Thumb_Flexion_transmission">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${name}_Thumb_Flexion">
-                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                <hardwareInterface>EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="motor_${name}_Thumb_Flexion">
                 <mechanicalReduction>1</mechanicalReduction>
-                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                <hardwareInterface>EffortJointInterface</hardwareInterface>
             </actuator>
         </transmission-->
 
