@@ -93,5 +93,8 @@
         </rosparam>
         <remap from="/robotcontrol/centauro/" to="/centauro/" />
     </node>
-	
+
+    <node name="centauro_base_primitives" pkg="centauro_base_primitives" type="centauro_base_primitives">
+    </node>
+
 </launch>
