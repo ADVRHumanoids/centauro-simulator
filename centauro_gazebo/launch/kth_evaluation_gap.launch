@@ -4,7 +4,7 @@
 	<param name="use_sim_time" value="true" />
 	
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
-		<arg name="world_name" value="$(find centauro_gazebo)/worlds/simple_staircase.world"/>
+		<arg name="world_name" value="$(find centauro_gazebo)/worlds/kth_evaluation_gap.world"/>
 		<arg name="paused" value="true" />
 	</include>
 	
@@ -77,7 +77,7 @@
         <param name="robot_name" value="$(arg robot)"/>
     </node>
 
-    <node name="robotcontrol" pkg="robotcontrol" type="robotcontrol" output="screen">
+    <node name="robotcontrol" pkg="robotcontrol" type="robotcontrol" output="screen" required="true">
         <param name="motion_path" value="$(find centauro_launch)/motions/centauro/" />
     	<param name="publish_ego_rot" value="false" />
         <rosparam>
@@ -87,7 +87,7 @@
             init_relaxed: false
             initial_state: init
             motion_modules:
-            - "centauro_motion_server::CentauroMotionServer"
+            - "motion_server::MotionServer"
             - "centauro_base::CentauroBase"
             - "centauro_laser_rotator::CentauroLaserRotator"
         </rosparam>
