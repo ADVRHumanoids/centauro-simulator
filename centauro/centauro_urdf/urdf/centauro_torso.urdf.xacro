@@ -21,7 +21,7 @@
 <!-- /torso links -->
 
 <!-- torso joints -->
-<joint name="torso_yaw" type="revolute">
+<joint name="torso_yaw" type="${torso_joint}">
    <xacro:if value="${pelvis}">
       <parent link="pelvis"/>
       <origin xyz="${Torso_2_Ox} ${Torso_2_Oy} ${Torso_2_Oz}"/>

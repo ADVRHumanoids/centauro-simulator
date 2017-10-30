@@ -30,7 +30,6 @@
   <arg name="head" default="true"/>
   <arg name="wheels" default="false"/>
   <arg name="static" default="false"/>
-  <arg name="one_arm" default="false"/>
 
   <!-- choose the end-effector -->
   <arg name="left_end_effector" default="stick"/>
@@ -76,7 +75,7 @@
   <param name="robot_description"
          command="$(find xacro)/xacro --inorder '$(find centauro)/centauro_urdf/urdf/centauro.urdf.xacro'
                    GAZEBO:=$(arg gazebo)                        MIDDLEWARE:=$(arg middleware)                   XBOT_CONFIG_FILE:=$(arg xbot_config_file)
-                   STATIC:=$(arg static)                        ONE_ARM:=$(arg one_arm)                         LEFT_END_EFFECTOR:=$(arg left_end_effector)     RIGHT_END_EFFECTOR:=$(arg right_end_effector)     MASS:=$(arg mass)
+                   STATIC:=$(arg static)                        LEFT_END_EFFECTOR:=$(arg left_end_effector)     RIGHT_END_EFFECTOR:=$(arg right_end_effector)   MASS:=$(arg mass)
                    ARMS:=$(arg arms)                            LEGS:=$(arg legs)                               TORSO:=$(arg torso)                             WHEELS:=$(arg wheels)                           HEAD:=$(arg head)
                    ARM_ACTUATORS:=$(arg arm_actuators)          LEG_ACTUATORS:=$(arg leg_actuators)             TORSO_ACTUATORS:=$(arg torso_actuators)         WHEELS_ACTUATORS:=$(arg wheels_actuators)       HEAD_ACTUATORS:=$(arg head_actuators)
                    ARM_SENSORS:=$(arg arm_sensors)              LEG_SENSORS:=$(arg leg_sensors) 

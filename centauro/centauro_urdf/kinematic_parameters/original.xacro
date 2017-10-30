@@ -204,7 +204,7 @@
 <xacro:property name="Kinect_pitch" value=" 0.0 "/>
 <xacro:property name="Kinect_yaw" value=" 0.0 "/>
 
-<xacro:property name="Velodyne_Ox" value=" 0.138 "/>
+<xacro:property name="Velodyne_Ox" value=" -0.138 "/>
 <xacro:property name="Velodyne_Oy" value=" 0.0 "/>
 <xacro:property name="Velodyne_Oz" value=" -0.033 "/>
 <xacro:property name="Velodyne_roll" value=" 0.0 "/>

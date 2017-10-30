@@ -48,44 +48,38 @@ Optional arguments:
 
 ### Basic simulation set-up
 
-| Argument | Default | Description |
+| Argument | Default | Values | Description |
 | ---| --- | --- |
-| gazebo | true | whether the gazebo simulation should be run or not |
-| rviz | false | whether the rviz visualization tool should be run or not  |
-| middleware | xbotcore | which middleware should be used to connect with gazebo. Other options: **ros_control** |
+| gazebo | true | true, false | whether the gazebo simulation should be run or not |
+| rviz | false | true, false |whether the rviz visualization tool should be run or not  |
+| middleware | xbotcore | xbotcore, ros_control | which middleware should be used to connect with gazebo |
+| xbot_config_file | configs/ADVR_shared/centauro/configs/config_centauro.yaml | string | path to xbot config file |
 
 ### Gazebo configuration parameters
 
-| Argument | Default | Description |
+| Argument | Default  | Values | Description |
 | ---| --- | --- |
-| paused | true | if the simulation should be paused at the beginning, may be useful if initialization takes time |
-| use_sim_time | true | if ROS should be driven by a simulation time or the world clock |
-| gui | true | if gazebo GUI should be loaded |
-| debug | false | if a debug information should be loaded |
-| physics | ode | which physics engine should be loaded; options: **ode**, **bullet**, **simbody** |
-| verbose | false | if verbose logging information should be loaded |
+| paused | true | true, false | if the simulation should be paused at the beginning, may be useful if initialization takes time |
+| use_sim_time | true | true, false | if ROS should be driven by a simulation time or the world clock |
+| gui | true | true, false  | if gazebo GUI should be started |
+| debug | false | true, false | if gazebo should start through gdb |
+| physics | ode | ode, bullet, simbody | which physics engine should be loaded|
+| verbose | false | true, false | if verbose logging information should be loaded |
 
 ### CENTAURO model configuration parameters
 Defined which part of the robot should be loaded
 
-| Argument | Default | Description |
+| Argument | Default | Values  | Description |
 | ---| --- | --- |
-| arms | true | if arms should be loaded |
-| torso | true | if torso should be loaded, if not also the rest of upper-body is not loaded |
-| legs | true | if legs should be loaded, if not also wheels are not loaded |
-| head | true | if head should be loaded |
-| wheels | false | if wheels should be loaded |
-| static | false | if the system is floating base or static |
-| one_arm | false | only one robot arm is loaded |
-| mass | 0 | if positive value, 5x5x5 cm box is added 10 cm from a last arm joint axis |
-
-Argument **end_effector**: default value **stick**
-
-| Value | Description |
-| ---| --- |
-| stick | load sticks as arms' end-effectors |
-| soft_hand | load soft_hands as arms' end-effectors |
-| unknown* | no end-effector is loaded|
+| arms | true | true, false, right, left | if 'false' arms are not loaded, if 'left'/'right' only this arm is loaded  |
+| torso | true | true, false, fixed | if torso should be loaded, if not also the rest of upper-body is not loaded, if 'fixed' torso_yaw joint is fixed |
+| legs | true | true, false | if legs should be loaded, if not also wheels are not loaded |
+| head | true | true, false | if head should be loaded |
+| wheels | false | true, false | if wheels should be loaded |
+| static | false | true, false | if the system is floating base or static |
+| mass | 0 | positive number | 5x5x5 cm box is added 10 cm from a last arm joint axis of **mass** kg |
+| left_end_effector | stick | stick, soft_hand, schunk_hand, unknown* | which end_effector should be loaded on the left arm, if unknown no end_effector will be loaded
+| right_end_effector | stick | stick, soft_hand, schunk_hand, unknown* | which end_effector should be loaded on the right arm, if unknown no end_effector will be loaded
 
 * 'unknown' argument means any string that is not defined as a specific value for this argument 
 
@@ -98,6 +92,7 @@ Defines which part of the robot should be actuated
 | arm_actuators | true | if arms should be actuated |
 | leg_actuators | true | if legs should be actuated |
 | wheels_actuators | true | if wheels should be actuated |
+| head_actuators | true | if head should be actuated |
 
 ### CENTAURO model sensors configuration
 Defines which sensors should be loaded for the robot
@@ -121,6 +116,7 @@ For robot visualization and collision models two arguments 'visual_model' and 'c
 | Value | Description |
 | ---| --- |
 | mesh | load realistic mesh file for each link |
+| simplified | load simplified realistic mesh files |
 | convex_hull | load file describing a convex hull object for each link |
 | capsule | load capsules computed based on the model |
 | unknown* | load predefined primitives |
@@ -135,7 +131,8 @@ In case a specific model is not defined for some links, the predefined primitive
 | Argument | Default | Description |
 | ---| --- | --- |
 | world_name | $(find centauro_gazebo)/worlds/centauro.world | which simulation environment should be loaded |
-
+| kinematic_param | original | name of a .xacro file with simulator kinematic parameters w.r.t $SIMULATOR_PATH/centauro-simulator/centauro/centauro_urdf/kinematic_parameters folder
+| inertia_param | original | name of a .xacro file with simulator dynamic parameters w.r.t $SIMULATOR_PATH/centauro-simulator/centauro/centauro_urdf/inertia_parameters folder
 
 --------
 How To Generate URDF from Xacro
@@ -143,7 +140,17 @@ How To Generate URDF from Xacro
 
 - Example with current set of argument:
 
-rosrun xacro xacro --inorder -o test.urdf centauro.urdf.xacro GAZEBO:=false ARMS:=true TORSO:=true ARM_ACTUATORS:=true LEGS:=true LEG_ACTUATORS:=true TORSO_ACTUATORS:=true WHEELS:=false WHEELS_ACTUATORS:=false ONE_ARM:=false STATIC:=false COLLISION_MODEL:=convex_hull VISUAL_MODEL:=mesh END_EFFECTOR:=stick ARM_SENSORS:=false MASS:=0 INERTIA_PARAM:=original KINEMATIC_PARAM:=original HEAD_ACTUATORS:=true HEAD:=true
+rosrun xacro xacro --inorder -o test.urdf centauro.urdf.xacro GAZEBO:=false ARMS:=true TORSO:=true ARM_ACTUATORS:=true LEGS:=true LEG_ACTUATORS:=true TORSO_ACTUATORS:=true WHEELS:=false WHEELS_ACTUATORS:=false STATIC:=false COLLISION_MODEL:=convex_hull VISUAL_MODEL:=mesh END_EFFECTOR:=stick ARM_SENSORS:=false MASS:=0 INERTIA_PARAM:=original KINEMATIC_PARAM:=original HEAD_ACTUATORS:=true HEAD:=true
+
+- Using script generating urdf file calling:
+
+$SIMULATOR_PATH/centauro-simulator/centauro/centauro_urdf/script/create_urdf_srdf_sdf.sh centauro
+
+**WARNING:**
+it uses the parameters defined in: $SIMULATOR_PATH/centauro-simulator/centauro/centauro_urdf/urdf/config/ros_args
+   
+the new urdf file $SIMULATOR_PATH/centauro-simulator/centauro/centauro_urdf/urdf/centauro.urdf is generated ONLY IF this file does not exists.
+
 
 
 

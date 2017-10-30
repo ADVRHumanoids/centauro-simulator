@@ -20,7 +20,7 @@
 <xacro:if value="${LEGS}">
   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_leg.urdf.xacro"/>
 </xacro:if>
-<xacro:if value="${arms}">
+<xacro:if value="${arm}">
   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_arm.urdf.xacro"/>
 </xacro:if>
 
@@ -79,7 +79,7 @@
 
 <!-- torso -->
 <xacro:if value="${torso == 'true'}">
-   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_torso.urdf.xacro"/>
+   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_torso_fixed.urdf.xacro"/>
 </xacro:if>
 <xacro:if value="${head == 'true'}">
    <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_head.urdf.xacro"/>
@@ -88,24 +88,23 @@
 
 
 <!-- arms -->
-<xacro:if value="${left_arm == 'true'}">
-   <xacro:centauro_arm arm_num="1"  rot="1"  parent="torso_2" end_effector="${LEFT_END_EFFECTOR}">
-      <origin xyz="${Shoulder_1_Ox} ${Shoulder_1_Oy} ${Shoulder_1_Oz}" rpy="${Shoulder_1_roll} ${Shoulder_1_pitch} ${Shoulder_1_yaw}"/>
-   </xacro:centauro_arm>
-</xacro:if>
-<xacro:if value="${right_arm == 'true'}">
+<xacro:if value="${arms == 'true'}">
    <xacro:centauro_arm arm_num="2" rot="-1"  parent="torso_2" end_effector="${RIGHT_END_EFFECTOR}">
       <origin xyz="${Shoulder_1_Ox} ${-Shoulder_1_Oy} ${Shoulder_1_Oz}" rpy="${Shoulder_1_roll} ${Shoulder_1_pitch} ${-Shoulder_1_yaw}" />
    </xacro:centauro_arm>
 </xacro:if>
 
+<xacro:if value="${arm == 'true' and arms == 'false'}">
+        <xacro:centauro_arm arm_num="1"  rot="1" parent="world">
+           <origin xyz="${Shoulder_1_Ox + Pelvis_Ox + Torso_2_Ox} ${Shoulder_1_Oy + Pelvis_Oy + Torso_2_Oy} ${Shoulder_1_Oz + Pelvis_Oz + Torso_2_Oz}" rpy="${Shoulder_1_roll} ${Shoulder_1_pitch} ${Shoulder_1_yaw}"/>
+        </xacro:centauro_arm>
+</xacro:if>
 
 <!-- /arms -->
 
 
 <!-- legs -->
 <xacro:if value="${legs}">
-
 <xacro:centauro_leg leg_num="1" origin_x="1" origin_y="-1">
 </xacro:centauro_leg>
 
@@ -117,11 +116,7 @@
 
 <xacro:centauro_leg leg_num="4" origin_x="-1" origin_y="1">
 </xacro:centauro_leg>
-
 </xacro:if>
 
 <!-- /legs -->
-
-
-
 </robot>

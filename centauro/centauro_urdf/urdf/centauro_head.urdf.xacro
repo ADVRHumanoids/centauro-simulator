@@ -81,7 +81,8 @@
                 <inertia ixx="${Dummy_xx}" ixy="${Dummy_xy}" ixz="${Dummy_xz}" iyy="${Dummy_yy}" iyz="${Dummy_yz}" izz="${Dummy_zz}"/>
         </inertial>
 </link>
-<link name="velodyne">
+<link name="kinect2_rgb_optical_frame" />
+<link name="velodyne_mount">
 	<inertial>
 		<origin xyz="${Dummy_x} ${Dummy_y} ${Dummy_z}"/>
 		<mass value="${Dummy_mass}"/> 
@@ -137,10 +138,18 @@
    <origin xyz="${Kinect_Ox} ${Kinect_Oy} ${Kinect_Oz}" rpy="${Kinect_roll} ${Kinect_pitch} ${Kinect_yaw}"/>
    <child link="kinect"/>
 </joint>
+
+
+<joint name="j_kinect_optical_frame" type="fixed">
+	<parent link="kinect"/>
+	<child link="kinect2_rgb_optical_frame" />
+	<origin xyz="0.050 -0.110 -0.035" rpy=" -${PI/2} 0 -${PI/2}"/>
+</joint>
+
 <joint name="j_velodyne" type="fixed">
    <parent link="neck_3"/>
    <origin xyz="${Velodyne_Ox} ${Velodyne_Oy} ${Velodyne_Oz}" rpy="${Velodyne_roll} ${Velodyne_pitch} ${Velodyne_yaw}"/>
-   <child link="velodyne"/>
+   <child link="velodyne_mount"/>
 </joint>
 <!-- /sensors transformations -->
 

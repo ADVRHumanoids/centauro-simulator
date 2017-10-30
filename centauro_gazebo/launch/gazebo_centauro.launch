@@ -1,0 +1,97 @@
+<launch>
+	<include file="$(find centauro_launch)/model/centauro_model.launch" />
+
+	<param name="use_sim_time" value="true" />
+	
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="world_name" value="$(find centauro_gazebo)/worlds/test_world.world"/>
+		<arg name="paused" value="true" />
+	</include>
+	
+	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="
+		-param robot_description
+		-urdf -model centauro
+		-J j_arm1_1 0.0
+		-J j_arm1_2 -1.0
+		-J j_arm1_3 0.0
+		-J j_arm1_4 0.0
+		-J j_arm1_5 0.0
+		-J j_arm1_6 0.0
+		-J j_arm1_7 0.0
+		
+		-J j_arm2_1 0.0
+		-J j_arm2_2 1.0
+		-J j_arm2_3 0.0
+		-J j_arm2_4 0.0
+		-J j_arm2_5 0.0
+		-J j_arm2_6 0.0
+		-J j_arm2_7 0.0
+		
+		-J hip_yaw_1 0.0
+		-J hip_pitch_1 0.0
+		-J knee_pitch_1 0.0
+		-J ankle_pitch_1 0.0
+		-J ankle_yaw_1 0.0
+		-J j_wheel_1 0.0
+		
+		-J hip_yaw_2 0.0
+		-J hip_pitch_2 0.0
+		-J knee_pitch_2 0.0
+		-J ankle_pitch_2 0.0
+		-J ankle_yaw_2 0.0
+		-J j_wheel_2 0.0
+		
+		-J hip_yaw_3 0.0
+		-J hip_pitch_3 0.0
+		-J knee_pitch_3 0.0
+		-J ankle_pitch_3 0.0
+		-J ankle_yaw_3 0.0
+		-J j_wheel_3 0.0
+		
+		-J hip_yaw_4 0.0
+		-J hip_pitch_4 0.0
+		-J knee_pitch_4 0.0
+		-J ankle_pitch_4 0.0
+		-J ankle_yaw_4 0.0
+		-J j_wheel_4 0.0		
+		
+		-J right_hand_Thumb_Flexion 0.056
+        -J right_hand_Thumb_Opposition 0.098
+        -J right_hand_Index_Finger_Distal 0.176
+        -J right_hand_Index_Finger_Proximal 0.12
+        -J right_hand_Middle_Finger_Distal 0.176
+        -J right_hand_Middle_Finger_Proximal 0.12
+        -J right_hand_Ring_Finger 0.13
+        -J right_hand_Pinky 0.11
+        -J right_hand_Finger_Spread 0.242
+	" />
+	
+	
+	
+	<include file="$(find centauro_gazebo)/launch/centauro_controllers.launch" />
+	
+	 <!-- Launch the config server -->
+    <arg name="robot" default="centauro_schunk_sim"/>
+    <node name="config_server" pkg="config_server" type="config_server" output="screen" required="false">
+        <param name="config_path" value="$(find centauro_launch)/config"/>
+        <param name="robot_name" value="$(arg robot)"/>
+    </node>
+
+    <node name="robotcontrol" pkg="robotcontrol" type="robotcontrol" output="screen" required="true">
+        <param name="motion_path" value="$(find centauro_launch)/motions/centauro/" />
+    	<param name="publish_ego_rot" value="false" />
+        <rosparam>
+            hw_interface: "robotcontrol::GazeboInterface"
+            modelName: "centauro"
+            prefix: "/centauro"
+            init_relaxed: false
+            initial_state: init
+            motion_modules:
+            - "motion_server::MotionServer"
+            - "centauro_base::CentauroBase"
+            - "centauro_laser_rotator::CentauroLaserRotator"
+        </rosparam>
+        <remap from="/robotcontrol/centauro/" to="/centauro/" />
+    </node>
+	
+</launch>

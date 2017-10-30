@@ -267,7 +267,15 @@
 <xacro:if value="${end_effector == 'stick'}" >
   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_stick.urdf.xacro" />
 </xacro:if>
-<xacro:if value="${end_effector != 'stick' and end_effector != 'soft_hand' }" >
+<xacro:if value="${end_effector == 'schunk_hand'}" >
+	 <!-- schunk hand -->
+   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/upper_body/end_effectors/schunk_hand/svh_gazebo.urdf.xacro" /> 
+   <xacro:svh parent="arm2_7" name="right_hand" side="1">                                  
+        <origin xyz="0 0 -0.04"  rpy= "${PI} 0 ${PI/2}" />
+   </xacro:svh>
+</xacro:if>
+	
+<xacro:if value="${end_effector != 'stick' and end_effector != 'soft_hand' and end_effector != 'schunk_hand'}" >
   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_no_end_effector.urdf.xacro" />
 </xacro:if>
 
