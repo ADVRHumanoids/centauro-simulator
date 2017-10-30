@@ -49,7 +49,7 @@ Optional arguments:
 ### Basic simulation set-up
 
 | Argument | Default | Values | Description |
-| ---| --- | --- |
+| ---| --- | --- |  --- |
 | gazebo | true | true, false | whether the gazebo simulation should be run or not |
 | rviz | false | true, false |whether the rviz visualization tool should be run or not  |
 | middleware | xbotcore | xbotcore, ros_control | which middleware should be used to connect with gazebo |
@@ -58,7 +58,7 @@ Optional arguments:
 ### Gazebo configuration parameters
 
 | Argument | Default  | Values | Description |
-| ---| --- | --- |
+| ---| --- | --- |  --- |
 | paused | true | true, false | if the simulation should be paused at the beginning, may be useful if initialization takes time |
 | use_sim_time | true | true, false | if ROS should be driven by a simulation time or the world clock |
 | gui | true | true, false  | if gazebo GUI should be started |
@@ -70,7 +70,7 @@ Optional arguments:
 Defined which part of the robot should be loaded
 
 | Argument | Default | Values  | Description |
-| ---| --- | --- |
+| ---| --- | --- |  --- |
 | arms | true | true, false, right, left | if 'false' arms are not loaded, if 'left'/'right' only this arm is loaded  |
 | torso | true | true, false, fixed | if torso should be loaded, if not also the rest of upper-body is not loaded, if 'fixed' torso_yaw joint is fixed |
 | legs | true | true, false | if legs should be loaded, if not also wheels are not loaded |
