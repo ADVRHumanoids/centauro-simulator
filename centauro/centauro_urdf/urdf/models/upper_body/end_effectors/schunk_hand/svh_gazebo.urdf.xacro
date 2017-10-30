@@ -617,9 +617,10 @@
         <joint name="${name}_Thumb_Flexion" type="revolute">
             <parent link="${name}_virtual_a" />
             <child link="${name}_a" />
-            <limit effort="1000.0" lower="0.0" upper="0.9704" velocity="1" />
+            <limit effort="10.0" lower="0.0" upper="0.9704" velocity="1" />
             <origin xyz="0 0 0" rpy="0 0 ${side*(-0.9704)}" />
             <axis xyz="0 0 ${side*(1)}" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
 
         <xacro:trans_xacro namehand="${name}" jointname="Thumb_Flexion"/>
@@ -647,9 +648,10 @@
         <joint name="${name}_Thumb_Opposition" type="revolute">
             <parent link="${name}_e1" />
             <child link="${name}_z" />
-            <limit effort="1000.0" lower="0.0" upper="0.9879" velocity="1" />
+            <limit effort="10.0" lower="0.0" upper="0.9879" velocity="1" />
             <origin xyz="${side*(-0.01690)} 0.02626 0" rpy="0 0.2618 1.571" />
             <axis xyz="0 0 ${side*(-1)}" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
 
         <xacro:trans_xacro namehand="${name}" jointname="Thumb_Opposition"/>
@@ -688,10 +690,11 @@
         <joint name="${name}_j5" type="revolute">
             <parent link="${name}_e1" />
             <child link="${name}_e2" />
-            <limit effort="1000.0" lower="0.0" upper="0.98786" velocity="1" />
+            <limit effort="10.0" lower="0.0" upper="0.98786" velocity="1" />
             <origin xyz="${side*(0.01840)} 0.006 0.0375" rpy="0 0 0" />
             <axis xyz="0 0 ${side*(1)}" />
             <mimic joint="${name}_Thumb_Opposition" multiplier="1" offset="0" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j5"/>
 
@@ -727,20 +730,22 @@
         <joint name="${name}_j3" type="revolute">
             <parent link="${name}_a" />
             <child link="${name}_b" />
-            <limit effort="1000.0" lower="0.0" upper="0.98506" velocity="1" />
+            <limit effort="10.0" lower="0.0" upper="0.98506" velocity="1" />
             <origin xyz="0.0485 0 0" rpy="0 0 0" />
             <axis xyz="0 0 ${side*(1)}" />
             <mimic joint="${name}_Thumb_Flexion" multiplier="1.01511" offset="0" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j3"/>
 
         <joint name="${name}_j4" type="revolute">
             <parent link="${name}_b" />
             <child link="${name}_c" />
-            <limit effort="1000.0" lower="0.0" upper="1.406" velocity="1" />
+            <limit effort="10.0" lower="0.0" upper="1.406" velocity="1" />
             <origin xyz="0.030 0 0" rpy="0 0 0" />
             <axis xyz="0 0 ${side*(1)}" />
             <mimic joint="${name}_Thumb_Flexion" multiplier="1.44889" offset="0" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j4"/>
 
@@ -748,9 +753,10 @@
         <joint name="${name}_Index_Finger_Distal" type="revolute">
             <parent link="${name}_l" />
             <child link="${name}_p" />
-            <limit effort="1000.0" lower="0" upper="1.334" velocity="1" />
+            <limit effort="10.0" lower="0" upper="1.334" velocity="1" />
             <origin xyz="0.04804 0 0" rpy="0 0 0" />
             <axis xyz="0 0 1" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="Index_Finger_Distal"/>
 
@@ -758,9 +764,10 @@
         <joint name="${name}_Index_Finger_Proximal" type="revolute">
             <parent link="${name}_virtual_l" />
             <child link="${name}_l" />
-            <limit effort="1000.0" lower="0.0" upper="0.79849" velocity="1" />
+            <limit effort="10.0" lower="0.0" upper="0.79849" velocity="1" />
             <origin xyz="0 0 0" rpy="-1.5707 0 0" />
             <axis xyz="0 0 1" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="Index_Finger_Proximal"/>
 
@@ -768,10 +775,11 @@
         <joint name="${name}_j14" type="revolute">
             <parent link="${name}_p" />
             <child link="${name}_t" />
-            <limit effort="1000.0" lower="0" upper="1.394" velocity="1" />
+            <limit effort="10.0" lower="0" upper="1.394" velocity="1" />
             <origin xyz="0.026 0 0" rpy="0 0 0" />
             <axis xyz="0 0 1" />
             <mimic joint="${name}_Index_Finger_Distal" multiplier="1.0450" offset="0" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j14"/>
 
@@ -779,28 +787,31 @@
         <joint name="${name}_Middle_Finger_Proximal" type="revolute">
             <parent link="${name}_virtual_k" />
             <child link="${name}_k" />
-            <limit effort="1000.0" lower="0.0" upper="0.79849" velocity="1" />
+            <limit effort="10.0" lower="0.0" upper="0.79849" velocity="1" />
             <origin xyz="0 0 0" rpy="-1.5707 0 0" />
             <axis xyz="0 0 1" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="Middle_Finger_Proximal"/>
 
         <joint name="${name}_Middle_Finger_Distal" type="revolute">
             <parent link="${name}_k" />
             <child link="${name}_o" />
-            <limit effort="1000.0" lower="0" upper="1.334" velocity="1" />
+            <limit effort="10.0" lower="0" upper="1.334" velocity="1" />
             <origin xyz="0.05004 0 0" rpy="0 0 0" />
             <axis xyz="0 0 1" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="Middle_Finger_Distal"/>
 
         <joint name="${name}_j15" type="revolute">
             <parent link="${name}_o" />
             <child link="${name}_s" />
-            <limit effort="1000.0" lower="0" upper="1.334" velocity="1" />
+            <limit effort="10.0" lower="0" upper="1.334" velocity="1" />
             <origin xyz="0.032 0 0" rpy="0 0 0" />
             <axis xyz="0 0 1" />
             <mimic joint="${name}_Middle_Finger_Distal" multiplier="1.0454" offset="0" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j15"/>
 
@@ -808,9 +819,10 @@
         <joint name="${name}_Ring_Finger" type="revolute">
             <parent link="${name}_virtual_j" />
             <child link="${name}_j" />
-            <limit effort="1000.0" lower="0.0" upper="0.98175" velocity="1" />
+            <limit effort="10.0" lower="0.0" upper="0.98175" velocity="1" />
             <origin xyz="0 0 0" rpy="1.5707 0 0" />
             <axis xyz="0 0 1" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="Ring_Finger"/>
 
@@ -818,20 +830,22 @@
         <joint name="${name}_j12" type="revolute">
             <parent link="${name}_j" />
             <child link="${name}_n" />
-            <limit effort="1000.0" lower="0" upper="1.334" velocity="1" />
+            <limit effort="10.0" lower="0" upper="1.334" velocity="1" />
             <origin xyz="0.05004 0 0" rpy="0 0 0" />
             <axis xyz="0 0 1" />
             <mimic joint="${name}_Ring_Finger" multiplier="1.3588" offset="0" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j12"/>
 
         <joint name="${name}_j16" type="revolute">
             <parent link="${name}_n" />
             <child link="${name}_r" />
-            <limit effort="1000.0" lower="0" upper="1.395" velocity="1" />
+            <limit effort="10.0" lower="0" upper="1.395" velocity="1" />
             <origin xyz="0.032 0 0" rpy="0 0 0" />
             <axis xyz="0 0 1" />
             <mimic joint="${name}_Ring_Finger" multiplier="1.42093" offset="0" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j16"/>
 
@@ -839,39 +853,43 @@
         <joint name="${name}_Pinky" type="revolute">
             <parent link="${name}_virtual_i" />
             <child link="${name}_i" />
-            <limit effort="1000.0" lower="0.0" upper="0.98175" velocity="1" />
+            <limit effort="10.0" lower="0.0" upper="0.98175" velocity="1" />
             <origin xyz="0 0 0" rpy="1.5707 0 0" />
             <axis xyz="0 0 1" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="Pinky"/>
 
         <joint name="${name}_j13" type="revolute">
             <parent link="${name}_i" />
             <child link="${name}_m" />
-            <limit effort="1000.0" lower="0" upper="1.334" velocity="1" />
+            <limit effort="10.0" lower="0" upper="1.334" velocity="1" />
             <origin xyz="0.04454 0 0" rpy="0 0 0" />
             <axis xyz="0 0 1" />
             <mimic joint="${name}_Pinky" multiplier="1.35880" offset="0" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j13"/>
 
         <joint name="${name}_j17" type="revolute">
             <parent link="${name}_m" />
             <child link="${name}_q" />
-            <limit effort="1000.0" lower="0" upper="1.3971" velocity="1" />
+            <limit effort="10.0" lower="0" upper="1.3971" velocity="1" />
             <origin xyz="0.022 0 0" rpy="0 0 0" />
             <axis xyz="0 0 1" />
             <mimic joint="${name}_Pinky" multiplier="1.42307" offset="0" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j17"/>
 
         <joint name="${name}_index_spread" type="revolute">
             <parent link="${name}_d2" />
             <child link="${name}_virtual_l" />
-            <limit effort="1000.0" lower="0.0" upper="0.28833" velocity="1" />
+            <limit effort="10.0" lower="0.0" upper="0.28833" velocity="1" />
             <origin xyz="${side*(-0.025)} 0 0.110" rpy="0 -1.5707 1.5707" />
             <axis xyz="0 0 ${side*(1)}" />
             <mimic joint="${name}_Finger_Spread" multiplier="0.5" offset="0" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="index_spread"/>
 
@@ -886,19 +904,21 @@
         <joint name="${name}_ring_spread" type="revolute">
             <parent link="${name}_e5" />
             <child link="${name}_virtual_j" />
-            <limit effort="1000.0" lower="0.0" upper="0.28833" velocity="1" />
+            <limit effort="10.0" lower="0.0" upper="0.28833" velocity="1" />
             <origin xyz="${side*(0.003855)} 0 0.0655" rpy="-1.5707 -1.5707 0" />
             <axis xyz="0 0 ${side*(1)}" />
             <mimic joint="${name}_Finger_Spread" multiplier="0.5" offset="0" />
+            <dynamics friction="${friction_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="ring_spread"/>
 
         <joint name="${name}_Finger_Spread" type="revolute">
             <parent link="${name}_e4" />
             <child link="${name}_virtual_i" />
-            <limit effort="1000.0" lower="0.00" upper="0.5829" velocity="1" />
+            <limit effort="10.0" lower="0.00" upper="0.5829" velocity="1" />
             <origin xyz="${side*(0.025355)} 0 0.056" rpy="-1.5707 -1.5707 0" />
             <axis xyz="0 0 ${side*(1)}" />
+            <dynamics friction="${friction_schunk}" />
         </joint>    
         <xacro:trans_xacro namehand="${name}" jointname="Finger_Spread"/>
 

@@ -75,5 +75,7 @@
 
 <xacro:property name="middleware" value="${MIDDLEWARE}"/>
 
+<xacro:property name="friction" value="10.0" />
+<xacro:property name="friction_schunk" value="3.0" />
 
 </robot>
