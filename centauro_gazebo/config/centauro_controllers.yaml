@@ -24,7 +24,7 @@ centauro:
     j_arm1_5_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm1_5
-        pid: {p: 1000, i: 0.0, d: 0.0}
+        pid: {p: 100, i: 0.0, d: 0.0}
     j_arm1_6_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm1_6
@@ -32,7 +32,7 @@ centauro:
     j_arm1_7_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm1_7
-        pid: {p: 1000, i: 0.0, d: 0.0}
+        pid: {p: 100, i: 0.0, d: 0.0}
     
     j_arm2_1_position_controller:
         type: effort_controllers/JointPositionController
@@ -53,7 +53,7 @@ centauro:
     j_arm2_5_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm2_5 
-        pid: {p: 1000, i: 0.0, d: 0.0}
+        pid: {p: 100, i: 0.0, d: 0.0}
     j_arm2_6_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm2_6 
@@ -61,7 +61,7 @@ centauro:
     j_arm2_7_position_controller:
         type: effort_controllers/JointPositionController
         joint: j_arm2_7 
-        pid: {p: 1000, i: 0.0, d: 0.0}
+        pid: {p: 100, i: 0.0, d: 0.0}
     
     torso_yaw_position_controller:
         type: effort_controllers/JointPositionController
@@ -197,7 +197,7 @@ centauro:
     neck_velodyne_velocity_controller:
         type: effort_controllers/JointVelocityController    
         joint: neck_velodyne
-        pid: {p: 100, i: 0.0, d: 0.0}
+        pid: {p: 10000, i: 0.0, d: 0.0}
     
     # Position controllers: Right Schunk Hand
     
@@ -256,7 +256,7 @@ centauro:
     right_hand_j16_position_controller:
         type: effort_controllers/JointPositionController
         joint: right_hand_j16
-        pid: {p: 50.0, i: 0.0, d: 0.0018}
+        pid: {p: 50.0, i: 0.0, d: 0.0}
     right_hand_Pinky_position_controller:
         type: effort_controllers/JointPositionController
         joint: right_hand_Pinky
