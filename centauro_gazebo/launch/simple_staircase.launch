@@ -1,5 +1,11 @@
+<?xml version="1" ?>
 <launch>
-	<include file="$(find centauro_launch)/model/centauro_model.launch" />
+	<arg name="schunk" default="0" />
+
+	<include file="$(find centauro_launch)/model/centauro_model.launch">
+		<arg if="$(arg schunk)" name="right_end_effector" value="schunk_hand" />
+		<arg unless="$(arg schunk)" name="right_end_effector" value="stick" />
+	</include>
 
 	<param name="use_sim_time" value="true" />
 	
@@ -44,20 +50,12 @@
 		-J knee_pitch_2 -0.800000011920929
 		-J knee_pitch_3 -0.800000011920929
 		-J knee_pitch_4 0.800000011920929
-
-		-J right_hand_Thumb_Flexion 0.056
-		-J right_hand_Thumb_Opposition 0.098
-		-J right_hand_Index_Finger_Distal 0.176
-		-J right_hand_Index_Finger_Proximal 0.12
-		-J right_hand_Middle_Finger_Distal 0.176
-		-J right_hand_Middle_Finger_Proximal 0.12
-		-J right_hand_Ring_Finger 0.13
-		-J right_hand_Pinky 0.11
-		-J right_hand_Finger_Spread 0.242
 	" />
 	
-	<include file="$(find centauro_gazebo)/launch/centauro_controllers.launch" />
-	
+	<include file="$(find centauro_gazebo)/launch/centauro_controllers.launch">
+		<arg name="schunk" value="$(arg schunk)" />
+	</include>
+
 	 <!-- Launch the config server -->
     <arg name="robot" default="centauro_schunk_sim"/>
     <node name="config_server" pkg="config_server" type="config_server" output="screen" required="false">

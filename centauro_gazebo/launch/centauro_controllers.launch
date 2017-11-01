@@ -1,84 +1,88 @@
 <launch>
-    <!-- Load joint controller configurations from YAML file to parameter server -->
-    <rosparam file="$(find centauro_gazebo)/config/centauro_controllers.yaml" command="load"/>
+	<arg name="schunk" default="1" />
 
-    <!-- load the controllers -->
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-        output="screen" ns="centauro"
-        args="
+	<!-- Load joint controller configurations from YAML file to parameter server -->
+	<rosparam file="$(find centauro_gazebo)/config/centauro_controllers.yaml" command="load"/>
 
-        joint_state_controller
+	<arg if="$(arg schunk)" name="schunk_controllers" value="
+		right_hand_Thumb_Flexion_position_controller
+		right_hand_j3_position_controller
+		right_hand_j4_position_controller
+		right_hand_Thumb_Opposition_position_controller
+		right_hand_j5_position_controller
+		right_hand_Index_Finger_Distal_position_controller
+		right_hand_j14_position_controller
+		right_hand_Index_Finger_Proximal_position_controller
+		right_hand_Middle_Finger_Distal_position_controller
+		right_hand_j15_position_controller
+		right_hand_Middle_Finger_Proximal_position_controller
+		right_hand_Ring_Finger_position_controller
+		right_hand_j12_position_controller
+		right_hand_j16_position_controller
+		right_hand_Pinky_position_controller
+		right_hand_j13_position_controller
+		right_hand_j17_position_controller
+		right_hand_Finger_Spread_position_controller
+		right_hand_index_spread_position_controller
+		right_hand_ring_spread_position_controller" />
+	<arg unless="$(arg schunk)" name="schunk_controllers" value="" />
 
-        j_arm1_1_position_controller
-        j_arm1_2_position_controller
-        j_arm1_3_position_controller
-        j_arm1_4_position_controller
-        j_arm1_5_position_controller
-        j_arm1_6_position_controller
-        j_arm1_7_position_controller
-        
-        j_arm2_1_position_controller
-        j_arm2_2_position_controller
-        j_arm2_3_position_controller
-        j_arm2_4_position_controller
-        j_arm2_5_position_controller
-        j_arm2_6_position_controller
-        j_arm2_7_position_controller
+	<!-- load the controllers -->
+	<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+		output="screen" ns="centauro"
+		args="
+			joint_state_controller
 
-        torso_yaw_position_controller
-        
-        hip_yaw_1_position_controller
-	hip_pitch_1_position_controller
-	knee_pitch_1_position_controller
-	ankle_pitch_1_position_controller
-	ankle_yaw_1_position_controller
-	j_wheel_1_velocity_controller
-	
-	hip_yaw_2_position_controller
-	hip_pitch_2_position_controller
-	knee_pitch_2_position_controller
-	ankle_pitch_2_position_controller
-	ankle_yaw_2_position_controller
-	j_wheel_2_velocity_controller
-	
-	hip_yaw_3_position_controller
-	hip_pitch_3_position_controller
-	knee_pitch_3_position_controller
-	ankle_pitch_3_position_controller
-	ankle_yaw_3_position_controller
-	j_wheel_3_velocity_controller
-	
-	hip_yaw_4_position_controller
-	hip_pitch_4_position_controller
-	knee_pitch_4_position_controller
-	ankle_pitch_4_position_controller
-	ankle_yaw_4_position_controller
-	j_wheel_4_velocity_controller
+			j_arm1_1_position_controller
+			j_arm1_2_position_controller
+			j_arm1_3_position_controller
+			j_arm1_4_position_controller
+			j_arm1_5_position_controller
+			j_arm1_6_position_controller
+			j_arm1_7_position_controller
 
-	right_hand_Thumb_Flexion_position_controller
-        right_hand_j3_position_controller
-        right_hand_j4_position_controller
-        right_hand_Thumb_Opposition_position_controller
-        right_hand_j5_position_controller
-        right_hand_Index_Finger_Distal_position_controller
-        right_hand_j14_position_controller
-        right_hand_Index_Finger_Proximal_position_controller
-        right_hand_Middle_Finger_Distal_position_controller
-        right_hand_j15_position_controller
-        right_hand_Middle_Finger_Proximal_position_controller
-        right_hand_Ring_Finger_position_controller
-        right_hand_j12_position_controller
-        right_hand_j16_position_controller
-        right_hand_Pinky_position_controller
-        right_hand_j13_position_controller
-        right_hand_j17_position_controller
-        right_hand_Finger_Spread_position_controller
-        right_hand_index_spread_position_controller
-        right_hand_ring_spread_position_controller
-        
-        neck_velodyne_velocity_controller
-        
-        "
-        >
-    </node>
+			j_arm2_1_position_controller
+			j_arm2_2_position_controller
+			j_arm2_3_position_controller
+			j_arm2_4_position_controller
+			j_arm2_5_position_controller
+			j_arm2_6_position_controller
+			j_arm2_7_position_controller
+
+			torso_yaw_position_controller
+
+			hip_yaw_1_position_controller
+			hip_pitch_1_position_controller
+			knee_pitch_1_position_controller
+			ankle_pitch_1_position_controller
+			ankle_yaw_1_position_controller
+			j_wheel_1_velocity_controller
+
+			hip_yaw_2_position_controller
+			hip_pitch_2_position_controller
+			knee_pitch_2_position_controller
+			ankle_pitch_2_position_controller
+			ankle_yaw_2_position_controller
+			j_wheel_2_velocity_controller
+
+			hip_yaw_3_position_controller
+			hip_pitch_3_position_controller
+			knee_pitch_3_position_controller
+			ankle_pitch_3_position_controller
+			ankle_yaw_3_position_controller
+			j_wheel_3_velocity_controller
+
+			hip_yaw_4_position_controller
+			hip_pitch_4_position_controller
+			knee_pitch_4_position_controller
+			ankle_pitch_4_position_controller
+			ankle_yaw_4_position_controller
+			j_wheel_4_velocity_controller
+
+			$(arg schunk_controllers)
+
+			neck_velodyne_velocity_controller
+		"
+	>
+	</node>
 </launch>
