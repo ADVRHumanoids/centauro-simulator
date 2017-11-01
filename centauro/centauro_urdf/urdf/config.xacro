@@ -78,7 +78,7 @@
 <xacro:property name="friction" value="10.0" />
 <xacro:property name="damping_legs" value="1.0" />
 <xacro:property name="damping_arms" value="0.2" />
-<xacro:property name="friction_schunk" value="1.0" />
+<xacro:property name="friction_schunk" value="2.0" />
 <xacro:property name="damping_schunk" value="0.0" />
 
 </robot>
