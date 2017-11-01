@@ -15,16 +15,34 @@
                 izz="${0.5 * mass * radius * radius}" />
         </inertial>
     </xacro:macro>
-
-    <xacro:macro name="dummy_inertial">
+	<xacro:macro name="cylinder_inertial_y" params="radius length mass *origin">
         <inertial>
-            <mass value="0.03" />
-            <inertia ixx="0.00001" ixy="0.0" ixz="0.0"
-                iyy="0.00001" iyz="0.0"
-                izz="0.00001" />
+            <mass value="${mass}" />
+            <xacro:insert_block name="origin" />
+            <inertia ixx="${0.0833333 * mass * (3 * radius * radius + length * length)}" ixy="0.0" ixz="0.0"
+                iyy="${0.5 * mass * radius * radius}" iyz="0.0"
+                izz="${0.0833333 * mass * (3 * radius * radius + length * length)}" />
         </inertial>
     </xacro:macro>
-    
+	<xacro:macro name="cylinder_inertial_x" params="radius length mass *origin">
+        <inertial>
+            <mass value="${mass}" />
+            <xacro:insert_block name="origin" />
+            <inertia ixx="${0.5 * mass * radius * radius}" ixy="0.0" ixz="0.0"
+                iyy="${0.0833333 * mass * (3 * radius * radius + length * length)}" iyz="0.0"
+                izz="${0.0833333 * mass * (3 * radius * radius + length * length)}" />
+        </inertial>
+    </xacro:macro>
+
+    <xacro:macro name="dummy_inertial">
+		<inertial>
+			<mass value="0.01" />
+			<inertia ixx="1e-6" ixy="0" ixz="0"
+				iyy="1e-6" iyz="0"
+				izz="1e-6" />
+		</inertial>
+    </xacro:macro>
+
     <xacro:macro name="trans_xacro" params="namehand jointname">
         <transmission name="${namehand}_${jointname}_transmission">
             <type>transmission_interface/SimpleTransmission</type>
@@ -103,7 +121,7 @@
             <collision>
                <origin rpy="0 0 0" xyz="0 0 0" />
                 <geometry>
-                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/camera_link.STL" />
+					<mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/camera_link.STL" /> <!-- FIXME: convex hull? -->
                 </geometry>
             </collision>
 		</link>
@@ -154,7 +172,9 @@
 
         <!-- LENGTH NOT FOUND IN DATASHEET! GUESSED!!! -->
         <link name="${name}_e1">
-            <xacro:dummy_inertial />
+			<xacro:cylinder_inertial radius="0.025" length="0.12" mass="0.03">
+				<origin rpy="0 0 0" xyz="-0.00368 0.0 0.06" />
+			</xacro:cylinder_inertial>
             <visual>
                 <origin rpy="0 0 0" xyz="0 0.01313 0" />
                 <geometry>
@@ -233,7 +253,9 @@
 
         <!-- THUMB LINKS -->
         <link name="${name}_z">
-            <xacro:dummy_inertial />
+            <xacro:cylinder_inertial radius="0.018796440353616439" length="0.01042481810366226" mass="0.03">
+				<origin rpy="2.9985 8.56161e-08 1.19461e-06" xyz="4.8053e-09 0.000609069 0.0461834" />
+			</xacro:cylinder_inertial>
             <visual>
                 <origin xyz="0 0 0.02442" />
                 <geometry>
@@ -253,7 +275,9 @@
             <xacro:dummy_inertial />
         </link>
         <link name="${name}_a">
-            <xacro:dummy_inertial />
+			<xacro:cylinder_inertial radius="0.016759180858870293" length="0.047241541605838461" mass="0.03">
+				<origin rpy="-1.57079 1.53946 -1.53946" xyz="0.0234125 -0.000744623 -1.94586e-05" />
+			</xacro:cylinder_inertial>
             <visual>
                 <geometry>
                     <mesh scale="1 ${side*(1)} ${side*(1)}" filename="package://centauro/centauro_urdf/meshes/schunk_hand/d11.dae" />
@@ -268,7 +292,9 @@
         </link>
 
         <link name="${name}_b">
-            <xacro:dummy_inertial />
+            <xacro:cylinder_inertial radius="0.015792729610253044" length="0.023014525532768428" mass="0.03">
+				<origin rpy="1.56836 1.57067 1.56823" xyz="0.0115211 -7.34551e-06 2.67722e-06" />
+			</xacro:cylinder_inertial>
   
             <visual>
                 <geometry>
@@ -284,7 +310,9 @@
         </link>
 
         <link name="${name}_c">
-            <xacro:dummy_inertial />
+             <xacro:cylinder_inertial radius="0.010704766923000805" length="0.015173140958556149" mass="0.03">
+				<origin rpy="1.5708 1.55113 1.55114" xyz="0.0096433 -0.000617283 1.28171e-10" />
+			</xacro:cylinder_inertial>
 
             <visual>
                 <geometry>
@@ -620,7 +648,7 @@
             <limit effort="10.0" lower="0.0" upper="0.9704" velocity="1" />
             <origin xyz="0 0 0" rpy="0 0 ${side*(-0.9704)}" />
             <axis xyz="0 0 ${side*(1)}" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
 
         <xacro:trans_xacro namehand="${name}" jointname="Thumb_Flexion"/>
@@ -651,7 +679,7 @@
             <limit effort="10.0" lower="0.0" upper="0.9879" velocity="1" />
             <origin xyz="${side*(-0.01690)} 0.02626 0" rpy="0 0.2618 1.571" />
             <axis xyz="0 0 ${side*(-1)}" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
 
         <xacro:trans_xacro namehand="${name}" jointname="Thumb_Opposition"/>
@@ -694,7 +722,7 @@
             <origin xyz="${side*(0.01840)} 0.006 0.0375" rpy="0 0 0" />
             <axis xyz="0 0 ${side*(1)}" />
             <mimic joint="${name}_Thumb_Opposition" multiplier="1" offset="0" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j5"/>
 
@@ -734,7 +762,7 @@
             <origin xyz="0.0485 0 0" rpy="0 0 0" />
             <axis xyz="0 0 ${side*(1)}" />
             <mimic joint="${name}_Thumb_Flexion" multiplier="1.01511" offset="0" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j3"/>
 
@@ -745,7 +773,7 @@
             <origin xyz="0.030 0 0" rpy="0 0 0" />
             <axis xyz="0 0 ${side*(1)}" />
             <mimic joint="${name}_Thumb_Flexion" multiplier="1.44889" offset="0" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j4"/>
 
@@ -756,7 +784,7 @@
             <limit effort="10.0" lower="0" upper="1.334" velocity="1" />
             <origin xyz="0.04804 0 0" rpy="0 0 0" />
             <axis xyz="0 0 1" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="Index_Finger_Distal"/>
 
@@ -767,7 +795,7 @@
             <limit effort="10.0" lower="0.0" upper="0.79849" velocity="1" />
             <origin xyz="0 0 0" rpy="-1.5707 0 0" />
             <axis xyz="0 0 1" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="Index_Finger_Proximal"/>
 
@@ -779,7 +807,7 @@
             <origin xyz="0.026 0 0" rpy="0 0 0" />
             <axis xyz="0 0 1" />
             <mimic joint="${name}_Index_Finger_Distal" multiplier="1.0450" offset="0" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j14"/>
 
@@ -790,7 +818,7 @@
             <limit effort="10.0" lower="0.0" upper="0.79849" velocity="1" />
             <origin xyz="0 0 0" rpy="-1.5707 0 0" />
             <axis xyz="0 0 1" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="Middle_Finger_Proximal"/>
 
@@ -800,7 +828,7 @@
             <limit effort="10.0" lower="0" upper="1.334" velocity="1" />
             <origin xyz="0.05004 0 0" rpy="0 0 0" />
             <axis xyz="0 0 1" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="Middle_Finger_Distal"/>
 
@@ -811,7 +839,7 @@
             <origin xyz="0.032 0 0" rpy="0 0 0" />
             <axis xyz="0 0 1" />
             <mimic joint="${name}_Middle_Finger_Distal" multiplier="1.0454" offset="0" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j15"/>
 
@@ -822,7 +850,7 @@
             <limit effort="10.0" lower="0.0" upper="0.98175" velocity="1" />
             <origin xyz="0 0 0" rpy="1.5707 0 0" />
             <axis xyz="0 0 1" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="Ring_Finger"/>
 
@@ -834,7 +862,7 @@
             <origin xyz="0.05004 0 0" rpy="0 0 0" />
             <axis xyz="0 0 1" />
             <mimic joint="${name}_Ring_Finger" multiplier="1.3588" offset="0" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j12"/>
 
@@ -845,7 +873,7 @@
             <origin xyz="0.032 0 0" rpy="0 0 0" />
             <axis xyz="0 0 1" />
             <mimic joint="${name}_Ring_Finger" multiplier="1.42093" offset="0" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j16"/>
 
@@ -856,7 +884,7 @@
             <limit effort="10.0" lower="0.0" upper="0.98175" velocity="1" />
             <origin xyz="0 0 0" rpy="1.5707 0 0" />
             <axis xyz="0 0 1" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="Pinky"/>
 
@@ -867,7 +895,7 @@
             <origin xyz="0.04454 0 0" rpy="0 0 0" />
             <axis xyz="0 0 1" />
             <mimic joint="${name}_Pinky" multiplier="1.35880" offset="0" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j13"/>
 
@@ -878,7 +906,7 @@
             <origin xyz="0.022 0 0" rpy="0 0 0" />
             <axis xyz="0 0 1" />
             <mimic joint="${name}_Pinky" multiplier="1.42307" offset="0" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="j17"/>
 
@@ -889,7 +917,7 @@
             <origin xyz="${side*(-0.025)} 0 0.110" rpy="0 -1.5707 1.5707" />
             <axis xyz="0 0 ${side*(1)}" />
             <mimic joint="${name}_Finger_Spread" multiplier="0.5" offset="0" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="index_spread"/>
 
@@ -908,7 +936,7 @@
             <origin xyz="${side*(0.003855)} 0 0.0655" rpy="-1.5707 -1.5707 0" />
             <axis xyz="0 0 ${side*(1)}" />
             <mimic joint="${name}_Finger_Spread" multiplier="0.5" offset="0" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>
         <xacro:trans_xacro namehand="${name}" jointname="ring_spread"/>
 
@@ -918,7 +946,7 @@
             <limit effort="10.0" lower="0.00" upper="0.5829" velocity="1" />
             <origin xyz="${side*(0.025355)} 0 0.056" rpy="-1.5707 -1.5707 0" />
             <axis xyz="0 0 ${side*(1)}" />
-            <dynamics friction="${friction_schunk}" />
+            <dynamics friction="${friction_schunk}" damping="${damping_schunk}" />
         </joint>    
         <xacro:trans_xacro namehand="${name}" jointname="Finger_Spread"/>
 

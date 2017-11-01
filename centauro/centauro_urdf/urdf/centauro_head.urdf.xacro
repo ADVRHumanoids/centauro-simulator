@@ -115,7 +115,7 @@
    <child link="neck_3"/>
    <axis xyz="0 0 1"/>
    <limit effort="35" velocity="5.7"/> <!-- TODO -->
-   <dynamics friction="${friction}" />
+   <dynamics friction="${friction}" damping="${damping_arms}" />
 </joint>
 <!-- /head joints -->
 

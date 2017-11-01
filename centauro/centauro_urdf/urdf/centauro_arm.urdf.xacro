@@ -150,7 +150,7 @@
       <xacro:unless value="${rot+1}" >
          <limit lower="-1.658" upper="3.403" effort="147" velocity="5.7"/>
       </xacro:unless>
-      <dynamics friction="${friction}" />
+      <dynamics friction="${friction}" damping="${damping_arms}" />
    </joint>
 <!-- /shoulder yaw -->
 	
@@ -166,7 +166,7 @@
       <xacro:unless value="${rot-1}" >
          <limit lower="-3.49" upper="0" effort="147" velocity="5.7"/>
       </xacro:unless>
-      <dynamics friction="${friction}" />
+      <dynamics friction="${friction}" damping="${damping_arms}" />
    </joint>
 <!-- /shoulder roll -->
 
@@ -177,7 +177,7 @@
       <origin xyz="${Shoulder_3_Ox} ${Shoulder_3_Oy} ${Shoulder_3_Oz}"/>
       <axis xyz="0 0 -1"/>
       <limit lower="-2.618" upper="2.618" effort="147" velocity="8.2"/>
-      <dynamics friction="${friction}" />
+      <dynamics friction="${friction}" damping="${damping_arms}" />
    </joint>
 <!-- /shoulder pitch -->
 	
@@ -193,7 +193,7 @@
       <xacro:unless value="${rot+1}" >
          <limit lower="-0.349" upper="2.530" effort="147" velocity="8.2"/>
       </xacro:unless>
-      <dynamics friction="${friction}" />
+      <dynamics friction="${friction}" damping="${damping_arms}" />
    </joint>
 <!-- /elbow yaw -->
 
@@ -204,7 +204,7 @@
       <origin xyz="${Wrist_1_Ox} ${-rot*Wrist_1_Oy} ${Wrist_1_Oz}"/>
       <axis xyz="0 0 -1"/>
       <limit lower="-2.618" upper="2.618" effort="55" velocity="11.6"/>
-      <dynamics friction="${friction}" />
+      <dynamics friction="${friction}" damping="${damping_arms}" />
    </joint>
 <!-- /elbow pitch-->
 	
@@ -215,7 +215,7 @@
       <origin xyz="${Wrist_2_Ox} ${rot*Wrist_2_Oy} ${Wrist_2_Oz}"/>
       <axis xyz="0 ${rot} 0"/>
       <limit lower="-1.570" upper="1.570" effort="55" velocity="11.6"/>
-      <dynamics friction="${friction}" />
+      <dynamics friction="${friction}" damping="${damping_arms}" />
    </joint>
 <!-- /wrist yaw-->
 	
@@ -226,7 +226,7 @@
       <origin xyz="${Wrist_3_Ox} ${-rot*Wrist_3_Oy} ${Wrist_3_Oz}"/>
       <axis xyz="0 0 -1"/>
       <limit lower="-2.618" upper="2.618" effort="27" velocity="20.3"/>
-      <dynamics friction="${friction}" />
+      <dynamics friction="${friction}" damping="${0.0*damping_arms}" />
    </joint>
 <!-- wrist pitch-->
 
