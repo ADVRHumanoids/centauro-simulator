@@ -132,10 +132,18 @@
 </xacro:centauro_leg>
 
 <!-- leg eef -->
-<xacro:leg_eef prefix="front_left" parent="ankle1_1"/>
-<xacro:leg_eef prefix="front_right" parent="ankle1_2"/>
-<xacro:leg_eef prefix="back_left" parent="ankle1_3"/>
-<xacro:leg_eef prefix="back_right" parent="ankle1_4"/>
+<xacro:leg_eef prefix="front_left" parent="ankle1_1">
+	<origin xyz="0.237 -0.001 0.000" />
+</xacro:leg_eef>
+<xacro:leg_eef prefix="front_right" parent="ankle1_2">
+	<origin xyz="0.237 0.001 0.000" />
+</xacro:leg_eef>
+<xacro:leg_eef prefix="back_left" parent="ankle1_3">
+	<origin xyz="0.237 0.001 0.000" />
+</xacro:leg_eef>
+<xacro:leg_eef prefix="back_right" parent="ankle1_4">
+	<origin xyz="0.237 -0.001 0.000" />
+</xacro:leg_eef>
 
 </xacro:if>
 
