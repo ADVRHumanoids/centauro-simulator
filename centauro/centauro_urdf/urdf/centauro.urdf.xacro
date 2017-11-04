@@ -101,11 +101,11 @@
    
    <!-- hand eef -->
    <xacro:hand_eef prefix="left_hand" parent="arm1_7">
-	   <origin xyz="0 0 -0.1" rpy="0 0 0" />
+      <origin xyz="0 0.020 -0.169" rpy="${pi} 0 ${-pi}" />
    </xacro:hand_eef>
-	
-	<!-- schunk hand eef -->
-	
+   <xacro:hand_eef prefix="right_hand" parent="arm2_7">
+      <origin xyz="0 0.020 -0.169" rpy="${pi} 0 ${-pi}" />
+   </xacro:hand_eef>
 </xacro:if>
 
 <xacro:if value="${arm == 'true' and arms == 'false'}">
@@ -132,10 +132,18 @@
 </xacro:centauro_leg>
 
 <!-- leg eef -->
-<xacro:leg_eef prefix="front_left" parent="ankle1_1"/>
-<xacro:leg_eef prefix="front_right" parent="ankle1_2"/>
-<xacro:leg_eef prefix="back_left" parent="ankle1_3"/>
-<xacro:leg_eef prefix="back_right" parent="ankle1_4"/>
+<xacro:leg_eef prefix="front_left" parent="ankle1_1">
+	<origin xyz="0.237 -0.001 0.000" />
+</xacro:leg_eef>
+<xacro:leg_eef prefix="front_right" parent="ankle1_2">
+	<origin xyz="0.237 0.001 0.000" />
+</xacro:leg_eef>
+<xacro:leg_eef prefix="back_left" parent="ankle1_3">
+	<origin xyz="0.237 0.001 0.000" />
+</xacro:leg_eef>
+<xacro:leg_eef prefix="back_right" parent="ankle1_4">
+	<origin xyz="0.237 -0.001 0.000" />
+</xacro:leg_eef>
 
 </xacro:if>
 

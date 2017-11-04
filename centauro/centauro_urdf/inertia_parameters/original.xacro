@@ -271,9 +271,9 @@
 <xacro:property name="Ft_arm_y" value=" 0.0 "/>
 <xacro:property name="Ft_arm_z" value=" 0.0 "/>
 <!-- Inertia -->
-<xacro:property name="Ft_arm_xx" value=" 1e-6 "/>
-<xacro:property name="Ft_arm_yy" value=" 1e-6 "/>
-<xacro:property name="Ft_arm_zz" value=" 1e-6 "/>
+<xacro:property name="Ft_arm_xx" value=" ${ 2.0/5.0 * 0.150 * 0.05*0.05 }"/>
+<xacro:property name="Ft_arm_yy" value=" ${ 2.0/5.0 * 0.150 * 0.05*0.05 } "/>
+<xacro:property name="Ft_arm_zz" value=" ${ 2.0/5.0 * 0.150 * 0.05*0.05 } "/>
 <xacro:property name="Ft_arm_xy" value=" 0.0 "/>
 <xacro:property name="Ft_arm_xz" value=" 0.0 "/>
 <xacro:property name="Ft_arm_yz" value=" 0.0 "/>

@@ -150,6 +150,7 @@
       <xacro:unless value="${rot+1}" >
          <limit lower="-1.658" upper="3.403" effort="147" velocity="5.7"/>
       </xacro:unless>
+      <dynamics friction="${friction}" damping="${damping_arms}" />
    </joint>
 <!-- /shoulder yaw -->
 	
@@ -165,6 +166,7 @@
       <xacro:unless value="${rot-1}" >
          <limit lower="-3.49" upper="0" effort="147" velocity="5.7"/>
       </xacro:unless>
+      <dynamics friction="${friction}" damping="${damping_arms}" />
    </joint>
 <!-- /shoulder roll -->
 
@@ -175,6 +177,7 @@
       <origin xyz="${Shoulder_3_Ox} ${Shoulder_3_Oy} ${Shoulder_3_Oz}"/>
       <axis xyz="0 0 -1"/>
       <limit lower="-2.618" upper="2.618" effort="147" velocity="8.2"/>
+      <dynamics friction="${friction}" damping="${damping_arms}" />
    </joint>
 <!-- /shoulder pitch -->
 	
@@ -190,6 +193,7 @@
       <xacro:unless value="${rot+1}" >
          <limit lower="-0.349" upper="2.530" effort="147" velocity="8.2"/>
       </xacro:unless>
+      <dynamics friction="${friction}" damping="${damping_arms}" />
    </joint>
 <!-- /elbow yaw -->
 
@@ -200,6 +204,7 @@
       <origin xyz="${Wrist_1_Ox} ${-rot*Wrist_1_Oy} ${Wrist_1_Oz}"/>
       <axis xyz="0 0 -1"/>
       <limit lower="-2.618" upper="2.618" effort="55" velocity="11.6"/>
+      <dynamics friction="${friction}" damping="${damping_arms}" />
    </joint>
 <!-- /elbow pitch-->
 	
@@ -210,6 +215,7 @@
       <origin xyz="${Wrist_2_Ox} ${rot*Wrist_2_Oy} ${Wrist_2_Oz}"/>
       <axis xyz="0 ${rot} 0"/>
       <limit lower="-1.570" upper="1.570" effort="55" velocity="11.6"/>
+      <dynamics friction="${friction}" damping="${damping_arms}" />
    </joint>
 <!-- /wrist yaw-->
 	
@@ -220,6 +226,7 @@
       <origin xyz="${Wrist_3_Ox} ${-rot*Wrist_3_Oy} ${Wrist_3_Oz}"/>
       <axis xyz="0 0 -1"/>
       <limit lower="-2.618" upper="2.618" effort="27" velocity="20.3"/>
+      <dynamics friction="${friction}" damping="${0.0*damping_arms}" />
    </joint>
 <!-- wrist pitch-->
 
@@ -239,15 +246,11 @@
 
 <!-- end-effector -->
 <xacro:if value="${ft_sensors == 'true'}" >
-<!-- wrist pitch-->
-   <joint name="j_ft_${arm_num}" type="revolute">
+   <joint name="j_ft_${arm_num}" type="fixed">
       <parent link="arm${arm_num}_7"/>
       <child link="ft_arm${arm_num}"/>
       <origin xyz="${Ft_arm_Ox} ${Ft_arm_Oy} ${Ft_arm_Oz}" rpy="${Ft_arm_roll} ${Ft_arm_pitch} ${Ft_arm_yaw}" />
-      <axis xyz="0 0 1"/>
-      <limit lower="0.0" upper="0.0" effort="0" velocity="0"/>
    </joint>
-<!-- wrist pitch-->
    <link name="ft_arm${arm_num}">
       <inertial>
          <origin xyz="${Ft_arm_x} ${-rot*Ft_arm_y} ${Ft_arm_z}"/>
@@ -255,9 +258,6 @@
          <inertia ixx="${Ft_arm_xx}" ixy="${-rot*Ft_arm_xy}" ixz="${Ft_arm_xz}" iyy="${Ft_arm_yy}" iyz="${-rot*Ft_arm_yz}" izz="${Ft_arm_zz}"/>
       </inertial>
    </link>
-   <xacro:if value="${arm_actuators}">
-      <xacro:position_actuator joint="j_ft_${arm_num}" />
-   </xacro:if>
 </xacro:if>
 
 
@@ -272,11 +272,8 @@
    <xacro:svh parent="arm2_7" name="right_hand" side="1">                                  
         <origin xyz="0 0 -0.04"  rpy= "${PI} 0 ${PI/2}" />
     </xacro:svh>
-   	<xacro:hand_eef prefix="right_hand" parent="right_hand_base_link">
-	   <origin xyz="0.0 0.02 0.08" rpy="0 0 0" />
-   </xacro:hand_eef>
 </xacro:if>
-	
+
 <xacro:if value="${end_effector != 'stick' and end_effector != 'soft_hand' and end_effector != 'schunk_hand'}" >
   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_no_end_effector.urdf.xacro" />
 </xacro:if>
