@@ -111,7 +111,7 @@
 
 <joint name="neck_velodyne" type="continuous">
    <parent link="torso_2"/>
-   <origin xyz="${Neck_3_Ox} ${Neck_3_Oy} ${Neck_3_Oz}" rpy="0.0 0.0 ${pi}"/>
+   <origin xyz="${Neck_3_Ox} ${Neck_3_Oy} ${Neck_3_Oz}"/>
    <child link="neck_3"/>
    <axis xyz="0 0 1"/>
    <limit effort="35" velocity="5.7"/> <!-- TODO -->
