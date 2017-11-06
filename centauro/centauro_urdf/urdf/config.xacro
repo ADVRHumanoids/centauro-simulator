@@ -38,6 +38,9 @@
 
 <xacro:property name="MASS" value="$(arg MASS)"/>
 
+<xacro:arg name="INCLUDE_WORLD" default="true" />
+<xacro:property name="INCLUDE_WORLD" value="$(arg INCLUDE_WORLD)"/>
+
 <!-- dependend arguments -->
 
 <xacro:property name="arms" value="${'true' if ('false' not in [TORSO, ARMS] and 'false' in [ONE_ARM]) else 'false'}"/>
@@ -51,6 +54,7 @@
 
 <xacro:property name="static" value="${'true' if ('true' in [STATIC, ONE_ARM] or 'false' in [legs, LEG_ACTUATORS]) else 'false'}"/>
 <xacro:property name="reference" value="${'fixed' if (static == 'true') else 'floating'}" />
+<xacro:property name="include_world" value="${INCLUDE_WORLD}" />
 
 <!-- ACTUATION -->
 <xacro:property name="torso_actuators" value="${'true' if ('false' not in [TORSO_ACTUATORS, TORSO]) else 'false'}"/>

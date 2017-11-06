@@ -30,9 +30,6 @@
 
 <!-- /other files -->
 
-<!-- reference -->
-<link name="world"/>
-
 <xacro:if value="${pelvis}">
 
    <link name="pelvis">
@@ -73,11 +70,23 @@
    <link name="pelvis"/>
 </xacro:unless>
 
-<joint name="reference" type="${reference}">
-   <origin xyz="${Pelvis_Ox} ${Pelvis_Oy} ${Pelvis_Oz}"/>
-   <parent link="world"/>
-   <child link="pelvis"/>
+<link name="base_link" />
+<joint name="base_pelvis" type="fixed">
+   <parent link="base_link" />
+   <child link="pelvis" />
+   <origin xyz="0 0 0" rpy="0 0 0" />
 </joint>
+
+<xacro:if value="${include_world}">
+   <!-- reference -->
+   <link name="world"/>
+
+   <joint name="reference" type="${reference}">
+      <origin xyz="${Pelvis_Ox} ${Pelvis_Oy} ${Pelvis_Oz}"/>
+      <parent link="world"/>
+      <child link="base_link"/>
+   </joint>
+</xacro:if>
 <!-- /reference  -->
 
 <!-- torso -->
