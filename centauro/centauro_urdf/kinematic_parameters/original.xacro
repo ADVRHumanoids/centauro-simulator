@@ -6,9 +6,9 @@
 <xacro:property name="sin_m10" value="-0.17364817766693033"/>
 
 <!-- Origin -->
-<xacro:property name="Imu_Ox" value=" 0.0 "/>
-<xacro:property name="Imu_Oy" value=" 0.0 "/>
-<xacro:property name="Imu_Oz" value=" 0.0 "/>
+<xacro:property name="Imu_Ox" value="${0.26 - (0.0254 * (1.08 - 0.62))}"/>
+<xacro:property name="Imu_Oy" value="0.0"/>
+<xacro:property name="Imu_Oz" value="0.015"/>
 <xacro:property name="Imu_raw" value=" 0.0 "/>
 <xacro:property name="Imu_pitch" value=" 0.0 "/>
 <xacro:property name="Imu_yaw" value=" 0.0 "/>
