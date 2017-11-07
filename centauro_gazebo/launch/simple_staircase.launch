@@ -19,6 +19,7 @@
 	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="
 		-param robot_description
 		-urdf -model centauro
+		-z 0.9
 
 		-z 1.0
 		-J torso_yaw 0.0
