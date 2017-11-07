@@ -1,0 +1,104 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+	<world name="default">
+		<scene>
+			<shadows>false</shadows>
+		</scene>
+		<gui>
+			<camera name="camera">
+				<pose>0.0 -4.0 2 0.0 0.3 1.57</pose>
+			</camera>
+		</gui>
+		<physics type="ode">
+			<gravity>0 0 -9.81</gravity>
+			<real_time_update_rate>500</real_time_update_rate>
+			<max_step_size>0.002</max_step_size>
+			<ode>
+				<solver>
+					<type>quick</type>
+					<iters>70</iters>
+					<sor>1.2</sor>
+				</solver>
+				<constraints>
+ 					<cfm>0.0</cfm>
+					<erp>0.2</erp>
+					<contact_max_correcting_vel>100.0</contact_max_correcting_vel>
+					<contact_surface_layer>0.001</contact_surface_layer>
+				</constraints>
+			</ode>
+		</physics>
+		<include>
+			<uri>model://ground_plane</uri>
+		</include>
+		<include>
+			<uri>model://sun</uri>
+		</include>
+
+		<model name="stair1">
+			<pose>-0.25 0 0.1 0 0 0</pose>
+
+			<static>true</static>
+			<link name="link">
+				<visual name="visual0">
+					<geometry>
+						<box>
+							<size>1.5 1.5 0.2</size>
+						</box>
+					</geometry>
+				</visual>
+				<collision name="collision0">
+					<geometry>
+						<box>
+							<size>1.5 1.5 0.2</size>
+						</box>
+					</geometry>
+				</collision>
+			</link>
+		</model>
+		
+		<model name="stair2">
+			<pose>1.55 0 0.1 0 0 0</pose>
+
+			<static>true</static>
+			<link name="link">
+				<visual name="visual0">
+					<geometry>
+						<box>
+							<size>1.5 1.5 0.2</size>
+						</box>
+					</geometry>
+				</visual>
+				<collision name="collision0">
+					<geometry>
+						<box>
+							<size>1.5 1.5 0.2</size>
+						</box>
+					</geometry>
+				</collision>
+			</link>
+		</model>
+<!--		
+		<model name="gap">
+			<pose>0.7 0 0.1 0 0 0</pose>
+
+			<static>true</static>
+			<link name="link">
+				<visual name="visual0">
+					<geometry>
+						<box>
+							<size>0.3 1.5 0.18</size>
+						</box>
+					</geometry>
+				</visual>
+				<collision name="collision0">
+					<geometry>
+						<box>
+							<size>0.3 1.5 0.18</size>
+						</box>
+					</geometry>
+				</collision>
+			</link>
+		</model>-->
+		
+	</world>
+</sdf>

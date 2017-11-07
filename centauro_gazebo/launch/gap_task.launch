@@ -10,7 +10,7 @@
 	<param name="use_sim_time" value="true" />
 	
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
-		<arg name="world_name" value="$(find centauro_gazebo)/worlds/simple_staircase.world"/>
+		<arg name="world_name" value="$(find centauro_gazebo)/worlds/gap_task.world"/>
 		<arg name="paused" value="true" />
 	</include>
 	
@@ -18,8 +18,9 @@
 		-param robot_description
 		-urdf -model centauro
 
-		-z 1.0
-		-J torso_yaw 0.0
+		-z 1.05
+	    -x 0.1
+	    -J torso_yaw 0.0
 		-J j_arm1_1 0.0
 		-J j_arm1_2 -0.3
 		-J j_arm1_3 -0.8
