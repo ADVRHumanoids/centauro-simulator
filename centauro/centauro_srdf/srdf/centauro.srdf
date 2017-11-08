@@ -47,21 +47,25 @@
 		<joint name="hip_yaw_1" value="0.0"/>
 		<joint name="hip_pitch_1" value="0.0"/>
 		<joint name="knee_pitch_1" value="0.0"/>
+		<joint name="ankle_pitch_1" value="0.0" />
 	</group_state>
 	<group_state name="convenient" group="front_right_ankle">
 		<joint name="hip_yaw_2" value="0.0"/>
 		<joint name="hip_pitch_2" value="0.0"/>
 		<joint name="knee_pitch_2" value="0.0"/>
+		<joint name="ankle_pitch_2" value="0.0" />
 	</group_state>
 	<group_state name="convenient" group="back_right_ankle">
 		<joint name="hip_yaw_4" value="0.0"/>
 		<joint name="hip_pitch_4" value="0.0"/>
 		<joint name="knee_pitch_4" value="0.0"/>
+		<joint name="ankle_pitch_4" value="0.0" />
 	</group_state>
 	<group_state name="convenient" group="back_left_ankle">
 		<joint name="hip_yaw_3" value="0.0"/>
 		<joint name="hip_pitch_3" value="0.0"/>
 		<joint name="knee_pitch_3" value="0.0"/>
+		<joint name="ankle_pitch_3" value="0.0" />
 	</group_state>
 
 	
@@ -94,7 +98,7 @@
     </group>
 
 	<group name="right_hand">
-        <joint name="right_hand_Thumb_Opposition" />
+       <!-- <joint name="right_hand_Thumb_Opposition" />
         <joint name="right_hand_Thumb_Flexion" />
         <joint name="right_hand_j3" />
         <joint name="right_hand_j4" />
@@ -113,7 +117,8 @@
         <joint name="right_hand_Ring_Finger" />
         <joint name="right_hand_j12" />
         <joint name="right_hand_j16" />
-        <joint name="right_hand_ring_spread" />
+        <joint name="right_hand_ring_spread" />-->
+		<joint name="j_arm2_8" />
     </group>
 	<group name="left_hand">
 		<joint name="j_arm1_8" />
