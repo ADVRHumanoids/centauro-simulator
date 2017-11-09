@@ -160,6 +160,13 @@
 	<origin xyz="0 0 0" rpy="-1.57079 0 -1.57079" />
 </VLP-16>
 
+<link name="velodyne_calib" />
+<joint name="velodyne_calib" type="fixed">
+   <parent link="velodyne"/>
+   <origin xyz="0 0 0" rpy="0 0 0.015"/>
+   <child link="velodyne_calib"/>
+</joint>
+
 <xacro:if value="${head_actuators}">
 <!-- torso actuators -->
 <xacro:position_actuator joint="neck_yaw" />
