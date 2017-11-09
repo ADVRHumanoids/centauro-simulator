@@ -98,7 +98,7 @@
     </group>
 
 	<group name="right_hand">
-       <!-- <joint name="right_hand_Thumb_Opposition" />
+        <joint name="right_hand_Thumb_Opposition" />
         <joint name="right_hand_Thumb_Flexion" />
         <joint name="right_hand_j3" />
         <joint name="right_hand_j4" />
@@ -117,8 +117,7 @@
         <joint name="right_hand_Ring_Finger" />
         <joint name="right_hand_j12" />
         <joint name="right_hand_j16" />
-        <joint name="right_hand_ring_spread" />-->
-		<joint name="j_arm2_8" />
+        <joint name="right_hand_ring_spread" />
     </group>
 	<group name="left_hand">
 		<joint name="j_arm1_8" />
