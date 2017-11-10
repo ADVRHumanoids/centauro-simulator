@@ -72,7 +72,7 @@ centauro:
     hip_yaw_1_position_controller:
         type: effort_controllers/JointPositionController
         joint: hip_yaw_1
-        pid: {p: 10000, i: 0.0, d: 0.0}
+        pid: {p: 1000, i: 0.0, d: 0.0}
     
     hip_pitch_1_position_controller:
         type: effort_controllers/JointPositionController
@@ -97,13 +97,13 @@ centauro:
     j_wheel_1_velocity_controller:
         type: effort_controllers/JointVelocityController
         joint: j_wheel_1
-        pid: {p: 1, i: 0.0, d: 0.0}
+        pid: {p: 1, i: 0, d: 0}
 
 # Leg 2
     hip_yaw_2_position_controller:
         type: effort_controllers/JointPositionController
         joint: hip_yaw_2
-        pid: {p: 10000, i: 0.0, d: 0.0}
+        pid: {p: 1000, i: 0.0, d: 0.0}
     
     hip_pitch_2_position_controller:
         type: effort_controllers/JointPositionController
@@ -128,13 +128,13 @@ centauro:
     j_wheel_2_velocity_controller:
         type: effort_controllers/JointVelocityController
         joint: j_wheel_2
-        pid: {p: 1, i: 0.0, d: 0.0}
+        pid: {p: 1, i: 0, d: 0}
         
 # Leg 3
     hip_yaw_3_position_controller:
         type: effort_controllers/JointPositionController
         joint: hip_yaw_3
-        pid: {p: 10000, i: 0.0, d: 0.0}
+        pid: {p: 1000, i: 0.0, d: 0.0}
     
     hip_pitch_3_position_controller:
         type: effort_controllers/JointPositionController
@@ -159,13 +159,13 @@ centauro:
     j_wheel_3_velocity_controller:
         type: effort_controllers/JointVelocityController
         joint: j_wheel_3
-        pid: {p: 1, i: 0.0, d: 0.0}
+        pid: {p: 1, i: 0, d: 0}
 
 # Leg 4
     hip_yaw_4_position_controller:
         type: effort_controllers/JointPositionController
         joint: hip_yaw_4
-        pid: {p: 10000, i: 0.0, d: 0.0}
+        pid: {p: 1000, i: 0.0, d: 0.0}
     
     hip_pitch_4_position_controller:
         type: effort_controllers/JointPositionController
@@ -190,7 +190,7 @@ centauro:
     j_wheel_4_velocity_controller:
         type: effort_controllers/JointVelocityController
         joint: j_wheel_4
-        pid: {p: 1, i: 0.0, d: 0.0}
+        pid: {p: 1, i: 0, d: 0}
 
 
     # Velodyne
