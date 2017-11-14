@@ -92,7 +92,7 @@ centauro:
     ankle_yaw_1_position_controller:
         type: effort_controllers/JointPositionController
         joint: ankle_yaw_1
-        pid: {p: 10000, i: 0.0, d: 0.0}
+        pid: {p: 100, i: 0.0, d: 0.0}
         
     j_wheel_1_velocity_controller:
         type: effort_controllers/JointVelocityController
@@ -123,7 +123,7 @@ centauro:
     ankle_yaw_2_position_controller:
         type: effort_controllers/JointPositionController
         joint: ankle_yaw_2
-        pid: {p: 10000, i: 0.0, d: 0.0}
+        pid: {p: 100, i: 0.0, d: 0.0}
         
     j_wheel_2_velocity_controller:
         type: effort_controllers/JointVelocityController
@@ -154,7 +154,7 @@ centauro:
     ankle_yaw_3_position_controller:
         type: effort_controllers/JointPositionController
         joint: ankle_yaw_3
-        pid: {p: 10000, i: 0.0, d: 0.0}
+        pid: {p: 100, i: 0.0, d: 0.0}
         
     j_wheel_3_velocity_controller:
         type: effort_controllers/JointVelocityController
@@ -185,7 +185,7 @@ centauro:
     ankle_yaw_4_position_controller:
         type: effort_controllers/JointPositionController
         joint: ankle_yaw_4
-        pid: {p: 10000, i: 0.0, d: 0.0}
+        pid: {p: 100, i: 0.0, d: 0.0}
         
     j_wheel_4_velocity_controller:
         type: effort_controllers/JointVelocityController
