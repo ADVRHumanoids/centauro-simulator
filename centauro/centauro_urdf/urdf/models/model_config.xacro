@@ -10,7 +10,7 @@
 
       <xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/${path}/primitive.xacro"/>
 
-      <xacro:if value="${model in ['mesh', 'capsule', 'convex_hull', 'simplified']}">
+      <xacro:if value="${model in ['mesh', 'capsule', 'convex_hull', 'simplified', 'strongly_simplified']}">
          <xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/${path}/${model}.xacro"/>
       </xacro:if>
 
