@@ -199,15 +199,23 @@
 	</group_state>
 
     <group_state name="convenient" group="right_arm">
-      <joint name="j_arm2_1" value="0.5" />
-      <joint name="j_arm2_2" value="1.2" />
-      <joint name="j_arm2_3" value="0.0" />
-      <joint name="j_arm2_4" value="1.2" />
-      <joint name="j_arm2_5" value="0.0" />
-      <joint name="j_arm2_6" value="0.0" />
-      <joint name="j_arm2_7" value="0.0" />
+		<joint name="j_arm2_1" value="0.0"/>
+		<joint name="j_arm2_2" value="0.3"/>
+		<joint name="j_arm2_3" value="0.8"/>
+		<joint name="j_arm2_4" value="0.8"/>
+		<joint name="j_arm2_5" value="0.0"/>
+		<joint name="j_arm2_6" value="0.8"/>
+		<joint name="j_arm2_7" value="0.0"/>
 	</group_state>
-	
+
+	<group_state name="convenient" group="left_arm">
+		<joint name="j_arm1_1" value="0.0"/>
+		<joint name="j_arm1_2" value="-0.3"/>
+		<joint name="j_arm1_3" value="-0.8"/>
+		<joint name="j_arm1_4" value="-0.8"/>
+		<joint name="j_arm1_5" value="-0.0"/>
+		<joint name="j_arm1_6" value="-0.8"/>
+	</group_state>
 	
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="arm1_1" link2="arm1_2" reason="Adjacent" />
