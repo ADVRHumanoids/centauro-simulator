@@ -72,6 +72,7 @@
     <node name="robotcontrol" pkg="robotcontrol" type="robotcontrol" output="screen">
         <param name="motion_path" value="$(find centauro_launch)/motions/centauro/" />
     	<param name="publish_ego_rot" value="true" />
+		<param name="js_skip" value="1" />
         <rosparam>
             hw_interface: "robotcontrol::GazeboInterface"
             modelName: "centauro"

@@ -2,6 +2,8 @@
 <launch>
 	<arg name="schunk" default="0" />
 
+	<param name="/gazebo_perfect_odometry" value="true"/>
+	
 	<include file="$(find centauro_launch)/model/centauro_model.launch">
 		<arg if="$(arg schunk)" name="right_end_effector" value="schunk_hand" />
 		<arg unless="$(arg schunk)" name="right_end_effector" value="stick" />
@@ -67,7 +69,8 @@
 
     <node name="robotcontrol" pkg="robotcontrol" type="robotcontrol" output="screen">
         <param name="motion_path" value="$(find centauro_launch)/motions/centauro/" />
-    	<param name="publish_ego_rot" value="false" />
+    	<param name="publish_ego_rot" value="true" />
+		<param name="js_skip" value="1" />
         <rosparam>
             hw_interface: "robotcontrol::GazeboInterface"
             modelName: "centauro"
