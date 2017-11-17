@@ -116,13 +116,13 @@
             <visual>
                 <origin rpy="0 0 0" xyz="0 0 0" />
                 <geometry>
-                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/camera_link.STL" />
+                    <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/camera_link_simplified.stl" />
                 </geometry>
             </visual>
             <collision>
                <origin rpy="0 0 0" xyz="0 0 0" />
                 <geometry>
-					<mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/camera_link_convex.stl" /> <!-- FIXME: convex hull? -->
+					<mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/camera_link_convex.stl" />
                 </geometry>
             </collision>
 		</link>
