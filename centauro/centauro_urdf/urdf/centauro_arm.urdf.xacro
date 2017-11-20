@@ -274,7 +274,7 @@
     </xacro:svh>
 </xacro:if>
 
-<xacro:if value="${end_effector != 'stick' and end_effector != 'soft_hand' and end_effector != 'schunk_hand'}" >
+<xacro:if value="${end_effector != 'stick' and end_effector != 'soft_hand' and end_effector != 'schunk_hand' and end_effector != 'no_end_effector_joint'}" >
   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_no_end_effector.urdf.xacro" />
 </xacro:if>
 

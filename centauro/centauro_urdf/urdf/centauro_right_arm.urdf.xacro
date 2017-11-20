@@ -24,11 +24,11 @@
   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_arm.urdf.xacro"/>
 </xacro:if>
 
+<xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/upper_body/end_effectors/schunk_hand/svh_gazebo.urdf.xacro" /> 
+<xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_eef.urdf.xacro"/>
+
 
 <!-- /other files -->
-
-<!-- reference -->
-<link name="world"/>
 
 <xacro:if value="${pelvis}">
 
@@ -70,53 +70,33 @@
    <link name="pelvis"/>
 </xacro:unless>
 
-<joint name="reference" type="${reference}">
-   <origin xyz="${Pelvis_Ox} ${Pelvis_Oy} ${Pelvis_Oz}"/>
-   <parent link="world"/>
-   <child link="pelvis"/>
+<link name="base_link" />
+<joint name="base_pelvis" type="fixed">
+   <parent link="base_link" />
+   <child link="pelvis" />
+   <origin xyz="0 0 0" rpy="0 0 0" />
 </joint>
+
+<xacro:if value="${include_world}">
+   <!-- reference -->
+   <link name="world"/>
+
+   <joint name="reference" type="${reference}">
+      <origin xyz="${Pelvis_Ox} ${Pelvis_Oy} ${Pelvis_Oz}"/>
+      <parent link="world"/>
+      <child link="base_link"/>
+   </joint>
+</xacro:if>
 <!-- /reference  -->
 
 <!-- torso -->
-<xacro:if value="${torso == 'true'}">
    <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_torso_fixed.urdf.xacro"/>
-</xacro:if>
-<xacro:if value="${head == 'true'}">
-   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_head.urdf.xacro"/>
-</xacro:if>
 <!-- /torso -->
 
-
-<!-- arms -->
-<xacro:if value="${arms == 'true'}">
+<!-- arm -->
    <xacro:centauro_arm arm_num="2" rot="-1"  parent="torso_2" end_effector="${RIGHT_END_EFFECTOR}">
       <origin xyz="${Shoulder_1_Ox} ${-Shoulder_1_Oy} ${Shoulder_1_Oz}" rpy="${Shoulder_1_roll} ${Shoulder_1_pitch} ${-Shoulder_1_yaw}" />
    </xacro:centauro_arm>
-</xacro:if>
+<!-- /arm -->
 
-<xacro:if value="${arm == 'true' and arms == 'false'}">
-        <xacro:centauro_arm arm_num="1"  rot="1" parent="world">
-           <origin xyz="${Shoulder_1_Ox + Pelvis_Ox + Torso_2_Ox} ${Shoulder_1_Oy + Pelvis_Oy + Torso_2_Oy} ${Shoulder_1_Oz + Pelvis_Oz + Torso_2_Oz}" rpy="${Shoulder_1_roll} ${Shoulder_1_pitch} ${Shoulder_1_yaw}"/>
-        </xacro:centauro_arm>
-</xacro:if>
-
-<!-- /arms -->
-
-
-<!-- legs -->
-<xacro:if value="${legs}">
-<xacro:centauro_leg leg_num="1" origin_x="1" origin_y="-1">
-</xacro:centauro_leg>
-
-<xacro:centauro_leg leg_num="2" origin_x="1" origin_y="1">
-</xacro:centauro_leg>
-
-<xacro:centauro_leg leg_num="3" origin_x="-1" origin_y="-1">
-</xacro:centauro_leg>
-
-<xacro:centauro_leg leg_num="4" origin_x="-1" origin_y="1">
-</xacro:centauro_leg>
-</xacro:if>
-
-<!-- /legs -->
 </robot>
