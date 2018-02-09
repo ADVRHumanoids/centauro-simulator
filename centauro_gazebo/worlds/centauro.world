@@ -73,6 +73,7 @@
       </bullet>
       <ode>
 	<solver>
+          <type>quick</type>
           <iters>50</iters>
           <sor>1.20</sor>
         </solver>

@@ -19,11 +19,11 @@
    <xacro:load_model path="upper_body" model="${model}"/>
    <xacro:load_model path="lower_body" model="${model}"/>
 
-   <xacro:if value="${LEFT_END_EFFECTOR in ['soft_hand', 'stick']}" >
-      <xacro:load_model path="upper_body/end_effectors/${LEFT_END_EFFECTOR}"  model="${model}"/>
+   <xacro:if value="${left_end_effector in ['soft_hand', 'stick']}" >
+      <xacro:load_model path="upper_body/end_effectors/${left_end_effector}"  model="${model}"/>
    </xacro:if>
-   <xacro:if value="${RIGHT_END_EFFECTOR in ['soft_hand', 'stick']}" >
-      <xacro:load_model path="upper_body/end_effectors/${RIGHT_END_EFFECTOR}"  model="${model}"/>
+   <xacro:if value="${right_end_effector in ['soft_hand', 'stick']}" >
+      <xacro:load_model path="upper_body/end_effectors/${right_end_effector}"  model="${model}"/>
    </xacro:if>
    <xacro:if value="${head == 'true'}" >
       <xacro:load_model path="upper_body/head"  model="${model}"/>

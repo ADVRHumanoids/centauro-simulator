@@ -5,7 +5,7 @@
 
 
 <!-- macro arms -->
-<xacro:macro name="centauro_arm" params="arm_num rot parent end_effector *origin">
+<xacro:macro name="centauro_arm" params="arm_num rot parent end_effector mount *origin">
 	
 <!-- LINKS -->
 <!-- shoulder yaw-roll-->
@@ -263,6 +263,7 @@
 
 <xacro:if value="${end_effector == 'soft_hand'}" >
   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_hand.urdf.xacro" />
+  <xacro:soft_hand arm_num="${arm_num}"  rot="${rot}"  joint="${mount}"/>
 </xacro:if>
 <xacro:if value="${end_effector == 'stick'}" >
   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_stick.urdf.xacro" />

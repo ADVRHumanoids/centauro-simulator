@@ -146,6 +146,7 @@ catkin_package(
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
 
+
 ## Mark executables and/or libraries for installation
 # install(TARGETS centauro centauro_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
@@ -159,6 +160,10 @@ catkin_package(
 #   FILES_MATCHING PATTERN "*.h"
 #   PATTERN ".svn" EXCLUDE
 # )
+
+install(DIRECTORY centauro_urdf centauro_srdf centauro_config
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  PATTERN ".svn" EXCLUDE)
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 # install(FILES

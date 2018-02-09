@@ -1,5 +1,11 @@
 <?xml version="1.0" ?>
 <robot name="centauro" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+<xacro:macro name="soft_hand">
+   <origin xyz="0.0 0.0 -0.038"  rpy="0.0 0.0  ${PI/2+rot*PI/2}"/>
+   <geometry>
+      <mesh filename="package://centauro/centauro_urdf/meshes/soft_hand_open.stl" scale="0.001 0.001 0.001" />
+   </geometry>
+</xacro:macro>
 
 </robot>
