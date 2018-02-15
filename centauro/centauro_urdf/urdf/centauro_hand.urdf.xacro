@@ -33,7 +33,7 @@
       <child link="arm${arm_num}_8"/>
       <xacro:if value="${joint not in ['fixed']}" >
          <axis xyz="0 1 0" />
-         <limit velocity="20.3" effort="40" lower="0.0" upper="0.0" />
+         <limit velocity="20.3" effort="40" lower="0.0" upper="1.57075" />
       </xacro:if>
 
    </joint> -->
