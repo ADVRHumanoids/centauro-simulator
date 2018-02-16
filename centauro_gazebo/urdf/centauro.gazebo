@@ -18,13 +18,24 @@
 </xacro:if>
 
 <xacro:if value="${middleware == 'xbotcore'}">
-	<gazebo>
+       <gazebo>
             <plugin name="gazebo_xbot_plugin" filename="libGazeboXBotPlugin.so">
                 <path_to_config_file>${xbot_config_file}</path_to_config_file>
 <!--                <path_to_config_file>configs/ADVR_shared/centauro/configs/config_centauro.yaml</path_to_config_file> -->
             </plugin>
-	</gazebo>
+            <xacro:if value="${left_end_effector == 'soft_hand'}">
+                <plugin name='magnetic_LSoftHand' filename='libmagnetic.so'>
+                  <link_name>arm1_8</link_name>
+                </plugin>
+            </xacro:if>
+            <xacro:if value="${right_end_effector == 'soft_hand'}">
+                <plugin name='magnetic_RSoftHand' filename='libmagnetic.so'>
+                  <link_name>arm2_8</link_name>
+                </plugin>
+            </xacro:if>
+       </gazebo>
 </xacro:if>
+
 <!-- /CONTROLLER -->
 	
 <!-- VISUALiZATION AND FRICTION -->
