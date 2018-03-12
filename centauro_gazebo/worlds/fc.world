@@ -1,0 +1,2213 @@
+<sdf version='1.6'>
+  <world name='default'>
+    <gravity>0 0 -9.81</gravity>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>-3.00315 -0.339622 1.84952 0 0.289796 -0.051744</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    <physics name='update_rate' default='0' type='ode'>
+      <real_time_update_rate>4000</real_time_update_rate>
+      <max_step_size>0.00025</max_step_size>
+      <max_contacts>5</max_contacts>
+      <bullet>
+        <solver>
+          <iters>100</iters>
+          <sor>1.55</sor>
+          <type>sequential_impulse</type>
+        </solver>
+        <constraints>
+          <contact_surface_layer>0.2</contact_surface_layer>
+          <cfm>0.005</cfm>
+          <erp>0.2</erp>
+          <split_impulse>1</split_impulse>
+          <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+        </constraints>
+      </bullet>
+      <ode>
+        <solver>
+          <iters>50</iters>
+          <sor>1.2</sor>
+          <type>quick</type>
+          <use_dynamic_moi_rescaling>0</use_dynamic_moi_rescaling>
+        </solver>
+        <constraints>
+          <contact_surface_layer>0.0002</contact_surface_layer>
+          <contact_max_correcting_vel>500</contact_max_correcting_vel>
+          <cfm>1e-06</cfm>
+          <erp>0.3</erp>
+        </constraints>
+      </ode>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='centauro'>
+      <link name='torso_2'>
+        <pose frame=''>0.2 0 1.1816 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.006445 0.002139 0.143021 0 -0 0</pose>
+          <mass>6.18864</mass>
+          <inertia>
+            <ixx>0.0636434</ixx>
+            <ixy>8.939e-05</ixy>
+            <ixz>-0.00086873</ixz>
+            <iyy>0.0268023</iyy>
+            <iyz>-4.657e-05</iyz>
+            <izz>0.0474301</izz>
+          </inertia>
+        </inertial>
+        <collision name='torso_2_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/link1.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='torso_2_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/link1.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/OrangeTransparent</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='torso_yaw' type='revolute'>
+        <child>torso_2</child>
+        <parent>world</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-2.618</lower>
+            <upper>2.618</upper>
+            <effort>147</effort>
+            <velocity>5.7</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='arm1_1'>
+        <pose frame=''>0.24576 0.169137 1.29823 0 0 -0.523603</pose>
+        <inertial>
+          <pose frame=''>-0.003101 0.040325 0.007452 0 -0 0</pose>
+          <mass>1.55833</mass>
+          <inertia>
+            <ixx>0.00323186</ixx>
+            <ixy>4.24587e-05</ixy>
+            <ixz>4.91626e-05</ixz>
+            <iyy>0.00275718</iyy>
+            <iyz>-0.000238706</iyz>
+            <izz>0.00427505</izz>
+          </inertia>
+        </inertial>
+        <collision name='arm1_1_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 -0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/link2.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='arm1_1_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 -0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/link2.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Lane_1</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j_arm1_1' type='revolute'>
+        <child>arm1_1</child>
+        <parent>torso_2</parent>
+        <axis>
+          <xyz>0.492407 0.852867 0.173648</xyz>
+          <limit>
+            <lower>-3.403</lower>
+            <upper>1.658</upper>
+            <effort>147</effort>
+            <velocity>5.7</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='arm1_2'>
+        <pose frame=''>0.197352 0.267592 1.30899 0 0 -0.523603</pose>
+        <inertial>
+          <pose frame=''>0.051054 0.000111 -0.076436 0 -0 0</pose>
+          <mass>1.51506</mass>
+          <inertia>
+            <ixx>0.0102956</ixx>
+            <ixy>2.846e-05</ixy>
+            <ixz>0.0036567</ixz>
+            <iyy>0.0117802</iyy>
+            <iyz>2.088e-05</iyz>
+            <izz>0.00386123</izz>
+          </inertia>
+        </inertial>
+        <collision name='arm1_2_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 -0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/link3.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='arm1_2_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 -0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/link3.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/OrangeTransparent</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j_arm1_2' type='revolute'>
+        <child>arm1_2</child>
+        <parent>arm1_1</parent>
+        <axis>
+          <xyz>-0.866023 0.500003 0</xyz>
+          <limit>
+            <lower>-3.49</lower>
+            <upper>0</upper>
+            <effort>147</effort>
+            <velocity>5.7</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='arm1_3'>
+        <pose frame=''>0.27629 0.222016 1.08984 0 0 -0.523603</pose>
+        <inertial>
+          <pose frame=''>0.012076 0.00322 -0.034273 0 -0 0</pose>
+          <mass>1.50881</mass>
+          <inertia>
+            <ixx>0.00469819</ixx>
+            <ixy>-0.00026547</ixy>
+            <ixz>0.00077706</ixz>
+            <iyy>0.00501755</iyy>
+            <iyz>0.00029679</iyz>
+            <izz>0.00310954</izz>
+          </inertia>
+        </inertial>
+        <collision name='arm1_3_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 -0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/link4.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='arm1_3_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 -0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/link4.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Lane_1</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j_arm1_3' type='revolute'>
+        <child>arm1_3</child>
+        <parent>arm1_2</parent>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-2.618</lower>
+            <upper>2.618</upper>
+            <effort>147</effort>
+            <velocity>8.2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='arm1_4'>
+        <pose frame=''>0.339006 0.250643 1.01584 0 0 -0.523603</pose>
+        <inertial>
+          <pose frame=''>0.010148 -0.029929 -0.032528 0 -0 0</pose>
+          <mass>0.962973</mass>
+          <inertia>
+            <ixx>0.00264936</ixx>
+            <ixy>5.1632e-06</ixy>
+            <ixz>0.000129231</ixz>
+            <iyy>0.0023471</iyy>
+            <iyz>-0.000789575</iyz>
+            <izz>0.00122131</izz>
+          </inertia>
+        </inertial>
+        <collision name='arm1_4_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 -0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/link5.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='arm1_4_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 -0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/link5.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/OrangeTransparent</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j_arm1_4' type='revolute'>
+        <child>arm1_4</child>
+        <parent>arm1_3</parent>
+        <axis>
+          <xyz>0.500003 0.866023 0</xyz>
+          <limit>
+            <lower>-2.53</lower>
+            <upper>0.349</upper>
+            <effort>147</effort>
+            <velocity>8.2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='arm1_5'>
+        <pose frame=''>0.297941 0.209516 0.954842 0 0 -0.523603</pose>
+        <inertial>
+          <pose frame=''>-0.000157 0.004132 -0.107566 0 -0 0</pose>
+          <mass>1.47037</mass>
+          <inertia>
+            <ixx>0.00641605</ixx>
+            <ixy>1.96382e-05</ixy>
+            <ixz>2.49912e-05</ixz>
+            <iyy>0.00620164</iyy>
+            <iyz>-0.00019879</iyz>
+            <izz>0.00170917</izz>
+          </inertia>
+        </inertial>
+        <collision name='arm1_5_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 -0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/link6.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='arm1_5_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 -0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/link6.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Lane_1</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j_arm1_5' type='revolute'>
+        <child>arm1_5</child>
+        <parent>arm1_4</parent>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-2.618</lower>
+            <upper>2.618</upper>
+            <effort>55</effort>
+            <velocity>11.6</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='arm1_6'>
+        <pose frame=''>0.322441 0.251951 0.774842 0 0 -0.523603</pose>
+        <inertial>
+          <pose frame=''>3.2e-05 -0.035947 -0.080878 0 -0 0</pose>
+          <mass>0.946939</mass>
+          <inertia>
+            <ixx>0.00368966</ixx>
+            <ixy>2.63667e-05</ixy>
+            <ixz>1.4005e-06</ixz>
+            <iyy>0.00341463</iyy>
+            <iyz>-0.00082681</iyz>
+            <izz>0.00107902</izz>
+          </inertia>
+        </inertial>
+        <collision name='arm1_6_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 -0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/link7.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='arm1_6_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 -0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/link7.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/OrangeTransparent</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j_arm1_6' type='revolute'>
+        <child>arm1_6</child>
+        <parent>arm1_5</parent>
+        <axis>
+          <xyz>0.500003 0.866023 0</xyz>
+          <limit>
+            <lower>-1.57</lower>
+            <upper>1.57</upper>
+            <effort>55</effort>
+            <velocity>11.6</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='arm1_7'>
+        <pose frame=''>0.297941 0.209516 0.605842 0 0 -0.523603</pose>
+        <inertial>
+          <pose frame=''>2.5e-05 -0.000147 -0.005299 0 -0 0</pose>
+          <mass>0.55981</mass>
+          <inertia>
+            <ixx>0.000436017</ixx>
+            <ixy>1.397e-07</ixy>
+            <ixz>-1.382e-07</ixz>
+            <iyy>0.000429917</iyy>
+            <iyz>-1.4752e-06</iyz>
+            <izz>0.000452222</izz>
+          </inertia>
+        </inertial>
+        <collision name='arm1_7_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 -0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/link8.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='arm1_7_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 -0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/link8.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Lane_1</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j_arm1_7' type='revolute'>
+        <child>arm1_7</child>
+        <parent>arm1_6</parent>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-2.618</lower>
+            <upper>2.618</upper>
+            <effort>27</effort>
+            <velocity>20.3</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='arm1_8'>
+        <pose frame=''>0.297941 0.209516 0.565342 3.14159 0 1.04719</pose>
+        <inertial>
+          <pose frame=''>0 0 0.1 0 -0 0</pose>
+          <mass>0.3</mass>
+          <inertia>
+            <ixx>0.000245</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000245</iyy>
+            <iyz>0</iyz>
+            <izz>0.000245</izz>
+          </inertia>
+        </inertial>
+        <collision name='arm1_8_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.03 0.08 0.12</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='arm1_8_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.03 0.08 0.12</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/OrangeTransparent</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j_arm1_8' type='revolute'>
+        <child>arm1_8</child>
+        <parent>arm1_7</parent>
+        <axis>
+          <xyz>0.500003 0.866023 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+        <sensor name='left_arm_ft' type='force_torque'>
+          <force_torque>
+            <frame>parent</frame>
+            <measure_direction>child_to_parent</measure_direction>
+          </force_torque>
+          <always_on>1</always_on>
+          <visualize>1</visualize>
+          <update_rate>1000</update_rate>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+        </sensor>
+      </joint>
+      <link name='arm2_1'>
+        <pose frame=''>0.24576 -0.169137 1.29823 0 -0 0.523603</pose>
+        <inertial>
+          <pose frame=''>-0.003101 -0.040325 0.007452 0 -0 0</pose>
+          <mass>1.55833</mass>
+          <inertia>
+            <ixx>0.00323186</ixx>
+            <ixy>-4.24587e-05</ixy>
+            <ixz>4.91626e-05</ixz>
+            <iyy>0.00275718</iyy>
+            <iyz>0.000238706</iyz>
+            <izz>0.00427505</izz>
+          </inertia>
+        </inertial>
+        <collision name='arm2_1_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/link2.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='arm2_1_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/link2.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Lane_1</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j_arm2_1' type='revolute'>
+        <child>arm2_1</child>
+        <parent>torso_2</parent>
+        <axis>
+          <xyz>0.492407 -0.852867 0.173648</xyz>
+          <limit>
+            <lower>-1.658</lower>
+            <upper>3.403</upper>
+            <effort>147</effort>
+            <velocity>5.7</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='arm2_2'>
+        <pose frame=''>0.197352 -0.267592 1.30899 0 -0 0.523603</pose>
+        <inertial>
+          <pose frame=''>0.051054 -0.000111 -0.076436 0 -0 0</pose>
+          <mass>1.51506</mass>
+          <inertia>
+            <ixx>0.0102956</ixx>
+            <ixy>-2.846e-05</ixy>
+            <ixz>0.0036567</ixz>
+            <iyy>0.0117802</iyy>
+            <iyz>-2.088e-05</iyz>
+            <izz>0.00386123</izz>
+          </inertia>
+        </inertial>
+        <collision name='arm2_2_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/link3.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='arm2_2_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/link3.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/OrangeTransparent</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j_arm2_2' type='revolute'>
+        <child>arm2_2</child>
+        <parent>arm2_1</parent>
+        <axis>
+          <xyz>-0.866023 -0.500003 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>3.49</upper>
+            <effort>147</effort>
+            <velocity>5.7</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='arm2_3'>
+        <pose frame=''>0.27629 -0.222016 1.08984 0 -0 0.523603</pose>
+        <inertial>
+          <pose frame=''>0.012076 -0.00322 -0.034273 0 -0 0</pose>
+          <mass>1.50881</mass>
+          <inertia>
+            <ixx>0.00469819</ixx>
+            <ixy>0.00026547</ixy>
+            <ixz>0.00077706</ixz>
+            <iyy>0.00501755</iyy>
+            <iyz>-0.00029679</iyz>
+            <izz>0.00310954</izz>
+          </inertia>
+        </inertial>
+        <collision name='arm2_3_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/link4.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='arm2_3_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/link4.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Lane_1</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j_arm2_3' type='revolute'>
+        <child>arm2_3</child>
+        <parent>arm2_2</parent>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-2.618</lower>
+            <upper>2.618</upper>
+            <effort>147</effort>
+            <velocity>8.2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='arm2_4'>
+        <pose frame=''>0.339006 -0.250643 1.01584 0 -0 0.523603</pose>
+        <inertial>
+          <pose frame=''>0.010148 0.029929 -0.032528 0 -0 0</pose>
+          <mass>0.962973</mass>
+          <inertia>
+            <ixx>0.00264936</ixx>
+            <ixy>-5.1632e-06</ixy>
+            <ixz>0.000129231</ixz>
+            <iyy>0.0023471</iyy>
+            <iyz>0.000789575</iyz>
+            <izz>0.00122131</izz>
+          </inertia>
+        </inertial>
+        <collision name='arm2_4_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/link5.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='arm2_4_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/link5.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/OrangeTransparent</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j_arm2_4' type='revolute'>
+        <child>arm2_4</child>
+        <parent>arm2_3</parent>
+        <axis>
+          <xyz>0.500003 -0.866023 0</xyz>
+          <limit>
+            <lower>-0.349</lower>
+            <upper>2.53</upper>
+            <effort>147</effort>
+            <velocity>8.2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='arm2_5'>
+        <pose frame=''>0.297941 -0.209516 0.954842 0 -0 0.523603</pose>
+        <inertial>
+          <pose frame=''>-0.000157 -0.004132 -0.107566 0 -0 0</pose>
+          <mass>1.47037</mass>
+          <inertia>
+            <ixx>0.00641605</ixx>
+            <ixy>-1.96382e-05</ixy>
+            <ixz>2.49912e-05</ixz>
+            <iyy>0.00620164</iyy>
+            <iyz>0.00019879</iyz>
+            <izz>0.00170917</izz>
+          </inertia>
+        </inertial>
+        <collision name='arm2_5_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/link6.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='arm2_5_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/link6.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Lane_1</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j_arm2_5' type='revolute'>
+        <child>arm2_5</child>
+        <parent>arm2_4</parent>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-2.618</lower>
+            <upper>2.618</upper>
+            <effort>55</effort>
+            <velocity>11.6</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='arm2_6'>
+        <pose frame=''>0.322441 -0.251951 0.774842 0 -0 0.523603</pose>
+        <inertial>
+          <pose frame=''>3.2e-05 0.035947 -0.080878 0 -0 0</pose>
+          <mass>0.946939</mass>
+          <inertia>
+            <ixx>0.00368966</ixx>
+            <ixy>-2.63667e-05</ixy>
+            <ixz>1.4005e-06</ixz>
+            <iyy>0.00341463</iyy>
+            <iyz>0.00082681</iyz>
+            <izz>0.00107902</izz>
+          </inertia>
+        </inertial>
+        <collision name='arm2_6_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/link7.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='arm2_6_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/link7.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/OrangeTransparent</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j_arm2_6' type='revolute'>
+        <child>arm2_6</child>
+        <parent>arm2_5</parent>
+        <axis>
+          <xyz>0.500003 -0.866023 0</xyz>
+          <limit>
+            <lower>-1.57</lower>
+            <upper>1.57</upper>
+            <effort>55</effort>
+            <velocity>11.6</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='arm2_7'>
+        <pose frame=''>0.297941 -0.209516 0.605842 0 -0 0.523603</pose>
+        <inertial>
+          <pose frame=''>2.5e-05 0.000147 -0.005299 0 -0 0</pose>
+          <mass>0.55981</mass>
+          <inertia>
+            <ixx>0.000436017</ixx>
+            <ixy>-1.397e-07</ixy>
+            <ixz>-1.382e-07</ixz>
+            <iyy>0.000429917</iyy>
+            <iyz>1.4752e-06</iyz>
+            <izz>0.000452222</izz>
+          </inertia>
+        </inertial>
+        <collision name='arm2_7_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/link8.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='arm2_7_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/link8.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Lane_1</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j_arm2_7' type='revolute'>
+        <child>arm2_7</child>
+        <parent>arm2_6</parent>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-2.618</lower>
+            <upper>2.618</upper>
+            <effort>27</effort>
+            <velocity>20.3</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='arm2_8'>
+        <pose frame=''>0.297941 -0.209516 0.565342 -3.14159 -0 2.0944</pose>
+        <inertial>
+          <pose frame=''>0 0 0.1 0 -0 0</pose>
+          <mass>0.3</mass>
+          <inertia>
+            <ixx>0.000245</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000245</iyy>
+            <iyz>0</iyz>
+            <izz>0.000245</izz>
+          </inertia>
+        </inertial>
+        <collision name='arm2_8_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.03 0.08 0.12</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0</mu>
+                <mu2>0</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='arm2_8_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.03 0.08 0.12</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/OrangeTransparent</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j_arm2_8' type='revolute'>
+        <child>arm2_8</child>
+        <parent>arm2_7</parent>
+        <axis>
+          <xyz>-0.500003 0.866023 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+        <sensor name='right_arm_ft' type='force_torque'>
+          <force_torque>
+            <frame>parent</frame>
+            <measure_direction>child_to_parent</measure_direction>
+          </force_torque>
+          <always_on>1</always_on>
+          <visualize>1</visualize>
+          <update_rate>1000</update_rate>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+        </sensor>
+      </joint>
+      <link name='neck_3'>
+        <pose frame=''>0.255 0 1.65486 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.048467 -0.059852 -0.008531 0 -0 0</pose>
+          <mass>0.785269</mass>
+          <inertia>
+            <ixx>0.000468234</ixx>
+            <ixy>-1.05438e-05</ixy>
+            <ixz>7.24398e-05</ixz>
+            <iyy>0.000263525</iyy>
+            <iyz>1.6904e-06</iyz>
+            <izz>0.000376335</izz>
+          </inertia>
+        </inertial>
+        <collision name='neck_3_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/velodyne.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='neck_3_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/velodyne.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='neck_velodyne' type='revolute'>
+        <child>neck_3</child>
+        <parent>torso_2</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='neck_1'>
+        <pose frame=''>0.2 0 1.4611 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.04048 0.021378 -0.014595 0 -0 0</pose>
+          <mass>0.338787</mass>
+          <inertia>
+            <ixx>0.000371857</ixx>
+            <ixy>-9.42983e-05</ixy>
+            <ixz>-2.80644e-05</ixz>
+            <iyy>0.000188688</iyy>
+            <iyz>-1.54534e-05</iyz>
+            <izz>0.000502344</izz>
+          </inertia>
+        </inertial>
+        <collision name='neck_1_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/neck_yaw.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='neck_1_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/neck_yaw.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='neck_yaw' type='revolute'>
+        <child>neck_1</child>
+        <parent>torso_2</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-0.785398</lower>
+            <upper>0.785398</upper>
+            <effort>35</effort>
+            <velocity>5.7</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='neck_2'>
+        <pose frame=''>0.254 0.0596 1.4486 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.048467 -0.059852 -0.008531 0 -0 0</pose>
+          <mass>0.785269</mass>
+          <inertia>
+            <ixx>0.000468234</ixx>
+            <ixy>-1.05438e-05</ixy>
+            <ixz>7.24398e-05</ixz>
+            <iyy>0.000263525</iyy>
+            <iyz>1.6904e-06</iyz>
+            <izz>0.000376335</izz>
+          </inertia>
+        </inertial>
+        <collision name='neck_2_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/convex_hull/neck_pitch.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='neck_2_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/Cheng/advr-superbuild/robots/centauro-simulator/centauro/centauro_urdf/meshes/neck_pitch.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='neck_pitch' type='revolute'>
+        <child>neck_2</child>
+        <parent>neck_1</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-0.349066</lower>
+            <upper>0.785398</upper>
+            <effort>35</effort>
+            <velocity>5.7</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <static>0</static>
+      <plugin name='gazebo_xbot_plugin' filename='libGazeboXBotPlugin.so'>
+        <path_to_config_file>configs/ADVR_shared/centauro/configs/config_centauro.yaml</path_to_config_file>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </model>
+    <model name='table'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='surface'>
+          <pose frame=''>0 0 1.18 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.5 0.8 0.03</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.3</mu>
+                <mu2>0.3</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual1'>
+          <pose frame=''>0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.5 0.8 0.03</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='front_left_leg'>
+          <pose frame=''>0.68 0.38 0.5 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='front_left_leg'>
+          <pose frame=''>0.68 0.38 0.5 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='front_right_leg'>
+          <pose frame=''>0.68 -0.38 0.5 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='front_right_leg'>
+          <pose frame=''>0.68 -0.38 0.5 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='back_right_leg'>
+          <pose frame=''>-0.68 -0.38 0.5 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='back_right_leg'>
+          <pose frame=''>-0.68 -0.38 0.5 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='back_left_leg'>
+          <pose frame=''>-0.68 0.38 0.5 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='back_left_leg'>
+          <pose frame=''>-0.68 0.38 0.5 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>0.279058 1.60558 0 0 -0 0</pose>
+    </model>
+    <state world_name='default'>
+      <sim_time>344 532250000</sim_time>
+      <real_time>32 127382154</real_time>
+      <wall_time>1509401079 630787813</wall_time>
+      <iterations>88993</iterations>
+      <model name='centauro'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='arm1_1'>
+          <pose frame=''>0.24576 0.169137 1.29823 -1e-06 0.000157 -0.523575</pose>
+          <velocity>-1e-06 -1e-06 2e-06 -7.7e-05 0.00013 1.9e-05</velocity>
+          <acceleration>-0.01554 0.01472 -0.109303 -0.373365 0.532022 1.91059</acceleration>
+          <wrench>-0.024216 0.022939 -0.17033 0 -0 0</wrench>
+        </link>
+        <link name='arm1_2'>
+          <pose frame=''>0.197351 0.26759 1.309 -1e-06 0.000156 -0.523576</pose>
+          <velocity>-3e-06 -4e-06 4e-06 0.000123 1.4e-05 3e-06</velocity>
+          <acceleration>-0.029495 0.068688 -0.07388 -1.69486 -0.895985 2.49891</acceleration>
+          <wrench>-0.044686 0.104067 -0.111932 0 -0 0</wrench>
+        </link>
+        <link name='arm1_3'>
+          <pose frame=''>0.27626 0.222033 1.08984 -1e-06 0.000157 -0.523576</pose>
+          <velocity>-3e-06 2.7e-05 -2e-06 8.2e-05 2.7e-05 -0.001175</velocity>
+          <acceleration>0.025829 0.290306 -0.099363 -0.038699 1.06969 1.42887</acceleration>
+          <wrench>0.038972 0.438017 -0.14992 0 -0 0</wrench>
+        </link>
+        <link name='arm1_4'>
+          <pose frame=''>0.338966 0.250667 1.01583 -1e-06 7.9e-05 -0.523576</pose>
+          <velocity>2.9e-05 -4e-05 2e-06 -6.4e-05 -0.000103 -0.001146</velocity>
+          <acceleration>0.089297 -0.183468 0.022365 -1.17301 -1.428 -2.17893</acceleration>
+          <wrench>0.08599 -0.176675 0.021536 0 -0 0</wrench>
+        </link>
+        <link name='arm1_5'>
+          <pose frame=''>0.297897 0.209542 0.954836 -1e-06 7.9e-05 -0.523576</pose>
+          <velocity>-1.2e-05 4e-06 -2e-06 -6.4e-05 -9.4e-05 0.000115</velocity>
+          <acceleration>0.038298 0.089661 -0.035217 -0.822997 -0.3354 0.559233</acceleration>
+          <wrench>0.056312 0.131835 -0.051782 0 -0 0</wrench>
+        </link>
+        <link name='arm1_6'>
+          <pose frame=''>0.322384 0.251984 0.774836 -1e-06 7.9e-05 -0.523576</pose>
+          <velocity>0 -4e-06 -1e-06 8e-06 4.1e-05 0.000115</velocity>
+          <acceleration>0.013915 -0.002741 -0.015676 -0.428053 0.364311 0.326935</acceleration>
+          <wrench>0.013177 -0.002596 -0.014845 0 -0 0</wrench>
+        </link>
+        <link name='arm1_7'>
+          <pose frame=''>0.297873 0.209555 0.605836 -1e-06 7.9e-05 -0.523576</pose>
+          <velocity>-2e-06 -5e-06 -1e-06 -1.6e-05 5.5e-05 -4.5e-05</velocity>
+          <acceleration>-0.020316 -0.045647 -0.008272 -0.906208 0.714495 -0.036022</acceleration>
+          <wrench>-0.011373 -0.025553 -0.004631 0 -0 0</wrench>
+        </link>
+        <link name='arm1_8'>
+          <pose frame=''>0.297871 0.209557 0.565336 -3.14152 1e-06 1.04722</pose>
+          <velocity>-5e-06 -8e-06 -1e-06 -4e-06 5.1e-05 -4.5e-05</velocity>
+          <acceleration>-0.132777 -0.193287 -0.00837 -0.711229 0.622139 -0.034163</acceleration>
+          <wrench>-0.039833 -0.057986 -0.002511 0 -0 0</wrench>
+        </link>
+        <link name='arm2_1'>
+          <pose frame=''>0.24576 -0.169137 1.29823 1e-06 0.000157 0.523575</pose>
+          <velocity>1e-06 0 1e-06 9.3e-05 6.1e-05 5e-06</velocity>
+          <acceleration>0.037072 0.014935 0.002658 0.922611 -0.659508 2.00644</acceleration>
+          <wrench>0.05777 0.023273 0.004143 0 -0 0</wrench>
+        </link>
+        <link name='arm2_2'>
+          <pose frame=''>0.197351 -0.26759 1.309 1e-06 0.000156 0.523576</pose>
+          <velocity>1e-06 2e-06 -2e-06 -3.4e-05 -1.2e-05 2.3e-05</velocity>
+          <acceleration>0.030254 0.019576 0.00714 0.064372 0.76483 -0.33273</acceleration>
+          <wrench>0.045837 0.029659 0.010818 0 -0 0</wrench>
+        </link>
+        <link name='arm2_3'>
+          <pose frame=''>0.27626 -0.222033 1.08984 1e-06 0.000157 0.523576</pose>
+          <velocity>4e-06 -7e-06 -3e-06 -1.1e-05 -5e-06 -4.7e-05</velocity>
+          <acceleration>0.011538 0.013929 0.003482 -2.37653 1.4369 1.92718</acceleration>
+          <wrench>0.017409 0.021017 0.005254 0 -0 0</wrench>
+        </link>
+        <link name='arm2_4'>
+          <pose frame=''>0.338965 -0.250667 1.01583 1e-06 7.9e-05 0.523576</pose>
+          <velocity>4e-06 -1e-05 0 1.6e-05 1.7e-05 -6.6e-05</velocity>
+          <acceleration>0.002265 -0.055139 -0.005968 2.14706 -1.09559 -0.441679</acceleration>
+          <wrench>0.002181 -0.053097 -0.005747 0 -0 0</wrench>
+        </link>
+        <link name='arm2_5'>
+          <pose frame=''>0.297897 -0.209542 0.954836 1e-06 7.9e-05 0.523576</pose>
+          <velocity>6e-06 -7e-06 0 1.4e-05 2.1e-05 1.8e-05</velocity>
+          <acceleration>0.010199 -0.013572 -0.001083 -0.097793 0.048356 0.125225</acceleration>
+          <wrench>0.014996 -0.019956 -0.001592 0 -0 0</wrench>
+        </link>
+        <link name='arm2_6'>
+          <pose frame=''>0.322384 -0.251984 0.774836 1e-06 7.9e-05 0.523576</pose>
+          <velocity>2e-06 -4e-06 -1e-06 2.3e-05 8e-06 1.8e-05</velocity>
+          <acceleration>0.012712 -0.024194 -0.002945 -0.063659 -0.042435 0.078481</acceleration>
+          <wrench>0.012037 -0.02291 -0.002789 0 -0 0</wrench>
+        </link>
+        <link name='arm2_7'>
+          <pose frame=''>0.297873 -0.209555 0.605836 1e-06 7.9e-05 0.523576</pose>
+          <velocity>0 -1e-06 1e-06 2.8e-05 1.1e-05 -2e-05</velocity>
+          <acceleration>0.016386 -0.029827 -0.003709 -0.140368 -0.106479 -0.04494</acceleration>
+          <wrench>0.009173 -0.016697 -0.002076 0 -0 0</wrench>
+        </link>
+        <link name='arm2_8'>
+          <pose frame=''>0.297871 -0.209556 0.565336 -3.14151 -1e-06 2.09437</pose>
+          <velocity>0 1e-06 1e-06 2.6e-05 9e-06 -2e-05</velocity>
+          <acceleration>0.033901 -0.053679 -0.003684 -0.102805 -0.088638 -0.044653</acceleration>
+          <wrench>0.01017 -0.016104 -0.001105 0 -0 0</wrench>
+        </link>
+        <link name='neck_1'>
+          <pose frame=''>0.2 0 1.4611 0 -1e-06 0.3232</pose>
+          <velocity>1e-06 -1e-06 0 1e-06 -4e-06 0.001979</velocity>
+          <acceleration>0.010218 0.004551 0.001902 0.025037 -0.061186 0.000327</acceleration>
+          <wrench>0.003462 0.001542 0.000644 0 -0 0</wrench>
+        </link>
+        <link name='neck_2'>
+          <pose frame=''>0.232275 0.073665 1.4486 0 0.785399 0.3232</pose>
+          <velocity>-0.000146 6.3e-05 0 0 2e-06 0.00198</velocity>
+          <acceleration>0.00805 0.003712 -0.000101 0.012273 0.002 0.007747</acceleration>
+          <wrench>0.006321 0.002915 -8e-05 0 -0 0</wrench>
+        </link>
+        <link name='neck_3'>
+          <pose frame=''>0.255 0 1.65486 0 0 -0.137199</pose>
+          <velocity>0 0 1e-06 0 -2e-06 -0.000234</velocity>
+          <acceleration>-0.001022 0.003076 0.004268 0.016726 -0.027416 -0.119589</acceleration>
+          <wrench>-0.000802 0.002415 0.003352 0 -0 0</wrench>
+        </link>
+        <link name='torso_2'>
+          <pose frame=''>0.2 0 1.1816 0 -0 0</pose>
+          <velocity>1e-06 0 0 1e-06 -2e-06 7e-06</velocity>
+          <acceleration>0.014278 0.007422 0.003525 0.018256 -0.025032 0.133076</acceleration>
+          <wrench>0.088363 0.045929 0.021817 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='first_2015_trash_can'>
+        <pose frame=''>1.05248 -0.471597 -3e-06 1e-06 1.1e-05 0.000237</pose>
+        <scale>0.7 0.7 0.7</scale>
+        <link name='link'>
+          <pose frame=''>1.05248 -0.471597 -3e-06 1e-06 1.1e-05 0.000237</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.81 0 -0 0</acceleration>
+          <wrench>0 0 -47.3898 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='table'>
+        <pose frame=''>0.554598 -0.414857 0 0 -0 0</pose>
+        <scale>1.2 0.1 1.18</scale>
+        <link name='link'>
+          <pose frame=''>0.554598 -0.414857 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='wood_cube_10cm'>
+        <pose frame=''>0.226169 0.345181 0.123987 3.14149 -1.57079 -1.78555</pose>
+        <scale>2.5 2.5 2.5</scale>
+        <link name='link'>
+          <pose frame=''>0.215509 0.296331 0.123987 3.14149 -1.57079 -1.78555</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 2e-06 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='wood_cube_10cm_0'>
+        <pose frame=''>1.05383 0.153506 0.048987 0 0 -2.35927</pose>
+        <scale>2 3 2</scale>
+        <link name='link'>
+          <pose frame=''>1.05383 0.153506 0.098987 0 0 -2.35927</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose frame=''>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <model name='wood_cube_10cm'>
+      <link name='link'>
+        <pose frame=''>0 0 0.05 0 -0 0</pose>
+        <inertial>
+          <mass>0.5167</mass>
+          <inertia>
+            <ixx>0.000861167</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000861167</iyy>
+            <iyz>0</iyz>
+            <izz>0.000861167</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.1 0.1 0.1</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <poissons_ratio>0.347</poissons_ratio>
+              <elastic_modulus>8.8e+09</elastic_modulus>
+              <ode>
+                <kp>100000</kp>
+                <kd>100</kd>
+                <max_vel>100</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <coefficient>1</coefficient>
+                <use_patch_radius>0</use_patch_radius>
+                <surface_radius>0.01</surface_radius>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.1 0.1 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>2.10735 0.134484 0 0 -0 0</pose>
+    </model>
+    <model name='wood_cube_10cm_0'>
+      <link name='link'>
+        <pose frame=''>0 0 0.05 0 -0 0</pose>
+        <inertial>
+          <mass>0.5167</mass>
+          <inertia>
+            <ixx>0.000861167</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00286117</iyy>
+            <iyz>0</iyz>
+            <izz>0.000861167</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.1 0.1 0.1</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <poissons_ratio>0.347</poissons_ratio>
+              <elastic_modulus>8.8e+09</elastic_modulus>
+              <ode>
+                <kp>100000</kp>
+                <kd>100</kd>
+                <max_vel>100</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <coefficient>1</coefficient>
+                <use_patch_radius>0</use_patch_radius>
+                <surface_radius>0.01</surface_radius>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.1 0.1 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>2.1388 -0.354384 0 0 -0 0</pose>
+    </model>
+    <model name='first_2015_trash_can'>
+      <link name='link'>
+        <inertial>
+          <pose frame=''>0 0 0.3683 0 -0 0</pose>
+          <mass>4.83076</mass>
+          <inertia>
+            <ixx>0.281534</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.281534</iyy>
+            <iyz>0</iyz>
+            <izz>0.126223</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://first_2015_trash_can/meshes/trash_can.dae</uri>
+              <scale>0.7 0.7 0.7</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://first_2015_trash_can/meshes/trash_can.dae</uri>
+              <scale>0.7 0.7 0.7</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>0.992419 -0.371622 0 0 -0 0</pose>
+    </model>
+  </world>
+</sdf>
