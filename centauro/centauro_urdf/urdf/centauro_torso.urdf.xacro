@@ -34,6 +34,7 @@
    <child link="torso_2"/>
    <axis xyz="0 0 1"/>
    <limit lower="-2.618" upper="2.618" effort="147" velocity="5.7"/> <!-- TODO -->
+   <dynamics friction="0" damping="0.3"/>
 </joint>
 <!-- /torso joints -->
 

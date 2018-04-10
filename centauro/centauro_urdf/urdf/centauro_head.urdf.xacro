@@ -98,6 +98,7 @@
    <child link="neck_1"/>
    <axis xyz="0 0 1"/>
    <limit lower="-0.78539816" upper="0.78539816" effort="35" velocity="5.7"/> <!-- TODO -->
+   <dynamics friction="0" damping="0.3"/>
 </joint>
 
 <joint name="neck_pitch" type="revolute">
@@ -106,6 +107,7 @@
    <child link="neck_2"/>
    <axis xyz="0 1 0"/>
    <limit lower="-0.34906585" upper="0.78539816" effort="35" velocity="5.7"/> <!-- TODO -->
+   <dynamics friction="0" damping="0.5"/>
 </joint>
 
 <joint name="neck_velodyne" type="continuous">
@@ -114,6 +116,7 @@
    <child link="neck_3"/>
    <axis xyz="0 0 1"/>
    <limit effort="35" velocity="5.7"/> <!-- TODO -->
+   <dynamics friction="0" damping="0.3"/>
 </joint>
 <!-- /head joints -->
 
