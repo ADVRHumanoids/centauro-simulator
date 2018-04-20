@@ -31,21 +31,6 @@ centauro:
          topic: contacts_wheel_2
          active: true
       contact2:
-         name: rear_left_leg
-         end_frame: wheel_4
-         position: [0.0, 0.0, 0.0]
-         offset: [0.0, 0.0, -0.078]
-         constraint_matrix:
-            force_1: [0, 0, 0, 1, 0, 0] # direction of a first contraint on force 
-            force_2: [0, 0, 0, 0, 1, 0] # direction of a second contraint on force
-            force_3: [0, 0, 0, 0, 0, 1] # direction of a third contraint on force
-            momentum_1: [0, 0, 0, 0, 0, 0] # direction of a first contraint on momentum
-            momentum_2: [0, 0, 0, 0, 0, 0] # direction of a second contraint on momentum
-            momentum_3: [0, 0, 0, 0, 0, 0] # direction of a third contraint on momentum
-         type: wheel
-         topic: contacts_wheel_4
-         active: true
-      contact3:
          name: rear_right_leg
          end_frame: wheel_3
          position: [0.0, 0.0, 0.0]
@@ -59,4 +44,19 @@ centauro:
             momentum_3: [0, 0, 0, 0, 0, 0] # direction of a third contraint on momentum
          type: wheel
          topic: contacts_wheel_3
+         active: true
+      contact3:
+         name: rear_left_leg
+         end_frame: wheel_4
+         position: [0.0, 0.0, 0.0]
+         offset: [0.0, 0.0, -0.078]
+         constraint_matrix:
+            force_1: [0, 0, 0, 1, 0, 0] # direction of a first contraint on force 
+            force_2: [0, 0, 0, 0, 1, 0] # direction of a second contraint on force
+            force_3: [0, 0, 0, 0, 0, 1] # direction of a third contraint on force
+            momentum_1: [0, 0, 0, 0, 0, 0] # direction of a first contraint on momentum
+            momentum_2: [0, 0, 0, 0, 0, 0] # direction of a second contraint on momentum
+            momentum_3: [0, 0, 0, 0, 0, 0] # direction of a third contraint on momentum
+         type: wheel
+         topic: contacts_wheel_4
          active: true

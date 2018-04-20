@@ -152,7 +152,7 @@
 	<child link="ankle2_${leg_num}"/>
 	<origin xyz="${Ankle_2_Ox} ${Ankle_2_Oy} ${Ankle_2_Oz}" rpy="${Ankle_2_roll} ${Ankle_2_pitch} ${Ankle_2_yaw}"/>
 	<axis xyz="0 0 1"/>
-        <limit  lower="-2.79252680" upper="2.79252680" effort="35" velocity="20.0"/> 
+        <limit  lower="-2.58308729" upper="2.58308729" effort="35" velocity="20.0"/> 
 </joint>
 
 <joint name="j_wheel_${leg_num}" type="continuous">
