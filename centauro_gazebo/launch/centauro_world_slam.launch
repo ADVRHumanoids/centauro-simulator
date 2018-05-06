@@ -55,21 +55,8 @@
   <arg name="collision_model" default="primitives"/>
 
   <!-- whether the mesh files should be loaded for visualization -->
-  <arg name="visual_model" default="mesh"/>
-
-  <!-- from where the simulation enviornment will be loaded:
-       WARNING: exactly one parameter has to be true, otherwise simulation behaviour is undefined -->
-  <arg name="world_name" default="$(find centauro_gazebo)/worlds/centauro.world"/>
-
-  <!-- Internal arguments, rewrite human-readable gazebo arguments to it's internal arguments -->
-  <arg unless="$(arg paused)" name="command_arg1" value=""/>
-  <arg     if="$(arg paused)" name="command_arg1" value="-u"/>
-  <arg unless="$(arg headless)" name="command_arg2" value=""/>
-  <arg     if="$(arg headless)" name="command_arg2" value="-r"/>
-  <arg unless="$(arg verbose)" name="command_arg3" value=""/>
-  <arg     if="$(arg verbose)" name="command_arg3" value="--verbose"/>
-  <arg unless="$(arg debug)" name="script_type" value="gzserver"/>
-  <arg     if="$(arg debug)" name="script_type" value="debug"/>
+  <!-- arg name="visual_model" default="mesh"/ -->
+  <arg name="visual_model" default="simplified"/>
 
   <!-- Load the URDF/SRDF into the ROS Parameter Server -->
   <param name="robot_description"
@@ -92,11 +79,18 @@
   <!-- run gazebo -->
   <group if="$(arg gazebo)">
   <!-- start gazebo server-->
-  	<node name="gazebo" pkg="gazebo_ros" type="$(arg script_type)" respawn="false" output="screen"
-		args="$(arg command_arg1) $(arg command_arg2) $(arg command_arg3) -e $(arg physics) $(arg extra_gazebo_args) $(arg world_name) -namespace centauro" />
-
-  	<!-- start gazebo client -->
-    	<node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen" if="$(arg gui)"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <!--arg name="world_name" value="$(find centauro_gazebo)/worlds/centauro_house.world"/-->
+    <arg name="world_name" value="$(find centauro_gazebo)/worlds/centauro.world"/>
+    <arg name="paused" value="true"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+    <arg name="physics" default="ode"/>
+    <arg name="verbose" default="false"/>
+    <arg name="extra_gazebo_args" default=""/>
+  </include>
 
 
   	<!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
@@ -105,23 +99,23 @@
 
         <rosparam file="$(find centauro_gazebo)/config/centauro_control_joint_state_publisher.yaml" command="load"/>
 
-        <node name="joint_state_spawner" pkg="controller_manager" type="spawner"
+        <!-- node name="joint_state_spawner" pkg="controller_manager" type="spawner"
            respawn="false" output="screen" ns="/centauro"
            args="joint_state_controller">
-	</node>
+	</node -->
 
-        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+        <!-- node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
            <remap from="/joint_states" to="/centauro/joint_states" />
 	   <param name="publish_frequency" type="double" value="250.0"/>
-        </node>
+        </node -->
 
   </group>
 
 
   <!-- Gmapping -->
-  <node pkg="gmapping" type="slam_gmapping" name="centauro_slam_gmapping" output="screen">
+  <!-- node pkg="gmapping" type="slam_gmapping" name="centauro_slam_gmapping" output="screen">
     <param name="base_frame" value="pelvis"/>
-    <!--param name="odom_frame" value="odom"/-->
+    <param name="odom_frame" value="world"/>
     <param name="map_update_interval" value="2.0"/>
     <param name="maxUrange" value="4.0"/>
     <param name="minimumScore" value="100"/>
@@ -151,8 +145,7 @@
     <param name="llsamplestep" value="0.01"/>
     <param name="lasamplerange" value="0.005"/>
     <param name="lasamplestep" value="0.005"/>
-  </node>
-
+  </node -->
 
   <!-- run rviz -->
   <group if="$(arg rviz)">

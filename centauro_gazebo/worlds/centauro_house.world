@@ -1,0 +1,316 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <!-- We use a custom world for the rrbot so that the camera angle is launched correctly -->
+
+  <world name="default">
+
+  <gravity>0 0 -9.81</gravity>
+
+  <model name="ground_plane">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>100 100</size>
+          </plane>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>100 100</size>
+          </plane>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+
+  <!-- wall -->
+  <model name='wall'>
+      <pose frame=''>0 1 1 0 0 0</pose>
+      <link name='Wall_1'>
+        <collision name='Wall_1_Collision'>
+          <pose frame=''>2 2 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>6 0.15 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Wall_1_Visual'>
+          <pose frame=''>2 2 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>6 0.15 2</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+          <meta>
+            <layer>0</layer>
+          </meta>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+
+      <link name='Wall_2'>
+        <collision name='Wall_2_Collision'>
+          <pose frame=''>2 -2 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>6 0.15 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Wall_2_Visual'>
+          <pose frame=''>2 -2 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>6 0.15 2</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+          <meta>
+            <layer>0</layer>
+          </meta>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+
+      <link name='Wall_3'>
+        <collision name='Wall_3_Collision'>
+        <pose frame=''>5 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Wall_3_Visual'>
+        <pose frame=''>5 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 4 2</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+          <meta>
+            <layer>0</layer>
+          </meta>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+
+      <link name='Wall_4'>
+        <collision name='Wall_4_Collision'>
+        <pose frame=''>-1 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Wall_4_Visual'>
+        <pose frame=''>-1 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 4 2</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+          <meta>
+            <layer>0</layer>
+          </meta>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+
+      <link name='Wall_5'>
+        <collision name='Wall_5_Collision'>
+        <pose frame=''>2 1 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 2 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Wall_5_Visual'>
+        <pose frame=''>2 1 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 2 2</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+          <meta>
+            <layer>0</layer>
+          </meta>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+
+      <static>1</static>
+    </model>
+
+    <!-- Global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+   
+    <!-- Focus camera on tall pendulum -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>4.927360 -4.376610 3.740080 0.000000 0.275643 2.356190</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+    <physics name="update_rate" type="ode">
+      <real_time_update_rate>4000</real_time_update_rate>
+      <max_step_size>0.00025</max_step_size>
+      <max_contacts>5</max_contacts>
+      <bullet>
+	<solver>
+          <iters>100</iters>
+          <sor>1.55</sor>
+        </solver>
+        <constraints>
+          <contact_surface_layer>0.2</contact_surface_layer>
+          <cfm>0.005</cfm>
+          <erp>0.2</erp>
+        </constraints> 
+      </bullet>
+      <ode>
+	<solver>
+          <type>quick</type>
+          <iters>50</iters>
+          <sor>1.20</sor>
+        </solver>
+        <constraints>
+          <contact_surface_layer>0.0002</contact_surface_layer>
+          <contact_max_correcting_vel>500</contact_max_correcting_vel>
+          <cfm>0.000001</cfm>
+          <erp>0.3</erp>
+        </constraints> 
+      </ode>
+    </physics>
+
+  </world>
+</sdf>

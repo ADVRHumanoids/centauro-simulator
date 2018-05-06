@@ -45,7 +45,7 @@
 <material>Gazebo/Red</material>
     <sensor type="ray" name="lds_lfcd_sensor">
       <pose>0 0 0 0 0 0</pose>
-      <visualize>true</visualize>
+      <visualize>false</visualize>
       <update_rate>1800</update_rate>
       <ray>
         <scan>
@@ -58,7 +58,7 @@
         </scan>
         <range>
           <min>0.120</min>
-          <max>3.5</max>
+          <max>5.0</max>
           <resolution>0.015</resolution>
         </range>
         <noise>
