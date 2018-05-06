@@ -57,8 +57,10 @@
     </gui>
 
     <physics name="update_rate" type="ode">
-      <real_time_update_rate>4000</real_time_update_rate>
-      <max_step_size>0.00025</max_step_size>
+      <!--real_time_update_rate>4000</real_time_update_rate>
+      <max_step_size>0.00025</max_step_size-->
+      <real_time_update_rate>2000</real_time_update_rate>
+      <max_step_size>0.0005</max_step_size>
       <max_contacts>5</max_contacts>
       <bullet>
 	<solver>

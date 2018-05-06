@@ -57,6 +57,7 @@
   <!-- whether the mesh files should be loaded for visualization -->
   <!-- arg name="visual_model" default="mesh"/ -->
   <arg name="visual_model" default="simplified"/>
+  <!-- arg name="visual_model" default="primitives"/ -->
 
   <!-- Load the URDF/SRDF into the ROS Parameter Server -->
   <param name="robot_description"
@@ -78,36 +79,25 @@
 
   <!-- run gazebo -->
   <group if="$(arg gazebo)">
-  <!-- start gazebo server-->
-  <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <!--arg name="world_name" value="$(find centauro_gazebo)/worlds/centauro_house.world"/-->
-    <arg name="world_name" value="$(find centauro_gazebo)/worlds/centauro.world"/>
-    <arg name="paused" value="true"/>
-    <arg name="use_sim_time" value="true"/>
-    <arg name="gui" value="true"/>
-    <arg name="headless" value="false"/>
-    <arg name="debug" value="false"/>
-    <arg name="physics" default="ode"/>
-    <arg name="verbose" default="false"/>
-    <arg name="extra_gazebo_args" default=""/>
-  </include>
-
+        <!-- start gazebo server-->
+        <include file="$(find gazebo_ros)/launch/empty_world.launch">
+          <!--arg name="world_name" value="$(find centauro_gazebo)/worlds/centauro_house.world"/-->
+          <arg name="world_name" value="$(find centauro_gazebo)/worlds/centauro.world"/>
+          <arg name="paused" value="true"/>
+          <arg name="use_sim_time" value="true"/>
+          <arg name="gui" value="true"/>
+          <arg name="headless" value="false"/>
+          <arg name="debug" value="false"/>
+          <arg name="physics" default="ode"/>
+          <arg name="verbose" default="false"/>
+          <arg name="extra_gazebo_args" default=""/>
+        </include>
 
   	<!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
 	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 		args="-urdf -model centauro -param robot_description"/>
 
         <rosparam file="$(find centauro_gazebo)/config/centauro_control_joint_state_publisher.yaml" command="load"/>
-
-        <!-- node name="joint_state_spawner" pkg="controller_manager" type="spawner"
-           respawn="false" output="screen" ns="/centauro"
-           args="joint_state_controller">
-	</node -->
-
-        <!-- node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
-           <remap from="/joint_states" to="/centauro/joint_states" />
-	   <param name="publish_frequency" type="double" value="250.0"/>
-        </node -->
 
   </group>
 
