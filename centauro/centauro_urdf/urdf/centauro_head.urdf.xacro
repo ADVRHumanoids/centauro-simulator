@@ -52,7 +52,7 @@
 	</collision>
 </link>
 <!-- /head links -->
-<!-- sensors links 
+<!-- sensors links -->
 <link name="camera_central">
 	<inertial>
 		<origin xyz="${Dummy_x} ${Dummy_y} ${Dummy_z}"/>
@@ -89,7 +89,7 @@
                 <inertia ixx="${Dummy_xx}" ixy="${Dummy_xy}" ixz="${Dummy_xz}" iyy="${Dummy_yy}" iyz="${Dummy_yz}" izz="${Dummy_zz}"/>
         </inertial>
 </link>
--->
+
 <!-- /sensors links -->
 
 <!-- head joints -->
@@ -118,7 +118,7 @@
 </joint>
 <!-- /head joints -->
 
-<!-- sensors transformations 
+<!-- sensors transformations  -->
 <joint name="j_camera_central" type="fixed">
    <parent link="torso_2"/>
    <origin xyz="${Camera_central_Ox} ${Camera_central_Oy} ${Camera_central_Oz}" rpy="${Camera_central_roll} ${Camera_central_pitch} ${Camera_central_yaw}"/>
@@ -140,7 +140,6 @@
    <child link="kinect"/>
 </joint>
 
-
 <joint name="j_kinect_optical_frame" type="fixed">
 	<parent link="kinect"/>
 	<child link="kinect2_rgb_optical_frame" />
@@ -152,7 +151,7 @@
    <origin xyz="${Velodyne_Ox} ${Velodyne_Oy} ${Velodyne_Oz}" rpy="${Velodyne_roll} ${Velodyne_pitch} ${Velodyne_yaw}"/>
    <child link="velodyne_mount"/>
 </joint>
--->
+
 <!-- /sensors transformations -->
 
 <xacro:if value="${head_actuators}">

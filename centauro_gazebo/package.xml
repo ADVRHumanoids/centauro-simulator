@@ -3,7 +3,7 @@
 	<version>0.0.0</version>
 	<description>Gazebo configuration and launch files for Centauro</description>
 
-	<maintainer email="malgorzata.kamedula@iit.it">Tobias Klamt</maintainer>
+	<maintainer email="malgorzata.kamedula@iit.it">Małgorzata Kameduła</maintainer>
 	<license>TODO</license>
 
 	<buildtool_depend>catkin</buildtool_depend>
