@@ -82,7 +82,7 @@
         <!-- start gazebo server-->
         <include file="$(find gazebo_ros)/launch/empty_world.launch">
           <!--arg name="world_name" value="$(find centauro_gazebo)/worlds/centauro_house.world"/-->
-          <arg name="world_name" value="$(find centauro_gazebo)/worlds/centauro.world"/>
+          <arg name="world_name" value="$(find centauro_gazebo)/worlds/centauro_i2r.world"/>
           <arg name="paused" value="true"/>
           <arg name="use_sim_time" value="true"/>
           <arg name="gui" value="true"/>
