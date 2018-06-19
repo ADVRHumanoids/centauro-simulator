@@ -95,7 +95,7 @@
 
   	<!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
 	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-		args="-urdf -model centauro -param robot_description"/>
+		args="-urdf -model centauro -param robot_description -x 1.2 -y -2.0 -z 0.0 -R 0.0 -P 0.0 -Y 1.57"/>
 
         <rosparam file="$(find centauro_gazebo)/config/centauro_control_joint_state_publisher.yaml" command="load"/>
 
