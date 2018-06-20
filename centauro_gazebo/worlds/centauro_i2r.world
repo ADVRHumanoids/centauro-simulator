@@ -45,9 +45,20 @@
 
   <model name='pallet_1'>
       <pose frame=''>1.2 -0.785 0.0 0 0 0</pose>
-      <static>true</static>
+      <!--static>true</static-->
       <link name='pallet_1'>
         <pose frame=''>0.0 0.0 0.065 0 0 1.57</pose>
+        <inertial>
+          <mass>5000</mass>
+          <inertia>
+            <ixx>400</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+            <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+            <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+            <iyy>400</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+            <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+            <izz>600</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+          </inertia>
+        </inertial>
         <collision name='pallet_1_Collision'>
           <geometry>
             <box>
@@ -77,9 +88,20 @@
 
   <model name='pallet_2'>
       <pose frame=''>1.2 0.0 0.0 0 0 0</pose>
-      <static>true</static>
+      <!--static>true</static-->
       <link name='pallet_2'>
         <pose frame=''>0.0 0.0 0.12 0 0 1.57</pose>
+        <inertial>
+          <mass>5000</mass>
+          <inertia>
+            <ixx>400</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
+            <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
+            <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
+            <iyy>400</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+            <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
+            <izz>600</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+          </inertia>
+        </inertial>
         <collision name='pallet_2_Collision'>
           <geometry>
             <box>
