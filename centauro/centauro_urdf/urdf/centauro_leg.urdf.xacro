@@ -129,8 +129,8 @@
 	<child link="hip2_${leg_num}"/>
 	<origin xyz="${Leg_2_Ox} ${Leg_2_Oy} ${Leg_2_Oz}" rpy="${Leg_2_roll} ${Leg_2_pitch} ${origin_x*origin_y*Leg_2_yaw-origin_x*origin_y*PI/2 + PI/2}"/>
 	<axis xyz="0 0 1"/>
-        <limit lower="-2.09439510" upper="2.09439510" effort="304" velocity="8.8"/> 
-        <!--limit lower="-3" upper="3" effort="304" velocity="8.8"/-->
+        <!--limit lower="-2.09439510" upper="2.09439510" effort="304" velocity="8.8"/--> 
+        <limit lower="-3" upper="3" effort="304" velocity="8.8"/>
 </joint>
 
 <joint name="knee_pitch_${leg_num}" type="revolute">
@@ -138,8 +138,8 @@
 	<child link="knee_${leg_num}"/>
 	<origin xyz="${Leg_3_Ox} ${Leg_3_Oy} ${Leg_3_Oz}" rpy="${Leg_3_roll} ${Leg_3_pitch} ${Leg_3_yaw}"/>
 	<axis xyz="0 0 1"/>
-        <limit  lower="-2.61799388" upper="2.61799388" effort="304" velocity="8.8"/>
-        <!--limit lower="-3" upper="3" effort="304" velocity="8.8"/-->
+        <!--limit  lower="-2.61799388" upper="2.61799388" effort="304" velocity="8.8"/-->
+        <limit lower="-3" upper="3" effort="304" velocity="8.8"/>
 </joint>
 
 <joint name="ankle_pitch_${leg_num}" type="revolute">
@@ -147,8 +147,8 @@
 	<child link="ankle1_${leg_num}"/>
 	<origin xyz="${Ankle_1_Ox} ${Ankle_1_Oy} ${Ankle_1_Oz}" rpy="${Ankle_1_roll} ${Ankle_1_pitch} ${Ankle_1_yaw}"/>
 	<axis xyz="0 0 1"/>
-        <limit  lower="-2.61799388" upper="2.61799388" effort="147" velocity="8.1"/> 
-        <!--limit lower="-3" upper="3" effort="304" velocity="8.8"/-->
+        <!--limit  lower="-2.61799388" upper="2.61799388" effort="147" velocity="8.1"/--> 
+        <limit lower="-3" upper="3" effort="304" velocity="8.8"/>
 </joint>
 
 <joint name="ankle_yaw_${leg_num}" type="revolute">

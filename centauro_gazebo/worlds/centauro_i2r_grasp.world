@@ -43,20 +43,19 @@
     </link>
   </model>
 
-  <model name='pallet_1'>
+  <!--model name='pallet_1'>
       <pose frame=''>1.2 -0.785 0.0 0 0 0</pose>
-      <!--static>true</static-->
       <link name='pallet_1'>
         <pose frame=''>0.0 0.0 0.065 0 0 1.57</pose>
         <inertial>
           <mass>5000</mass>
           <inertia>
-            <ixx>400</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
-            <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
-            <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
-            <iyy>400</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
-            <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
-            <izz>600</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+            <ixx>400</ixx>
+            <ixy>0.0</ixy>
+            <ixz>0.0</ixz>
+            <iyy>400</iyy>
+            <iyz>0.0</iyz>
+            <izz>600</izz>
           </inertia>
         </inertial>
         <collision name='pallet_1_Collision'>
@@ -84,22 +83,21 @@
           </meta>
         </visual>
       </link>
-  </model>
+  </model!-->
 
-  <model name='pallet_2'>
+  <!--model name='pallet_2'>
       <pose frame=''>1.2 0.0 0.0 0 0 0</pose>
-      <!--static>true</static-->
       <link name='pallet_2'>
         <pose frame=''>0.0 0.0 0.12 0 0 1.57</pose>
         <inertial>
           <mass>5000</mass>
           <inertia>
-            <ixx>400</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
-            <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
-            <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
-            <iyy>400</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
-            <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
-            <izz>600</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
+            <ixx>400</ixx>
+            <ixy>0.0</ixy>
+            <ixz>0.0</ixz>
+            <iyy>400</iyy>
+            <iyz>0.0</iyz>
+            <izz>600</izz>
           </inertia>
         </inertial>
         <collision name='pallet_2_Collision'>
@@ -127,7 +125,7 @@
           </meta>
         </visual>
       </link>
-  </model>
+  </model-->
 
   <model name="shelf">
     <pose frame=''>2.1 0.0 0.0 0 0 -1.57</pose>
@@ -295,11 +293,11 @@
 
 
   <model name='bottle'>
-      <pose frame=''>1.8 0.0 1.8 0 0 0</pose>
+      <pose frame=''>1.8 0.0 1.11 0 0 0</pose>
       <link name='bottle'>
         <pose frame=''>0.0 0.0 0.135 0 0 0</pose>
         <inertial>
-          <mass>0.25</mass>
+          <mass>0.05</mass>
         </inertial>
         <collision name='bottle_Collision'>
           <geometry>
@@ -326,7 +324,7 @@
       </link>
   </model>
 
-  <model name='box'>
+  <!--model name='box'>
       <pose frame=''>0.0 1.0 0.0 0 0 0.8</pose>
       <static>true</static>
       <link name='box'>
@@ -357,7 +355,7 @@
     <include>
       <pose frame=''>1.0 1.0 0.45 3.14 0 0</pose>
       <uri>model://dustbin</uri>
-    </include>
+    </include-->
 
     <!-- Global light source -->
     <include>
