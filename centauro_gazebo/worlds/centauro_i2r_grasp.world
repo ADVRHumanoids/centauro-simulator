@@ -293,11 +293,19 @@
 
 
   <model name='bottle'>
-      <pose frame=''>1.8 0.0 1.11 0 0 0</pose>
+      <pose frame=''>1.73 0.0 1.11 0 0 0</pose>
       <link name='bottle'>
         <pose frame=''>0.0 0.0 0.135 0 0 0</pose>
         <inertial>
           <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <ixy>0.0</ixy>
+            <ixz>0.0</ixz>
+            <iyy>0.0001</iyy>
+            <iyz>0.0</iyz>
+            <izz>0.00001</izz>
+          </inertia>
         </inertial>
         <collision name='bottle_Collision'>
           <geometry>

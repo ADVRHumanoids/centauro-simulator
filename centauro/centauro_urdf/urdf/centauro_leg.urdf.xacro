@@ -166,7 +166,7 @@
 	<origin xyz="${Wheel_Ox} ${Wheel_Oy} ${Wheel_Oz}" rpy="${Wheel_roll} ${Wheel_pitch} ${Wheel_yaw}"/>
 	<axis xyz="0 0 1"/>
         <limit  effort="35" velocity="20.0"/>
-        <dynamics friction="10" damping="1.0"/> 
+        <dynamics friction="1" damping="1.0"/> 
 </joint>
 
 <!--

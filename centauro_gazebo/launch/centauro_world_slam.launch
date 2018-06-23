@@ -82,7 +82,7 @@
         <!-- start gazebo server-->
         <include file="$(find gazebo_ros)/launch/empty_world.launch">
           <!--arg name="world_name" value="$(find centauro_gazebo)/worlds/centauro_house.world"/-->
-          <arg name="world_name" value="$(find centauro_gazebo)/worlds/centauro_i2r_grasp.world"/>
+          <arg name="world_name" value="$(find centauro_gazebo)/worlds/centauro_i2r.world"/>
           <arg name="paused" value="true"/>
           <arg name="use_sim_time" value="true"/>
           <arg name="gui" value="true"/>
@@ -95,10 +95,11 @@
 
   	<!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
 	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-		args="-urdf -model centauro -param robot_description -x 1.2 -y -0.1 -z 0.0 -R 0.0 -P 0.0 -Y 1.57"/>
+		args="-urdf -model centauro -param robot_description -x 0.0 -y -0.0 -z 0.0 -R 0.0 -P 0.0 -Y 0.0"/>
 
-<!-- -x 1.2 -y -2.0 -z 0.0 -R 0.0 -P 0.0 -Y 1.57 -->
+<!-- -x 1.15 -y -2.0 -z 0.0 -R 0.0 -P 0.0 -Y 1.57 -->
 <!-- -x 0.0 -y -0.0 -z 0.0 -R 0.0 -P 0.0 -Y 0.0 -->
+<!-- -x 1.2 -y -0.1 -z 0.0 -R 0.0 -P 0.0 -Y 1.57 -->
 
         <rosparam file="$(find centauro_gazebo)/config/centauro_control_joint_state_publisher.yaml" command="load"/>
 
