@@ -44,7 +44,7 @@
   </model>
 
   <model name='pallet_1'>
-      <pose frame=''>1.2 -0.785 0.0 0 0 0</pose>
+      <pose frame=''>1.2 -0.88 0.0 0 0 0</pose>
       <!--static>true</static-->
       <link name='pallet_1'>
         <pose frame=''>0.0 0.0 0.065 0 0 1.57</pose>
@@ -97,7 +97,7 @@
             <ixx>400</ixx>       <!-- for a box: ixx = 0.083 * mass * (y*y + z*z) -->
             <ixy>0.0</ixy>         <!-- for a box: ixy = 0 -->
             <ixz>0.0</ixz>         <!-- for a box: ixz = 0 -->
-            <iyy>400</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) -->
+            <iyy>400</iyy>       <!-- for a box: iyy = 0.083 * mass * (x*x + z*z) 0.81-->
             <iyz>0.0</iyz>         <!-- for a box: iyz = 0 -->
             <izz>600</izz>       <!-- for a box: izz = 0.083 * mass * (x*x + y*y) -->
           </inertia>
@@ -105,14 +105,13 @@
         <collision name='pallet_2_Collision'>
           <geometry>
             <box>
-              <size>0.81 1.0 0.24</size>
-            </box>
+              <size>1.0 1.0 0.24</size>            </box>
           </geometry>
         </collision>
         <visual name='pallet_2_Visual'>
           <geometry>
             <box>
-              <size>0.81 1.0 0.24</size>
+              <size>1.0 1.0 0.24</size>
             </box>
           </geometry>
           <material>
@@ -130,7 +129,7 @@
   </model>
 
   <model name="shelf">
-    <pose frame=''>2.1 0.0 0.0 0 0 -1.57</pose>
+    <pose frame=''>2.1 0.1 0.0 0 0 -1.57</pose>
     <static>true</static>
     <link name="link">
       <inertial>
@@ -295,11 +294,19 @@
 
 
   <model name='bottle'>
-      <pose frame=''>1.8 0.0 1.8 0 0 0</pose>
+      <pose frame=''>1.75 0.1 1.8 0 0 0</pose>
       <link name='bottle'>
         <pose frame=''>0.0 0.0 0.135 0 0 0</pose>
         <inertial>
-          <mass>0.25</mass>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <ixy>0.0</ixy>
+            <ixz>0.0</ixz>
+            <iyy>0.0001</iyy>
+            <iyz>0.0</iyz>
+            <izz>0.00001</izz>
+          </inertia>
         </inertial>
         <collision name='bottle_Collision'>
           <geometry>
