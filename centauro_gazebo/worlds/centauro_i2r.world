@@ -361,10 +361,10 @@
       </link>
   </model>
 
-    <include>
+    <!--include>
       <pose frame=''>1.0 1.0 0.45 3.14 0 0</pose>
       <uri>model://dustbin</uri>
-    </include>
+    </include-->
 
     <!-- Global light source -->
     <include>
