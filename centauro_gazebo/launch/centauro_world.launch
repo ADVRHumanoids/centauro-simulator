@@ -32,7 +32,7 @@
   <arg name="static" default="false"/>
 
   <!-- choose the end-effector -->
-  <arg name="left_end_effector" default="stick"/>
+  <arg name="left_end_effector" default="heri"/>
   <arg name="right_end_effector" default="stick"/>
   <arg name="mass" default="0.0"/>
 
@@ -55,7 +55,7 @@
   <arg name="collision_model" default="primitives"/>
 
   <!-- whether the mesh files should be loaded for visualization -->
-  <arg name="visual_model" default="mesh"/>
+  <arg name="visual_model" default="simplified"/>
 
   <!-- from where the simulation enviornment will be loaded:
        WARNING: exactly one parameter has to be true, otherwise simulation behaviour is undefined -->

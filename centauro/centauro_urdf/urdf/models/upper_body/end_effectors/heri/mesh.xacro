@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<robot name="centauro" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="heri">
+   <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
+   <geometry>
+      <mesh filename="package://centauro/centauro_urdf/meshes/heri.stl" scale="0.001 ${-rot*0.001} -0.001" />
+   </geometry>
+</xacro:macro>
+
+</robot>

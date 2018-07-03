@@ -311,6 +311,20 @@
 <!-- Mass -->
 <xacro:property name="Stick_mass" value=" 0.150 "/>
 
+<!-- Center of Mass -->
+<xacro:property name="Heri_x" value=" 0.00270235 "/>
+<xacro:property name="Heri_y" value=" -0.01411486 "/>
+<xacro:property name="Heri_z" value=" 0.05023455 "/>
+<!-- Inertia -->
+<xacro:property name="Heri_xx" value=" 0.0062253159 "/>
+<xacro:property name="Heri_yy" value=" 0.0046306594 "/>
+<xacro:property name="Heri_zz" value=" 0.0037732152 "/>
+<xacro:property name="Heri_xy" value=" 0.0003312435 "/>
+<xacro:property name="Heri_xz" value=" 0.0000517232 "/>
+<xacro:property name="Heri_yz" value=" 0.0001950252 "/>
+<!-- Mass -->
+<xacro:property name="Heri_mass" value=" 1.8366865000 "/>
+
 <!-- DUMMY-->
 <!-- Center of Mass -->
 <xacro:property name="Dummy_x" value=" 0.0 "/>

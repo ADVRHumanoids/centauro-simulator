@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- links -->
+   <link name="arm${arm_num}_8">
+      <inertial>
+         <origin xyz="${Heri_x} ${Heri_y} ${Heri_z}" rpy="0 0 0"/>
+         <mass value="${Heri_mass}"/>
+       <inertia ixx="${Heri_xx}"  ixy="${Heri_xy}"  ixz="${Heri_xz}" iyy="${Heri_yy}" iyz="${Heri_yz}" izz="${Heri_zz}" />
+<!--          <inertia ixx="0.003"  ixy="0"  ixz="0" iyy="0.0025" iyz="0" izz="0.00016900" /> -->
+     </inertial>
+
+      <visual>
+         <xacro:visual_model.heri />
+         <material name="dark_grey"/>
+      </visual>
+
+      <collision>
+         <xacro:collision_model.heri />
+      </collision>
+   </link>
+<!-- /links -->
+
+<!-- joints -->
+   <joint name="j_arm${arm_num}_8" type="fixed">
+      <xacro:if value="${ft_sensors == 'true'}" >
+         <parent link="ft_arm${arm_num}"/>
+         <origin xyz="${Heri_ft_Ox} ${Heri_ft_Oy} ${Heri_ft_Oz}" rpy="${Heri_ft_roll} ${Heri_ft_pitch} ${Heri_ft_yaw}"/>
+      </xacro:if>
+      <xacro:unless value="${ft_sensors == 'true'}" >
+         <parent link="arm${arm_num}_7"/>
+         <origin xyz="${Heri_Ox} ${Heri_Oy} ${Heri_Oz}" rpy="${Heri_roll} ${Heri_pitch} ${Heri_yaw}"/>
+      </xacro:unless>
+      <child link="arm${arm_num}_8"/>
+
+      <axis xyz="1 0 0" />
+   </joint> -->
+<!-- /joints -->
+
+</robot>

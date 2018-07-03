@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<robot name="centauro" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:macro name="heri" >
+   <origin xyz="0.005 0 0.082" rpy="0 0 0" />
+   <geometry>
+      <box size="0.11 0.14 0.23" />
+   </geometry>
+</xacro:macro>
+</robot>

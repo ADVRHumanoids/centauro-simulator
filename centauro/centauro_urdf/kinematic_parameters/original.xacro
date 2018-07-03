@@ -162,6 +162,20 @@
 <xacro:property name="Stick_pitch" value=" ${PI} "/>
 <xacro:property name="Stick_yaw" value=" ${-PI/2} "/>
 
+<xacro:property name="Heri_ft_Ox" value=" 0.0 "/>
+<xacro:property name="Heri_ft_Oy" value=" 0.0 "/>
+<xacro:property name="Heri_ft_Oz" value=" 0.0 "/>
+<xacro:property name="Heri_ft_roll" value=" 0.0 "/>
+<xacro:property name="Heri_ft_pitch" value=" 0.0 "/>
+<xacro:property name="Heri_ft_yaw" value=" 0.0 "/>
+
+<xacro:property name="Heri_Ox" value=" 0.0 "/>
+<xacro:property name="Heri_Oy" value=" 0.0 "/>
+<xacro:property name="Heri_Oz" value=" -0.0405 "/>
+<xacro:property name="Heri_roll" value=" 0.0 "/>
+<xacro:property name="Heri_pitch" value=" ${PI} "/>
+<xacro:property name="Heri_yaw" value=" ${PI} "/>
+
 <xacro:property name="Hand_ft_Ox" value=" 0.0 "/>
 <xacro:property name="Hand_ft_Oy" value=" 0.0 "/>
 <xacro:property name="Hand_ft_Oz" value=" -0.0405 "/>
