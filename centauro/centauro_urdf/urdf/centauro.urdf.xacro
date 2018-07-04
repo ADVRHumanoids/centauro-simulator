@@ -13,7 +13,7 @@
 </xacro:if>
 <xacro:include filename="${inertia_parameters_file}"/>
 <xacro:include filename="${kinematic_parameters_file}"/>
-
+<xacro:include filename="$(find centauro)/centauro_urdf/limits/default.xacro"/>
 <xacro:include filename="$(find centauro)/centauro_urdf/materials.xacro"/>
 <xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/model.xacro"/>
 <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_actuators.urdf.xacro" />

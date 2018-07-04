@@ -144,12 +144,7 @@
       <child link="arm${arm_num}_1"/>
       <xacro:insert_block name="origin"/>
       <axis xyz="0 ${rot*cos_m10} ${-sin_m10}"/>
-      <xacro:unless value="${rot-1}" >
-         <limit lower="-3.403" upper="1.658" effort="147" velocity="5.7"/>
-      </xacro:unless>
-      <xacro:unless value="${rot+1}" >
-         <limit lower="-1.658" upper="3.403" effort="147" velocity="5.7"/>
-      </xacro:unless>
+      <limit lower="${j_arm_1_lower[arm_num-1]}" upper="${j_arm_1_upper[arm_num-1]}" effort="147" velocity="5.7"/>
    </joint>
 <!-- /shoulder yaw -->
 	
@@ -159,12 +154,7 @@
       <child link="arm${arm_num}_2"/>
       <origin xyz="${Shoulder_2_Ox} ${rot*Shoulder_2_Oy} ${Shoulder_2_Oz}"/>
       <axis xyz="-1 0 0"/>
-      <xacro:unless value="${rot+1}" >
-         <limit lower="0" upper="3.49" effort="147" velocity="5.7"/>
-      </xacro:unless>
-      <xacro:unless value="${rot-1}" >
-         <limit lower="-3.49" upper="0" effort="147" velocity="5.7"/>
-      </xacro:unless>
+      <limit lower="${j_arm_2_lower[arm_num-1]}" upper="${j_arm_2_upper[arm_num-1]}" effort="147" velocity="5.7"/>
    </joint>
 <!-- /shoulder roll -->
 
@@ -174,7 +164,7 @@
       <child link="arm${arm_num}_3"/>
       <origin xyz="${Shoulder_3_Ox} ${Shoulder_3_Oy} ${Shoulder_3_Oz}"/>
       <axis xyz="0 0 -1"/>
-      <limit lower="-2.618" upper="2.618" effort="147" velocity="8.2"/>
+      <limit lower="${j_arm_3_lower[arm_num-1]}" upper="${j_arm_3_upper[arm_num-1]}" effort="147" velocity="8.2"/>
    </joint>
 <!-- /shoulder pitch -->
 	
@@ -184,12 +174,7 @@
       <child link="arm${arm_num}_4"/>
       <origin xyz="${Elbow_1_Ox} ${rot*Elbow_1_Oy} ${Elbow_1_Oz}"/>
       <axis xyz="0 ${rot} 0"/>
-      <xacro:unless value="${rot-1}" >
-         <limit lower="-2.530" upper="0.349" effort="147" velocity="8.2"/>
-      </xacro:unless>
-      <xacro:unless value="${rot+1}" >
-         <limit lower="-0.349" upper="2.530" effort="147" velocity="8.2"/>
-      </xacro:unless>
+      <limit lower="${j_arm_4_lower[arm_num-1]}" upper="${j_arm_4_upper[arm_num-1]}" effort="147" velocity="8.2"/>
    </joint>
 <!-- /elbow yaw -->
 
@@ -199,7 +184,7 @@
       <child link="arm${arm_num}_5"/>
       <origin xyz="${Wrist_1_Ox} ${-rot*Wrist_1_Oy} ${Wrist_1_Oz}"/>
       <axis xyz="0 0 -1"/>
-      <limit lower="-2.618" upper="2.618" effort="55" velocity="11.6"/>
+      <limit lower="${j_arm_5_lower[arm_num-1]}" upper="${j_arm_5_upper[arm_num-1]}" effort="55" velocity="11.6"/>
    </joint>
 <!-- /elbow pitch-->
 	
@@ -209,7 +194,7 @@
       <child link="arm${arm_num}_6"/>
       <origin xyz="${Wrist_2_Ox} ${rot*Wrist_2_Oy} ${Wrist_2_Oz}"/>
       <axis xyz="0 ${rot} 0"/>
-      <limit lower="-1.570" upper="1.570" effort="55" velocity="11.6"/>
+      <limit lower="${j_arm_6_lower[arm_num-1]}" upper="${j_arm_6_upper[arm_num-1]}" effort="55" velocity="11.6"/>
    </joint>
 <!-- /wrist yaw-->
 	
@@ -219,7 +204,7 @@
       <child link="arm${arm_num}_7"/>
       <origin xyz="${Wrist_3_Ox} ${-rot*Wrist_3_Oy} ${Wrist_3_Oz}"/>
       <axis xyz="0 0 -1"/>
-      <limit lower="-2.618" upper="2.618" effort="27" velocity="20.3"/>
+      <limit lower="${j_arm_7_lower[arm_num-1]}" upper="${j_arm_7_upper[arm_num-1]}" effort="27" velocity="20.3"/>
    </joint>
 <!-- wrist pitch-->
 
