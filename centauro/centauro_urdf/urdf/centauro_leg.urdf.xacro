@@ -55,6 +55,10 @@
 	
       <collision>
          <xacro:collision_model.leg3 />
+        <origin xyz="0.1 0.0 0.0" rpy="0 0 0"/>
+        <!--geometry>
+          <box size="0.3 0.06 0.06"/>
+        </geometry-->
       </collision>
 </link>
 
@@ -115,13 +119,13 @@
 	<child link="hip1_${leg_num}"/>
 	<origin xyz="${origin_x*Leg_1_Ox} ${origin_y*Leg_1_Oy} ${Leg_1_Oz}" rpy="${Leg_1_roll} ${Leg_1_pitch} ${PI/2-origin_x*PI/2+origin_x*origin_y*Leg_1_yaw}"/>
 	<axis xyz="0 0 1"/>
-        <!--xacro:if value="${origin_y*origin_x == -1}">
+        <xacro:if value="${origin_y*origin_x == -1}">
         <limit lower="-1.13446401" upper="2.70526034" effort="304" velocity="8.8"/> 
         </xacro:if>
         <xacro:if value="${origin_y*origin_x == 1}">
         <limit lower="-2.70526034" upper="1.13446401" effort="304" velocity="8.8"/> 
-        </xacro:if-->
-        <limit lower="-2.7" upper="2.7" effort="304" velocity="8.8"/> 
+        </xacro:if>
+        <!--limit lower="-2.7" upper="2.7" effort="304" velocity="8.8"/--> 
 </joint>
 
 <joint name="hip_pitch_${leg_num}" type="revolute">
