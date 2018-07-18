@@ -43,6 +43,34 @@
     </link>
   </model>
 
+  <model name='block'>
+      <pose frame=''>1.2 0.0 0.0 0 0 0.0</pose>
+      <static>true</static>
+      <link name='block'>
+        <pose frame=''>0 0 0.05 0 0 0</pose>
+        <collision name="box_collision">
+          <geometry>
+            <box>
+              <size>1 2 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="box_visual">
+          <geometry>
+            <box>
+              <size>1 2 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/White</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+  </model>
+
     <!-- Global light source -->
     <include>
       <uri>model://sun</uri>
@@ -57,8 +85,8 @@
     </gui>
 
     <physics name="update_rate" type="ode">
-      <real_time_update_rate>1000</real_time_update_rate>
-      <max_step_size>0.001</max_step_size>
+      <real_time_update_rate>4000</real_time_update_rate>
+      <max_step_size>0.00025</max_step_size>
       <max_contacts>5</max_contacts>
       <bullet>
 	<solver>
