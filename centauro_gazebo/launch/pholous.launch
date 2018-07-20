@@ -8,7 +8,7 @@
   <!-- which inertia parameters should be loaded -->
   <arg name="inertia_param" default="original"/>
   <arg name="kinematic_param" default="original"/>
-  <arg name="xbot_config_file" default="configs/ADVR_shared/centauro/configs/config_centauro.yaml"/>
+  <arg name="xbot_config_file" default="configs/ADVR_shared/centauro/configs/centauro.yaml"/>
 
   <!-- gazebo configuration parameters -->
   <arg name="paused" default="true"/>
@@ -29,12 +29,12 @@
   <arg name="torso" default="true"/>
   <arg name="legs" default="true"/>
   <arg name="head" default="true"/>
-  <arg name="wheels" default="false"/>
+  <arg name="wheels" default="true"/>
   <arg name="static" default="true"/>
 
   <!-- choose the end-effector -->
   <arg name="left_end_effector" default="heri"/>
-  <arg name="right_end_effector" default="stick"/>
+  <arg name="right_end_effector" default="heri"/>
   <arg name="mass" default="0.0"/>
 
   <!-- actuators set-up-->
@@ -47,7 +47,7 @@
   <!-- sensors set-up-->
   <arg name="arm_sensors" default="true"/>
   <arg name="leg_sensors" default="true"/>
-  <arg name="ft_sensors" default="true"/>
+  <arg name="ft_sensors" default="false"/>
   <arg name="bumbers" default="true"/>
   <arg name="imu" default="true"/>
 
@@ -111,18 +111,23 @@
            args="joint_state_controller">
 	</node>
 
-        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
-	   <param name="publish_frequency" type="double" value="250.0"/>
 
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+	   <param name="publish_frequency" type="double" value="250.0"/>
         </node>
+
+	
+
+
 
 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
               <param name="/use_gui" value="false"/>
               <rosparam param="/source_list">[/joint_states] </rosparam>
   </node>
-
-
+	
+	
+	
 
   </group>
 

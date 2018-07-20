@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <!-- By default we do not overwrite the URDF. Change the following to true to change the default behavior -->
   <arg name="load_robot_description" default="false"/>
@@ -9,14 +10,14 @@
   <node pkg="tf" type="static_transform_publisher" name="base2pelvis_0" args="0.0 0.0 0.93445 0 0 0 1 world pelvis  1000" /> -->
 
 
-  <!-- Load updated joint limits (override information from URDF) -->
+  <!-- Load updated joint limits (override information from URDF) 
   <group ns="$(arg robot_description)_planning">
     <rosparam command="load" file="$(find centauro_moveit)/config/joint_limits.yaml"/>
-  </group>
+  </group>-->
 
   <!-- Load default settings for kinematics; these settings are overridden by settings in a node's namespace -->
   <group ns="$(arg robot_description)_kinematics">
-    <rosparam command="load" file="$(find centauro_moveit)/config/torso_arms_kinematics.yaml"/>
+    <rosparam command="load" file="$(find centauro_moveit)/config/kinematics.yaml"/>
   </group>
   
 </launch>

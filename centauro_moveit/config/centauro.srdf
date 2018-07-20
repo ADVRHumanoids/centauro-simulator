@@ -56,14 +56,7 @@
    </group>
 
 
-    <group name="force_torque_sensors">
-      <joint name="j_ft_1"/>
-      <joint name="j_ft_2"/>
-    </group>
 
-    <group name="imu_sensors">
-       <link name="imu_link"/>
-    </group>
 
    <group name="chains">
 
