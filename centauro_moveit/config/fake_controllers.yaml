@@ -1,0 +1,80 @@
+#name: The name of the controller.
+#action_ns: The action namespace for the controller.
+#type: The type of action being used (here FollowJointTrajectory).
+#default: The default controller is the primary controller chosen by MoveIt! for communicating with a particular set of joints.
+#joints: Names of all the joints that are being addressed by this interface.
+
+controller_list:
+  - name: fake_l_arm_controller
+    joints:
+      - j_arm1_1
+      - j_arm1_2
+      - j_arm1_3
+      - j_arm1_4
+      - j_arm1_5
+      - j_arm1_6
+      - j_arm1_7
+  - name: fake_r_arm_controller
+    joints:
+      - j_arm2_1
+      - j_arm2_2
+      - j_arm2_3
+      - j_arm2_4
+      - j_arm2_5
+      - j_arm2_6
+      - j_arm2_7
+  - name: fake_torso_controller
+    joints:
+      - torso_yaw
+
+  - name: fake_f_l_leg_joint_controller
+    joints:
+      - hip_yaw_1
+      - hip_pitch_1
+      - knee_pitch_1
+      - ankle_pitch_1
+      - ankle_yaw_1
+      - j_wheel_1
+
+
+  - name: fake_f_r_leg_joint_controller
+    joints:
+        - hip_yaw_2
+        - hip_pitch_2
+        - knee_pitch_2
+        - ankle_pitch_2
+        - ankle_yaw_2
+        - j_wheel_2
+
+  - name: fake_r_l_leg_joint_controller
+    joints:
+      - hip_yaw_3
+      - hip_pitch_3
+      - knee_pitch_3
+      - ankle_pitch_3
+      - ankle_yaw_3
+      - j_wheel_3
+
+  - name: fake_r_r_leg_joint_controller
+    joints:
+        - hip_yaw_4
+        - hip_pitch_4
+        - knee_pitch_4
+        - ankle_pitch_4
+        - ankle_yaw_4
+        - j_wheel_4        
+
+  - name: fake_wheel_controller
+    joints:
+      - j_wheel_1
+      - j_wheel_2
+      - j_wheel_3
+      - j_wheel_4
+
+initial:
+  - group: arms
+    pose:  home_position
+
+
+
+

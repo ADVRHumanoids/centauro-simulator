@@ -1,0 +1,17 @@
+<launch>
+
+  <!-- Set the param that trajectory_execution_manager needs to find the controller plugin -->
+  <arg name="moveit_controller_manager" default="moveit_simple_controller_manager/MoveItSimpleControllerManager" />
+  <param name="moveit_controller_manager" value="$(arg moveit_controller_manager)"/>
+
+  <!-- The rest of the params are specific to this plugin -->
+
+  <!-- If a controller manager is running (the generic one, not the MoveIt! one), we can talk to is via action interfaces.
+       But we need to know its name. -->
+  <arg name="controller_manager_name" default="moveit_simple_controller_manager" />
+  <param name="controller_manager_name" value="$(arg controller_manager_name)" />
+
+
+  <rosparam file="$(find centauro_moveit)/config/upper_body_execution_controllers.yaml"/>
+
+</launch>

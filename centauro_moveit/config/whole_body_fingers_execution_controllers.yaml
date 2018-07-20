@@ -1,0 +1,105 @@
+controller_list:
+  - name: drchubo/joint_trajectory_left_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - left_shoulder_pitch
+      - left_shoulder_roll
+      - left_shoulder_yaw
+      - left_elbow
+      - left_wrist_yaw
+      - left_wrist_pitch
+      - left_wrist_yaw2
+  - name: drchubo/joint_trajectory_right_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - right_shoulder_pitch
+      - right_shoulder_roll
+      - right_shoulder_yaw
+      - right_elbow
+      - right_wrist_yaw
+      - right_wrist_pitch
+      - right_wrist_yaw2
+  - name: drchubo/joint_trajectory_torso_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - waist_yaw
+      - waist_pitch
+      - trunk_pitch
+  - name: drchubo/joint_trajectory_head_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - neck_tilt
+      - neck_pan
+  - name: drchubo/joint_trajectory_rightfinger1_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - index_finger_j0
+      - index_finger_j1
+      - index_finger_j2
+  - name: drchubo/joint_trajectory_rightfinger2_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - middle_finger_j0
+      - middle_finger_j1
+      - middle_finger_j2
+  - name: drchubo/joint_trajectory_rightfinger3_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - ring_finger_j0
+      - ring_finger_j1
+      - ring_finger_j2
+  - name: drchubo/joint_trajectory_rightfinger4_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - last_finger_j0
+      - last_finger_j1
+      - last_finger_j2
+
+  - name: drchubo/joint_trajectory_leftfinger1_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - l_index_finger_j0
+      - l_index_finger_j1
+      - l_index_finger_j2
+  - name: drchubo/joint_trajectory_leftfinger2_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - l_middle_finger_j0
+      - l_middle_finger_j1
+      - l_middle_finger_j2
+  - name: drchubo/joint_trajectory_leftfinger3_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - l_ring_finger_j0
+      - l_ring_finger_j1
+      - l_ring_finger_j2
+  - name: drchubo/joint_trajectory_leftfinger4_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - l_last_finger_j0
+      - l_last_finger_j1
+      - l_last_finger_j2

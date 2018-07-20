@@ -1,0 +1,112 @@
+# joint_limits.yaml allows the dynamics properties specified in the URDF to be overwritten or augmented as needed
+# Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
+# Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
+joint_limits:
+  neck_tilt:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 1.0
+    has_acceleration_limits: false
+    max_acceleration: 0
+  waist_yaw:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 0.3
+    has_acceleration_limits: false
+    max_acceleration: 0
+  waist_pitch:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 0.25
+    has_acceleration_limits: false
+    max_acceleration: 0
+  trunk_pitch:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 0.25
+    has_acceleration_limits: false
+    max_acceleration: 0
+  left_elbow:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 2.088
+    has_acceleration_limits: false
+    max_acceleration: 0
+  left_shoulder_pitch:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 2.088
+    has_acceleration_limits: false
+    max_acceleration: 0
+  left_shoulder_roll:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 2.082
+    has_acceleration_limits: false
+    max_acceleration: 0
+  left_shoulder_yaw:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 3.27
+    has_acceleration_limits: false
+    max_acceleration: 0
+  left_wrist_pitch:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 2.088
+    has_acceleration_limits: false
+    max_acceleration: 0
+  left_wrist_yaw:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 3.3
+    has_acceleration_limits: false
+    max_acceleration: 0
+  left_wrist_yaw2:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 3.078
+    has_acceleration_limits: false
+    max_acceleration: 0
+  right_elbow:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 2.088
+    has_acceleration_limits: false
+    max_acceleration: 0
+  right_shoulder_pitch:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 2.088
+    has_acceleration_limits: false
+    max_acceleration: 0
+  right_shoulder_roll:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 2.082
+    has_acceleration_limits: false
+    max_acceleration: 0
+  right_shoulder_yaw:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 3.27
+    has_acceleration_limits: false
+    max_acceleration: 0
+  right_wrist_pitch:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 2.088
+    has_acceleration_limits: false
+    max_acceleration: 0
+  right_wrist_yaw:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 2.088
+    has_acceleration_limits: false
+    max_acceleration: 0
+  right_wrist_yaw2:
+    has_position_limits: true
+    has_velocity_limits: true
+    max_velocity: 3.078
+    has_acceleration_limits: false
+    max_acceleration: 0

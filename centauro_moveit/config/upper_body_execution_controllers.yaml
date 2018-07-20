@@ -1,0 +1,36 @@
+controller_list:
+  - name: l_arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - j_arm1_1
+      - j_arm1_2
+      - j_arm1_3
+      - j_arm1_4
+      - j_arm1_5
+      - j_arm1_6
+      - j_arm1_7
+  - name: r_arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - j_arm2_1
+      - j_arm2_2
+      - j_arm2_3
+      - j_arm2_4
+      - j_arm2_5
+      - j_arm2_6
+      - j_arm2_7
+  - name: torso_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - torso_yaw
+
+
+initial:
+  - group: arms
+    pose:  home_position
