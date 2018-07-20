@@ -29,7 +29,7 @@
   <arg name="legs" default="true"/>
   <arg name="head" default="true"/>
   <arg name="wheels" default="false"/>
-  <arg name="static" default="false"/>
+  <arg name="static" default="true"/>
 
   <!-- choose the end-effector -->
   <arg name="left_end_effector" default="heri"/>
@@ -84,7 +84,7 @@
                    INERTIA_PARAM:=$(arg inertia_param)          KINEMATIC_PARAM:=$(arg kinematic_param)
         "/>
 
-  <param name="robot_semantic_description" textfile="$(find centauro)/centauro_srdf/srdf/centauro.srdf"/>
+  <param name="robot_description_semantic" textfile="$(find centauro)/centauro_srdf/srdf/centauro.srdf"/>
 
   <!-- Load other no program-specific config files -->
   <include file="$(find centauro)/centauro_config/launch/centauro_config.launch" ns="/"/>
@@ -111,9 +111,17 @@
 	</node>
 
         <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
-           <remap from="/joint_states" to="/centauro/joint_states" />
 	   <param name="publish_frequency" type="double" value="250.0"/>
+
         </node>
+
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+              <param name="/use_gui" value="false"/>
+              <rosparam param="/source_list">[/joint_states] </rosparam>
+  </node>
+
+
 
   </group>
 
