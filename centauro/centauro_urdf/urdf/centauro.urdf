@@ -1053,22 +1053,22 @@
   <!-- links -->
   <link name="arm1_8">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.00270235 -0.01411486 0.05023455"/>
-      <mass value="1.8366865"/>
-      <inertia ixx="0.0062253159" ixy="0.0003312435" ixz="5.17232e-05" iyy="0.0046306594" iyz="0.0001950252" izz="0.0037732152"/>
+      <origin rpy="0 0 0" xyz="0.001 0.0 0.006"/>
+      <mass value="0.15"/>
+      <inertia ixx="0.0002" ixy="0.0" ixz="0.0" iyy="0.0002" iyz="0.0" izz="1e-05"/>
       <!--          <inertia ixx="0.003"  ixy="0"  ixz="0" iyy="0.0025" iyz="0" izz="0.00016900" /> -->
     </inertial>
     <visual>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
       <geometry>
-        <mesh filename="package://centauro/centauro_urdf/meshes/simplified/heri.stl" scale="0.001 -0.001 -0.001"/>
+        <mesh filename="package://centauro/centauro_urdf/meshes/simplified/link9.stl" scale="0.001 -0.001 -0.001"/>
       </geometry>
       <material name="dark_grey"/>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.005 0 0.082"/>
+      <origin rpy="0 0 0" xyz="0 0 0.065"/>
       <geometry>
-        <box size="0.11 0.14 0.23"/>
+        <cylinder length="0.13" radius="0.013"/>
       </geometry>
     </collision>
   </link>
@@ -1076,7 +1076,7 @@
   <!-- joints -->
   <joint name="j_arm1_8" type="fixed">
     <parent link="arm1_7"/>
-    <origin rpy="0.0 3.14159265359 3.14159265359" xyz="0.0 0.0 -0.0405"/>
+    <origin rpy="0.0 3.14159265359 -1.5707963268" xyz="0.0 0.0 -0.0405"/>
     <child link="arm1_8"/>
     <axis xyz="1 0 0"/>
   </joint>
@@ -1381,22 +1381,22 @@
   <!-- links -->
   <link name="arm2_8">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.00270235 -0.01411486 0.05023455"/>
-      <mass value="1.8366865"/>
-      <inertia ixx="0.0062253159" ixy="0.0003312435" ixz="5.17232e-05" iyy="0.0046306594" iyz="0.0001950252" izz="0.0037732152"/>
+      <origin rpy="0 0 0" xyz="0.001 0.0 0.006"/>
+      <mass value="0.15"/>
+      <inertia ixx="0.0002" ixy="0.0" ixz="0.0" iyy="0.0002" iyz="0.0" izz="1e-05"/>
       <!--          <inertia ixx="0.003"  ixy="0"  ixz="0" iyy="0.0025" iyz="0" izz="0.00016900" /> -->
     </inertial>
     <visual>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
       <geometry>
-        <mesh filename="package://centauro/centauro_urdf/meshes/simplified/heri.stl" scale="0.001 0.001 -0.001"/>
+        <mesh filename="package://centauro/centauro_urdf/meshes/simplified/link9.stl" scale="0.001 0.001 -0.001"/>
       </geometry>
       <material name="dark_grey"/>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.005 0 0.082"/>
+      <origin rpy="0 0 0" xyz="0 0 0.065"/>
       <geometry>
-        <box size="0.11 0.14 0.23"/>
+        <cylinder length="0.13" radius="0.013"/>
       </geometry>
     </collision>
   </link>
@@ -1404,7 +1404,7 @@
   <!-- joints -->
   <joint name="j_arm2_8" type="fixed">
     <parent link="arm2_7"/>
-    <origin rpy="0.0 3.14159265359 3.14159265359" xyz="0.0 0.0 -0.0405"/>
+    <origin rpy="0.0 3.14159265359 -1.5707963268" xyz="0.0 0.0 -0.0405"/>
     <child link="arm2_8"/>
     <axis xyz="1 0 0"/>
   </joint>

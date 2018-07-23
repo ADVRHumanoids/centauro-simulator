@@ -33,8 +33,8 @@
   <arg name="static" default="true"/>
 
   <!-- choose the end-effector -->
-  <arg name="left_end_effector" default="heri"/>
-  <arg name="right_end_effector" default="heri"/>
+  <arg name="left_end_effector" default="stick"/>
+  <arg name="right_end_effector" default="stick"/>
   <arg name="mass" default="0.0"/>
 
   <!-- actuators set-up-->
