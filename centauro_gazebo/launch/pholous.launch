@@ -2,8 +2,8 @@
 <launch>
 
   <!-- basic set-up which progrmas should run -->
-  <arg name="gazebo" default="true"/>
-  <arg name="rviz" default="false"/>
+  <arg name="gazebo" default="false"/>
+  <arg name="rviz" default="true"/>
 
   <!-- which inertia parameters should be loaded -->
   <arg name="inertia_param" default="original"/>
@@ -13,7 +13,7 @@
   <!-- gazebo configuration parameters -->
   <arg name="paused" default="true"/>
   <arg name="use_sim_time" default="true"/>
-  <arg name="gui" default="true"/>
+  <arg name="gui" default="false"/>
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
   <arg name="physics" default="ode"/>
@@ -139,11 +139,16 @@
 		</node>
 
 		<node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
+		        <rosparam param="/source_list">[/joint_states] </rosparam >
 			<param name="use_gui" value="$(arg gui)" unless="$(arg gazebo)"/>
 		</node>
 	</group>
 
 	<node pkg="rviz" type="rviz" name="rviz"/>
+	
+	<node pkg="centauro_yangwei_locomotor" type="joint_state_remap" name="joint_state_remapping"/>
+	
+	
 
   </group>
 
