@@ -1,0 +1,19 @@
+<launch>
+    <!-- Load the URDF/SRDF into the ROS Parameter Server -->
+    <param name="robot_description" command="cat ./centauro.urdf"/>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+    <!--<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"-->
+          <!--args="-urdf -model centauro -param robot_description"/>-->
+
+    <!--<rosparam file="$(find centauro_gazebo)/config/centauro_control_joint_state_publisher.yaml" command="load"/>-->
+    <!--<node name="joint_state_spawner" pkg="controller_manager" type="spawner"-->
+          <!--respawn="false" output="screen" ns="/centauro"-->
+          <!--args="joint_state_controller">-->
+    <!--</node>-->
+
+    <!--<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"-->
+          <!--args="-file /home/desteban/workspace/robolearn_gym_envs/robolearn_gym_envs/pybullet/centauro/common/urdf/centauro.urdf -urdf -z 1 -model centauro" />-->
+
+</launch>
