@@ -41,7 +41,8 @@
       </inertial>
 
       <visual>
-         <xacro:visual_model.pelvis />
+          <xacro:visual_model.pelvis />
+          <material name="dark_grey"/>
       </visual>
 
       <collision>

@@ -1,0 +1,87 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:property name="X_SIZE" value="0.2" />
+<xacro:property name="Y_SIZE" value="0.3" />
+<xacro:property name="Z_SIZE" value="0.02" /> <!-- ancho -->
+
+<!--<xacro:property name="Y_OFFSET" value="-0.2" />-->
+<xacro:property name="X_OFFSET" value="0.2" />
+<xacro:property name="Y_OFFSET" value="0.0" />
+<!--<xacro:property name="Z_OFFSET" value="0.029" />-->
+<xacro:property name="Z_OFFSET" value="0.029" />
+<xacro:property name="TRAY_MASS" value="0.10" />
+
+<link name="tray">
+  <inertial>
+     <origin xyz="${0} ${0} ${0}" rpy="0 0 0"/>
+     <mass value="${TRAY_MASS}"/>
+     <inertia ixx="${(1/12)*(Y_SIZE*Y_SIZE + Z_SIZE*Z_SIZE)}" ixy="0.0" ixz="0.0"
+              iyy="${(1/12)*(X_SIZE*X_SIZE + Z_SIZE*Z_SIZE)}" iyz="0.0"
+              izz="${(1/12)*(X_SIZE*X_SIZE + Y_SIZE*Y_SIZE)}" />
+  </inertial>
+
+  <visual>
+      <origin xyz="${X_OFFSET} ${Y_OFFSET} ${Z_OFFSET}" rpy="0 0 0"/>
+     <geometry>
+         <box size="${X_SIZE} ${Y_SIZE} ${Z_SIZE}"/>
+     </geometry>
+      <material name="red"/>
+  </visual>
+
+  <collision>
+      <origin xyz="${X_OFFSET} ${Y_OFFSET} ${Z_OFFSET}" rpy="0 0 0"/>
+      <geometry>
+          <box size="${X_SIZE} ${Y_SIZE} ${Z_SIZE}"/>
+      </geometry>
+  </collision>
+</link>
+
+<joint name="j_tray" type="fixed">
+  <origin xyz="0 0 0" rpy="${-PI/2} ${PI/2} 0"/>
+  <parent link="arm2_8"/>
+  <child link="tray"/>
+</joint>
+
+<!--&lt;!&ndash; links &ndash;&gt;-->
+<!--<xacro:macro name="soft_hand" params="arm_num rot joint">-->
+   <!--<link name="tray">-->
+      <!--<inertial>-->
+         <!--<origin xyz="${Hand_x} ${Hand_y} ${Hand_z}" rpy="0 0 0"/>-->
+         <!--<mass value="${TRAY_MASS}"/>-->
+         <!--<inertia ixx="${Hand_xx}"  ixy="${Hand_xy}"  ixz="${Hand_xz}"-->
+                  <!--iyy="${Hand_yy}" iyz="${Hand_yz}"-->
+                  <!--izz="${Hand_zz}" />-->
+      <!--</inertial>-->
+
+      <!--<visual>-->
+         <!--<box size="0.6 0.1 0.2"/>-->
+         <!--<material name="grey"/>-->
+      <!--</visual>-->
+
+      <!--<collision>-->
+         <!--<box size="0.6 0.1 0.2"/>-->
+      <!--</collision>-->
+   <!--</link>-->
+<!--&lt;!&ndash; /links &ndash;&gt;-->
+
+   <!--<joint name="j_tray" type="fixed">-->
+      <!--&lt;!&ndash;<xacro:if value="${ft_sensors == 'true'}" >&ndash;&gt;-->
+         <!--&lt;!&ndash;<parent link="ft_arm${arm_num}"/>&ndash;&gt;-->
+         <!--&lt;!&ndash;<origin xyz="${Hand_ft_Ox} ${Hand_ft_Oy} ${Hand_ft_Oz}" rpy="${Hand_ft_roll} ${Hand_ft_pitch} ${Hand_ft_yaw}"/>&ndash;&gt;-->
+      <!--&lt;!&ndash;</xacro:if>&ndash;&gt;-->
+      <!--<parent link="arm2_8"/>-->
+      <!--&lt;!&ndash;<origin xyz="${Hand_ft_Ox} ${Hand_ft_Oy} ${Hand_ft_Oz}" rpy="${Hand_ft_roll} ${Hand_ft_pitch} ${Hand_ft_yaw}"/>&ndash;&gt;-->
+      <!--<child link="tray"/>-->
+
+   <!--</joint> &ndash;&gt;-->
+<!--&lt;!&ndash; /joints &ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash; actuators &ndash;&gt;&ndash;&gt;-->
+   <!--&lt;!&ndash;<xacro:if value="${joint not in ['fixed']}" >&ndash;&gt;-->
+     <!--&lt;!&ndash;<xacro:position_actuator joint="j_arm${arm_num}_8" />&ndash;&gt;-->
+   <!--&lt;!&ndash;</xacro:if>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash; /actuators &ndash;&gt;&ndash;&gt;-->
+
+<!--</xacro:macro>-->
+</robot>

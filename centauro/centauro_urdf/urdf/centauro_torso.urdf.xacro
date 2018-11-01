@@ -11,7 +11,8 @@
         </inertial>
 
 	<visual>
-                <xacro:visual_model.torso />
+        <xacro:visual_model.torso />
+        <material name="dark_grey"/>
 	</visual>
 
 	<collision>
@@ -33,7 +34,8 @@
 
    <child link="torso_2"/>
    <axis xyz="0 0 1"/>
-   <limit lower="${torso_yaw_lower}" upper="${torso_yaw_upper}" effort="147" velocity="5.7"/> <!-- TODO -->
+    <!--<limit lower="-2.618" upper="2.618" effort="147" velocity="5.7"/> &lt;!&ndash; TODO &ndash;&gt;-->
+    <limit lower="${torso_yaw_lower}" upper="${torso_yaw_upper}" effort="147" velocity="5.7"/> <!-- TODO -->
 </joint>
 <!-- /torso joints -->
 

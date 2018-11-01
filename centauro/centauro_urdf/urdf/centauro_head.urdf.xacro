@@ -12,11 +12,12 @@
         </inertial>
 
 	<visual>
-                <xacro:visual_model.neck_yaw />
+        <xacro:visual_model.neck_yaw />
+        <material name="dark_grey"/>
 	</visual>
 
 	<collision>
-                <xacro:collision_model.neck_yaw />
+        <xacro:collision_model.neck_yaw />
 	</collision>
 </link>
 
@@ -28,11 +29,12 @@
         </inertial>
 
 	<visual>
-                <xacro:visual_model.neck_pitch />
+        <xacro:visual_model.neck_pitch />
+        <material name="dark_grey"/>
 	</visual>
 
 	<collision>
-                <xacro:collision_model.neck_pitch />
+        <xacro:collision_model.neck_pitch />
 	</collision>
 </link>
 
@@ -44,7 +46,8 @@
         </inertial>
 
 	<visual>
-                <xacro:visual_model.velodyne />
+        <xacro:visual_model.velodyne />
+        <material name="dark_grey"/>
 	</visual>
 
 	<collision>
@@ -81,7 +84,13 @@
                 <inertia ixx="${Dummy_xx}" ixy="${Dummy_xy}" ixz="${Dummy_xz}" iyy="${Dummy_yy}" iyz="${Dummy_yz}" izz="${Dummy_zz}"/>
         </inertial>
 </link>
-<link name="kinect2_rgb_optical_frame" />
+<link name="kinect2_rgb_optical_frame">
+    <inertial>
+        <origin xyz="0.0 0.0 0.0"/>
+        <mass value="1e-6"/>
+        <inertia ixx="1e-06" ixy="0.0" ixz="0.0" iyy="1e-06" iyz="0.0" izz="1e-06"/>
+    </inertial>
+</link>
 <link name="velodyne_mount">
 	<inertial>
 		<origin xyz="${Dummy_x} ${Dummy_y} ${Dummy_z}"/>

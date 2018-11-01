@@ -99,6 +99,7 @@
                 <geometry>
                     <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/camera_link.STL" />
                 </geometry>
+                <material name="dark_grey"/>
             </visual>
             <collision>
                <origin rpy="0 0 0" xyz="0 0 0" />
@@ -131,6 +132,7 @@
                 <geometry>
                     <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/base10.dae" />
                 </geometry>
+                <material name="dark_grey"/>
             </visual>
             <collision>
                 <origin xyz="0 0 -0.032" rpy="0 0 0" />
@@ -160,6 +162,7 @@
                 <geometry>
                     <mesh scale="${side*(1)} 1 1" filename="package://centauro/centauro_urdf/meshes/schunk_hand/h10.dae" />
                 </geometry>
+                <material name="dark_grey"/>
             </visual>
             <collision>
                 <!--origin rpy="0 0 0" xyz="0 0.01313 0" /-->
@@ -180,6 +183,7 @@
                 <geometry>
                     <mesh scale="${side*(1)} 1 1" filename="package://centauro/centauro_urdf/meshes/schunk_hand/h11.dae" />
                 </geometry>
+                <material name="dark_grey"/>
             </visual>
             <collision>
                 <origin xyz="${side*(-0.0007)} 0 -0.01002" />
@@ -239,6 +243,7 @@
                 <geometry>
                     <mesh scale="1 ${side*(1)} 1" filename="package://centauro/centauro_urdf/meshes/schunk_hand/d10.dae" />
                 </geometry>
+                <material name="dark_grey"/>
             </visual>
             <!--collision>
                 <origin xyz="0 0 0.02442" />
@@ -258,6 +263,7 @@
                 <geometry>
                     <mesh scale="1 ${side*(1)} ${side*(1)}" filename="package://centauro/centauro_urdf/meshes/schunk_hand/d11.dae" />
                 </geometry>
+                <material name="dark_grey"/>
             </visual>
             <!--collision>
                 <geometry>
@@ -274,6 +280,7 @@
                 <geometry>
                     <mesh scale="1 ${side*(1)} ${side*(1)}" filename="package://centauro/centauro_urdf/meshes/schunk_hand/d12.dae" />
                 </geometry>
+                <material name="dark_grey"/>
             </visual>
             <!--collision>
                 <geometry>
@@ -290,6 +297,7 @@
                 <geometry>
                     <mesh scale="1 ${side*(1)} ${side*(1)}" filename="package://centauro/centauro_urdf/meshes/schunk_hand/d13.dae" />
                 </geometry>
+                <material name="dark_grey"/>
             </visual>
             <!--collision>
                 <geometry>
@@ -311,6 +319,7 @@
                 <geometry>
                     <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f10.dae" />
                 </geometry>
+                <material name="dark_grey"/>
             </visual>
             <!--collision>
                 <origin xyz="0 0 0.01321" />
@@ -328,6 +337,7 @@
                 <geometry>
                     <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f11.dae" />
                 </geometry>
+                <material name="dark_grey"/>
             </visual>
             <!--collision>
                 <geometry>
@@ -345,6 +355,7 @@
                 <geometry>
                     <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f12.dae" />
                 </geometry>
+                <material name="dark_grey"/>
             </visual>
             <!--collision>
                 <origin xyz="0.0127 0 0" rpy="0 1.57 0" />
@@ -365,6 +376,7 @@
                 <geometry>
                     <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f13.dae" />
                 </geometry>
+                <material name="dark_grey"/>
             </visual>
             <!--collision>
                 <origin xyz="0.007 0 0" rpy="0 1.57 0" />
@@ -387,6 +399,7 @@
                 <geometry>
                     <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f20.dae" />
                 </geometry>
+                <material name="dark_grey"/>
             </visual>
             <!--collision>
                 <origin xyz="0 0 0.01321" />
@@ -404,6 +417,7 @@
                 <geometry>
                     <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f21.dae" />
                 </geometry>
+                <material name="dark_grey"/>
             </visual>
             <!--collision>
                 <geometry>
@@ -424,6 +438,7 @@
                 <geometry>
                     <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f22.dae" />
                 </geometry>
+                <material name="dark_grey"/>
             </visual>
             <!--collision>
                 <origin xyz="0.016 0 0" rpy="0 1.57 0" />
@@ -444,6 +459,7 @@
                 <geometry>
                     <mesh filename="package://centauro/centauro_urdf/meshes/schunk_hand/f23.dae" />
                 </geometry>
+                <material name="dark_grey"/>
             </visual>
             <!--collision>
                 <origin xyz="0.008 0 0" rpy="0 1.57 0" />

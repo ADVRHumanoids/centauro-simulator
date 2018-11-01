@@ -7,21 +7,25 @@
 <!-- /constants -->
 
 <!-- other files -->
-<xacro:include filename="$(find centauro)/centauro_urdf/urdf/config.xacro"/>
+<xacro:include filename="config.xacro"/>
 <xacro:if value="${GAZEBO}">
-  <xacro:include filename="$(find centauro_gazebo)/urdf/centauro.gazebo"/>
+  <xacro:include filename="centauro.gazebo"/>
 </xacro:if>
 <xacro:include filename="${inertia_parameters_file}"/>
 <xacro:include filename="${kinematic_parameters_file}"/>
-<xacro:include filename="$(find centauro)/centauro_urdf/limits/default.xacro"/>
-<xacro:include filename="$(find centauro)/centauro_urdf/materials.xacro"/>
-<xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/model.xacro"/>
-<xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_actuators.urdf.xacro" />
+
+<xacro:include filename="../materials.xacro"/>
+<xacro:include filename="models/model.xacro"/>
+<xacro:include filename="centauro_actuators.urdf.xacro" />
 <xacro:if value="${LEGS}">
-  <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_leg.urdf.xacro"/>
+  <xacro:include filename="centauro_leg.urdf.xacro"/>
 </xacro:if>
 <xacro:if value="${arms}">
-  <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_arm.urdf.xacro"/>
+  <xacro:include filename="centauro_arm.urdf.xacro"/>
+</xacro:if>
+<xacro:property name="HAND_FAKELINK" value="$(arg HAND_FAKELINK)"/>
+<xacro:if value="${HAND_FAKELINK}">
+    <xacro:include filename="hand_fakelink.urdf.xacro"/>
 </xacro:if>
 
 
@@ -84,7 +88,6 @@
    <!--<parent link="world"/>-->
    <!--<child link="pelvis"/>-->
 <!--</joint>-->
-<!-- /reference  -->
 <link name="base_link">
     <inertial>
         <mass value="1.e-6"/>
@@ -99,10 +102,10 @@
 
 <!-- torso -->
 <xacro:if value="${torso == 'true'}">
-   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_torso.urdf.xacro"/>
+   <xacro:include filename="centauro_torso.urdf.xacro"/>
 </xacro:if>
 <xacro:if value="${head == 'true'}">
-   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_head.urdf.xacro"/>
+   <xacro:include filename="centauro_head.urdf.xacro"/>
 </xacro:if>
 <!-- /torso -->
 

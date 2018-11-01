@@ -226,7 +226,8 @@
       <geometry>
         <mesh filename="package://centauro/centauro_urdf/meshes/link1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="grey"/>
+      <!--<material name="grey"/>-->
+      <material name="dark_grey"/>
     </visual>
     <collision>
       <origin xyz="0.006465805 0.0001011 0.153948" rpy="1.5646258233 0.00631611549186 0.00627726188579"/>
@@ -260,7 +261,8 @@
       <geometry>
         <mesh filename="package://centauro/centauro_urdf/meshes/link2.stl" scale="0.001 -0.001 0.001"/>
       </geometry>
-      <material name="blue"/>
+      <!--<material name="blue"/>-->
+      <material name="dark_grey"/>
     </visual>
     <collision>
       <origin xyz="-0.0048142 0.05214035 0.00907492" rpy="1.43215674227 1.49033192563 1.35290399479"/>
@@ -280,7 +282,8 @@
       <geometry>
         <mesh filename="package://centauro/centauro_urdf/meshes/link3.stl" scale="0.001 -0.001 0.001"/>
       </geometry>
-      <material name="grey"/>
+      <!--<material name="grey"/>-->
+      <material name="dark_grey"/>
     </visual>
     <collision>
       <origin xyz="0.0708646 -1.3776185e-05 -0.086977025" rpy="-3.14151305334 0.292826743013 -3.14105287614"/>
@@ -300,7 +303,8 @@
       <geometry>
         <mesh filename="package://centauro/centauro_urdf/meshes/link4.stl" scale="0.001 -0.001 0.001"/>
       </geometry>
-      <material name="blue"/>
+      <!--<material name="blue"/>-->
+      <material name="dark_grey"/>
     </visual>
     <collision>
       <origin xyz="0.011726993 0.000587176 -0.036774245" rpy="-3.12082286426 0.376309803205 -3.03261579115"/>
@@ -320,7 +324,8 @@
       <geometry>
         <mesh filename="package://centauro/centauro_urdf/meshes/link5.stl" scale="0.001 -0.001 0.001"/>
       </geometry>
-      <material name="grey"/>
+      <!--<material name="grey"/>-->
+      <material name="dark_grey"/>
     </visual>
     <collision>
       <origin xyz="-0.007494375 -0.03766645 -0.032153375" rpy="-0.495925898415 0.203809792245 -0.0517669672272"/>
@@ -340,7 +345,8 @@
       <geometry>
         <mesh filename="package://centauro/centauro_urdf/meshes/link6.stl" scale="0.001 -0.001 0.001"/>
       </geometry>
-      <material name="blue"/>
+      <!--<material name="blue"/>-->
+      <material name="dark_grey"/>
     </visual>
     <collision>
       <origin xyz="-1.864335e-05 0.002166045 -0.1129697" rpy="-0.0568462554593 0.000100286628987 -2.85122752006e-06"/>
@@ -360,7 +366,8 @@
       <geometry>
         <mesh filename="package://centauro/centauro_urdf/meshes/link7.stl" scale="0.001 -0.001 0.001"/>
       </geometry>
-      <material name="grey"/>
+      <!--<material name="grey"/>-->
+      <material name="dark_grey"/>
     </visual>
     <collision>
       <origin xyz="-6.44753e-05 -0.0278815 -0.067420365" rpy="2.84203235611 -0.00109442040711 -0.00725209173511"/>
@@ -380,7 +387,8 @@
       <geometry>
         <mesh filename="package://centauro/centauro_urdf/meshes/link8.stl" scale="0.001 -0.001 0.001"/>
       </geometry>
-      <material name="blue"/>
+      <!--<material name="blue"/>-->
+      <material name="dark_grey"/>
     </visual>
     <collision>
       <origin xyz="-2.1695800475e-11 5.73819402e-12 -0.056579685" rpy="4.72739727282e-10 -0.0 0.0"/>
@@ -498,7 +506,8 @@
       <geometry>
         <mesh filename="package://centauro/centauro_urdf/meshes/link2.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="blue"/>
+      <!--<material name="blue"/>-->
+      <material name="dark_grey"/>
     </visual>
     <collision>
       <origin xyz="-0.0048142 -0.05214035 0.009074915" rpy="-1.43215510177 1.49033190729 -1.3529023596"/>
@@ -518,7 +527,8 @@
       <geometry>
         <mesh filename="package://centauro/centauro_urdf/meshes/link3.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="grey"/>
+      <!--<material name="grey"/>-->
+      <material name="dark_grey"/>
     </visual>
     <collision>
       <origin xyz="0.0709568 7.98629e-06 -0.08709620665" rpy="-3.14155533114 0.292918451701 -3.14133964661"/>
@@ -578,7 +588,8 @@
       <geometry>
         <mesh filename="package://centauro/centauro_urdf/meshes/link6.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="blue"/>
+      <!--<material name="blue"/>-->
+      <material name="dark_grey"/>
     </visual>
     <collision>
       <origin xyz="-1.864335e-05 -0.002166045 -0.1129697" rpy="0.0568462554593 0.000100286628987 2.85122752006e-06"/>
@@ -598,7 +609,8 @@
       <geometry>
         <mesh filename="package://centauro/centauro_urdf/meshes/link7.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="grey"/>
+      <!--<material name="grey"/>-->
+      <material name="dark_grey"/>
     </visual>
     <collision>
       <origin xyz="-6.44753e-05 0.0278815 -0.067420365" rpy="-2.84203235611 -0.00109442040711 0.00725209173511"/>
