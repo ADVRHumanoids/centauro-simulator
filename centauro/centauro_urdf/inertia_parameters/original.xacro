@@ -13,18 +13,18 @@
 <xacro:property name="wheel_weight" value=" 2.000000 "/>
 
 <!-- Center of Mass -->
-<xacro:property name="Pelvis_x" value=" -0.0135413420 "/>
-<xacro:property name="Pelvis_y" value=" -0.0029098264 "/>
-<xacro:property name="Pelvis_z" value=" 0.01400721 "/>
+<xacro:property name="Pelvis_x" value=" 0.0013890071 "/>
+<xacro:property name="Pelvis_y" value=" -0.0015989148 "/>
+<xacro:property name="Pelvis_z" value=" 0.0631010120 "/>
 <!-- Inertia -->
-<xacro:property name="Pelvis_xx" value=" 0.2002111900 "/>
-<xacro:property name="Pelvis_yy" value=" 0.5113621400 "/>
-<xacro:property name="Pelvis_zz" value=" 0.5440141100 "/>
-<xacro:property name="Pelvis_xy" value=" -0.0038421093 "/>
-<xacro:property name="Pelvis_xz" value=" -0.0332988490 "/>
-<xacro:property name="Pelvis_yz" value=" 0.0044698470 "/>
+<xacro:property name="Pelvis_xx" value=" 0.2391262700 "/>
+<xacro:property name="Pelvis_yy" value=" 0.7143007800 "/>
+<xacro:property name="Pelvis_zz" value=" 0.8187044800 "/>
+<xacro:property name="Pelvis_xy" value=" -0.0050541269 "/>
+<xacro:property name="Pelvis_xz" value=" -0.0197460550 "/>
+<xacro:property name="Pelvis_yz" value=" 0.0002131204 "/>
 <!-- Mass -->
-<xacro:property name="Pelvis_mass" value=" 24.1909450000 "/>
+<xacro:property name="Pelvis_mass" value=" 16.0975740000 "/>
 
 <!-- Center of Mass -->
 <xacro:property name="Leg_1_x" value=" 0.0102141990 "/>
