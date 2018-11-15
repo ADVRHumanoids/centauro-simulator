@@ -111,9 +111,9 @@
 <xacro:property name="Wheel_mass" value=" 1.7289003000 "/>
 
 <!-- Center of Mass -->
-<xacro:property name="Torso_2_x" value=" 0.0064454169 "/>
-<xacro:property name="Torso_2_y" value=" 0.0021390093 "/>
-<xacro:property name="Torso_2_z" value=" 0.1430209500 "/>
+<xacro:property name="Torso_2_x" value=" -0.0194977940 "/>
+<xacro:property name="Torso_2_y" value=" 0.0045317835 "/>
+<xacro:property name="Torso_2_z" value=" 0.1376828300 "/>
 <!-- Inertia -->
 <xacro:property name="Torso_2_xx" value=" 0.063643392 "/>
 <xacro:property name="Torso_2_yy" value=" 0.02680235 "/>
@@ -122,7 +122,7 @@
 <xacro:property name="Torso_2_xz" value=" -0.00086873 "/>
 <xacro:property name="Torso_2_yz" value=" -0.00004657 "/>
 <!-- Mass -->
-<xacro:property name="Torso_2_mass" value=" 6.1886404000 "/>
+<xacro:property name="Torso_2_mass" value=" 11.4926890000 "/>
 
 <!-- Center of Mass -->
 <xacro:property name="Neck_1_x" value=" 0.0404796740 "/>
