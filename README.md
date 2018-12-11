@@ -97,13 +97,15 @@ Defines which part of the robot should be actuated
 ### CENTAURO model sensors configuration
 Defines which sensors should be loaded for the robot
 
-| Argument | Default | Description |
-| ---| --- | --- |
+| Argument | Default | Description | Depends |
+| ---| --- | --- | --- |
 | arm_sensors | true | if sensors on arms should be loaded |
 | leg_sensors | true | if sensors on legs should be loaded |
 | ft_sensors | true | if force-torque sensors should be loaded |
 | bumbers | true | if bumber sensors should be loaded |
-| imu | true | if imu should be loaded |
+| imu | true | if imu should be loaded | pelvis |
+| kinect | true | if kinect plugin should be loaded | head |
+| velodyne | true | if velodyne plugin should be loaded | head |
 
 ### CENTAURO collision and visualization models
 
