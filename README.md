@@ -74,7 +74,7 @@ Defined which part of the robot should be loaded
 | arms | true | true, false, right, left | if 'false' arms are not loaded, if 'left'/'right' only this arm is loaded  |
 | torso | true | true, false, fixed | if torso should be loaded, if not also the rest of upper-body is not loaded, if 'fixed' torso_yaw joint is fixed |
 | legs | true | true, false | if legs should be loaded, if not also wheels are not loaded |
-| head | true | true, false | if head should be loaded |
+| head | false | true, false | if head should be loaded |
 | wheels | false | true, false | OBSOLETE: if wheels should be loaded |
 | static | false | true, false | if the system is floating base or static |
 | mass | 0 | positive number | 5x5x5 cm box is added 10 cm from a last arm joint axis of **mass** kg |
