@@ -1,0 +1,4 @@
+<!--<?xml version="1.0"?>-->
+<robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
+        <kinect2_rgb_gazebo_v0 link_name="kinect2_rgb_frame" frame_name="kinect2_rgb_optical_frame" camera_name="kinect2" />
+</robot>

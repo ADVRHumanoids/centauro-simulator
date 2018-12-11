@@ -7,7 +7,9 @@
   <!-- which inertia parameters should be loaded -->
   <arg name="inertia_param" default="original"/>
   <arg name="kinematic_param" default="original"/>
-  <arg name="xbot_config_file" default="configs/ADVR_shared/centauro/configs/config_centauro.yaml"/>
+<!--  <arg name="xbot_config_file" default="configs/ADVR_shared/centauro/configs/config_centauro.yaml"/> -->
+  <arg name="xbot_config_file"  default="../../catkin_ws/src/DrivingFramework/configs/xbot/lower/centauro.yaml" />
+
 
   <!-- gazebo configuration parameters -->
   <arg name="paused" default="true"/>
@@ -27,7 +29,7 @@
   <arg name="arms" default="true"/>
   <arg name="torso" default="true"/>
   <arg name="legs" default="true"/>
-  <arg name="head" default="true"/>
+  <arg name="head" default="false"/>
   <arg name="wheels" default="false"/>
   <arg name="static" default="false"/>
 
@@ -49,6 +51,9 @@
   <arg name="ft_sensors" default="true"/>
   <arg name="bumbers" default="true"/>
   <arg name="imu" default="true"/>
+  <arg name="kinect" default="true"/>
+  <arg name="velodyne" default="true"/>
+
 
   <!-- which collision model should run:
        WARNING: exactly one parameter has to be true, otherwise simulation behaviour is undefined -->
@@ -78,8 +83,8 @@
                    STATIC:=$(arg static)                        LEFT_END_EFFECTOR:=$(arg left_end_effector)     RIGHT_END_EFFECTOR:=$(arg right_end_effector)   MASS:=$(arg mass)
                    ARMS:=$(arg arms)                            LEGS:=$(arg legs)                               TORSO:=$(arg torso)                             WHEELS:=$(arg wheels)                           HEAD:=$(arg head)
                    ARM_ACTUATORS:=$(arg arm_actuators)          LEG_ACTUATORS:=$(arg leg_actuators)             TORSO_ACTUATORS:=$(arg torso_actuators)         WHEELS_ACTUATORS:=$(arg wheels_actuators)       HEAD_ACTUATORS:=$(arg head_actuators)
-                   ARM_SENSORS:=$(arg arm_sensors)              LEG_SENSORS:=$(arg leg_sensors) 
-                   FT_SENSORS:=$(arg ft_sensors)                BUMBERS:=$(arg bumbers)                         IMU:=$(arg imu)
+                   ARM_SENSORS:=$(arg arm_sensors)              LEG_SENSORS:=$(arg leg_sensors)                 VELODYNE:=$(arg velodyne)
+                   FT_SENSORS:=$(arg ft_sensors)                BUMBERS:=$(arg bumbers)                         IMU:=$(arg imu)                                 KINECT:=$(arg kinect)
                    VISUAL_MODEL:=$(arg visual_model)            COLLISION_MODEL:=$(arg collision_model) 
                    INERTIA_PARAM:=$(arg inertia_param)          KINEMATIC_PARAM:=$(arg kinematic_param)
         "/>

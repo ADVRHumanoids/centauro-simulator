@@ -1,0 +1,6 @@
+<!--<?xml version="1.0"?>-->
+<robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
+        <VLP-16 parent="velodyne_mount" name="velodyne" topic="/velodyne_points" hz="10" samples="440">
+        	<origin xyz="0 0 0" rpy="-1.57079 0 -1.57079" />
+        </VLP-16>
+</robot>

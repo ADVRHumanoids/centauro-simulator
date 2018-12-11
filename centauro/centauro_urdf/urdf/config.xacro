@@ -34,7 +34,9 @@
 <xacro:property name="FT_SENSORS" value="$(arg FT_SENSORS)"/>
 <xacro:property name="BUMBERS" value="$(arg BUMBERS)"/>
 <xacro:property name="IMU" value="$(arg IMU)"/>
+<xacro:property name="KINECT" value="$(arg KINECT)"/>
 
+<xacro:property name="VELODYNE" value="$(arg VELODYNE)"/>
 <xacro:property name="MASS" value="$(arg MASS)"/>
 
 <!-- dependend arguments -->
@@ -72,6 +74,8 @@
 <xacro:property name="ft_sensors" value="${'true' if ('false' not in [FT_SENSORS]) else 'false'}"/>
 <xacro:property name="bumbers" value="${'true' if ('false' not in [BUMBERS]) else 'false'}"/>
 <xacro:property name="imu" value="${'true' if ('false' not in [IMU, pelvis]) else 'false'}"/>
+<xacro:property name="kinect" value="${'true' if ('false' not in [KINECT, head]) else 'false'}"/>
+<xacro:property name="velodyne" value="${'true' if ('false' not in [VELODYNE, head]) else 'false'}"/>
 
 <!-- LOAD PARAMETERS -->
 <xacro:property name="package" value="$(find centauro)"/>
@@ -82,5 +86,10 @@
 
 <xacro:property name="middleware" value="${MIDDLEWARE}"/>
 
+<xacro:property name="friction" value="10.0" />
+<xacro:property name="damping_legs" value="1.0" />
+<xacro:property name="damping_arms" value="0.2" />
+<xacro:property name="friction_schunk" value="2.0" />
+<xacro:property name="damping_schunk" value="0.0" />
 
 </robot>

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+<!--<xacro:include filename="$(find centauro)/centauro_urdf/urdf/sensors/kinect2.urdf.xacro"/> -->
 <!-- head links -->
-
 
 <link name="neck_1">
 	<inertial>
@@ -81,7 +81,6 @@
                 <inertia ixx="${Dummy_xx}" ixy="${Dummy_xy}" ixz="${Dummy_xz}" iyy="${Dummy_yy}" iyz="${Dummy_yz}" izz="${Dummy_zz}"/>
         </inertial>
 </link>
-<link name="kinect2_rgb_optical_frame" />
 <link name="velodyne_mount">
 	<inertial>
 		<origin xyz="${Dummy_x} ${Dummy_y} ${Dummy_z}"/>
@@ -99,6 +98,7 @@
    <child link="neck_1"/>
    <axis xyz="0 0 1"/>
    <limit lower="-0.78539816" upper="0.78539816" effort="35" velocity="5.7"/> <!-- TODO -->
+   <dynamics friction="${friction}" />
 </joint>
 
 <joint name="neck_pitch" type="revolute">
@@ -107,6 +107,7 @@
    <child link="neck_2"/>
    <axis xyz="0 1 0"/>
    <limit lower="-0.34906585" upper="0.78539816" effort="35" velocity="5.7"/> <!-- TODO -->
+   <dynamics friction="${friction}" />
 </joint>
 
 <joint name="neck_velodyne" type="continuous">
@@ -115,8 +116,18 @@
    <child link="neck_3"/>
    <axis xyz="0 0 1"/>
    <limit effort="35" velocity="5.7"/> <!-- TODO -->
+   <dynamics friction="${friction}" damping="${damping_arms}" />
 </joint>
 <!-- /head joints -->
+<xacro:if value="${head_actuators}">
+   <!-- head actuators -->
+   <xacro:position_actuator joint="neck_yaw" />
+   <xacro:position_actuator joint="neck_pitch" />  
+   <xacro:position_actuator joint="neck_velodyne" />  
+   <!-- /head actuators -->
+</xacro:if> 
+
+
 
 <!-- sensors transformations  -->
 <joint name="j_camera_central" type="fixed">
@@ -140,10 +151,18 @@
    <child link="kinect"/>
 </joint>
 
+<link name="kinect2_rgb_frame" />
+<joint name="j_kinect2_rgb_frame" type="fixed">
+	<parent link="kinect" />
+	<child link="kinect2_rgb_frame" />
+	<origin xyz="0.050 -0.110 -0.035" />
+</joint>
+
+<link name="kinect2_rgb_optical_frame" />
 <joint name="j_kinect_optical_frame" type="fixed">
-	<parent link="kinect"/>
+	<parent link="kinect2_rgb_frame"/>
 	<child link="kinect2_rgb_optical_frame" />
-	<origin xyz="0.050 -0.110 -0.035" rpy=" -${PI/2} 0 -${PI/2}"/>
+	<origin rpy=" -${PI/2} 0 -${PI/2}"/>
 </joint>
 
 <joint name="j_velodyne" type="fixed">
@@ -151,15 +170,17 @@
    <origin xyz="${Velodyne_Ox} ${Velodyne_Oy} ${Velodyne_Oz}" rpy="${Velodyne_roll} ${Velodyne_pitch} ${Velodyne_yaw}"/>
    <child link="velodyne_mount"/>
 </joint>
+<!-- Kinect simulation -->
+
+
 
 <!-- /sensors transformations -->
+<link name="velodyne_calib" />
+<joint name="velodyne_calib" type="fixed">
+   <parent link="neck_3"/>
+  <origin xyz="-0.175768 0 -0.034219" rpy="-1.57772 0.0128311 1.57073"/>
+   <child link="velodyne_calib"/>
+</joint>
 
-<xacro:if value="${head_actuators}">
-<!-- torso actuators -->
-<xacro:position_actuator joint="neck_yaw" />
-<xacro:position_actuator joint="neck_pitch" />  
-<xacro:position_actuator joint="neck_velodyne" />  
-<!-- /torso actuators -->
-</xacro:if> 
 
 </robot>

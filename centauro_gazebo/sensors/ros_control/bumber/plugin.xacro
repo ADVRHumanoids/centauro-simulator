@@ -4,11 +4,11 @@
 <xacro:macro name="contact_sensor" params="link robot">
 
 <gazebo reference="${link}">
-  <sensor name="${link}_contact_sensor_1" type="contact">
+  <sensor name="${link}_contact_sensor" type="contact">
     <always_on>true</always_on>
     <update_rate>1000.0</update_rate>
     <contact>
-      <collision>${link}_collision_1</collision>
+      <collision>${link}_collision</collision>
     </contact>
     <plugin name="${link}_bumper" filename="libgazebo_ros_bumper.so">
       <bumperTopicName>${robot}/contacts_${link}</bumperTopicName>

@@ -1,9 +1,7 @@
 <launch>
 
-<rosparam file="$(find centauro)/centauro_config/config/contacts.yaml" command="load"/>
 <rosparam file="$(find centauro)/centauro_config/config/actuators.yaml" command="load"/>
-
 <param name="centauro/actuators_yaml" textfile="$(find centauro)/centauro_config/config/actuators_new.yaml" />
-<param name="centauro/contacts_yaml" textfile="$(find centauro)/centauro_config/config/contacts.yaml" />
+
 
 </launch>
