@@ -109,16 +109,16 @@
 </xacro:if>
 -->
 
-<xacro:property name="COGIMON_LEFT_ARM" value="true" />
-<xacro:property name="COGIMON_RIGHT_ARM" value="true" />
+<xacro:include filename="$(find cogimon_urdf)/urdf/conversions.urdf.xacro" />
+<xacro:include filename="$(find cogimon_urdf)/urdf/parts/arms_macro.urdf.xacro" />
+<xacro:right_arm joint1_name="j_arm2_1" joint2_name="j_arm2_2" joint3_name="j_arm2_3" joint4_name="j_arm2_4" joint5_name="j_arm2_5" joint6_name="j_arm2_6" joint7_name="j_arm2_7" />
+<xacro:left_arm joint1_name="j_arm1_1" joint2_name="j_arm1_2" joint3_name="j_arm1_3" joint4_name="j_arm1_4" joint5_name="j_arm1_5" joint6_name="j_arm1_6" joint7_name="j_arm1_7" />
 <link name="DWYTorso"/>
 <joint name="torso_renaming" type="fixed">
        <parent link="torso_2"/>
        <child link="DWYTorso"/>
        <origin xyz="0 0 -0.0385" rpy="0 0 0" />
 </joint> 
-<xacro:include filename="$(find cogimon_urdf)/urdf/conversions.urdf.xacro" />
-<xacro:include filename="$(find cogimon_urdf)/urdf/parts/arms.urdf.xacro" />
 <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_arm_frames.urdf.xacro" />
 <!-- /arms -->
 

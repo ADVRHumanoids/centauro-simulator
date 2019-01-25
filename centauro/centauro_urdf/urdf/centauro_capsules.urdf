@@ -264,12 +264,6 @@
     <parent link="neck_3"/>
     <child link="velodyne_calib"/>
   </joint>
-  <link name="DWYTorso"/>
-  <joint name="torso_renaming" type="fixed">
-    <origin xyz="0.0 0.0 -0.0385" rpy="0.0 0.0 0.0"/>
-    <parent link="torso_2"/>
-    <child link="DWYTorso"/>
-  </joint>
   <link name="RShp">
     <inertial>
       <origin xyz="-0.0074457212 -0.03410796 0.00010978102" rpy="0.0 0.0 0.0"/>
@@ -430,7 +424,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="RShSag" type="revolute">
+  <joint name="j_arm2_1" type="revolute">
     <origin xyz="0.0457475 -0.169137 0.155126" rpy="-0.174533 0.0 0.5235988"/>
     <axis xyz="0.0 1.0 0.0"/>
     <parent link="DWYTorso"/>
@@ -438,7 +432,7 @@
     <limit effort="140.0" lower="-3.359" upper="1.606" velocity="6.283"/>
     <dynamics damping="3.0" friction="0.0"/>
   </joint>
-  <joint name="RShLat" type="revolute">
+  <joint name="j_arm2_2" type="revolute">
     <origin xyz="-0.09015 -0.062 0.0" rpy="0.1745327 0.0 0.0"/>
     <axis xyz="1.0 0.0 0.0"/>
     <parent link="RShp"/>
@@ -446,7 +440,7 @@
     <limit effort="140.0" lower="-3.43" upper="0.0" velocity="6.283"/>
     <dynamics damping="3.0" friction="0.0"/>
   </joint>
-  <joint name="RShYaw" type="revolute">
+  <joint name="j_arm2_3" type="revolute">
     <origin xyz="0.09015 0.0 -0.21815" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="RShr"/>
@@ -454,7 +448,7 @@
     <limit effort="120.0" lower="-2.55" upper="2.55" velocity="6.283"/>
     <dynamics damping="3.0" friction="0.0"/>
   </joint>
-  <joint name="RElbj" type="revolute">
+  <joint name="j_arm2_4" type="revolute">
     <origin xyz="0.045 -0.05515 -0.074" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 1.0 0.0"/>
     <parent link="RShy"/>
@@ -462,7 +456,7 @@
     <limit effort="120.0" lower="-2.488" upper="0.292" velocity="6.283"/>
     <dynamics damping="3.0" friction="0.0"/>
   </joint>
-  <joint name="RForearmPlate" type="revolute">
+  <joint name="j_arm2_5" type="revolute">
     <origin xyz="-0.015 0.05515 -0.095" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="RElb"/>
@@ -470,7 +464,7 @@
     <limit effort="35.0" lower="-2.55" upper="2.55" velocity="6.283"/>
     <dynamics damping="0.03" friction="0.0"/>
   </joint>
-  <joint name="RWrj1" type="revolute">
+  <joint name="j_arm2_6" type="revolute">
     <origin xyz="0.0 -0.049 -0.156" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 1.0 0.0"/>
     <parent link="RForearm"/>
@@ -478,7 +472,7 @@
     <limit effort="35.0" lower="-1.542" upper="1.508" velocity="6.283"/>
     <dynamics damping="0.03" friction="0.0"/>
   </joint>
-  <joint name="RWrj2" type="revolute">
+  <joint name="j_arm2_7" type="revolute">
     <origin xyz="0.0 0.049 -0.174" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="RWrMot2"/>
@@ -651,7 +645,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="LShSag" type="revolute">
+  <joint name="j_arm1_1" type="revolute">
     <origin xyz="0.0457475 0.169137 0.155126" rpy="0.174533 0.0 -0.5235988"/>
     <axis xyz="0.0 1.0 0.0"/>
     <parent link="DWYTorso"/>
@@ -659,7 +653,7 @@
     <limit effort="140.0" lower="-3.352" upper="1.603" velocity="6.283"/>
     <dynamics damping="3.0" friction="0.0"/>
   </joint>
-  <joint name="LShLat" type="revolute">
+  <joint name="j_arm1_2" type="revolute">
     <origin xyz="-0.09015 0.062 0.0" rpy="-0.1745327 0.0 0.0"/>
     <axis xyz="1.0 0.0 0.0"/>
     <parent link="LShp"/>
@@ -667,7 +661,7 @@
     <limit effort="140.0" lower="0.0" upper="3.517" velocity="6.283"/>
     <dynamics damping="3.0" friction="0.0"/>
   </joint>
-  <joint name="LShYaw" type="revolute">
+  <joint name="j_arm1_3" type="revolute">
     <origin xyz="0.09015 0.0 -0.21815" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="LShr"/>
@@ -675,7 +669,7 @@
     <limit effort="120.0" lower="-2.55" upper="2.55" velocity="6.283"/>
     <dynamics damping="3.0" friction="0.0"/>
   </joint>
-  <joint name="LElbj" type="revolute">
+  <joint name="j_arm1_4" type="revolute">
     <origin xyz="0.045 0.05515 -0.074" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 1.0 0.0"/>
     <parent link="LShy"/>
@@ -683,7 +677,7 @@
     <limit effort="120.0" lower="-2.492" upper="0.298" velocity="6.283"/>
     <dynamics damping="3.0" friction="0.0"/>
   </joint>
-  <joint name="LForearmPlate" type="revolute">
+  <joint name="j_arm1_5" type="revolute">
     <origin xyz="-0.015 -0.05515 -0.095" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="LElb"/>
@@ -691,7 +685,7 @@
     <limit effort="35.0" lower="-2.55" upper="2.55" velocity="6.283"/>
     <dynamics damping="0.03" friction="0.0"/>
   </joint>
-  <joint name="LWrj1" type="revolute">
+  <joint name="j_arm1_6" type="revolute">
     <origin xyz="0.0 0.049 -0.156" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 1.0 0.0"/>
     <parent link="LForearm"/>
@@ -699,7 +693,7 @@
     <limit effort="35.0" lower="-1.562" upper="1.478" velocity="6.283"/>
     <dynamics damping="0.03" friction="0.0"/>
   </joint>
-  <joint name="LWrj2" type="revolute">
+  <joint name="j_arm1_7" type="revolute">
     <origin xyz="0.0 -0.049 -0.174" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="LWrMot2"/>
@@ -711,6 +705,12 @@
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
     <parent link="LWrMot3"/>
     <child link="l_wrist"/>
+  </joint>
+  <link name="DWYTorso"/>
+  <joint name="torso_renaming" type="fixed">
+    <origin xyz="0.0 0.0 -0.0385" rpy="0.0 0.0 0.0"/>
+    <parent link="torso_2"/>
+    <child link="DWYTorso"/>
   </joint>
   <link name="arm1_1"/>
   <link name="arm1_2"/>
