@@ -20,9 +20,9 @@
 <xacro:if value="${LEGS}">
   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_leg.urdf.xacro"/>
 </xacro:if>
-<xacro:if value="${arms}">
+<!--xacro:if value="${arms}">
   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_arm.urdf.xacro"/>
-</xacro:if>
+</xacro:if-->
 
 
 <!-- /other files -->
@@ -96,6 +96,7 @@
 
 
 <!-- arms -->
+<!--
 <xacro:if value="${left_arm == 'true'}">
    <xacro:centauro_arm arm_num="1"  rot="1"  parent="torso_2" end_effector="${left_end_effector}" mount="${left_arm_mount}">
       <origin xyz="${Shoulder_1_Ox} ${Shoulder_1_Oy} ${Shoulder_1_Oz}" rpy="${Shoulder_1_roll} ${Shoulder_1_pitch} ${Shoulder_1_yaw}"/>
@@ -106,8 +107,19 @@
       <origin xyz="${Shoulder_1_Ox} ${-Shoulder_1_Oy} ${Shoulder_1_Oz}" rpy="${Shoulder_1_roll} ${Shoulder_1_pitch} ${-Shoulder_1_yaw}" />
    </xacro:centauro_arm>
 </xacro:if>
+-->
 
-
+<xacro:property name="COGIMON_LEFT_ARM" value="true" />
+<xacro:property name="COGIMON_RIGHT_ARM" value="true" />
+<link name="DWYTorso"/>
+<joint name="torso_renaming" type="fixed">
+       <parent link="torso_2"/>
+       <child link="DWYTorso"/>
+       <origin xyz="0 0 -0.0385" rpy="0 0 0" />
+</joint> 
+<xacro:include filename="$(find cogimon_urdf)/urdf/conversions.urdf.xacro" />
+<xacro:include filename="$(find cogimon_urdf)/urdf/parts/arms.urdf.xacro" />
+<xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_arm_frames.urdf.xacro" />
 <!-- /arms -->
 
 

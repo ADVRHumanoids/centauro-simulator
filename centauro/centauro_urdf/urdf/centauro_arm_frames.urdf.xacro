@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+<link name="arm1_1"/>
+<link name="arm1_2"/>
+<link name="arm1_3"/>
+<link name="arm1_4"/>
+<link name="arm1_5"/>
+<link name="arm1_6"/>
+<link name="arm1_7"/>
+<link name="arm1_8"/>
+
+<link name="arm2_1"/>
+<link name="arm2_2"/>
+<link name="arm2_3"/>
+<link name="arm2_4"/>
+<link name="arm2_5"/>
+<link name="arm2_6"/>
+<link name="arm2_7"/>
+<link name="arm2_8"/>
+
+
+<joint name="jf1" type="fixed">
+       <parent link="LShp"/>
+       <child link="arm1_1"/>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+<joint name="jf2" type="fixed">
+       <parent link="LShr"/>
+       <child link="arm1_2"/>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+<joint name="jf3" type="fixed">
+       <parent link="LShy"/>
+       <child link="arm1_3"/>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+<joint name="jf4" type="fixed">
+       <parent link="LElb"/>
+       <child link="arm1_4"/>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+<joint name="jf5" type="fixed">
+       <parent link="LForearm"/>
+       <child link="arm1_5"/>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+<joint name="jf6" type="fixed">
+       <parent link="LWrMot2"/>
+       <child link="arm1_6"/>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+<joint name="jf7" type="fixed">
+       <parent link="LWrMot3"/>
+       <child link="arm1_7"/>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+<joint name="jf8" type="fixed">
+       <parent link="arm1_7"/>
+       <child link="arm1_8"/>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+
+
+<joint name="jf9" type="fixed">
+       <parent link="RShp"/>
+       <child link="arm2_1"/>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+<joint name="jf10" type="fixed">
+       <parent link="RShr"/>
+       <child link="arm2_2"/>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+<joint name="jf11" type="fixed">
+       <parent link="RShy"/>
+       <child link="arm2_3"/>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+<joint name="jf12" type="fixed">
+       <parent link="RElb"/>
+       <child link="arm2_4"/>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+<joint name="jf13" type="fixed">
+       <parent link="RForearm"/>
+       <child link="arm2_5"/>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+<joint name="jf14" type="fixed">
+       <parent link="RWrMot2"/>
+       <child link="arm2_6"/>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+<joint name="jf15" type="fixed">
+       <parent link="RWrMot3"/>
+       <child link="arm2_7"/>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+<joint name="jf16" type="fixed">
+       <parent link="arm2_7"/>
+       <child link="arm2_8"/>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+</robot>
+
+
