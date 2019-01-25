@@ -74,7 +74,7 @@
   </link>
   <joint name="imu_joint" type="fixed">
     <parent link="pelvis"/>
-    <origin rpy="0.0 0.0 0.0" xyz="0.248316 0.0 0.015"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     <child link="imu_link"/>
   </joint>
   <joint name="reference" type="floating">
@@ -126,7 +126,6 @@
     <robotNamespace>/centauro</robotNamespace>
   </transmission>
   <!-- /torso actuators -->
-  <!--<xacro:include filename="$(find centauro)/centauro_urdf/urdf/sensors/kinect2.urdf.xacro"/> -->
   <!-- head links -->
   <link name="neck_1">
     <inertial>
@@ -215,6 +214,7 @@
       <inertia ixx="1e-06" ixy="0.0" ixz="0.0" iyy="1e-06" iyz="0.0" izz="1e-06"/>
     </inertial>
   </link>
+  <link name="kinect2_rgb_optical_frame"/>
   <link name="velodyne_mount">
     <inertial>
       <origin xyz="0.0 0.0 0.0"/>
@@ -231,7 +231,6 @@
     <axis xyz="0 0 1"/>
     <limit effort="35" lower="-0.78539816" upper="0.78539816" velocity="5.7"/>
     <!-- TODO -->
-    <dynamics friction="10.0"/>
   </joint>
   <joint name="neck_pitch" type="revolute">
     <parent link="neck_1"/>
@@ -240,7 +239,6 @@
     <axis xyz="0 1 0"/>
     <limit effort="35" lower="-0.34906585" upper="0.78539816" velocity="5.7"/>
     <!-- TODO -->
-    <dynamics friction="10.0"/>
   </joint>
   <joint name="neck_velodyne" type="continuous">
     <parent link="torso_2"/>
@@ -249,8 +247,40 @@
     <axis xyz="0 0 1"/>
     <limit effort="35" velocity="5.7"/>
     <!-- TODO -->
-    <dynamics damping="0.2" friction="10.0"/>
   </joint>
+  <!-- /head joints -->
+  <!-- sensors transformations  -->
+  <joint name="j_camera_central" type="fixed">
+    <parent link="torso_2"/>
+    <origin rpy="0.0 0.349065586018 0.0" xyz="0.0559593 5e-12 0.390626"/>
+    <child link="camera_central"/>
+  </joint>
+  <joint name="j_camera_left" type="fixed">
+    <parent link="torso_2"/>
+    <origin rpy="0.0 0.349065586018 1.2217302006" xyz="0.0191392 0.0525845 0.390626"/>
+    <child link="camera_left"/>
+  </joint>
+  <joint name="j_camera_right" type="fixed">
+    <parent link="torso_2"/>
+    <origin rpy="0.0 0.349065586018 -1.2217302006" xyz="0.0191392 -0.0525845 0.390626"/>
+    <child link="camera_right"/>
+  </joint>
+  <joint name="j_kinect" type="fixed">
+    <parent link="neck_2"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.03 -0.0596 0.045855"/>
+    <child link="kinect"/>
+  </joint>
+  <joint name="j_kinect_optical_frame" type="fixed">
+    <parent link="kinect"/>
+    <child link="kinect2_rgb_optical_frame"/>
+    <origin rpy=" -1.5707963268 0 -1.5707963268" xyz="0.050 -0.110 -0.035"/>
+  </joint>
+  <joint name="j_velodyne" type="fixed">
+    <parent link="neck_3"/>
+    <origin rpy="0.0 0.0 -3.14159265359" xyz="-0.138 0.0 -0.033"/>
+    <child link="velodyne_mount"/>
+  </joint>
+  <!-- /sensors transformations -->
   <transmission name="t_neck_yaw">
     <type> transmission_interface/SimpleTransmission</type>
     <joint name="neck_yaw">
@@ -284,53 +314,7 @@
     </actuator>
     <robotNamespace>/centauro</robotNamespace>
   </transmission>
-  <!-- /head actuators -->
-  <!-- sensors transformations  -->
-  <joint name="j_camera_central" type="fixed">
-    <parent link="torso_2"/>
-    <origin rpy="0.0 0.349065586018 0.0" xyz="0.0559593 5e-12 0.390626"/>
-    <child link="camera_central"/>
-  </joint>
-  <joint name="j_camera_left" type="fixed">
-    <parent link="torso_2"/>
-    <origin rpy="0.0 0.349065586018 1.2217302006" xyz="0.0191392 0.0525845 0.390626"/>
-    <child link="camera_left"/>
-  </joint>
-  <joint name="j_camera_right" type="fixed">
-    <parent link="torso_2"/>
-    <origin rpy="0.0 0.349065586018 -1.2217302006" xyz="0.0191392 -0.0525845 0.390626"/>
-    <child link="camera_right"/>
-  </joint>
-  <joint name="j_kinect" type="fixed">
-    <parent link="neck_2"/>
-    <origin rpy="0.0 0.0 0.0" xyz="0.03 -0.0596 0.045855"/>
-    <child link="kinect"/>
-  </joint>
-  <link name="kinect2_rgb_frame"/>
-  <joint name="j_kinect2_rgb_frame" type="fixed">
-    <parent link="kinect"/>
-    <child link="kinect2_rgb_frame"/>
-    <origin xyz="0.050 -0.110 -0.035"/>
-  </joint>
-  <link name="kinect2_rgb_optical_frame"/>
-  <joint name="j_kinect_optical_frame" type="fixed">
-    <parent link="kinect2_rgb_frame"/>
-    <child link="kinect2_rgb_optical_frame"/>
-    <origin rpy=" -1.5707963268 0 -1.5707963268"/>
-  </joint>
-  <joint name="j_velodyne" type="fixed">
-    <parent link="neck_3"/>
-    <origin rpy="0.0 0.0 -3.14159265359" xyz="-0.138 0.0 -0.033"/>
-    <child link="velodyne_mount"/>
-  </joint>
-  <!-- Kinect simulation -->
-  <!-- /sensors transformations -->
-  <link name="velodyne_calib"/>
-  <joint name="velodyne_calib" type="fixed">
-    <parent link="neck_3"/>
-    <origin rpy="-1.57772 0.0128311 1.57073" xyz="-0.175768 0 -0.034219"/>
-    <child link="velodyne_calib"/>
-  </joint>
+  <!-- /torso actuators -->
   <!-- /torso -->
   <!-- LINKS -->
   <!-- shoulder yaw-roll-->
