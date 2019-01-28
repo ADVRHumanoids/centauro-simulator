@@ -1016,7 +1016,7 @@
     <child link="arm1_7"/>
   </joint>
   <joint name="jf8" type="fixed">
-    <origin rpy="0.0 3.14159265359 -1.57079632679" xyz="0.0 0.0 0.0"/>
+    <origin rpy="0.0 3.14159265359 -1.57079632679" xyz="0.0 0.0 -0.0405"/>
     <parent link="arm1_7"/>
     <child link="arm1_8"/>
   </joint>
@@ -1056,7 +1056,7 @@
     <child link="arm2_7"/>
   </joint>
   <joint name="jf16" type="fixed">
-    <origin rpy="0.0 3.14159265359 -1.57079632679" xyz="0.0 0.0 0.0"/>
+    <origin rpy="0.0 3.14159265359 -1.57079632679" xyz="0.0 0.0 -0.0405"/>
     <parent link="arm2_7"/>
     <child link="arm2_8"/>
   </joint>

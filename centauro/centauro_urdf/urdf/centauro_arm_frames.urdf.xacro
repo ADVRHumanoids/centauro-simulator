@@ -65,7 +65,7 @@
 <joint name="jf8" type="fixed">
        <parent link="arm1_7"/>
        <child link="arm1_8"/>
-       <origin xyz="0 0 0" rpy="0 ${PI} ${-PI_2}" />
+       <origin xyz="0 0 -0.0405" rpy="0 ${PI} ${-PI_2}" />
 </joint>
 
 
@@ -115,7 +115,7 @@
 <joint name="jf16" type="fixed">
        <parent link="arm2_7"/>
        <child link="arm2_8"/>
-       <origin xyz="0 0 0" rpy="0 ${PI} ${-PI_2}" />
+       <origin xyz="0 0 -0.0405" rpy="0 ${PI} ${-PI_2}" />
 </joint>
 
 </robot>
