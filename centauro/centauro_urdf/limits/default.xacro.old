@@ -1,0 +1,39 @@
+<!--<?xml version="1.0"?>-->
+<robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- Origin -->
+<xacro:property name="hip_yaw_lower" value="${[-0.9432,-2.5110, -2.5100 ,-0.9412]}"/>
+<xacro:property name="hip_yaw_upper" value="${[ 2.5138, 0.9430,  0.9430 , 2.5138]}"/>
+
+<xacro:property name="hip_pitch_lower" value="${[-2.0226, -2.0156, -2.0126 , -2.0326]}"/>
+<xacro:property name="hip_pitch_upper" value="${[ 2.02748, 2.0354,  2.0384 ,  2.0524]}"/>
+
+<xacro:property name="knee_pitch_lower" value="${[-2.4056, -2.4006, -2.4056, -2.4176]}"/>
+<xacro:property name="knee_pitch_upper" value="${[ 2.3994,  2.4034,  2.4064,  2.3884]}"/>
+
+<xacro:property name="ankle_pitch_lower" value="${[-2.4056, -2.3266, -2.4696, -2.3426]}"/>
+<xacro:property name="ankle_pitch_upper" value="${[2.3184,   2.3914,  2.4464,  2.3934]}"/>
+
+<xacro:property name="ankle_yaw_lower" value="${[-2.5626, -2.5546, -2.5606, -2.6046]}"/>
+<xacro:property name="ankle_yaw_upper" value="${[ 2.5384,  2.5484,  2.5454,  2.5514]}"/>
+
+<xacro:property name="torso_yaw_lower" value="-2.618"/>
+<xacro:property name="torso_yaw_upper" value="2.618"/>
+
+<xacro:property name="j_arm_1_lower" value="${[-3.3480, -1.6102]}"/>
+<xacro:property name="j_arm_2_lower" value="${[-3.4200,  0.0578]}"/>
+<xacro:property name="j_arm_3_lower" value="${[-2.5556, -2.5426]}"/>
+<xacro:property name="j_arm_4_lower" value="${[-2.4636, -0.2796]}"/>
+<xacro:property name="j_arm_5_lower" value="${[-2.5406, -2.5626]}"/>
+<xacro:property name="j_arm_6_lower" value="${[-1.5096, -1.4726]}"/>
+<xacro:property name="j_arm_7_lower" value="${[-2.5376, -3.0908]}"/>
+
+<xacro:property name="j_arm_1_upper" value="${[ 1.5780, 3.3138]}"/>
+<xacro:property name="j_arm_2_upper" value="${[-0.0560, 3.4288]}"/>
+<xacro:property name="j_arm_3_upper" value="${[ 2.5424, 2.5524]}"/>
+<xacro:property name="j_arm_4_upper" value="${[ 0.2804, 2.4564]}"/>
+<xacro:property name="j_arm_5_upper" value="${[ 2.5534, 2.5464]}"/>
+<xacro:property name="j_arm_6_upper" value="${[ 1.5044, 1.5364]}"/>
+<xacro:property name="j_arm_7_upper" value="${[ 2.5554, 2.0114]}"/>
+
+</robot>

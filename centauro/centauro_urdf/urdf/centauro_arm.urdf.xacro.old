@@ -11,9 +11,9 @@
 <!-- shoulder yaw-roll-->
    <link name="arm${arm_num}_1">
       <inertial>
-         <origin xyz="${Shoulder_1_x} ${rot*Shoulder_1_y} ${Shoulder_1_z}"/>
+         <origin xyz="${Shoulder_1_x} ${-rot*Shoulder_1_y} ${Shoulder_1_z}"/>
          <mass value="${Shoulder_1_mass}"/>
-         <inertia ixx="${Shoulder_1_xx}" ixy="${rot*Shoulder_1_xy}" ixz="${Shoulder_1_xz}" iyy="${Shoulder_1_yy}" iyz="${rot*Shoulder_1_yz}" izz="${Shoulder_1_zz}"/>
+         <inertia ixx="${Shoulder_1_xx}" ixy="${-rot*Shoulder_1_xy}" ixz="${Shoulder_1_xz}" iyy="${Shoulder_1_yy}" iyz="${-rot*Shoulder_1_yz}" izz="${Shoulder_1_zz}"/>
       </inertial>
 
       <visual>
@@ -30,9 +30,9 @@
 <!-- shoulder roll-pitch-->
    <link name="arm${arm_num}_2">
       <inertial>
-         <origin xyz="${Shoulder_2_x} ${rot*Shoulder_2_y} ${Shoulder_2_z}"/>
+         <origin xyz="${Shoulder_2_x} ${-rot*Shoulder_2_y} ${Shoulder_2_z}"/>
          <mass value="${Shoulder_2_mass}"/>
-         <inertia ixx="${Shoulder_2_xx}" ixy="${rot*Shoulder_2_xy}" ixz="${Shoulder_2_xz}" iyy="${Shoulder_2_yy}" iyz="${rot*Shoulder_2_yz}" izz="${Shoulder_2_zz}"/>
+         <inertia ixx="${Shoulder_2_xx}" ixy="${-rot*Shoulder_2_xy}" ixz="${Shoulder_2_xz}" iyy="${Shoulder_2_yy}" iyz="${-rot*Shoulder_2_yz}" izz="${Shoulder_2_zz}"/>
       </inertial>
 
       <visual>
@@ -48,9 +48,9 @@
 <!-- shoulder-elbow -->
    <link name="arm${arm_num}_3">
       <inertial>
-         <origin xyz="${Shoulder_3_x} ${rot*Shoulder_3_y} ${Shoulder_3_z}"/>
+         <origin xyz="${Shoulder_3_x} ${-rot*Shoulder_3_y} ${Shoulder_3_z}"/>
          <mass value="${Shoulder_3_mass}"/>
-         <inertia ixx="${Shoulder_3_xx}" ixy="${rot*Shoulder_3_xy}" ixz="${Shoulder_3_xz}" iyy="${Shoulder_3_yy}" iyz="${rot*Shoulder_3_yz}" izz="${Shoulder_3_zz}"/>
+         <inertia ixx="${Shoulder_3_xx}" ixy="${-rot*Shoulder_3_xy}" ixz="${Shoulder_3_xz}" iyy="${Shoulder_3_yy}" iyz="${-rot*Shoulder_3_yz}" izz="${Shoulder_3_zz}"/>
 </inertial>
 
       <visual>
@@ -67,9 +67,9 @@
 <!-- elbow yaw-pitch -->
    <link name="arm${arm_num}_4">
       <inertial>
-         <origin xyz="${Elbow_1_x} ${rot*Elbow_1_y} ${Elbow_1_z}"/>
+         <origin xyz="${Elbow_1_x} ${-rot*Elbow_1_y} ${Elbow_1_z}"/>
          <mass value="${Elbow_1_mass}"/>
-         <inertia ixx="${Elbow_1_xx}" ixy="${rot*Elbow_1_xy}" ixz="${Elbow_1_xz}" iyy="${Elbow_1_yy}" iyz="${rot*Elbow_1_yz}" izz="${Elbow_1_zz}"/>
+         <inertia ixx="${Elbow_1_xx}" ixy="${-rot*Elbow_1_xy}" ixz="${Elbow_1_xz}" iyy="${Elbow_1_yy}" iyz="${-rot*Elbow_1_yz}" izz="${Elbow_1_zz}"/>
       </inertial>
 
       <visual>
@@ -85,9 +85,9 @@
 <!-- elbow-wrist -->
    <link name="arm${arm_num}_5">
       <inertial>
-         <origin xyz="${Wrist_1_x} ${rot*Wrist_1_y} ${Wrist_1_z}"/>
+         <origin xyz="${Wrist_1_x} ${-rot*Wrist_1_y} ${Wrist_1_z}"/>
          <mass value="${Wrist_1_mass}"/>
-         <inertia ixx="${Wrist_1_xx}" ixy="${rot*Wrist_1_xy}" ixz="${Wrist_1_xz}" iyy="${Wrist_1_yy}" iyz="${rot*Wrist_1_yz}" izz="${Wrist_1_zz}"/>
+         <inertia ixx="${Wrist_1_xx}" ixy="${-rot*Wrist_1_xy}" ixz="${Wrist_1_xz}" iyy="${Wrist_1_yy}" iyz="${-rot*Wrist_1_yz}" izz="${Wrist_1_zz}"/>
 </inertial>
       <visual>
          <xacro:visual_model.arm5 />
@@ -103,9 +103,9 @@
 <!-- wrist yaw-pitch -->
    <link name="arm${arm_num}_6">
       <inertial>
-         <origin xyz="${Wrist_2_x} ${rot*Wrist_2_y} ${Wrist_2_z}"/>
+         <origin xyz="${Wrist_2_x} ${-rot*Wrist_2_y} ${Wrist_2_z}"/>
          <mass value="${Wrist_2_mass}"/>
-         <inertia ixx="${Wrist_2_xx}" ixy="${rot*Wrist_2_xy}" ixz="${Wrist_2_xz}" iyy="${Wrist_2_yy}" iyz="${rot*Wrist_2_yz}" izz="${Wrist_2_zz}"/>
+         <inertia ixx="${Wrist_2_xx}" ixy="${-rot*Wrist_2_xy}" ixz="${Wrist_2_xz}" iyy="${Wrist_2_yy}" iyz="${-rot*Wrist_2_yz}" izz="${Wrist_2_zz}"/>
 </inertial>
 
       <visual>
@@ -120,9 +120,9 @@
 
    <link name="arm${arm_num}_7">
       <inertial>
-         <origin xyz="${Wrist_3_x} ${rot*Wrist_3_y} ${Wrist_3_z}"/>
+         <origin xyz="${Wrist_3_x} ${-rot*Wrist_3_y} ${Wrist_3_z}"/>
          <mass value="${Wrist_3_mass}"/>
-         <inertia ixx="${Wrist_3_xx}" ixy="${rot*Wrist_3_xy}" ixz="${Wrist_3_xz}" iyy="${Wrist_3_yy}" iyz="${rot*Wrist_3_yz}" izz="${Wrist_3_zz}"/>
+         <inertia ixx="${Wrist_3_xx}" ixy="${-rot*Wrist_3_xy}" ixz="${Wrist_3_xz}" iyy="${Wrist_3_yy}" iyz="${-rot*Wrist_3_yz}" izz="${Wrist_3_zz}"/>
       </inertial>
 
       <visual>
@@ -143,8 +143,8 @@
       <parent link="${parent}"/>
       <child link="arm${arm_num}_1"/>
       <xacro:insert_block name="origin"/>
-      <axis xyz="0 1 0"/>
-      <limit lower="${j_arm_1_lower[arm_num-1]}" upper="${j_arm_1_upper[arm_num-1]}" effort="${j_arm_1_torque[arm_num-1]}" velocity="${j_arm_1_velocity[arm_num-1]}"/>
+      <axis xyz="0 ${rot*cos_m10} ${-sin_m10}"/>
+      <limit lower="${j_arm_1_lower[arm_num-1]}" upper="${j_arm_1_upper[arm_num-1]}" effort="147" velocity="5.7"/>
    </joint>
 <!-- /shoulder yaw -->
 	
@@ -152,9 +152,9 @@
    <joint name="j_arm${arm_num}_2" type="revolute">
       <parent link="arm${arm_num}_1"/>
       <child link="arm${arm_num}_2"/>
-      <origin xyz="${Shoulder_2_Ox} ${rot*Shoulder_2_Oy} ${Shoulder_2_Oz}" rpy="${Shoulder_2_roll} ${Shoulder_2_pitch} ${Shoulder_2_yaw}"/>
-      <axis xyz="1 0 0"/>
-      <limit lower="${j_arm_2_lower[arm_num-1]}" upper="${j_arm_2_upper[arm_num-1]}" effort="${j_arm_2_torque[arm_num-1]}" velocity="${j_arm_2_velocity[arm_num-1]}"/>
+      <origin xyz="${Shoulder_2_Ox} ${rot*Shoulder_2_Oy} ${Shoulder_2_Oz}"/>
+      <axis xyz="-1 0 0"/>
+      <limit lower="${j_arm_2_lower[arm_num-1]}" upper="${j_arm_2_upper[arm_num-1]}" effort="147" velocity="5.7"/>
    </joint>
 <!-- /shoulder roll -->
 
@@ -163,8 +163,8 @@
       <parent link="arm${arm_num}_2"/>
       <child link="arm${arm_num}_3"/>
       <origin xyz="${Shoulder_3_Ox} ${Shoulder_3_Oy} ${Shoulder_3_Oz}"/>
-      <axis xyz="0 0 1"/>
-      <limit lower="${j_arm_3_lower[arm_num-1]}" upper="${j_arm_3_upper[arm_num-1]}" effort="${j_arm_3_torque[arm_num-1]}" velocity="${j_arm_3_velocity[arm_num-1]}"/>
+      <axis xyz="0 0 -1"/>
+      <limit lower="${j_arm_3_lower[arm_num-1]}" upper="${j_arm_3_upper[arm_num-1]}" effort="147" velocity="8.2"/>
    </joint>
 <!-- /shoulder pitch -->
 	
@@ -173,8 +173,8 @@
       <parent link="arm${arm_num}_3"/>
       <child link="arm${arm_num}_4"/>
       <origin xyz="${Elbow_1_Ox} ${rot*Elbow_1_Oy} ${Elbow_1_Oz}"/>
-      <axis xyz="0 1 0"/>
-      <limit lower="${j_arm_4_lower[arm_num-1]}" upper="${j_arm_4_upper[arm_num-1]}" effort="${j_arm_4_torque[arm_num-1]}" velocity="${j_arm_4_velocity[arm_num-1]}"/>
+      <axis xyz="0 ${rot} 0"/>
+      <limit lower="${j_arm_4_lower[arm_num-1]}" upper="${j_arm_4_upper[arm_num-1]}" effort="147" velocity="8.2"/>
    </joint>
 <!-- /elbow yaw -->
 
@@ -182,9 +182,9 @@
    <joint name="j_arm${arm_num}_5" type="revolute">
       <parent link="arm${arm_num}_4"/>
       <child link="arm${arm_num}_5"/>
-      <origin xyz="${Wrist_1_Ox} ${rot*Wrist_1_Oy} ${Wrist_1_Oz}"/>
-      <axis xyz="0 0 1"/>
-      <limit lower="${j_arm_5_lower[arm_num-1]}" upper="${j_arm_5_upper[arm_num-1]}" effort="${j_arm_5_torque[arm_num-1]}" velocity="${j_arm_5_velocity[arm_num-1]}"/>
+      <origin xyz="${Wrist_1_Ox} ${-rot*Wrist_1_Oy} ${Wrist_1_Oz}"/>
+      <axis xyz="0 0 -1"/>
+      <limit lower="${j_arm_5_lower[arm_num-1]}" upper="${j_arm_5_upper[arm_num-1]}" effort="55" velocity="11.6"/>
    </joint>
 <!-- /elbow pitch-->
 	
@@ -193,8 +193,8 @@
       <parent link="arm${arm_num}_5"/>
       <child link="arm${arm_num}_6"/>
       <origin xyz="${Wrist_2_Ox} ${rot*Wrist_2_Oy} ${Wrist_2_Oz}"/>
-      <axis xyz="0 1 0"/>
-      <limit lower="${j_arm_6_lower[arm_num-1]}" upper="${j_arm_6_upper[arm_num-1]}" effort="${j_arm_6_torque[arm_num-1]}" velocity="${j_arm_6_velocity[arm_num-1]}"/>
+      <axis xyz="0 ${rot} 0"/>
+      <limit lower="${j_arm_6_lower[arm_num-1]}" upper="${j_arm_6_upper[arm_num-1]}" effort="55" velocity="11.6"/>
    </joint>
 <!-- /wrist yaw-->
 	
@@ -202,9 +202,9 @@
    <joint name="j_arm${arm_num}_7" type="revolute">
       <parent link="arm${arm_num}_6"/>
       <child link="arm${arm_num}_7"/>
-      <origin xyz="${Wrist_3_Ox} ${rot*Wrist_3_Oy} ${Wrist_3_Oz}"/>
-      <axis xyz="0 0 1"/>
-      <limit lower="${j_arm_7_lower[arm_num-1]}" upper="${j_arm_7_upper[arm_num-1]}" effort="${j_arm_7_torque[arm_num-1]}" velocity="${j_arm_7_velocity[arm_num-1]}"/>
+      <origin xyz="${Wrist_3_Ox} ${-rot*Wrist_3_Oy} ${Wrist_3_Oz}"/>
+      <axis xyz="0 0 -1"/>
+      <limit lower="${j_arm_7_lower[arm_num-1]}" upper="${j_arm_7_upper[arm_num-1]}" effort="27" velocity="20.3"/>
    </joint>
 <!-- wrist pitch-->
 
@@ -223,38 +223,27 @@
 <!-- /actuators -->
 
 <!-- end-effector -->
+<xacro:if value="${ft_sensors == 'true'}" >
 <!-- wrist pitch-->
-   <joint name="j_ft_${arm_num}" type="${ft_sensors}">
+   <joint name="j_ft_${arm_num}" type="revolute">
       <parent link="arm${arm_num}_7"/>
       <child link="ft_arm${arm_num}"/>
       <origin xyz="${Ft_arm_Ox} ${Ft_arm_Oy} ${Ft_arm_Oz}" rpy="${Ft_arm_roll} ${Ft_arm_pitch} ${Ft_arm_yaw}" />
       <axis xyz="0 0 1"/>
       <limit lower="0.0" upper="0.0" effort="0" velocity="0"/>
    </joint>
-
 <!-- wrist pitch-->
    <link name="ft_arm${arm_num}">
       <inertial>
-         <origin xyz="${Ft_arm_x} ${rot*Ft_arm_y} ${Ft_arm_z}"/>
+         <origin xyz="${Ft_arm_x} ${-rot*Ft_arm_y} ${Ft_arm_z}"/>
          <mass value="${Ft_arm_mass}"/>
-         <inertia ixx="${Ft_arm_xx}" ixy="${rot*Ft_arm_xy}" ixz="${Ft_arm_xz}" iyy="${Ft_arm_yy}" iyz="${rot*Ft_arm_yz}" izz="${Ft_arm_zz}"/>
+         <inertia ixx="${Ft_arm_xx}" ixy="${-rot*Ft_arm_xy}" ixz="${Ft_arm_xz}" iyy="${Ft_arm_yy}" iyz="${-rot*Ft_arm_yz}" izz="${Ft_arm_zz}"/>
       </inertial>
-      <visual>
-         <xacro:visual_model.arm8 />
-      </visual>
-	
-      <collision>
-         <xacro:collision_model.arm8 />
-      </collision>
-
    </link>
-
-<xacro:if value="${ft_sensors == 'revolute'}" >
    <xacro:if value="${arm_actuators}">
       <xacro:position_actuator joint="j_ft_${arm_num}" />
    </xacro:if>
 </xacro:if>
-
 
 
 <xacro:if value="${end_effector == 'soft_hand'}" >
