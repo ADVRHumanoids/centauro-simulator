@@ -416,6 +416,20 @@
 		<mu2>0</mu2>
 	</gazebo>
 
+	<gazebo reference="ft_arm1">
+		<material>Gazebo/Lane_1 </material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>
+	</gazebo>
+
+
+	<gazebo reference="ft_arm2">
+		<material>Gazebo/Lane_1 </material>
+		<mu1>0</mu1>
+		<mu2>0</mu2>
+	</gazebo>
+
+
 	<gazebo reference="arm1_8">
 		<material>Gazebo/OrangeTransparent </material>
 		<mu1>0</mu1>

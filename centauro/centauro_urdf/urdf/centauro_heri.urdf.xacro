@@ -23,14 +23,14 @@
 
 <!-- joints -->
    <joint name="j_arm${arm_num}_8" type="fixed">
-      <xacro:if value="${ft_sensors == 'true'}" >
+<!--      <xacro:if value="${ft_sensors == 'true'}" > -->
          <parent link="ft_arm${arm_num}"/>
          <origin xyz="${Heri_ft_Ox} ${Heri_ft_Oy} ${Heri_ft_Oz}" rpy="${Heri_ft_roll} ${Heri_ft_pitch} ${Heri_ft_yaw}"/>
-      </xacro:if>
+<!--      </xacro:if>
       <xacro:unless value="${ft_sensors == 'true'}" >
          <parent link="arm${arm_num}_7"/>
          <origin xyz="${Heri_Ox} ${Heri_Oy} ${Heri_Oz}" rpy="${Heri_roll} ${Heri_pitch} ${Heri_yaw}"/>
-      </xacro:unless>
+      </xacro:unless> -->
       <child link="arm${arm_num}_8"/>
 
       <axis xyz="1 0 0" />

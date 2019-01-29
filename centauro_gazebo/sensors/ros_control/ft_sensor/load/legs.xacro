@@ -1,4 +1,9 @@
 <!--<?xml version="1.0"?>-->
 <robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+  <xacro:force-torque_sensor joint="ankle_yaw_1" robot="centauro"/>
+  <xacro:force-torque_sensor joint="ankle_yaw_2" robot="centauro"/>
+  <xacro:force-torque_sensor joint="ankle_yaw_3" robot="centauro"/>
+  <xacro:force-torque_sensor joint="ankle_yaw_4" robot="centauro"/>
+
 </robot>

@@ -61,6 +61,7 @@
 <xacro:property name="left_end_effector" value= "${LEFT_END_EFFECTOR.split('fixed_', 2).pop()}" />
 <xacro:property name="right_end_effector" value= "${RIGHT_END_EFFECTOR.split('fixed_', 2).pop()}" />
 
+
 <!-- ACTUATION -->
 <xacro:property name="torso_actuators" value="${'true' if ('false' not in [TORSO_ACTUATORS, TORSO]) else 'false'}"/>
 <xacro:property name="arm_actuators" value="${'true' if ('false' not in [ARM_ACTUATORS, TORSO_ACTUATORS, arms]) else 'false'}"/>
@@ -71,7 +72,7 @@
 <!-- SENSORS -->
 <xacro:property name="arm_sensors" value="${'true' if ('false' not in [ARM_SENSORS, arms]) else 'false'}"/>
 <xacro:property name="leg_sensors" value="${'true' if ('false' not in [LEG_SENSORS, legs]) else 'false'}"/>
-<xacro:property name="ft_sensors" value="${'true' if ('false' not in [FT_SENSORS]) else 'false'}"/>
+<xacro:property name="ft_sensors" value="${'revolute' if ('false' not in [FT_SENSORS]) else 'fixed'}"/>
 <xacro:property name="bumbers" value="${'true' if ('false' not in [BUMBERS]) else 'false'}"/>
 <xacro:property name="imu" value="${'true' if ('false' not in [IMU, pelvis]) else 'false'}"/>
 <xacro:property name="kinect" value="${'true' if ('false' not in [KINECT, head]) else 'false'}"/>

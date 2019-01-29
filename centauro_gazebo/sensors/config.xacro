@@ -18,7 +18,7 @@
    </xacro:macro>
 
 <!-- Load all controllers macros -->
-<xacro:if value="${ft_sensors}">
+<xacro:if value="${ft_sensors == 'revolute'}">
         <xacro:load_model middleware="${middleware}" sensor="ft_sensor" arm_sensors="${arm_sensors}" leg_sensors="${leg_sensors}" head_sensors="false"/>           
 </xacro:if>
 <xacro:if value="${bumbers}">

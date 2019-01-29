@@ -8,14 +8,14 @@
 <!-- /links -->
 
    <joint name="j_arm${arm_num}_8" type="revolute">
-      <xacro:if value="${ft_sensors == 'true'}" >
+<!--      <xacro:if value="${ft_sensors == 'true'}" > -->
          <parent link="ft_arm${arm_num}"/>
          <origin xyz="${No_end_ft_Ox} ${No_end_ft_Oy} ${No_end_ft_Oz}" rpy="${No_end_ft_roll} ${No_end_ft_pitch} ${No_end_ft_yaw}"/>
-      </xacro:if>
-      <xacro:unless value="${ft_sensors == 'true'}" >
+<!--      </xacro:if> -->
+<!--      <xacro:unless value="${ft_sensors == 'true'}" >
          <parent link="arm${arm_num}_7"/>
          <origin xyz="${No_end_Ox} ${No_end_Oy} ${No_end_Oz}" rpy="${No_end_roll} ${No_end_pitch} ${No_end_yaw}"/>
-      </xacro:unless>
+      </xacro:unless> -->
       <child link="arm${arm_num}_8"/>
       <axis xyz="1 0 0" />
       <limit velocity="0" effort="0" lower="0.0" upper="0" />
