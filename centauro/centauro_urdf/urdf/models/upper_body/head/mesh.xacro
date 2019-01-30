@@ -18,7 +18,7 @@
 <xacro:macro name="velodyne">
   <origin xyz="0.0 0 0.0"  rpy="0.0 0.0 0.0"/>
   <geometry>
-    <mesh filename="package://centauro/centauro_urdf/meshes/velodyne.stl" scale="0.001 0.001 0.001" />
+    <mesh filename="package://centauro/centauro_urdf/meshes/simplified/mesh_lidar.stl" scale="0.001 0.001 0.001" />
   </geometry>
 </xacro:macro>
 </robot>

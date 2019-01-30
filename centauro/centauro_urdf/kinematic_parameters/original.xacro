@@ -222,10 +222,10 @@
 <xacro:property name="Kinect_pitch" value=" 0.0 "/>
 <xacro:property name="Kinect_yaw" value=" 0.0 "/>
 
-<xacro:property name="Velodyne_Ox" value=" -0.138 "/>
-<xacro:property name="Velodyne_Oy" value=" 0.0 "/>
-<xacro:property name="Velodyne_Oz" value=" -0.033 "/>
-<xacro:property name="Velodyne_roll" value=" 0.0 "/>
+<xacro:property name="Velodyne_Ox" value=" 0.0283656 "/>
+<xacro:property name="Velodyne_Oy" value=" -0.00976704 "/>
+<xacro:property name="Velodyne_Oz" value=" 0.047 "/>
+<xacro:property name="Velodyne_roll" value=" 1.57079632679 "/>
 <xacro:property name="Velodyne_pitch" value=" 0.0 "/>
-<xacro:property name="Velodyne_yaw" value=" -3.14159265359 "/>
+<xacro:property name="Velodyne_yaw" value=" -0.331612273666 "/>
 </robot>
