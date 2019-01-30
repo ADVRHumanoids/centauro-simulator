@@ -2,11 +2,12 @@
 <robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <!-- Origin -->
-<!-- <xacro:property name="hip_yaw_lower" value="${[-0.9432,-2.5110, -2.5100 ,-0.9412]}"/>
-<xacro:property name="hip_yaw_upper" value="${[ 2.5138, 0.9430,  0.9430 , 2.5138]}"/> -->
 
-<xacro:property name="hip_yaw_lower" value="${[-2.827,-2.583, -2.583 ,-2.827]}"/>
-<xacro:property name="hip_yaw_upper" value="${[ 2.583, 2.827,  2.827 , 2.583]}"/>
+<!-- <xacro:property name="hip_yaw_lower" value="${[-2.827,-2.583, -2.583 ,-2.827]}"/>
+<xacro:property name="hip_yaw_upper" value="${[ 2.583, 2.827,  2.827 , 2.583]}"/> -->
+
+<xacro:property name="hip_yaw_lower" value="${[-2.030,-2.510, -2.510 ,-2.030]}"/>
+<xacro:property name="hip_yaw_upper" value="${[ 2.510, 2.030,  2.030 , 2.510]}"/>
 
 <xacro:property name="hip_pitch_lower" value="${[-2.0226, -2.0156, -2.0126 , -2.0326]}"/>
 <xacro:property name="hip_pitch_upper" value="${[ 2.02748, 2.0354,  2.0384 ,  2.0524]}"/>
