@@ -2,8 +2,11 @@
 <robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <!-- Origin -->
-<xacro:property name="hip_yaw_lower" value="${[-0.9432,-2.5110, -2.5100 ,-0.9412]}"/>
-<xacro:property name="hip_yaw_upper" value="${[ 2.5138, 0.9430,  0.9430 , 2.5138]}"/>
+<!-- <xacro:property name="hip_yaw_lower" value="${[-0.9432,-2.5110, -2.5100 ,-0.9412]}"/>
+<xacro:property name="hip_yaw_upper" value="${[ 2.5138, 0.9430,  0.9430 , 2.5138]}"/> -->
+
+<xacro:property name="hip_yaw_lower" value="${[-2.827,-2.583, -2.583 ,-2.827]}"/>
+<xacro:property name="hip_yaw_upper" value="${[ 2.583, 2.827,  2.827 , 2.583]}"/>
 
 <xacro:property name="hip_pitch_lower" value="${[-2.0226, -2.0156, -2.0126 , -2.0326]}"/>
 <xacro:property name="hip_pitch_upper" value="${[ 2.02748, 2.0354,  2.0384 ,  2.0524]}"/>
@@ -21,7 +24,7 @@
 <xacro:property name="torso_yaw_upper" value="2.618"/>
 
 <xacro:property name="j_arm_1_lower" value="${[-3.312, -3.3458]}"/>
-<xacro:property name="j_arm_2_lower" value="${ [0.020, -3.4258]}"/>
+<xacro:property name="j_arm_2_lower" value="${[ 0.020, -3.4258]}"/>
 <xacro:property name="j_arm_3_lower" value="${[-2.552, -2.5614]}"/>
 <xacro:property name="j_arm_4_lower" value="${[-2.465, -2.4794]}"/>
 <xacro:property name="j_arm_5_lower" value="${[-2.569, -2.5394]}"/>
