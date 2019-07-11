@@ -57,4 +57,11 @@
 <xacro:property name="j_arm_6_torque" value="${[55.00, 55.00 ]}"/>
 <xacro:property name="j_arm_7_torque" value="${[28.32, 28.32 ]}"/>
 
+<xacro:property name="motor_A_velocity" value="8.8"/>
+<xacro:property name="motor_B_velocity" value="8.1"/>
+<xacro:property name="motor_C_velocity" value="20.0"/>
+
+<xacro:property name="motor_A_effort" value="304"/>
+<xacro:property name="motor_B_effort" value="147"/>
+<xacro:property name="motor_C_effort" value="35"/>
 </robot>

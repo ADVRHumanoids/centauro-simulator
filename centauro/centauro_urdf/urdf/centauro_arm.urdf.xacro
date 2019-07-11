@@ -152,7 +152,7 @@
    <joint name="j_arm${arm_num}_2" type="revolute">
       <parent link="arm${arm_num}_1"/>
       <child link="arm${arm_num}_2"/>
-      <origin xyz="${Shoulder_2_Ox} ${rot*Shoulder_2_Oy} ${Shoulder_2_Oz}" rpy="${Shoulder_2_roll} ${Shoulder_2_pitch} ${Shoulder_2_yaw}"/>
+      <origin xyz="${Shoulder_2_Ox} ${rot*Shoulder_2_Oy} ${Shoulder_2_Oz}" rpy="${rot*Shoulder_2_roll} ${Shoulder_2_pitch} ${Shoulder_2_yaw}"/>
       <axis xyz="1 0 0"/>
       <limit lower="${j_arm_2_lower[arm_num-1]}" upper="${j_arm_2_upper[arm_num-1]}" effort="${j_arm_2_torque[arm_num-1]}" velocity="${j_arm_2_velocity[arm_num-1]}"/>
    </joint>
