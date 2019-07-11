@@ -13,7 +13,7 @@
 </xacro:if>
 <xacro:include filename="${inertia_parameters_file}"/>
 <xacro:include filename="${kinematic_parameters_file}"/>
-<xacro:include filename="$(find centauro)/centauro_urdf/limits/default.xacro"/>
+<xacro:include filename="$(find centauro)/centauro_urdf/limits/${limits}.xacro"/>
 <xacro:include filename="$(find centauro)/centauro_urdf/materials.xacro"/>
 <xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/model.xacro"/>
 <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_actuators.urdf.xacro" />
@@ -103,7 +103,7 @@
 </xacro:if>
 <xacro:if value="${right_arm == 'true'}">
    <xacro:centauro_arm arm_num="2" rot="-1"  parent="torso_2" end_effector="${right_end_effector}" mount="${right_arm_mount}">
-      <origin xyz="${Shoulder_1_Ox} ${-Shoulder_1_Oy} ${Shoulder_1_Oz}" rpy="${Shoulder_1_roll} ${Shoulder_1_pitch} ${-Shoulder_1_yaw}" />
+      <origin xyz="${Shoulder_1_Ox} ${-Shoulder_1_Oy} ${Shoulder_1_Oz}" rpy="${-Shoulder_1_roll} ${Shoulder_1_pitch} ${-Shoulder_1_yaw}" />
    </xacro:centauro_arm>
 </xacro:if>
 
