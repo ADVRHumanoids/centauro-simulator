@@ -223,7 +223,6 @@
                                                 <soft_erp>0.25</soft_erp>
                                                 <kp>1000000</kp>
                                                 <kd>5</kd>
-                                                <split_impulse>0.01</split_impulse>
                                         </bullet>
                                 </contact>
                         </surface>
@@ -262,7 +261,6 @@
                                                 <soft_erp>0.25</soft_erp>
                                                 <kp>1000000</kp>
                                                 <kd>5</kd>
-                                                <split_impulse>0.01</split_impulse>
                                         </bullet>
                                 </contact>
                         </surface>
@@ -302,7 +300,6 @@
                                                 <soft_erp>0.25</soft_erp>
                                                 <kp>1000000</kp>
                                                 <kd>5</kd>
-                                                <split_impulse>0.01</split_impulse>
                                         </bullet>
                                 </contact>
                         </surface>
@@ -340,7 +337,6 @@
                                                 <soft_erp>0.25</soft_erp>
                                                 <kp>1000000</kp>
                                                 <kd>5</kd>
-                                                <split_impulse>0.01</split_impulse>
                                         </bullet>
                                 </contact>
                         </surface>

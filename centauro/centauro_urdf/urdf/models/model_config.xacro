@@ -25,7 +25,7 @@
    <xacro:if value="${right_end_effector in ['soft_hand', 'stick', 'heri']}" >
       <xacro:load_model path="upper_body/end_effectors/${right_end_effector}"  model="${model}"/>
    </xacro:if>
-   <xacro:if value="${head == 'true'}" >
+   <xacro:if value="${head in [True, 'true']}" >
       <xacro:load_model path="upper_body/head"  model="${model}"/>
    </xacro:if>
 

@@ -142,9 +142,6 @@
                    VISUAL_MODEL:=$(arg visual_model)            COLLISION_MODEL:=$(arg collision_model)
                    INERTIA_PARAM:=$(arg inertia_param)          KINEMATIC_PARAM:=$(arg kinematic_param)      LIMITS:=$(arg control_limits)
         "/>
-  <param name="robot_srdf" textfile="$(find configs)/mgnss/configs/mwoibn/srdf/centauro_full_wheels.srdf"/>
-  <param name="mwoibn_config" value="$(find configs)/mgnss/configs/mwoibn/configs/mwoibn_2_5.yaml"/>
-  <param name="centauro/contacts_yaml" textfile="$(find configs)/mgnss/configs/mwoibn/configs/support/contacts.yaml" />
   <!-- run gazebo -->
   <group if="$(arg gazebo)">
   	<group if="$(eval middleware in ['ros_control'])">
