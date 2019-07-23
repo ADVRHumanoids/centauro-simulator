@@ -1,0 +1,12 @@
+# request field
+float64 Fx
+float64 Fy
+float64 Fz
+
+int32 nr
+-----
+# response
+bool success
+string message
+
+
