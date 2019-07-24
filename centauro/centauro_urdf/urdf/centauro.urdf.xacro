@@ -38,7 +38,7 @@
 -->
 <link name="world"/>
 
-<xacro:if value="${pelvis}">
+<xacro:if value="${pelvis in [True, 'true']}">
 
    <link name="pelvis">
 
@@ -74,9 +74,9 @@
 
 </xacro:if>
 
-<xacro:unless value="${pelvis}">
+<xacro:if value="${pelvis not in [True, 'true']}">
    <link name="pelvis"/>
-</xacro:unless>
+</xacro:if>
 
 <joint name="reference" type="${reference}">
    <origin xyz="${Pelvis_Ox} ${Pelvis_Oy} ${Pelvis_Oz}"/>

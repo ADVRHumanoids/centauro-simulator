@@ -22,14 +22,14 @@
 
 <!-- torso joints -->
 <joint name="torso_yaw" type="${torso_joint}">
-   <xacro:if value="${pelvis}">
+   <xacro:if value="${pelvis in [True, 'true']}">
       <parent link="pelvis"/>
       <origin xyz="${Torso_2_Ox} ${Torso_2_Oy} ${Torso_2_Oz}"/>
    </xacro:if>
-   <xacro:unless value="${pelvis}">
+   <xacro:if value="${pelvis not  in [True, 'true']}">
       <parent link="world"/>
       <origin xyz="${Torso_2_Ox + Pelvis_Ox} ${Torso_2_Oy + Pelvis_Oy} ${Torso_2_Oz + Pelvis_Oz}"/>
-   </xacro:unless>
+   </xacro:if>
 
    <child link="torso_2"/>
    <axis xyz="0 0 1"/>
