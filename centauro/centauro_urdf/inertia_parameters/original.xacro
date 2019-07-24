@@ -224,7 +224,7 @@
 
 <!-- Center of Mass -->
 <xacro:property name="Wrist_1_x" value=" -0.00011079615 "/>
-<xacro:property name="Wrist_1_y" value=" 0.01159080036 "/> 
+<xacro:property name="Wrist_1_y" value=" 0.011590836 "/> 
 <xacro:property name="Wrist_1_z" value=" -0.07816026 "/>
 <!-- Inertia -->
 <xacro:property name="Wrist_1_xx" value=" 0.0085692128 "/>
