@@ -1,0 +1,95 @@
+<!--<?xml version="1.0"?>-->
+<robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- Origin -->
+
+<!-- <xacro:property name="hip_yaw_lower" value="${[-2.827,-2.583, -2.583 ,-2.827]}"/>
+<xacro:property name="hip_yaw_upper" value="${[ 2.583, 2.827,  2.827 , 2.583]}"/> -->
+
+<xacro:property name="hip_yaw_lower" value="${[-2.030,-1.2, -1.2 ,-2.030]}"/>
+<xacro:property name="hip_yaw_upper" value="${[ 1.2, 2.030,  2.030 , 1.2]}"/>
+
+<xacro:property name="hip_pitch_lower" value="${[-2.0226, -2.0156, -2.0126 , -2.0326]}"/>
+<xacro:property name="hip_pitch_upper" value="${[ 2.02748, 2.0354,  2.0384 ,  2.0524]}"/>
+
+<xacro:property name="knee_pitch_lower" value="${[-2.4056, -2.4006, -2.4056, -2.4176]}"/>
+<xacro:property name="knee_pitch_upper" value="${[ 2.3994,  2.4034,  2.4064,  2.3884]}"/>
+
+<xacro:property name="ankle_pitch_lower" value="${[-2.4056, -2.3266, -2.4696, -2.3426]}"/>
+<xacro:property name="ankle_pitch_upper" value="${[2.3184,   2.3914,  2.4464,  2.3934]}"/>
+
+<xacro:property name="ankle_yaw_lower" value="${[-2.5626, -2.5546, -2.5606, -2.6046]}"/>
+<xacro:property name="ankle_yaw_upper" value="${[ 2.5384,  2.5484,  2.5454,  2.5514]}"/>
+
+<xacro:property name="torso_yaw_lower" value="-2.618"/>
+<xacro:property name="torso_yaw_upper" value="2.618"/>
+
+<xacro:property name="j_arm_1_lower" value="${[-3.312, -3.3458]}"/>
+<xacro:property name="j_arm_2_lower" value="${[ 0.020, -3.4258]}"/>
+<xacro:property name="j_arm_3_lower" value="${[-2.552, -2.5614]}"/>
+<xacro:property name="j_arm_4_lower" value="${[-2.465, -2.4794]}"/>
+<xacro:property name="j_arm_5_lower" value="${[-2.569, -2.5394]}"/>
+<xacro:property name="j_arm_6_lower" value="${[-1.529, -1.5154]}"/>
+<xacro:property name="j_arm_7_lower" value="${[-2.565, -2.5554]}"/>
+
+<xacro:property name="j_arm_1_upper" value="${[1.615, 1.6012]}"/>
+<xacro:property name="j_arm_2_upper" value="${[3.431, -0.0138]}"/>
+<xacro:property name="j_arm_3_upper" value="${[2.566, 2.5606]}"/>
+<xacro:property name="j_arm_4_upper" value="${[0.280, 0.2886]}"/>
+<xacro:property name="j_arm_5_upper" value="${[2.562, 2.5546]}"/>
+<xacro:property name="j_arm_6_upper" value="${[1.509, 1.5156]}"/>
+<xacro:property name="j_arm_7_upper" value="${[2.569, 2.5686]}"/>
+
+
+<xacro:property name="j_arm_1_velocity" value="${[3.86, 3.86 ]}"/>
+<xacro:property name="j_arm_2_velocity" value="${[3.86, 3.86 ]}"/>
+<xacro:property name="j_arm_3_velocity" value="${[6.06, 6.06 ]}"/>
+<xacro:property name="j_arm_4_velocity" value="${[6.06, 6.06 ]}"/>
+<xacro:property name="j_arm_5_velocity" value="${[11.72, 11.72 ]}"/>
+<xacro:property name="j_arm_6_velocity" value="${[11.72, 11.72 ]}"/>
+<xacro:property name="j_arm_7_velocity" value="${[20.35, 20.35 ]}"/>
+
+<xacro:property name="j_arm_1_torque" value="${[147.00, 147.00 ]}"/>
+<xacro:property name="j_arm_2_torque" value="${[147.00, 147.00 ]}"/>
+<xacro:property name="j_arm_3_torque" value="${[147.00, 147.00 ]}"/>
+<xacro:property name="j_arm_4_torque" value="${[147.00, 147.00 ]}"/>
+<xacro:property name="j_arm_5_torque" value="${[55.00, 55.00 ]}"/>
+<xacro:property name="j_arm_6_torque" value="${[55.00, 55.00 ]}"/>
+<xacro:property name="j_arm_7_torque" value="${[28.32, 28.32 ]}"/>
+
+<!--
+<xacro:property name="motor_A_velocity" value="3.00"/>
+<xacro:property name="motor_B_velocity" value="3.00"/>
+<xacro:property name="motor_C_velocity" value="8.00"/>
+-->
+
+<!-- visible reaction -->
+<xacro:property name="motor_A_velocity" value="1.00"/>
+<xacro:property name="motor_B_velocity" value="1.00"/>
+<xacro:property name="motor_C_velocity" value="1.00"/>
+
+<!--
+<xacro:property name="motor_A_velocity" value="1.00"/>
+<xacro:property name="motor_B_velocity" value="1.00"/>
+<xacro:property name="motor_C_velocity" value="1.00"/>
+-->
+
+<!-- Aim
+<xacro:property name="motor_A_velocity" value="1.00"/>
+<xacro:property name="motor_B_velocity" value="1.00"/>
+<xacro:property name="motor_C_velocity" value="1.00"/>
+-->
+
+<xacro:property name="motor_A_effort" value="200"/>
+<xacro:property name="motor_B_effort" value="98"/>
+<xacro:property name="motor_C_effort" value="23"/>
+<!--
+<xacro:property name="motor_A_velocity" value="1.0"/>
+<xacro:property name="motor_B_velocity" value="1.0"/>
+<xacro:property name="motor_C_velocity" value="1.0"/>
+
+<xacro:property name="motor_A_effort" value="200"/>
+<xacro:property name="motor_B_effort" value="98"/>
+<xacro:property name="motor_C_effort" value="23"/>
+-->
+</robot>

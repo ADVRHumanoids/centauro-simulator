@@ -78,23 +78,23 @@
 <!-- /reference  -->
 
 <!-- torso -->
-<xacro:if value="${torso == 'true'}">
+<xacro:if value="${torso in [True, 'true']}">
    <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_torso_fixed.urdf.xacro"/>
 </xacro:if>
-<xacro:if value="${head == 'true'}">
+<xacro:if value="${head in [True, 'true']}">
    <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_head.urdf.xacro"/>
 </xacro:if>
 <!-- /torso -->
 
 
 <!-- arms -->
-<xacro:if value="${arms == 'true'}">
+<xacro:if value="${arms in [True, 'true']}">
    <xacro:centauro_arm arm_num="2" rot="-1"  parent="torso_2" end_effector="${RIGHT_END_EFFECTOR}">
       <origin xyz="${Shoulder_1_Ox} ${-Shoulder_1_Oy} ${Shoulder_1_Oz}" rpy="${Shoulder_1_roll} ${Shoulder_1_pitch} ${-Shoulder_1_yaw}" />
    </xacro:centauro_arm>
 </xacro:if>
 
-<xacro:if value="${arm == 'true' and arms == 'false'}">
+<xacro:if value="${arm in [True, 'true'] and arms in [False, 'false']}">
         <xacro:centauro_arm arm_num="1"  rot="1" parent="world">
            <origin xyz="${Shoulder_1_Ox + Pelvis_Ox + Torso_2_Ox} ${Shoulder_1_Oy + Pelvis_Oy + Torso_2_Oy} ${Shoulder_1_Oz + Pelvis_Oz + Torso_2_Oz}" rpy="${Shoulder_1_roll} ${Shoulder_1_pitch} ${Shoulder_1_yaw}"/>
         </xacro:centauro_arm>

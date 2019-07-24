@@ -41,19 +41,25 @@
 <xacro:property name="MASS" value="$(arg MASS)"/>
 
 <!-- dependend arguments -->
-<xacro:property name="torso" value="${'true' if ('true' in [TORSO] or 'fixed' in [TORSO]) else 'false'}"/>
-<xacro:property name="head" value="${'true' if ('false' not in [torso, HEAD]) else 'false'}"/>
+<xacro:property name="torso" value="${'true' if (TORSO in [True, 'true', 'fixed'] ) else 'false'}"/>
 
-<xacro:property name="arms" value="${'true' if ('false' not in [TORSO, ARMS]) else 'false'}"/>
-<xacro:property name="left_arm" value= "${'true' if ('true' in [arms] and ('true' in [ARMS] or 'left' in [ARMS])) else 'false'}" />
-<xacro:property name="right_arm" value= "${'true' if ('true' in [arms] and ('true' in [ARMS] or 'right' in [ARMS])) else 'false'}" />
+<xacro:property name="head" value="${'true' if (False not in [torso, HEAD] and 'false' not in [torso, HEAD]) else 'false'}"/>
 
-<xacro:property name="legs" value="${'true' if ('false' not in [LEGS]) else 'false'}"/>
-<xacro:property name="pelvis" value= "${'true' if ('true' in [legs]) else 'false'}" />
-<xacro:property name="wheels" value="${'true' if ('false' not in [WHEELS, legs]) else 'false'}"/>
+<xacro:property name="arms" value="${'true' if (False not in [TORSO, ARMS] and 'false' not in [TORSO, ARMS]) else 'false'}"/>
 
-<xacro:property name="static" value="${'true' if ('true' in [STATIC] or 'false' in [legs, LEG_ACTUATORS]) else 'false'}"/>
-<xacro:property name="reference" value="${'fixed' if (static == 'true') else 'floating'}" />
+
+<xacro:property name="left_arm" value= "${'true' if (arms in [True, 'true'] and (ARMS in [True, 'true', 'left'] )) else 'false'}" />
+<xacro:property name="right_arm" value= "${'true' if (arms in [True, 'true'] and (ARMS in [True, 'true', 'right'] )) else 'false'}" />
+
+<xacro:property name="legs" value="${'true' if (LEGS not in [False, 'false']) else 'false'}"/>
+
+
+<xacro:property name="pelvis" value= "${'true' if (legs in [True, 'true']) else 'false'}" />
+
+<xacro:property name="wheels" value="${'true' if (False not in [WHEELS, legs] and 'false' not in [WHEELS, legs]) else 'false'}"/>
+
+<xacro:property name="static" value="${'true' if (STATIC in [True, 'true'] or False in [legs, LEG_ACTUATORS]) else 'false'}"/>
+<xacro:property name="reference" value="${'fixed' if (static in [True, 'true']) else 'floating'}" />
 <xacro:property name="torso_joint" value="${'fixed' if ('fixed' in [TORSO]) else 'revolute'}"/>
 
 <xacro:property name="left_arm_mount" value= "${'revolute' if LEFT_END_EFFECTOR in ['soft_hand'] else 'fixed'}" />
@@ -64,20 +70,22 @@
 
 
 <!-- ACTUATION -->
-<xacro:property name="torso_actuators" value="${'true' if ('false' not in [TORSO_ACTUATORS, TORSO]) else 'false'}"/>
-<xacro:property name="arm_actuators" value="${'true' if ('false' not in [ARM_ACTUATORS, TORSO_ACTUATORS, arms]) else 'false'}"/>
-<xacro:property name="leg_actuators" value="${'true' if ('false' not in [LEG_ACTUATORS, legs]) else 'false'}"/>
-<xacro:property name="head_actuators" value="${'true' if ('false' not in [HEAD_ACTUATORS, head]) else 'false'}"/>
-<xacro:property name="torso_actuators" value="${'true' if ('false' not in [TORSO_ACTUATORS, TORSO]) else 'false'}"/>
+<xacro:property name="torso_actuators" value="${'true' if (False not in [TORSO_ACTUATORS, TORSO] and 'false' not in [TORSO_ACTUATORS, TORSO]) else 'false'}"/>
+
+<xacro:property name="arm_actuators" value="${'true' if (False not in [ARM_ACTUATORS, TORSO_ACTUATORS, arms] and 'false' not in [ARM_ACTUATORS, TORSO_ACTUATORS, arms]) else 'false'}"/>
+<xacro:property name="leg_actuators" value="${'true' if (False not in [LEG_ACTUATORS, legs] and 'false' not in [LEG_ACTUATORS, legs]) else 'false'}"/>
+<xacro:property name="head_actuators" value="${'true' if (False not in [HEAD_ACTUATORS, head] and 'false' not in [HEAD_ACTUATORS, head]) else 'false'}"/>
+<xacro:property name="torso_actuators" value="${'true' if (False not in [TORSO_ACTUATORS, TORSO] and 'false' not in [TORSO_ACTUATORS, TORSO]) else 'false'}"/>
 
 <!-- SENSORS -->
-<xacro:property name="arm_sensors" value="${'true' if ('false' not in [ARM_SENSORS, arms]) else 'false'}"/>
-<xacro:property name="leg_sensors" value="${'true' if ('false' not in [LEG_SENSORS, legs]) else 'false'}"/>
-<xacro:property name="ft_sensors" value="${'revolute' if ('false' not in [FT_SENSORS]) else 'fixed'}"/>
-<xacro:property name="bumbers" value="${'true' if ('false' not in [BUMBERS]) else 'false'}"/>
-<xacro:property name="imu" value="${'true' if ('false' not in [IMU, pelvis]) else 'false'}"/>
-<xacro:property name="kinect" value="${'true' if ('false' not in [KINECT, head]) else 'false'}"/>
-<xacro:property name="velodyne" value="${'true' if ('false' not in [VELODYNE, head]) else 'false'}"/>
+<xacro:property name="arm_sensors" value="${'true' if (False not in [ARM_SENSORS, arms] and 'false' not in [ARM_SENSORS, arms]) else 'false'}"/>
+<xacro:property name="leg_sensors" value="${'true' if (False not in [LEG_SENSORS, legs] and 'false' not in [LEG_SENSORS, legs]) else 'false'}"/>
+<xacro:property name="ft_sensors" value="${'revolute' if (False not in [FT_SENSORS]) else 'fixed'}"/>
+<xacro:property name="bumbers" value="${'true' if (BUMBERS not in [False, 'false']) else 'false'}"/>
+<xacro:property name="imu" value="${'true' if (False not in [IMU, pelvis] and 'false' not in [IMU, pelvis]) else 'false'}"/>
+<xacro:property name="kinect" value="${'true' if (False not in [KINECT, head] and 'false' not in [KINECT, head]) else 'false'}"/>
+<xacro:property name="velodyne" value="${'true' if (False not in [VELODYNE, head] and 'false' not in [VELODYNE, head]) else 'false'}"/>
+<!--xacro:property name="velodyne" value="false"/-->
 
 <!-- LOAD PARAMETERS -->
 <xacro:property name="package" value="$(find centauro)"/>
