@@ -36,23 +36,6 @@
        </gazebo>
 </xacro:if>
 
-<!-- /OTHER PLUGINS -->
-       <gazebo>
-            <plugin name="compute_com" filename="libgazebo_plugins_compute_com.so"/>
-            <plugin name="apply_com_force" filename="libgazebo_plugins_apply_force.so">
-                <link>pelvis</link>
-                <topic>~/center_of_mass</topic>
-            </plugin>
-       </gazebo>
-	<gazebo reference="pelvis">
-                <visual>
-                    <plugin name="show_com" filename="libgazebo_plugins_show_com.so">
-                        <step>1000</step> 
-                        <ns>centauro</ns>
-                        <topic>~/center_of_mass</topic>
-                    </plugin>
-                </visual>
-	</gazebo>
 
 <!-- VISUALiZATION AND FRICTION -->
 
