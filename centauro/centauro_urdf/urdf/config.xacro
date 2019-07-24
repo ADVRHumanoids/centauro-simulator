@@ -58,7 +58,7 @@
 
 <xacro:property name="wheels" value="${'true' if (False not in [WHEELS, legs] and 'false' not in [WHEELS, legs]) else 'false'}"/>
 
-<xacro:property name="static" value="${'true' if (STATIC in [True, 'true'] or False in [legs, LEG_ACTUATORS]) else 'false'}"/>
+<xacro:property name="static" value="${'true' if (STATIC in [True, 'true'] or False in [legs, LEG_ACTUATORS] or 'false' in [legs, LEG_ACTUATORS]) else 'false'}"/>
 <xacro:property name="reference" value="${'fixed' if (static in [True, 'true']) else 'floating'}" />
 <xacro:property name="torso_joint" value="${'fixed' if ('fixed' in [TORSO]) else 'revolute'}"/>
 
