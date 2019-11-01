@@ -78,8 +78,8 @@ Defined which part of the robot should be loaded
 | wheels | false | true, false | OBSOLETE: if wheels should be loaded |
 | static | false | true, false | if the system is floating base or static |
 | mass | 0 | positive number | 5x5x5 cm box is added 10 cm from a last arm joint axis of **mass** kg |
-| left_end_effector | stick | stick, soft_hand, schunk_hand, fixed_soft_hand, unknown* | which end_effector should be loaded on the left arm, if unknown no end_effector will be loaded
-| right_end_effector | stick | stick, soft_hand, schunk_hand, fixed_soft_hand, unknown* | which end_effector should be loaded on the right arm, if unknown no end_effector will be loaded
+| left_end_effector | stick | stick, heri, soft_hand, schunk_hand, fixed_soft_hand, unknown* | which end_effector should be loaded on the left arm, if unknown no end_effector will be loaded
+| right_end_effector | stick | stick, heri, soft_hand, schunk_hand, fixed_soft_hand, unknown* | which end_effector should be loaded on the right arm, if unknown no end_effector will be loaded
 
 * 'unknown' argument means any string that is not defined as a specific value for this argument 
 
