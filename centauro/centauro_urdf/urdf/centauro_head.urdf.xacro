@@ -7,7 +7,7 @@
 <link name="neck_1">
 	<inertial>
 		<origin xyz="${Neck_1_x} ${Neck_1_y} ${Neck_1_z}"/>
-		<mass value="${Neck_1_mass}"/> 
+		<mass value="${Neck_1_mass}"/>
                 <inertia ixx="${Neck_1_xx}" ixy="${Neck_1_xy}" ixz="${Neck_1_xz}" iyy="${Neck_1_yy}" iyz="${Neck_1_yz}" izz="${Neck_1_zz}"/>
         </inertial>
 
@@ -23,7 +23,7 @@
 <link name="neck_2">
 	<inertial>
 		<origin xyz="${Neck_2_x} ${Neck_2_y} ${Neck_2_z}"/>
-		<mass value="${Neck_2_mass}"/> 
+		<mass value="${Neck_2_mass}"/>
                 <inertia ixx="${Neck_2_xx}" ixy="${Neck_2_xy}" ixz="${Neck_2_xz}" iyy="${Neck_2_yy}" iyz="${Neck_2_yz}" izz="${Neck_2_zz}"/>
         </inertial>
 
@@ -39,7 +39,7 @@
 <link name="neck_3">
 	<inertial>
 		<origin xyz="${Neck_3_x} ${Neck_3_y} ${Neck_3_z}"/>
-		<mass value="${Neck_3_mass}"/> 
+		<mass value="${Neck_3_mass}"/>
                 <inertia ixx="${Neck_3_xx}" ixy="${Neck_3_xy}" ixz="${Neck_3_xz}" iyy="${Neck_3_yy}" iyz="${Neck_3_yz}" izz="${Neck_3_zz}"/>
         </inertial>
 
@@ -56,35 +56,35 @@
 <link name="camera_central">
 	<inertial>
 		<origin xyz="${Dummy_x} ${Dummy_y} ${Dummy_z}"/>
-		<mass value="${Dummy_mass}"/> 
+		<mass value="${Dummy_mass}"/>
                 <inertia ixx="${Dummy_xx}" ixy="${Dummy_xy}" ixz="${Dummy_xz}" iyy="${Dummy_yy}" iyz="${Dummy_yz}" izz="${Dummy_zz}"/>
         </inertial>
 </link>
 <link name="camera_left">
 	<inertial>
 		<origin xyz="${Dummy_x} ${Dummy_y} ${Dummy_z}"/>
-		<mass value="${Dummy_mass}"/> 
+		<mass value="${Dummy_mass}"/>
                 <inertia ixx="${Dummy_xx}" ixy="${Dummy_xy}" ixz="${Dummy_xz}" iyy="${Dummy_yy}" iyz="${Dummy_yz}" izz="${Dummy_zz}"/>
         </inertial>
 </link>
 <link name="camera_right">
 	<inertial>
 		<origin xyz="${Dummy_x} ${Dummy_y} ${Dummy_z}"/>
-		<mass value="${Dummy_mass}"/> 
+		<mass value="${Dummy_mass}"/>
                 <inertia ixx="${Dummy_xx}" ixy="${Dummy_xy}" ixz="${Dummy_xz}" iyy="${Dummy_yy}" iyz="${Dummy_yz}" izz="${Dummy_zz}"/>
         </inertial>
 </link>
 <link name="kinect">
 	<inertial>
 		<origin xyz="${Dummy_x} ${Dummy_y} ${Dummy_z}"/>
-		<mass value="${Dummy_mass}"/> 
+		<mass value="${Dummy_mass}"/>
                 <inertia ixx="${Dummy_xx}" ixy="${Dummy_xy}" ixz="${Dummy_xz}" iyy="${Dummy_yy}" iyz="${Dummy_yz}" izz="${Dummy_zz}"/>
         </inertial>
 </link>
 <link name="velodyne_mount">
 	<inertial>
 		<origin xyz="${Dummy_x} ${Dummy_y} ${Dummy_z}"/>
-		<mass value="${Dummy_mass}"/> 
+		<mass value="${Dummy_mass}"/>
                 <inertia ixx="${Dummy_xx}" ixy="${Dummy_xy}" ixz="${Dummy_xz}" iyy="${Dummy_yy}" iyz="${Dummy_yz}" izz="${Dummy_zz}"/>
         </inertial>
 </link>
@@ -122,10 +122,10 @@
 <xacro:if value="${head_actuators}">
    <!-- head actuators -->
    <xacro:position_actuator joint="neck_yaw" />
-   <xacro:position_actuator joint="neck_pitch" />  
-   <xacro:position_actuator joint="neck_velodyne" />  
+   <xacro:position_actuator joint="neck_pitch" />
+   <xacro:position_actuator joint="neck_velodyne" />
    <!-- /head actuators -->
-</xacro:if> 
+</xacro:if>
 
 
 
@@ -175,12 +175,5 @@
 
 
 <!-- /sensors transformations -->
-<link name="velodyne_calib" />
-<joint name="velodyne_calib" type="fixed">
-   <parent link="neck_3"/>
-  <origin xyz="-0.175768 0 -0.034219" rpy="-1.57772 0.0128311 1.57073"/>
-   <child link="velodyne_calib"/>
-</joint>
-
 
 </robot>
