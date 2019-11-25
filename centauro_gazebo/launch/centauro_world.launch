@@ -1,5 +1,6 @@
 <launch>
 
+  <param name="use_sim_time" type="bool" value="true"/>
   <!-- basic set-up which progrmas should run -->
   <arg name="gazebo" default="true"/>
   <arg name="rviz" default="false"/>
@@ -9,7 +10,7 @@
   <arg name="kinematic_param" default="original"/>
   <arg name="limits" default="default"/>
 <!--  <arg name="xbot_config_file" default="configs/ADVR_shared/centauro/configs/config_centauro.yaml"/> -->
-  <arg name="xbot_config_file"  default="../../catkin_ws/src/DrivingFramework/configs/xbot/lower/centauro.yaml" />
+  <arg name="xbot_config_file"  default="/home/vignesh/vignesh_stuff/advr-superbuild/configs/CentauroConfig/centauro_simulation_demo.yaml" />
 
 
   <!-- gazebo configuration parameters -->
@@ -30,12 +31,12 @@
   <arg name="arms" default="true"/>
   <arg name="torso" default="true"/>
   <arg name="legs" default="true"/>
-  <arg name="head" default="false"/>
-  <arg name="wheels" default="false"/>
+  <arg name="head" default="true"/>
+  <arg name="wheels" default="true"/>
   <arg name="static" default="false"/>
 
   <!-- choose the end-effector -->
-  <arg name="left_end_effector" default="heri"/>
+  <arg name="left_end_effector" default="stick"/>
   <arg name="right_end_effector" default="stick"/>
   <arg name="mass" default="0.0"/>
 
@@ -47,18 +48,18 @@
   <arg name="head_actuators" default="true"/>
 
   <!-- sensors set-up-->
-  <arg name="arm_sensors" default="true"/>
+  <arg name="arm_sensors" default="false"/>
   <arg name="leg_sensors" default="true"/>
   <arg name="ft_sensors" default="true"/>
   <arg name="bumbers" default="true"/>
   <arg name="imu" default="true"/>
-  <arg name="kinect" default="true"/>
+  <arg name="kinect" default="false"/>
   <arg name="velodyne" default="true"/>
 
 
   <!-- which collision model should run:
        WARNING: exactly one parameter has to be true, otherwise simulation behaviour is undefined -->
-  <arg name="collision_model" default="primitives"/>
+  <arg name="collision_model" default="convex_hull"/>
 
   <!-- whether the mesh files should be loaded for visualization -->
   <arg name="visual_model" default="simplified"/>
@@ -86,7 +87,7 @@
                    ARM_ACTUATORS:=$(arg arm_actuators)          LEG_ACTUATORS:=$(arg leg_actuators)             TORSO_ACTUATORS:=$(arg torso_actuators)         WHEELS_ACTUATORS:=$(arg wheels_actuators)       HEAD_ACTUATORS:=$(arg head_actuators)
                    ARM_SENSORS:=$(arg arm_sensors)              LEG_SENSORS:=$(arg leg_sensors)                 VELODYNE:=$(arg velodyne)
                    FT_SENSORS:=$(arg ft_sensors)                BUMBERS:=$(arg bumbers)                         IMU:=$(arg imu)                                 KINECT:=$(arg kinect)
-                   VISUAL_MODEL:=$(arg visual_model)            COLLISION_MODEL:=$(arg collision_model) 
+                   VISUAL_MODEL:=$(arg visual_model)            COLLISION_MODEL:=$(arg collision_model)
                    INERTIA_PARAM:=$(arg inertia_param)          KINEMATIC_PARAM:=$(arg kinematic_param)         LIMITS:=$(arg limits)
         "/>
 
