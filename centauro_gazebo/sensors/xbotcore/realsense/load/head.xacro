@@ -1,0 +1,9 @@
+<!--<?xml version="1.0"?>-->
+<robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
+        <sensor_d435_gazebo parent="pelvis" name="camera2" topics_ns="/camera2" >
+        	<origin xyz="-0.1 -0.09 -0.02" rpy="0 0.75 -0.7" />
+        </sensor_d435_gazebo>
+        <sensor_d435_gazebo parent="pelvis" name="camera1" topics_ns="/camera1" >
+        	<origin xyz="-0.1 0.09 -0.02" rpy="0 0.75  0.6 " />
+        </sensor_d435_gazebo>
+</robot>

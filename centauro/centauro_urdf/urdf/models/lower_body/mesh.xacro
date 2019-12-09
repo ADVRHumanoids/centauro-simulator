@@ -46,7 +46,8 @@
 <xacro:macro name="wheel">
    <origin xyz="0.0 0.0 0.0"  rpy="0.0 0.0 0.0"/>
    <geometry>
-      <mesh filename="package://centauro/centauro_urdf/meshes/wheel.stl" scale="0.001 ${0.001} 0.001" />
+      <!--<mesh filename="package://centauro/centauro_urdf/meshes/wheel.stl" scale="0.001 ${0.001} 0.001" />-->
+      <cylinder length="0.06" radius="${0.14/2.}"/>
    </geometry>
 </xacro:macro>
 </robot>

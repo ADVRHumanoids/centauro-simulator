@@ -38,6 +38,8 @@
 <xacro:property name="KINECT" value="$(arg KINECT)"/>
 
 <xacro:property name="VELODYNE" value="$(arg VELODYNE)"/>
+<xacro:property name="REALSENSE" value="$(arg REALSENSE)"/>
+
 <xacro:property name="MASS" value="$(arg MASS)"/>
 
 <!-- dependend arguments -->
@@ -86,7 +88,7 @@
 <xacro:property name="kinect" value="${'true' if (False not in [KINECT, head] and 'false' not in [KINECT, head]) else 'false'}"/>
 <xacro:property name="velodyne" value="${'true' if (False not in [VELODYNE, head] and 'false' not in [VELODYNE, head]) else 'false'}"/>
 <!--xacro:property name="velodyne" value="false"/-->
-
+<xacro:property name="realsense" value="${'true' if (False not in [REALSENSE, head] and 'false' not in [REALSENSE, head]) else 'false'}"/>
 <!-- LOAD PARAMETERS -->
 <xacro:property name="package" value="$(find centauro)"/>
 

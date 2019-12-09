@@ -47,7 +47,7 @@
     <include>
       <uri>model://sun</uri>
     </include>
-   
+
     <!-- Focus camera on tall pendulum -->
     <gui fullscreen='0'>
       <camera name='user_camera'>
@@ -57,8 +57,8 @@
     </gui>
 
     <physics name="update_rate" type="ode">
-      <real_time_update_rate>4000</real_time_update_rate>
-      <max_step_size>0.00025</max_step_size>
+      <real_time_update_rate>1600</real_time_update_rate>
+      <max_step_size>0.000625</max_step_size>
       <max_contacts>5</max_contacts>
       <bullet>
 	<solver>
@@ -69,7 +69,7 @@
           <contact_surface_layer>0.2</contact_surface_layer>
           <cfm>0.005</cfm>
           <erp>0.2</erp>
-        </constraints> 
+        </constraints>
       </bullet>
       <ode>
 	<solver>
@@ -82,7 +82,7 @@
           <contact_max_correcting_vel>500</contact_max_correcting_vel>
           <cfm>0.000001</cfm>
           <erp>0.3</erp>
-        </constraints> 
+        </constraints>
       </ode>
     </physics>
 

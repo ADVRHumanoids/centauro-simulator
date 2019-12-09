@@ -3,9 +3,9 @@
 
 <xacro:include filename="$(find centauro)/centauro_urdf/urdf/config.xacro"/>
 
-  <xacro:force-torque_sensor joint="j_ft_1" robot="centauro" ft_name="left_arm_ft" pose="0 0 0 0 0 0"/>
+  <xacro:force-torque_sensor joint="j_ft_arm1" robot="centauro" ft_name="left_arm_ft" pose="0 0 0 0 0 0"/>
   <xacro:if value="${arms}">
-    <xacro:force-torque_sensor joint="j_ft_2" robot="centauro" ft_name="right_arm_ft" pose="0 0 0 0 0 0"/>
+    <xacro:force-torque_sensor joint="j_ft_arm2" robot="centauro" ft_name="right_arm_ft" pose="0 0 0 0 0 0"/>
   </xacro:if>
 
 </robot>

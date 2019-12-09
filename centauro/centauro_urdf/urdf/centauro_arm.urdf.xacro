@@ -6,7 +6,7 @@
 
 <!-- macro arms -->
 <xacro:macro name="centauro_arm" params="arm_num rot parent end_effector mount *origin">
-	
+
 <!-- LINKS -->
 <!-- shoulder yaw-roll-->
    <link name="arm${arm_num}_1">
@@ -20,7 +20,7 @@
          <xacro:visual_model.arm1 />
          <material name="dark_grey"/>
       </visual>
-	
+
       <collision>
          <xacro:collision_model.arm1 />
       </collision>
@@ -38,13 +38,13 @@
       <visual>
          <xacro:visual_model.arm2 />
       </visual>
-	
+
       <collision>
          <xacro:collision_model.arm2 />
       </collision>
    </link>
 <!-- shoulder roll-pitch-->
-	
+
 <!-- shoulder-elbow -->
    <link name="arm${arm_num}_3">
       <inertial>
@@ -75,7 +75,7 @@
       <visual>
          <xacro:visual_model.arm4 />
       </visual>
-	
+
       <collision>
          <xacro:collision_model.arm4 />
       </collision>
@@ -111,7 +111,7 @@
       <visual>
          <xacro:visual_model.arm6 />
       </visual>
-	
+
       <collision>
          <xacro:collision_model.arm6 />
       </collision>
@@ -147,7 +147,7 @@
       <limit lower="${j_arm_1_lower[arm_num-1]}" upper="${j_arm_1_upper[arm_num-1]}" effort="${j_arm_1_torque[arm_num-1]}" velocity="${j_arm_1_velocity[arm_num-1]}"/>
    </joint>
 <!-- /shoulder yaw -->
-	
+
 <!-- shoulder roll -->
    <joint name="j_arm${arm_num}_2" type="revolute">
       <parent link="arm${arm_num}_1"/>
@@ -167,7 +167,7 @@
       <limit lower="${j_arm_3_lower[arm_num-1]}" upper="${j_arm_3_upper[arm_num-1]}" effort="${j_arm_3_torque[arm_num-1]}" velocity="${j_arm_3_velocity[arm_num-1]}"/>
    </joint>
 <!-- /shoulder pitch -->
-	
+
 <!-- elbow yaw -->
    <joint name="j_arm${arm_num}_4" type="revolute">
       <parent link="arm${arm_num}_3"/>
@@ -187,7 +187,7 @@
       <limit lower="${j_arm_5_lower[arm_num-1]}" upper="${j_arm_5_upper[arm_num-1]}" effort="${j_arm_5_torque[arm_num-1]}" velocity="${j_arm_5_velocity[arm_num-1]}"/>
    </joint>
 <!-- /elbow pitch-->
-	
+
 <!-- wrist yaw-->
    <joint name="j_arm${arm_num}_6" type="revolute">
       <parent link="arm${arm_num}_5"/>
@@ -197,7 +197,7 @@
       <limit lower="${j_arm_6_lower[arm_num-1]}" upper="${j_arm_6_upper[arm_num-1]}" effort="${j_arm_6_torque[arm_num-1]}" velocity="${j_arm_6_velocity[arm_num-1]}"/>
    </joint>
 <!-- /wrist yaw-->
-	
+
 <!-- wrist pitch-->
    <joint name="j_arm${arm_num}_7" type="revolute">
       <parent link="arm${arm_num}_6"/>
@@ -224,12 +224,12 @@
 
 <!-- end-effector -->
 <!-- wrist pitch-->
-   <joint name="j_ft_${arm_num}" type="${ft_sensors}">
+   <joint name="j_ft_arm${arm_num}" type="${ft_sensors}">
       <parent link="arm${arm_num}_7"/>
       <child link="ft_arm${arm_num}"/>
       <origin xyz="${Ft_arm_Ox} ${Ft_arm_Oy} ${Ft_arm_Oz}" rpy="${Ft_arm_roll} ${Ft_arm_pitch} ${Ft_arm_yaw}" />
       <axis xyz="0 0 1"/>
-      <limit lower="0.0" upper="0.0" effort="0" velocity="0"/>
+      <limit lower="0.0" upper="5.0" effort="5" velocity="5"/>
    </joint>
 
 <!-- wrist pitch-->
@@ -242,7 +242,7 @@
       <visual>
          <xacro:visual_model.arm8 />
       </visual>
-	
+
       <collision>
          <xacro:collision_model.arm8 />
       </collision>
@@ -251,7 +251,7 @@
 
 <xacro:if value="${ft_sensors == 'revolute'}" >
    <xacro:if value="${arm_actuators}">
-      <xacro:position_actuator joint="j_ft_${arm_num}" />
+      <xacro:position_actuator joint="j_ft_arm${arm_num}" />
    </xacro:if>
 </xacro:if>
 
@@ -269,17 +269,17 @@
 </xacro:if>
 <xacro:if value="${end_effector == 'schunk_hand'}" >
 	 <!-- schunk hand -->
-   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/upper_body/end_effectors/schunk_hand/svh_gazebo.urdf.xacro" /> 
-   <xacro:svh parent="arm2_7" name="right_hand" side="1">                                  
+   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/models/upper_body/end_effectors/schunk_hand/svh_gazebo.urdf.xacro" />
+   <xacro:svh parent="arm2_7" name="right_hand" side="1">
         <origin xyz="0 0 -0.04"  rpy= "${PI} 0 ${PI/2}" />
    </xacro:svh>
 </xacro:if>
-	
+
 <xacro:if value="${end_effector != 'stick' and end_effector != 'soft_hand' and end_effector != 'schunk_hand' and end_effector != 'heri'}" >
   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_no_end_effector.urdf.xacro" />
 </xacro:if>
 
-<!-- adds and additional box of a 10x10x10 cm size and mass "MASS" 5 cm towards x direction from the endeffector axis. It may be needed to stabilize a simulation --> 
+<!-- adds and additional box of a 10x10x10 cm size and mass "MASS" 5 cm towards x direction from the endeffector axis. It may be needed to stabilize a simulation -->
 <xacro:if value="${MASS > 0}" >
   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_mass.urdf.xacro" />
 </xacro:if>

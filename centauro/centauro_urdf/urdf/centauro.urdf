@@ -611,7 +611,7 @@
   </transmission>
   <!-- /actuators -->
   <!-- wrist pitch-->
-  <joint name="j_ft_1" type="revolute">
+  <joint name="j_ft_arm1" type="revolute">
     <parent link="arm1_7"/>
     <child link="ft_arm1"/>
     <origin rpy="0.0 3.14159265359 -3.14159265359" xyz="0.0 0.0 -0.0405"/>
@@ -626,12 +626,12 @@
       <inertia ixx="1e-06" ixy="-0.0" ixz="0.0" iyy="1e-06" iyz="-0.0" izz="1e-06"/>
     </inertial>
   </link>
-  <transmission name="t_j_ft_1">
+  <transmission name="t_j_ft_arm1">
     <type> transmission_interface/SimpleTransmission</type>
-    <joint name="j_ft_1">
+    <joint name="j_ft_arm1">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="motor_j_ft_1">
+    <actuator name="motor_j_ft_arm1">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <machanicalReduction>1</machanicalReduction>
     </actuator>
@@ -966,7 +966,7 @@
   </transmission>
   <!-- /actuators -->
   <!-- wrist pitch-->
-  <joint name="j_ft_2" type="revolute">
+  <joint name="j_ft_arm2" type="revolute">
     <parent link="arm2_7"/>
     <child link="ft_arm2"/>
     <origin rpy="0.0 3.14159265359 -3.14159265359" xyz="0.0 0.0 -0.0405"/>
@@ -981,12 +981,12 @@
       <inertia ixx="1e-06" ixy="0.0" ixz="0.0" iyy="1e-06" iyz="0.0" izz="1e-06"/>
     </inertial>
   </link>
-  <transmission name="t_j_ft_2">
+  <transmission name="t_j_ft_arm2">
     <type> transmission_interface/SimpleTransmission</type>
-    <joint name="j_ft_2">
+    <joint name="j_ft_arm2">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="motor_j_ft_2">
+    <actuator name="motor_j_ft_arm2">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <machanicalReduction>1</machanicalReduction>
     </actuator>

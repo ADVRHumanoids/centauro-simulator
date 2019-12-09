@@ -23,6 +23,9 @@
 <xacro:if value="${arms}">
   <xacro:include filename="$(find centauro)/centauro_urdf/urdf/centauro_arm.urdf.xacro"/>
 </xacro:if>
+<xacro:if value="${realsense}">
+  <xacro:include filename="$(find realsense_gazebo_plugin)/urdf/d435.urdf.xacro"/>
+</xacro:if>
 
 
 <!-- /other files -->

@@ -1,7 +1,7 @@
 <!--<?xml version="1.0"?>-->
 <robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<xacro:include filename="$(find centauro)/centauro_urdf/urdf/config.xacro"/> 
+<xacro:include filename="$(find centauro)/centauro_urdf/urdf/config.xacro"/>
 
    <xacro:macro name="load_model" params="middleware sensor arm_sensors leg_sensors head_sensors">
       <xacro:include filename="$(find centauro_gazebo)/sensors/${middleware}/${sensor}/plugin.xacro"/>
@@ -19,7 +19,7 @@
 
 <!-- Load all controllers macros -->
 <xacro:if value="${ft_sensors == 'revolute'}">
-        <xacro:load_model middleware="${middleware}" sensor="ft_sensor" arm_sensors="${arm_sensors}" leg_sensors="${leg_sensors}" head_sensors="false"/>           
+        <xacro:load_model middleware="${middleware}" sensor="ft_sensor" arm_sensors="${arm_sensors}" leg_sensors="${leg_sensors}" head_sensors="false"/>
 </xacro:if>
 <xacro:if value="${bumbers}">
         <xacro:load_model middleware="${middleware}" sensor="bumber" arm_sensors="${arm_sensors}" leg_sensors="${leg_sensors}" head_sensors="false"/>
@@ -32,5 +32,8 @@
 </xacro:if>
 <xacro:if value="${velodyne}">
         <xacro:load_model middleware="${middleware}" sensor="velodyne" arm_sensors="false" leg_sensors="false" head_sensors="${head}"/>
+</xacro:if>
+<xacro:if value="${realsense}">
+        <xacro:load_model middleware="${middleware}" sensor="realsense" arm_sensors="false" leg_sensors="false" head_sensors="${head}"/>
 </xacro:if>
 </robot>
