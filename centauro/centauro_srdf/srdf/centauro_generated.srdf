@@ -5,10 +5,6 @@
 -->
 <robot name="centauro">
 
-   <group name="velodyne">
-      <chain base_link="torso_2" tip_link="neck_3"/>
-   </group>
-
    <group name="neck">
       <chain base_link="torso_2" tip_link="neck_2"/>
    </group>
@@ -60,7 +56,6 @@
 
    <group name="chains">
 
-    <group name="velodyne"/>
     <group name="neck"/>
     <group name="left_arm"/>
     <group name="right_arm"/>

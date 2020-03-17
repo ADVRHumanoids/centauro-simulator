@@ -257,7 +257,7 @@
     <!-- TODO -->
     <dynamics friction="10.0"/>
   </joint>
-  <joint name="neck_velodyne" type="continuous">
+  <joint name="neck_velodyne" type="fixed">
     <parent link="torso_2"/>
     <origin xyz="0.055 0.0 0.473262"/>
     <child link="neck_3"/>
@@ -1054,7 +1054,7 @@
     <limit effort="35" lower="-2.5626" upper="2.5384" velocity="20.0"/>
     <!-- 23 Nm, 1 rad/s-->
   </joint>
-  <joint name="j_wheel_1" type="continuous">
+  <joint name="j_wheel_1" type="fixed">
     <parent link="ankle2_1"/>
     <child link="wheel_1"/>
     <origin rpy="1.57079632679 0.0 3.14159265359" xyz="0.0 0.00085 0.23735"/>
@@ -1232,7 +1232,7 @@
     <limit effort="35" lower="-2.5546" upper="2.5484" velocity="20.0"/>
     <!-- 23 Nm, 1 rad/s-->
   </joint>
-  <joint name="j_wheel_2" type="continuous">
+  <joint name="j_wheel_2" type="fixed">
     <parent link="ankle2_2"/>
     <child link="wheel_2"/>
     <origin rpy="1.57079632679 0.0 3.14159265359" xyz="0.0 0.00085 0.23735"/>
@@ -1410,7 +1410,7 @@
     <limit effort="35" lower="-2.5606" upper="2.5454" velocity="20.0"/>
     <!-- 23 Nm, 1 rad/s-->
   </joint>
-  <joint name="j_wheel_3" type="continuous">
+  <joint name="j_wheel_3" type="fixed">
     <parent link="ankle2_3"/>
     <child link="wheel_3"/>
     <origin rpy="1.57079632679 0.0 3.14159265359" xyz="0.0 0.00085 0.23735"/>
@@ -1588,7 +1588,7 @@
     <limit effort="35" lower="-2.6046" upper="2.5514" velocity="20.0"/>
     <!-- 23 Nm, 1 rad/s-->
   </joint>
-  <joint name="j_wheel_4" type="continuous">
+  <joint name="j_wheel_4" type="fixed">
     <parent link="ankle2_4"/>
     <child link="wheel_4"/>
     <origin rpy="1.57079632679 0.0 3.14159265359" xyz="0.0 0.00085 0.23735"/>
