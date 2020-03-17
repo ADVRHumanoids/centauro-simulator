@@ -1,0 +1,14 @@
+<robot name="SE2_model">
+    <group name="box">
+        <chain base_link="world" tip_link="base_link"/>
+    </group>
+    <group name="chains">
+        <group name="box"/>
+    </group>
+    <group_state name="home" group="chains">
+        <joint name="j_x" value="0.0"/>
+        <joint name="j_y" value="0.0"/>
+        <joint name="j_rot" value="0.0"/>
+    </group_state>
+    <disable_collisions link1="world" link2="base_link" reason="Never"/>
+</robot>
